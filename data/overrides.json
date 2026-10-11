@@ -361,6 +361,659 @@
       "input": ["nome", "dominio", "telefone", "email"],
       "output": ["dork"],
       "tipo_fonte": "dork"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/opencorporates-empresas-do-brasil-e-diretores": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/opencorporates-jurisdicoes-offshore-e-de-interesse": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/icij-offshore-leaks-database": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/occrp-aleph-arquivo-de-dados-investigativos": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/gleif-identificador-de-entidade-legal-lei": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/open-ownership-beneficiarios-finais": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/sec-edgar-empresas-listadas-nos-eua": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/delaware-division-of-corporations": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/registros-estaduais-dos-eua-florida-wyoming-nevada-california": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/panama-registro-publico-e-panadata": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/ilhas-virgens-britanicas-e-ilhas-cayman-reguladores": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/dependencias-da-coroa-britanica-jersey-guernsey-ilha-de-man": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/reino-unido-companies-house": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/portugal-atos-societarios-e-empresas": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/registros-comerciais-europeus": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/north-data-rede-de-empresas-europeias": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/littlesis-mapa-de-relacoes-de-poder": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/eua-lobby-e-agentes-estrangeiros-fara-e-gastos-federais": {
+      "input": ["razao_social", "nome"],
+      "output": ["dados_cadastrais", "socios"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/opensanctions-sancoes-e-peps": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/ofac-lista-sdn-tesouro-dos-eua": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/onu-lista-consolidada-do-conselho-de-seguranca": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/uniao-europeia-sancoes": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/reino-unido-uk-sanctions-list": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/banco-mundial-e-bid-empresas-impedidas-debarred": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/interpol-difusoes-vermelhas-e-amarelas": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/eua-procurados-federais-fbi-ice-dea": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/europol-eu-most-wanted": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/gafi-fatf-listas-negra-e-cinza": {
+      "input": ["nome", "razao_social"],
+      "output": ["sancao"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/ads-b-exchange-e-rastreadores-sem-filtro": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/opensky-network": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/flightaware": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/registro-e-fotos-de-aeronaves": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/global-fishing-watch": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/rastreamento-de-navios-ais": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/registro-de-navios-equasis-imo-gisis-itu-mars": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/imf-portwatch": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/importyeti-conhecimentos-de-embarque-dos-eua": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/estatisticas-de-comercio-internacional": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/trase-cadeias-de-commodities": {
+      "input": ["prefixo_aeronave", "embarcacao"],
+      "output": ["dados_cadastrais", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/crt-sh-transparencia-de-certificados": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/dnsdumpster": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/securitytrails": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/viewdns-info": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/hurricane-electric-bgp-toolkit": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/ripestat": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/peeringdb": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/lacnic-whois-e-rdap": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/whois-e-rdap-globais-de-dominios": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/censys": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/motores-de-busca-de-dispositivos-criminal-ip-zoomeye-fofa": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/greynoise": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/abuseipdb": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/have-i-been-pwned-checagem-de-exposicao": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/inteligencia-de-ameacas-otx-abuse-ch-phishtank": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/hybrid-analysis": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/tecnologias-e-codigo-de-sites-builtwith-wappalyzer-publicwww": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/web-check": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/ipinfo": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/utilitarios-de-dns-e-rede": {
+      "input": ["dominio", "ip"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/internet-archive-wayback-machine": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/outros-arquivos-web-archive-today-ghost-archive-cachedview": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/google-fact-check-explorer": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/invid-weverify-plugin-de-verificacao": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/busca-reversa-de-imagens-tineye-google-yandex-bing": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/analise-forense-de-imagens": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/metadados-de-arquivos-exif": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/google-ads-transparency-center": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/junkipedia": {
+      "input": ["nenhum"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/copernicus-browser-e-sentinel-hub-eo-browser": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/copernicus-ems-mapeamento-de-emergencias": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/nasa-firms-focos-de-incendio": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/google-earth-earth-engine-e-timelapse": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/imagens-historicas-e-diarias-esri-wayback-worldview-earthexplorer-planet": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/global-forest-watch-global-nature-watch": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/openstreetmap-e-overpass-turbo": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/imagens-de-rua-mapillary-kartaview": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/cronolocalizacao-por-sombras-e-relevo-suncalc-shadowfinder-peakvisor": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/wikimapia-mapchecking-e-geospy": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Versão gratuita limitada."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/acled-dados-de-conflitos-e-protestos": {
+      "input": ["coordenadas"],
+      "output": ["imagem_satelite", "mapa"],
+      "tipo_fonte": "internacional",
+      "observacao": "Requer cadastro gratuito."
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/whatsmyname": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/sherlock-maigret-blackbird-e-nexfil": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/holehe-e-ghunt": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/buscadores-web-de-username": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/gravatar-keybase-e-about-me": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/bluesky-busca": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/frameworks-de-automacao-osint-spiderfoot-theharvester-recon-ng": {
+      "input": ["nome", "email"],
+      "output": ["perfil_social"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/argentina-cuit-e-constancia-de-inscricao": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/argentina-boletim-oficial-igj-e-registro-de-sociedades": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/argentina-justica-e-uif": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/paraguai-justica-ministerio-publico-e-dnit": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/paraguai-contratacoes-publicas-e-dados-abertos": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/uruguai-impo-justica-dgi-e-dados-abertos": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/chile-empresas-sii-e-diario-oficial": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/chile-justica-compras-publicas-e-uaf": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/peru-sunat-e-dados-abertos": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/occrp-investigacoes": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/insight-crime": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/jornalismo-investigativo-latino-americano-clip-connectas-ojo-publico": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/checagem-na-america-latina-latamchequea-chequeado": {
+      "input": ["nome", "razao_social"],
+      "output": ["dados_cadastrais"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/osint-framework": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/bellingcat-online-investigations-toolkit-e-guias": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/inteltechniques-ferramentas-de-busca": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/awesome-osint-e-colecoes-no-github": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/paineis-start-me-e-bookmarks-osint": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/gijn-e-datajournalism-com": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/wikidata-query-service": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "fontes-internacionais-com-cobertura-do-brasil/ifcn-signatarios-do-codigo-de-principios": {
+      "input": ["nenhum"],
+      "output": ["dataset"],
+      "tipo_fonte": "internacional"
+    },
+    "outras-buscas/agencia-lupa": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/aos-fatos": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/projeto-comprova": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/fato-ou-fake-g1": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/estadao-verifica": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/afp-checamos-e-uol-confere": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/coletivo-bereia": {
+      "input": ["nome"],
+      "output": ["checagem"],
+      "tipo_fonte": "privado"
+    },
+    "outras-buscas/arquivo-nacional-sian": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/memorias-reveladas-e-comissao-nacional-da-verdade": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/memorial-da-democracia": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/acervos-historicos-de-jornais-e-revistas": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/arquivos-publicos-estaduais": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/acervos-de-memoria-politica-e-movimentos-sociais": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/docreader-acervos-digitalizados-docvirt": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/camara-e-senado-discursos-diarios-e-arquivo": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/arquivos-da-web": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/agencia-brasil-ebc": {
+      "input": ["nome"],
+      "output": ["acervo_historico"]
+    },
+    "outras-buscas/censec-central-notarial-de-servicos-eletronicos-compartilhados": {
+      "input": ["cpf", "cnpj", "nome"],
+      "output": ["cartorio", "certidao"],
+      "observacao": "Busca de testamentos, procurações e escrituras exige cadastro."
+    },
+    "outras-buscas/organizacao-da-sociedade-civil-igarape": {
+      "input": ["nenhum"],
+      "output": ["estatistica", "mapa"],
+      "tipo_fonte": "ong"
     }
   }
 }

@@ -79,7 +79,9 @@
       "estatistica": "Estatística, indicador ou painel agregado",
       "vinculo_profissional": "Vínculo de trabalho, registro ou certificação profissional",
       "financiamento": "Operação de crédito, incentivo ou patrocínio",
-      "cartorio": "Serventia extrajudicial e seu responsável"
+      "cartorio": "Serventia extrajudicial e seu responsável",
+      "acervo_historico": "Acervo histórico, arquivo de imprensa ou documento digitalizado",
+      "checagem": "Checagem de fatos ou verificação de conteúdo publicado"
     }
   },
   "tipo_fonte": {

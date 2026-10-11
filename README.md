@@ -22,6 +22,7 @@
 
 <p align="center">
   <a href="README.md"><img alt="README Principal" src="https://img.shields.io/badge/%F0%9F%8F%A0%20README%20Principal-1E88E5?style=flat-square"></a>
+  <a href="README.en.md"><img alt="English" src="https://img.shields.io/badge/%F0%9F%8C%8E%20English-37474F?style=flat-square"></a>
   <a href="EXEMPLOS_PRATICOS.md"><img alt="Exemplos Práticos" src="https://img.shields.io/badge/%F0%9F%93%96%20Exemplos%20Pr%C3%A1ticos-2E7D32?style=flat-square"></a>
   <a href="FLUXOGRAMA.md"><img alt="Fluxogramas" src="https://img.shields.io/badge/%F0%9F%94%80%20Fluxogramas-6A1B9A?style=flat-square"></a>
   <a href="GUIA_RAPIDO.md"><img alt="Guia Rápido" src="https://img.shields.io/badge/%F0%9F%93%8A%20Guia%20R%C3%A1pido-EF6C00?style=flat-square"></a>
@@ -138,9 +139,9 @@ Além do catálogo em Markdown, este repositório publica uma versão estruturad
 
 | Arquivo | Conteúdo |
 |---|---|
-| [`data/sources.json`](data/sources.json) | 510 fontes em 39 categorias, com os links agrupados. Arquivo canônico. |
-| [`data/index.json`](data/index.json) | 1.258 links achatados, um registro por URL. Formato pronto para busca. |
-| [`data/taxonomy.json`](data/taxonomy.json) | Vocabulário controlado: 31 tipos de entrada, 41 de retorno e 14 de fonte. |
+| [`data/sources.json`](data/sources.json) | 874 fontes em 40 categorias, com os links agrupados. Arquivo canônico. |
+| [`data/index.json`](data/index.json) | 2.313 links achatados, um registro por URL. Formato pronto para busca. |
+| [`data/taxonomy.json`](data/taxonomy.json) | Vocabulário controlado: 31 tipos de entrada, 43 de retorno e 14 de fonte. |
 | [`data/overrides.json`](data/overrides.json) | Correções manuais de classificação. |
 
 > [!IMPORTANT]
@@ -196,6 +197,7 @@ Requer apenas Python 3, sem dependências. Como usar o dataset e como corrigir a
 - [Serviços Públicos Estaduais e Conselhos Profissionais](#servicos-estaduais)
 - [Outras Buscas](#outras-buscas)
 - [Categorias de Domínios .br](#dominios-br)
+- [Fontes Internacionais com Cobertura do Brasil](#fontes-internacionais)
 - [Autores](#autores)
 - [Contribuições](#contribuicoes)
 - [Créditos](#creditos)
@@ -530,6 +532,163 @@ Consulta pública de acórdãos e processos administrativos fiscais do Conselho 
 Sistema RAD da Comissão de Valores Mobiliários para consulta pública de documentos de companhias abertas, como fatos relevantes, formulários de referência e demonstrações financeiras.
 
 - https://www.rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx
+
+### Tribunais de Justiça - Consulta processual pública (estados faltantes)
+Consulta pública de processos de primeiro e segundo grau nos sistemas e-SAJ, PJe, eproc e Projudi dos Tribunais de Justiça estaduais, por número, nome da parte, CPF/CNPJ ou advogado.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- São Paulo - e-SAJ (SP) - https://esaj.tjsp.jus.br/cpopg/open.do
+- São Paulo - eproc consulta unificada (SP) - https://eproc-consulta.tjsp.jus.br/consulta_1g/externo_controlador.php?acao=tjsp@consulta_unificada_publica/consultar
+- Mato Grosso do Sul - e-SAJ (MS) - https://esaj.tjms.jus.br/cpopg5/open.do
+- Rio de Janeiro (RJ) - https://www3.tjrj.jus.br/consultaprocessual/
+- Minas Gerais - andamento processual (MG) - https://www.tjmg.jus.br/portal-tjmg/processos/andamento-processual/
+- Minas Gerais - PJe consulta pública (MG) - https://pje-consulta-publica.tjmg.jus.br/
+- Rio Grande do Sul (RS) - https://www.tjrs.jus.br/novo/processos-e-servicos/consultas-processuais/
+- Santa Catarina - eproc (SC) - https://eprocwebcon.tjsc.jus.br/consulta1g/externo_controlador.php?acao=processo_consulta_publica
+- Paraná - Projudi (PR) - https://projudi.tjpr.jus.br/projudi/
+- Pernambuco - consulta unificada (PE) - https://srv03.tjpe.jus.br/consultaprocessualunificada/
+- Maranhão - Jurisconsult (MA) - https://jurisconsult.tjma.jus.br/
+- Maranhão - PJe (MA) - https://pje.tjma.jus.br/pje/ConsultaPublica/listView.seam
+- Mato Grosso (MT) - https://consultaprocessual.tjmt.jus.br/
+- Roraima - Projudi (RR) - https://projudi.tjrr.jus.br/projudi/
+- Sergipe - consulta por nome da parte (SE) - https://www.tjse.jus.br/tjnet/consultas/internet/consnomeparte.wsp
+- Paraíba - PJe (PB) - https://consultapublica.tjpb.jus.br/pje/ConsultaPublica/listView.seam
+- Espírito Santo - PJe (ES) - https://pje.tjes.jus.br/pje/ConsultaPublica/listView.seam
+- Rio Grande do Norte - PJe (RN) - https://pje.tjrn.jus.br/
+
+</details>
+
+### CNJ - Portal de Serviços PDPJ (consulta processual nacional)
+Consulta processual unificada da Plataforma Digital do Poder Judiciário, que reúne processos de diversos tribunais integrados ao PDPJ-Br em uma única busca.
+- https://portaldeservicos.pdpj.jus.br/consulta
+
+### Tribunais Regionais Federais - Consulta processual (TRF2, TRF4, TRF6)
+Consulta pública de processos da Justiça Federal de primeiro e segundo grau nos sistemas eproc e PJe dos TRFs ainda não catalogados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- TRF2 - eproc (RJ/ES) - https://eproc-consulta.trf2.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica
+- JFRJ - eproc 1º grau (RJ) - https://eproc-consulta.jfrj.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica
+- TRF4 - consulta processual (RS/SC/PR) - https://consulta.trf4.jus.br/trf4/controlador.php?acao=consulta_processual_pesquisa
+- TRF4 - jurisprudência - https://jurisprudencia.trf4.jus.br/eproc2trf4/externo_controlador.php?acao=jurisprudencia@jurisprudencia/pesquisar
+- TRF6 - portal (MG) - https://portal.trf6.jus.br/
+- TRF6 - PJe 1º grau (MG) - https://pje1g.trf6.jus.br/consultapublica/ConsultaPublica/listView.seam
+
+</details>
+
+### Tribunais Regionais do Trabalho - PJe consulta processual (TRTs faltantes)
+Consulta pública de processos trabalhistas no PJe dos Tribunais Regionais do Trabalho, por número do processo, útil para identificar reclamações contra empresas e empregadores.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- TRT5 (BA) - https://pje.trt5.jus.br/consultaprocessual/
+- TRT6 (PE) - https://pje.trt6.jus.br/consultaprocessual/
+- TRT7 (CE) - https://pje.trt7.jus.br/consultaprocessual/
+- TRT8 (PA/AP) - https://pje.trt8.jus.br/consultaprocessual/
+- TRT9 (PR) - https://pje.trt9.jus.br/consultaprocessual/
+- TRT10 (DF/TO) - https://pje.trt10.jus.br/consultaprocessual/
+- TRT11 (AM/RR) - https://pje.trt11.jus.br/consultaprocessual/
+- TRT12 (SC) - https://pje.trt12.jus.br/consultaprocessual/
+- TRT13 (PB) - https://pje.trt13.jus.br/consultaprocessual/
+- TRT14 (RO/AC) - https://pje.trt14.jus.br/consultaprocessual/
+- TRT16 (MA) - https://pje.trt16.jus.br/consultaprocessual/
+- TRT17 (ES) - https://pje.trt17.jus.br/consultaprocessual/
+- TRT18 (GO) - https://pje.trt18.jus.br/consultaprocessual/
+- TRT19 (AL) - https://pje.trt19.jus.br/consultaprocessual/
+- TRT20 (SE) - https://pje.trt20.jus.br/consultaprocessual/
+- TRT21 (RN) - https://pje.trt21.jus.br/consultaprocessual/
+- TRT22 (PI) - https://pje.trt22.jus.br/consultaprocessual/
+- TRT23 (MT) - https://pje.trt23.jus.br/consultaprocessual/
+- TRT24 (MS) - https://pje.trt24.jus.br/consultaprocessual/
+
+</details>
+
+### TST - Pesquisa de jurisprudência
+Busca de acórdãos e decisões do Tribunal Superior do Trabalho por termo, parte, relator e período.
+- https://jurisprudencia.tst.jus.br/
+
+### STF - Consulta processual
+Acompanhamento processual do Supremo Tribunal Federal por número, classe, parte ou advogado, com andamentos, decisões e peças.
+- https://portal.stf.jus.br/processos/
+
+### TSE - Consulta unificada PJe da Justiça Eleitoral
+Consulta pública unificada de processos do TSE e dos Tribunais Regionais Eleitorais no PJe, por número, parte ou documento.
+- https://consultaunificadapje.tse.jus.br/
+
+### STM - Consulta processual e jurisprudência da Justiça Militar
+Acompanhamento processual e pesquisa de jurisprudência do Superior Tribunal Militar e da Justiça Militar da União.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Acompanhamento processual - https://processos.stm.jus.br/
+- Jurisprudência - https://jurisprudencia.stm.jus.br/
+
+</details>
+
+### CNJ - Justiça em Números e painéis estatísticos
+Painéis do Conselho Nacional de Justiça com estatísticas de casos novos, pendentes e julgados por tribunal, assunto e classe, incluindo o painel de grandes litigantes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Justiça em Números - https://justica-em-numeros.cnj.jus.br/
+- Painel de estatísticas do Poder Judiciário - https://painel-estatistica.stg.cloud.cnj.jus.br/
+- Painel de grandes litigantes - https://grandes-litigantes.stg.cloud.cnj.jus.br/
+
+</details>
+
+### CNJ - DataJud (Base Nacional de Dados do Poder Judiciário)
+Página institucional do DataJud, base centralizada de metadados processuais de todos os tribunais, com acesso público via API.
+- https://www.cnj.jus.br/sistemas/datajud/
+
+### CNJ - Banco Nacional de Medidas Penais e Prisões (BNMP 3.0)
+Novo endereço do BNMP na Plataforma Digital do Poder Judiciário, com consulta pública de mandados de prisão e demais peças.
+- https://bnmp.pdpj.jus.br/
+
+### TJSP - Diário da Justiça Eletrônico (DJe)
+Consulta e pesquisa por palavra-chave nos cadernos do Diário da Justiça Eletrônico do Tribunal de Justiça de São Paulo.
+- https://dje.tjsp.jus.br/cdje/index.do
+
+### Tribunais Regionais Eleitorais - Portais
+Portais dos 27 Tribunais Regionais Eleitorais, com serviços ao eleitor, consulta de processos, prestação de contas e resultados por UF.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Acre (AC) - https://www.tre-ac.jus.br/
+- Alagoas (AL) - https://www.tre-al.jus.br/
+- Amapá (AP) - https://www.tre-ap.jus.br/
+- Amazonas (AM) - https://www.tre-am.jus.br/
+- Bahia (BA) - https://www.tre-ba.jus.br/
+- Ceará (CE) - https://www.tre-ce.jus.br/
+- Distrito Federal (DF) - https://www.tre-df.jus.br/
+- Espírito Santo (ES) - https://www.tre-es.jus.br/
+- Goiás (GO) - https://www.tre-go.jus.br/
+- Maranhão (MA) - https://www.tre-ma.jus.br/
+- Mato Grosso (MT) - https://www.tre-mt.jus.br/
+- Mato Grosso do Sul (MS) - https://www.tre-ms.jus.br/
+- Minas Gerais (MG) - https://www.tre-mg.jus.br/
+- Pará (PA) - https://www.tre-pa.jus.br/
+- Paraíba (PB) - https://www.tre-pb.jus.br/
+- Paraná (PR) - https://www.tre-pr.jus.br/
+- Pernambuco (PE) - https://www.tre-pe.jus.br/
+- Piauí (PI) - https://www.tre-pi.jus.br/
+- Rio de Janeiro (RJ) - https://www.tre-rj.jus.br/
+- Rio Grande do Norte (RN) - https://www.tre-rn.jus.br/
+- Rio Grande do Sul (RS) - https://www.tre-rs.jus.br/
+- Rondônia (RO) - https://www.tre-ro.jus.br/
+- Roraima (RR) - https://www.tre-rr.jus.br/
+- Santa Catarina (SC) - https://www.tre-sc.jus.br/
+- São Paulo (SP) - https://www.tre-sp.jus.br/
+- Sergipe (SE) - https://www.tre-se.jus.br/
+- Tocantins (TO) - https://www.tre-to.jus.br/
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -964,6 +1123,64 @@ Consulta, por CPF ou CNPJ, dos relacionamentos mantidos com instituições finan
 
 - https://registrato.bcb.gov.br/
 
+### Juntas Comerciais estaduais (estados faltantes)
+Portais das juntas comerciais, onde se pesquisam empresas por nome ou NIRE, se pedem certidões simplificadas e de inteiro teor e se consultam atos arquivados como contratos sociais e alterações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- JUCEAC - Acre (AC) - https://juceac.ac.gov.br/
+- JUCAP - Amapá (AP) - https://www.jucap.ap.gov.br/
+- JUCEB - Bahia (BA) - https://www.ba.gov.br/juceb/
+- JUCEC - Ceará (CE) - https://www.ce.gov.br/jucec/
+- JUCIS - Distrito Federal (DF) - https://www.jucis.df.gov.br/
+- JUCEES - Espírito Santo (ES) - https://jucees.es.gov.br/
+- JUCEG - Goiás (GO) - https://goias.gov.br/juceg/
+- JUCEMAT - Mato Grosso (MT) - https://www.jucemat.mt.gov.br/
+- JUCEMS - Mato Grosso do Sul (MS) - https://www.jucems.ms.gov.br/
+- JUCEMG - Minas Gerais (MG) - https://www.jucemg.mg.gov.br/
+- JUCEPA - Pará (PA) - https://www.jucepa.pa.gov.br/
+- JUCEP - Paraíba (PB) - https://jucep.pb.gov.br/
+- JUCEPAR - Paraná (PR) - https://www.juntacomercial.pr.gov.br/
+- JUCEPI - Piauí (PI) - https://www.jucepi.pi.gov.br/
+- JUCERN - Rio Grande do Norte (RN) - https://www.jucern.rn.gov.br/
+- JucisRS - Rio Grande do Sul (RS) - https://jucisrs.rs.gov.br/inicial
+- JUCER - Rondônia (RO) - https://rondonia.ro.gov.br/jucer/
+- JUCERR - Roraima (RR) - https://jucerr.rr.gov.br/
+- JUCESC - Santa Catarina (SC) - https://www.jucesc.sc.gov.br/
+- JUCESE - Sergipe (SE) - https://jucese.se.gov.br/
+- JUCETINS - Tocantins (TO) - https://www.to.gov.br/jucetins
+
+</details>
+
+### DREI - Departamento Nacional de Registro Empresarial e Integração
+Órgão federal que normatiza o registro empresarial, com orientações, legislação e lista das juntas comerciais.
+- https://www.gov.br/empresas-e-negocios/pt-br/drei
+
+### Mapa de Empresas - Governo Federal
+Painel oficial com dados de abertura e fechamento de empresas, tempo de abertura e estatísticas por município, UF, natureza jurídica e CNAE.
+- https://www.gov.br/empresas-e-negocios/pt-br/mapa-de-empresas
+
+### Receita Federal - Dados públicos do CNPJ no dados.gov.br
+Conjunto de dados abertos do Cadastro Nacional da Pessoa Jurídica, com empresas, estabelecimentos e quadro de sócios e administradores.
+- https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj
+
+### B3 - Empresas listadas
+Busca de companhias listadas na B3 com dados cadastrais, composição acionária, administradores, eventos corporativos e documentos enviados.
+- https://sistemaswebb3-listados.b3.com.br/listedCompaniesPage/
+
+### Banco Central - Relação de instituições em funcionamento
+Listas oficiais de bancos, cooperativas de crédito, instituições de pagamento, consórcios e demais entidades autorizadas pelo BCB.
+- https://www.bcb.gov.br/estabilidadefinanceira/relacao_instituicoes_funcionamento
+
+### Banco Central - Ranking de reclamações
+Ranking trimestral de reclamações procedentes contra bancos e instituições financeiras registradas no Banco Central.
+- https://www.bcb.gov.br/meubc/rankingreclamacoes
+
+### CVM - Sistema de consultas (cadastro geral)
+Portal de consultas da CVM com cadastro de participantes, fundos, companhias, auditores e administradores de carteira.
+- https://cvmweb.cvm.gov.br/swb/default.asp?sg_sistema=scw
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1083,6 +1300,40 @@ Diagnóstico do sistema prisional brasileiro por semestre: população carcerár
 - https://www.gov.br/senappen/pt-br/servicos/sisdepen
 - https://www.gov.br/senappen/pt-br/servicos/sisdepen/bases-de-dados
 
+### Painéis Estaduais de Segurança Pública - Estados que faltavam
+Estatísticas criminais publicadas pelas secretarias estaduais de segurança pública ainda não catalogadas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Goiás (GO) - https://goias.gov.br/seguranca/estatisticas/
+- Espírito Santo (ES) - Observatório - https://observatorio.sesp.es.gov.br/
+- Mato Grosso do Sul (MS) - https://www.sejusp.ms.gov.br/informativos/indicadores/estatisticas-sejusp/
+- Piauí (PI) - https://www.ssp.pi.gov.br/datassp/estatisticas-criminais/
+- Distrito Federal (DF) - https://www.ssp.df.gov.br/estatisticas
+- Santa Catarina (SC) - https://ssp.sc.gov.br/segurancaemnumeros/
+- Acre (AC) - https://sejusp.ac.gov.br/estatisticas/
+- Tocantins (TO) - https://www.to.gov.br/ssp/estatisticas/37s2impwz72k
+- Pará (PA) - https://www.segup.pa.gov.br/
+- Alagoas (AL) - https://seguranca.al.gov.br/
+- Sergipe (SE) - https://ssp.se.gov.br/
+- Paraíba (PB) - https://paraiba.pb.gov.br/diretas/secretaria-da-seguranca-e-defesa-social
+- Rondônia (RO) - https://rondonia.ro.gov.br/sesdec/
+
+</details>
+
+### SINESP - Sistema Nacional de Informações de Segurança Pública
+Página do MJSP sobre o SINESP, com acesso aos dados nacionais de ocorrências criminais e indicadores consolidados dos estados.
+- https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/sinesp-1
+
+### Rede de Observatórios da Segurança
+Monitoramento de eventos de violência e segurança pública em vários estados, com boletins e relatórios temáticos.
+- https://observatorioseguranca.com.br/
+
+### GENI/UFF - Mapa dos Grupos Armados
+Grupo de Estudos dos Novos Ilegalismos da UFF: mapas de territórios sob domínio de facções e milícias e estudos sobre violência.
+- https://geni.uff.br/
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1182,6 +1433,134 @@ Lista as zonas eleitorais e unidades da Justiça Eleitoral de cada estado.
 Dados eleitorais tratados, padronizados e prontos para análise estatística.
 - https://basedosdados.org/dataset/br-tse-eleicoes
 
+### Câmara dos Deputados - Deputados, cota parlamentar e transparência
+Perfil dos deputados em exercício, gastos da Cota para o Exercício da Atividade Parlamentar e portal de transparência da Câmara.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Deputados - https://www.camara.leg.br/deputados/quem-sao
+- Cota parlamentar - https://www.camara.leg.br/cota-parlamentar/
+- Transparência - https://www.camara.leg.br/transparencia/
+- Busca de proposições - https://www.camara.leg.br/busca-portal?tipo=proposicoes
+
+</details>
+
+### Senado Federal - Senadores, transparência e SIGA Brasil
+Lista de senadores em exercício, portal de transparência com gastos parlamentares e o SIGA Brasil para consulta do orçamento federal e de emendas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Senadores em exercício - https://www25.senado.leg.br/web/senadores/em-exercicio
+- Transparência dos senadores - https://www25.senado.leg.br/web/transparencia/sen/
+- Transparência do Senado - https://www12.senado.leg.br/transparencia
+- SIGA Brasil - https://www12.senado.leg.br/orcamento/sigabrasil
+
+</details>
+
+### Congresso Nacional - Portal
+Portal do Congresso Nacional com sessões conjuntas, vetos, medidas provisórias e matérias orçamentárias.
+- https://www.congressonacional.leg.br/
+
+### LexML e Normas.leg.br - Legislação brasileira
+Pesquisa unificada de legislação, jurisprudência e proposições (LexML) e base oficial de normas federais do Legislativo.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- LexML - https://www.lexml.gov.br/
+- Normas.leg.br - https://normas.leg.br/
+
+</details>
+
+### Assembleias Legislativas estaduais e Câmara Legislativa do DF
+Portais das assembleias com deputados estaduais, proposições, votações, verbas indenizatórias e legislação estadual.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ALEAC (AC) - https://www.al.ac.leg.br/
+- ALE-AL (AL) - https://www.al.al.leg.br/
+- ALEAM (AM) - https://www.aleam.gov.br/
+- ALBA (BA) - https://www.al.ba.gov.br/
+- ALECE (CE) - https://www.al.ce.gov.br/
+- CLDF (DF) - https://www.cl.df.gov.br/inicio
+- ALES (ES) - https://www.al.es.gov.br/
+- ALEGO (GO) - https://portal.al.go.leg.br/
+- ALMT (MT) - https://www.al.mt.gov.br/
+- ALEMS (MS) - https://al.ms.gov.br/
+- ALMG (MG) - https://www.almg.gov.br/
+- ALEPA (PA) - https://www.alepa.pa.gov.br/
+- ALPB (PB) - https://www.al.pb.leg.br/
+- ALEP (PR) - https://www.assembleia.pr.leg.br/
+- ALEPE (PE) - https://www.alepe.pe.gov.br/
+- ALEPI (PI) - https://www.al.pi.leg.br/
+- ALERJ (RJ) - https://www.alerj.rj.gov.br/
+- ALRN (RN) - https://www.al.rn.leg.br/
+- ALRS (RS) - https://www.al.rs.gov.br/
+- ALERO (RO) - https://www.al.ro.leg.br/
+- ALE-RR (RR) - https://www.al.rr.leg.br/
+- ALESC (SC) - https://www.alesc.sc.gov.br/
+- ALESP (SP) - https://www.al.sp.gov.br/
+- ALESE (SE) - https://al.se.leg.br/
+- ALETO (TO) - https://www.al.to.leg.br/
+
+</details>
+
+### Câmaras Municipais das capitais
+Portais das câmaras de vereadores das capitais com vereadores, projetos, votações, gastos de gabinete e legislação municipal.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Rio Branco (AC) - https://www.riobranco.ac.leg.br/
+- Maceió (AL) - https://www.maceio.al.leg.br/
+- Macapá (AP) - https://www.macapa.ap.leg.br/
+- Manaus (AM) - https://www.cmm.am.gov.br/
+- Salvador (BA) - https://www.cms.ba.gov.br/
+- Fortaleza (CE) - https://www.cmfor.ce.gov.br/
+- Vitória (ES) - https://www.cmv.es.gov.br/
+- Goiânia (GO) - https://www.goiania.go.leg.br/
+- Cuiabá (MT) - https://www.camaracuiaba.mt.gov.br/
+- Campo Grande (MS) - https://www.camara.ms.gov.br/
+- Belém (PA) - https://www.cmb.pa.gov.br/
+- João Pessoa (PB) - https://joaopessoa.pb.leg.br/
+- Curitiba (PR) - https://www.cmc.pr.gov.br/
+- Recife (PE) - https://www.recife.pe.leg.br/
+- Teresina (PI) - https://www.teresina.pi.leg.br/
+- Rio de Janeiro (RJ) - https://www.camara.rio/
+- Natal (RN) - https://www.cmnat.rn.gov.br/
+- Porto Alegre (RS) - https://www.camarapoa.rs.gov.br/
+- Porto Velho (RO) - https://www.portovelho.ro.leg.br/
+- Boa Vista (RR) - https://www.boavista.rr.leg.br/
+- Florianópolis (SC) - https://www.cmf.sc.gov.br/
+- Aracaju (SE) - https://www.aracaju.se.leg.br/
+- São Paulo (SP) - https://www.saopaulo.sp.leg.br/
+- Palmas (TO) - https://palmas.to.leg.br/
+
+</details>
+
+### TSE - Pesquisas Eleitorais Registradas (PesqEle)
+Consulta pública das pesquisas eleitorais registradas no TSE, com empresa, contratante, valor e metodologia.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- PesqEle - https://pesqele-divulgacao.tse.jus.br/
+
+</details>
+
+### TSE - Estatísticas Eleitorais
+Painéis do TSE com perfil do eleitorado, candidaturas e resultados por município e zona.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Estatísticas eleitorais - https://www.tse.jus.br/eleicoes/estatisticas/estatisticas-eleitorais
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1219,6 +1598,18 @@ Download da relação de imóveis rurais cadastrados no SNCR por UF e município
 ### ONR - Mapa do Registro de Imóveis do Brasil
 Mapa do Operador Nacional do Registro Eletrônico de Imóveis. Permite buscar por endereço, latitude e longitude, Código Nacional de Matrícula, cartório e matrícula, nome do imóvel, CCIR/SNCR, certificação SIGEF, SNCI, Cadastro Ambiental Rural, imóveis públicos da SPU e cadastro municipal (SQL) de São Paulo, com filtro de serventia por CNS.
 - https://mapa.onr.org.br/
+
+### ONR - Operador Nacional do Registro Eletrônico de Imóveis
+Portal do SAEC/ONR para pedidos eletrônicos de certidões de matrícula, visualização de matrícula e pesquisa de bens em cartórios de registro de imóveis.
+- https://www.onr.org.br/
+
+### CNIB - Central Nacional de Indisponibilidade de Bens
+Central que concentra as ordens judiciais e administrativas de indisponibilidade de bens, com consulta por CPF/CNPJ.
+- https://indisponibilidade.onr.org.br/
+
+### RTDBrasil - Registro de Títulos e Documentos e Pessoas Jurídicas
+Central nacional dos cartórios de RTD e RCPJ para registro e pedido de certidões de documentos, contratos e pessoas jurídicas não empresariais.
+- https://www.rtdbrasil.org.br/
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -1258,6 +1649,79 @@ Estatísticas detalhadas sobre mudanças no uso da terra e cobertura vegetal no 
 Mapas de alta resolução (10 metros) de cobertura e uso da terra.
 - https://brasil.mapbiomas.org/mapbiomas-cobertura-10m/
 
+### MapBiomas Alerta
+Alertas de desmatamento validados com laudo, imagens antes e depois e cruzamento com CAR, unidades de conservação e embargos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Portal - https://alerta.mapbiomas.org/
+- Plataforma - https://plataforma.alerta.mapbiomas.org/
+
+</details>
+
+### MapBiomas Fogo
+Mapeamento anual e mensal de cicatrizes de fogo no Brasil desde 1985, por bioma, estado, município e categoria fundiária.
+- https://plataforma.monitorfogo.mapbiomas.org/
+
+### Global Forest Watch - Brasil
+Painel internacional de monitoramento florestal com perda de cobertura arbórea, alertas e focos de incêndio no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dashboard Brasil - https://globalnaturewatch.org/dashboards/country/BRA/
+- Mapa Brasil - https://globalnaturewatch.org/map/country/BRA/
+
+</details>
+
+### Imazon - ImazonGeo
+Plataforma do Imazon com o Sistema de Alerta de Desmatamento (SAD), degradação florestal e mapas da Amazônia.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ImazonGeo - https://imazongeo.org.br/
+- Imazon - https://imazon.org.br/
+
+</details>
+
+### IBAMA - Licenciamento Ambiental Federal
+Consulta pública de processos de licenciamento ambiental federal, licenças emitidas e empreendimentos licenciados pelo IBAMA.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Sistema de licenciamento - https://servicos.ibama.gov.br/licenciamento/
+- SISCOM - Licenciamento - https://siscom.ibama.gov.br/licenciamento_ambiental/
+
+</details>
+
+### IBAMA - PAMGIA (Painel de Mapas e Geoinformação)
+Plataforma geográfica do IBAMA com camadas de embargos, autos de infração, licenciamento e monitoramento ambiental.
+- https://pamgia.ibama.gov.br/
+
+### CETESB - QUALAR (Qualidade do Ar)
+Sistema da CETESB com dados horários de poluentes medidos nas estações de monitoramento da qualidade do ar em São Paulo.
+- https://qualar.cetesb.sp.gov.br/qualar/
+
+### Órgãos Estaduais de Meio Ambiente
+Portais e sistemas dos órgãos ambientais estaduais com licenciamento, fiscalização e consulta pública de processos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SEMAS - SIMLAM Público - Pará (PA) - https://monitoramento.semas.pa.gov.br/simlam/
+- SEMAS - Pará (PA) - https://www.semas.pa.gov.br/
+- FEPAM - Rio Grande do Sul (RS) - https://www.fepam.rs.gov.br/
+- FEAM - Minas Gerais (MG) - https://www.feam.br/
+- IAT - Paraná (PR) - https://www.iat.pr.gov.br/
+- INEMA - Bahia (BA) - https://www.ba.gov.br/inema/
+- SEMA - Ceará (CE) - https://www.ce.gov.br/sema/
+- SIGAM - São Paulo (SP) - https://sigam.ambiente.sp.gov.br/sigam3/
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1279,6 +1743,60 @@ Sistema de análise das informações de comércio exterior brasileiro.
 ### Radar Siscomex
 Consulta de habilitação de empresas no Siscomex.
 - https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/radar
+
+### MDIC - Comex Vis e Base de Dados Bruta
+Visualizações de comércio exterior por país, UF e produto e download dos arquivos brutos de exportação e importação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Comex Vis - https://comexstat.mdic.gov.br/pt/comex-vis
+- Comex Stat - Consulta geral - https://comexstat.mdic.gov.br/pt/geral
+- Base de dados bruta - https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta
+
+</details>
+
+### Siscomex - Classif e Tratamento Administrativo
+Consulta da classificação fiscal de mercadorias (NCM) e dos tratamentos administrativos exigidos na importação e exportação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Classif - NCM - https://portalunico.siscomex.gov.br/classif/
+- Tratamento administrativo (TA) - https://portalunico.siscomex.gov.br/talpco/x/
+- Portal Siscomex - https://www.gov.br/siscomex/pt-br
+
+</details>
+
+### MAPA - Agrostat
+Estatísticas de comércio exterior do agronegócio brasileiro por produto, país e período.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Agrostat - https://indicadores.agro.gov.br/
+
+</details>
+
+### CAMEX - Câmara de Comércio Exterior
+Resoluções sobre tarifas, antidumping e medidas de defesa comercial adotadas pelo Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CAMEX - https://www.gov.br/mdic/pt-br/assuntos/camex
+
+</details>
+
+### Bases Internacionais de Comércio com Perfil do Brasil
+Bases de comércio internacional para conferir fluxos do Brasil por parceiro e produto a partir de fontes espelho.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- WITS - Banco Mundial - https://wits.worldbank.org/CountryProfile/en/BRA
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -1558,6 +2076,328 @@ Consultas de Notas Fiscais Eletrônicas e Portais de Transparência estaduais e 
 
 </details>
 
+### TCU - Consulta Consolidada de Pessoa Jurídica
+Emite em uma única consulta certidões do CEIS, CNEP, CNJ (improbidade) e TCU (inidôneos) para um CNPJ.
+- https://certidoes-apf.apps.tcu.gov.br/
+
+### Banco Central - Inabilitados e processos administrativos sancionadores
+Relação de pessoas inabilitadas para cargos em instituições financeiras e consulta das decisões de processos sancionadores do BCB.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Inabilitados - https://www.bcb.gov.br/estabilidadefinanceira/inabilitados
+- Processos administrativos sancionadores - https://www.bcb.gov.br/estabilidadefinanceira/processoadministrativosancionador
+
+</details>
+
+### CVM - Processos administrativos sancionadores
+Consulta de julgamentos, termos de compromisso e decisões sancionadoras da Comissão de Valores Mobiliários.
+- https://conteudo.cvm.gov.br/sancionadores/index.html
+
+### CRSFN - Conselho de Recursos do Sistema Financeiro Nacional
+Órgão que julga recursos contra sanções do BCB, CVM e COAF, com pautas, acórdãos e ementário.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Ministério da Fazenda - https://www.gov.br/fazenda/pt-br/composicao/orgaos/orgaos-colegiados/crsfn
+- Página no Banco Central - https://www.bcb.gov.br/estabilidadefinanceira/crsfn
+
+</details>
+
+### COAF - Publicações e coletânea Casos & Casos
+Publicações do Conselho de Controle de Atividades Financeiras, incluindo relatórios de atividades e as coletâneas de tipologias de lavagem de dinheiro Casos & Casos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Publicações - https://www.gov.br/coaf/pt-br/centrais-de-conteudo/publicacoes
+- Publicações do COAF - https://www.gov.br/coaf/pt-br/centrais-de-conteudo/publicacoes/publicacoes-do-coaf-1
+
+</details>
+
+### MTE - Radar SIT e combate ao trabalho escravo
+Painel de estatísticas da inspeção do trabalho (resgates, autuações, trabalho infantil) e página oficial do MTE sobre combate ao trabalho análogo ao de escravo.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Radar SIT - https://sit.trabalho.gov.br/radar/
+- Combate ao trabalho escravo - MTE - https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/areas-de-atuacao/combate-ao-trabalho-escravo-e-analogo-ao-de-escravo
+
+</details>
+
+### SmartLab - Observatório da Erradicação do Trabalho Escravo
+Observatório do MPT e da OIT com dados municipais de resgates, naturalidade e residência de trabalhadores resgatados e setores econômicos envolvidos.
+- https://smartlab.mpt.mp.br/trabalhoescravo
+
+### Dívida ativa estadual - Consultas e listas de devedores
+Consultas oficiais de débitos inscritos em dívida ativa estadual e listas públicas de devedores das procuradorias e secretarias de fazenda.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- São Paulo - PGE (SP) - https://www.dividaativa.pge.sp.gov.br/sc/pages/consultas/consultarDebito.jsf
+- Rio Grande do Sul - lista de devedores (RS) - https://atendimento.receita.rs.gov.br/lista-de-debitos-inscritos-em-divida-ativa
+- Rio de Janeiro - PGE (RJ) - https://www.pge.rj.gov.br/divida-ativa
+- Minas Gerais - SEF (MG) - https://www.fazenda.mg.gov.br/transparencia/Divida-Ativa/
+
+</details>
+
+### Tribunais de Contas dos Estados e do DF (faltantes)
+Portais dos Tribunais de Contas estaduais com consulta de processos, julgamento de contas, responsáveis com contas irregulares e dados de fiscalização de estados e municípios.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- TCE-AC (AC) - https://tceac.tc.br/site/
+- TCE-AL (AL) - https://www.tceal.tc.br/
+- TCE-AM (AM) - https://www.tceam.tc.br/
+- TCE-ES (ES) - https://www.tcees.tc.br/
+- TCE-GO (GO) - https://portal.tce.go.gov.br/
+- TCE-MA (MA) - https://www.tcema.tc.br/
+- TCE-PA (PA) - https://www.tcepa.tc.br/
+- TCE-PE (PE) - https://www.tcepe.tc.br/internet/
+- TCE-PI (PI) - https://www.tcepi.tc.br/
+- TCE-RJ (RJ) - https://www.tcerj.tc.br/portalnovo/
+- TCE-RO (RO) - https://www.tcero.tc.br/
+- TCE-RR (RR) - https://www.tcerr.tc.br/
+- TCE-RS (RS) - https://tcers.tc.br/
+- TCE-SC (SC) - https://www.tcesc.tc.br/
+- TCE-SE (SE) - https://www.tce.se.gov.br/SitePages/home.aspx
+- TCE-TO (TO) - https://www.tceto.tc.br/
+- TCDF (DF) - https://www2.tc.df.gov.br/
+
+</details>
+
+### Tribunais de Contas dos Municípios
+Tribunais de Contas que fiscalizam municípios (BA, GO, PA) e os tribunais municipais de São Paulo e do Rio de Janeiro.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- TCM-SP (São Paulo) - https://portal.tcm.sp.gov.br/
+- TCM-RJ (Rio de Janeiro) - https://www.tcmrio.tc.br/
+- TCM-GO (GO) - https://www.tcm.go.gov.br/
+- TCM-BA (BA) - https://www.tcm.ba.gov.br/
+- TCM-PA (PA) - https://www.tcmpa.tc.br/
+
+</details>
+
+### Portais da Transparência estaduais (faltantes)
+Portais oficiais dos governos estaduais com despesas, receitas, servidores e remunerações, contratos, convênios e licitações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Acre (AC) - https://transparencia.ac.gov.br/
+- Amapá (AP) - https://www.transparencia.ap.gov.br/
+- Espírito Santo (ES) - https://transparencia.es.gov.br/
+- Goiás (GO) - https://transparencia.go.gov.br/
+- Maranhão (MA) - https://www.transparencia.ma.gov.br/
+- Mato Grosso (MT) - https://www.transparencia.mt.gov.br/
+- Mato Grosso do Sul (MS) - https://www.transparencia.ms.gov.br/
+- Minas Gerais (MG) - https://www.transparencia.mg.gov.br/
+- Pará (PA) - https://www.sistemas.pa.gov.br/portaltransparencia
+- Paraíba (PB) - https://transparencia.pb.gov.br/
+- Paraná (PR) - https://www.transparencia.pr.gov.br/
+- Pernambuco (PE) - https://transparencia.pe.gov.br/
+- Piauí (PI) - https://transparencia.pi.gov.br/
+- Rio de Janeiro (RJ) - https://www.transparencia.rj.gov.br/
+- Rio Grande do Norte (RN) - https://www.transparencia.rn.gov.br/
+- Rio Grande do Sul (RS) - https://www.transparencia.rs.gov.br/inicio
+- Rondônia (RO) - https://transparencia.ro.gov.br/
+- Roraima (RR) - https://www.transparencia.rr.gov.br/
+- Santa Catarina (SC) - https://www.transparencia.sc.gov.br/
+- Sergipe (SE) - https://transparencia.se.gov.br/
+- Tocantins (TO) - https://transparencia.to.gov.br/PortalTransparencia/
+
+</details>
+
+### Portais da Transparência das capitais
+Portais de transparência das prefeituras das capitais com despesas, folha de pagamento, contratos e licitações municipais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Rio Branco (AC) - https://transparencia.riobranco.ac.gov.br/portal-transparencia/
+- Maceió (AL) - https://www.transparencia.maceio.al.gov.br/transparencia/
+- Macapá (AP) - https://macapa.ap.gov.br/portaldatransparencia/
+- Manaus (AM) - https://transparencia.manaus.am.gov.br/transparencia/
+- Salvador (BA) - https://transparencia.salvador.ba.gov.br/
+- Fortaleza (CE) - https://transparencia.fortaleza.ce.gov.br/
+- Vitória (ES) - https://transparencia.vitoria.es.gov.br/
+- Goiânia (GO) - https://www.goiania.go.gov.br/transparencia/
+- Cuiabá (MT) - https://transparencia.cuiaba.mt.gov.br/portaltransparencia/transparencia/
+- Campo Grande (MS) - https://transparencia.campogrande.ms.gov.br/
+- Belo Horizonte (MG) - https://prefeitura.pbh.gov.br/transparencia
+- Belém (PA) - https://transparencia.belem.pa.gov.br/giig/portais/portaldatransparencia/defaultPortalV3.aspx
+- João Pessoa (PB) - https://transparencia.joaopessoa.pb.gov.br/
+- Curitiba (PR) - https://www.transparencia.curitiba.pr.gov.br/
+- Recife (PE) - https://transparencia.recife.pe.gov.br/codigos/web/geral/home.php
+- Teresina (PI) - https://transparencia.teresina.pi.gov.br/
+- Rio de Janeiro (RJ) - https://transparencia.prefeitura.rio/
+- Natal (RN) - https://www2.natal.rn.gov.br/transparencia/
+- Porto Alegre (RS) - https://transparencia.portoalegre.rs.gov.br/
+- Porto Velho (RO) - https://transparencia.portovelho.ro.gov.br/
+- Boa Vista (RR) - https://www.portalcr2.com.br/entidade/boa-vista
+- Florianópolis (SC) - https://www.pmf.sc.gov.br/transparencia/
+- Aracaju (SE) - https://transparencia.aracaju.se.gov.br/prefeitura/
+- São Paulo (SP) - https://transparencia.prefeitura.sp.gov.br/
+
+</details>
+
+### Portal da Transparência - Consultas temáticas federais
+Consultas específicas do Portal da Transparência do Governo Federal: emendas parlamentares, viagens a serviço, cartões de pagamento, licitações, contratos, convênios, servidores, favorecidos e busca por pessoa física ou jurídica.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Emendas parlamentares - https://portaldatransparencia.gov.br/emendas
+- Viagens a serviço - https://portaldatransparencia.gov.br/viagens
+- Cartões de pagamento - https://portaldatransparencia.gov.br/cartoes
+- Licitações - https://portaldatransparencia.gov.br/licitacoes
+- Contratos - https://portaldatransparencia.gov.br/contratos
+- Convênios e transferências - https://portaldatransparencia.gov.br/convenios
+- Servidores - https://portaldatransparencia.gov.br/servidores/consulta
+- Favorecidos de despesas - https://portaldatransparencia.gov.br/despesas/favorecido
+- Busca por pessoa física - https://portaldatransparencia.gov.br/pessoa-fisica/busca/lista
+- Busca por pessoa jurídica - https://portaldatransparencia.gov.br/pessoa-juridica/busca/lista
+
+</details>
+
+### PNCP - Busca de contratações públicas
+Busca nacional de editais, avisos, atas e contratos publicados por União, estados e municípios no Portal Nacional de Contratações Públicas.
+- https://pncp.gov.br/app/editais
+
+### Compras.gov.br - Contratos e dados abertos
+Transparência dos contratos federais geridos no Compras.gov.br e API de dados abertos de compras governamentais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Transparência de contratos - https://contratos.comprasnet.gov.br/transparencia
+- API de dados abertos de compras - https://dadosabertos.compras.gov.br/
+
+</details>
+
+### Tesouro Nacional - Siconfi e Tesouro Transparente
+Declarações contábeis e fiscais de estados e municípios (RREO, RGF, DCA) e portal de dados do Tesouro com transferências e finanças subnacionais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Siconfi - https://siconfi.tesouro.gov.br/
+- Tesouro Transparente - https://www.tesourotransparente.gov.br/
+- Estados e municípios - https://www.tesourotransparente.gov.br/temas/estados-e-municipios
+
+</details>
+
+### CGU - Painéis e atividade disciplinar
+Painéis gerenciais da Controladoria-Geral da União e informações sobre processos disciplinares e correição no Poder Executivo federal.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Painéis CGU - https://www.gov.br/cgu/pt-br/centrais-de-conteudo/paineis
+- Atividade disciplinar - https://www.gov.br/cgu/pt-br/assuntos/atividade-disciplinar
+
+</details>
+
+### TCU - Fiscalização de obras (Fiscobras)
+Relatórios do TCU sobre fiscalização de obras públicas, com indícios de irregularidades graves e obras paralisadas.
+- https://portal.tcu.gov.br/fiscalizacao-de-obras/
+
+### Obrasgov.br - Cadastro de obras públicas federais
+Portal do cadastro integrado de projetos de investimento e obras financiadas com recursos federais.
+- https://www.gov.br/obrasgov/pt-br
+
+### Transparência Brasil
+Organização que monitora o poder público e mantém projetos como Achados e Pedidos, Excelências e ferramentas de avaliação de transparência.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Site - https://www.transparencia.org.br/
+- Projetos - https://www.transparencia.org.br/projetos
+
+</details>
+
+### Achados e Pedidos - Pedidos de LAI
+Repositório público com milhares de pedidos e respostas da Lei de Acesso à Informação feitos a órgãos de todo o país, pesquisável por palavra-chave.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Achados e Pedidos - https://achadosepedidos.org.br/
+
+</details>
+
+### CGU - Busca de Pedidos e Respostas de LAI
+Ferramentas da CGU para pesquisar pedidos e respostas de LAI já atendidos pelo Governo Federal e precedentes de decisões.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca LAI - https://buscalai.cgu.gov.br/
+- Dados abertos da CGU - https://www.gov.br/cgu/pt-br/acesso-a-informacao/dados-abertos
+
+</details>
+
+### Fiquem Sabendo
+Agência de dados independente especializada na Lei de Acesso à Informação, que publica bases inéditas obtidas via LAI e a newsletter Don't LAI to Me.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Fiquem Sabendo - https://fiquemsabendo.com.br/
+
+</details>
+
+### Open Knowledge Brasil e Operação Serenata de Amor
+Organização de dados abertos responsável pelo Querido Diário e pela Serenata de Amor, robô que analisa gastos da cota parlamentar.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- OKBR - https://ok.org.br/
+- Operação Serenata de Amor - https://serenata.ai/
+- Código no GitHub - https://github.com/okfn-brasil/serenata-de-amor
+
+</details>
+
+### Atricon - Radar da Transparência Pública
+Ferramenta que avalia e ranqueia os portais de transparência de órgãos públicos de todos os poderes e esferas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Radar da Transparência - https://radardatransparencia.atricon.org.br/
+
+</details>
+
+### MPF - Portal da Transparência
+Transparência do Ministério Público Federal com remuneração de membros e servidores, contratos, diárias e passagens.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Transparência MPF - https://transparencia.mpf.mp.br/
+
+</details>
+
+### STF - Portal de Transparência e Corte Aberta
+Estatísticas processuais e painéis do Supremo Tribunal Federal com decisões, distribuição e acervo por ministro.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Transparência STF - https://transparencia.stf.jus.br/
+- Corte Aberta - https://portal.stf.jus.br/hotsites/corteaberta/
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1635,6 +2475,48 @@ Projeto da Open Knowledge Brasil que reúne e disponibiliza em formato aberto os
 
 </details>
 
+### Diários Oficiais das capitais
+Diários oficiais eletrônicos das prefeituras de capitais, com nomeações, contratos, licitações e atos administrativos municipais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- São Paulo (SP) - https://diariooficial.prefeitura.sp.gov.br/
+- Rio de Janeiro (RJ) - https://doweb.rio.rj.gov.br/
+- Belo Horizonte (MG) - https://dom-web.pbh.gov.br/
+- Porto Alegre (RS) - https://dopa.portoalegre.rs.gov.br/
+- Fortaleza (CE) - https://diariooficial.fortaleza.ce.gov.br/
+- Recife (PE) - https://dome.recife.pe.gov.br/dome/
+- Manaus (AM) - https://dom.manaus.am.gov.br/
+- Curitiba (PR) - https://legisladocexterno.curitiba.pr.gov.br/DiarioConsultaExterna_Pesquisa.aspx
+
+</details>
+
+### Diários Oficiais dos Municípios - associações municipalistas
+Diários oficiais consolidados mantidos por associações de municípios, que publicam atos de centenas de prefeituras do interior em um só lugar, com busca por texto.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- DOM/SC - FECAM (SC) - https://diariomunicipal.sc.gov.br/
+- AMM (MG) - https://www.diariomunicipal.com.br/amm-mg/
+- AMUPE (PE) - https://www.diariomunicipal.com.br/amupe/
+- FAMUP (PB) - https://www.diariomunicipal.com.br/famup/
+- APRECE (CE) - https://www.diariomunicipal.com.br/aprece/
+- FEMURN (RN) - https://www.diariomunicipal.com.br/femurn/
+- AMA (AL) - https://www.diariomunicipal.com.br/ama/
+- AROM (RO) - https://www.diariomunicipal.com.br/arom/
+- AMM (MT) - https://www.diariomunicipal.com.br/amm-mt/
+- FAMURS (RS) - https://www.diariomunicipal.com.br/famurs/
+- AMP (PR) - https://www.diariomunicipal.com.br/amp/
+- AGM (GO) - https://www.diariomunicipal.com.br/agm/
+- APPM (PI) - https://www.diariomunicipal.com.br/appm/
+- AAM (AM) - https://www.diariomunicipal.com.br/aam/
+- FGM (GO) - https://www.diariomunicipal.com.br/fgm/
+- FAMEP (PA) - https://www.diariomunicipal.com.br/famep/
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1680,6 +2562,90 @@ Consulta de obras estrangeiras registradas no Brasil.
 ### ANCINE - Consulta de Obras
 Consulta geral de obras audiovisuais cadastradas.
 - https://sad2.ancine.gov.br/obrasnaopublicitarias/consultarObraViaPortal/consultarObraViaPortal.seam
+
+### VerSalic - Lei Rouanet
+Painel público do Ministério da Cultura com projetos incentivados, proponentes, incentivadores e valores captados pela Lei Rouanet.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- VerSalic - https://versalic.cultura.gov.br/
+- Salic - https://salic.cultura.gov.br/
+
+</details>
+
+### ANCINE - Observatório do Cinema e do Audiovisual (OCA)
+Dados e anuários do mercado audiovisual brasileiro: bilheterias, lançamentos, salas, TV paga e streaming.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- OCA - https://www.gov.br/ancine/pt-br/oca
+
+</details>
+
+### ECAD - Escritório Central de Arrecadação e Distribuição
+Órgão de gestão coletiva de direitos de execução pública musical, com informações sobre arrecadação e titulares.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ECAD - https://www4.ecad.org.br/
+
+</details>
+
+### Cinemateca Brasileira - Bases de Dados
+Bases da filmografia brasileira e do acervo da Cinemateca, com fichas técnicas de filmes e pessoas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Bases de dados - https://bases.cinemateca.org.br/
+- Acervo - https://cinemateca.org.br/acervo/
+
+</details>
+
+### IPHAN e Ibram - Patrimônio e Museus
+Portais do Instituto do Patrimônio Histórico e do Instituto Brasileiro de Museus com bens tombados, museus e acervos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- IPHAN - https://www.gov.br/iphan/pt-br
+- Ibram - Museus - https://www.gov.br/museus/pt-br
+
+</details>
+
+### Mapas Culturais e SNC
+Plataforma colaborativa de agentes, espaços e eventos culturais e Sistema Nacional de Cultura.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Mapas da Cultura - https://mapas.cultura.gov.br/
+- Sistema Nacional de Cultura - https://snc.cultura.gov.br/index.html
+
+</details>
+
+### CBL - Pesquisa de ISBN
+Consulta de livros e editoras pelo ISBN na agência brasileira da Câmara Brasileira do Livro.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Pesquisa ISBN - https://www.cblservicos.org.br/isbn/pesquisa/
+
+</details>
+
+### IMMuB - Instituto Memória Musical Brasileira
+Acervo on-line de discos e fonogramas brasileiros com intérpretes, compositores, músicos e gravadoras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- IMMuB - https://immub.org/
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -1889,6 +2855,34 @@ Alguns dos sistemas dependem de cadastro de usuário (CPF + Senha). Abaixo dos l
 - https://pt.wikipedia.org/wiki/Discagem_direta_a_dist%C3%A2ncia
 - https://www.mbi.com.br/mbi/biblioteca/utilidades/estado-onde-fica-ddd/
 
+### Anatel - Celular Legal
+Programa da Anatel para verificar se um celular é homologado e para orientar sobre bloqueio de aparelhos irregulares.
+- https://www.gov.br/anatel/pt-br/assuntos/celular-legal
+
+### Anatel - Dados Abertos, Qualidade e Reclamações
+Dados abertos da Anatel e painéis de qualidade dos serviços e de reclamações de consumidores por operadora e município.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados abertos - https://www.gov.br/anatel/pt-br/dados/dados-abertos
+- Qualidade - https://www.gov.br/anatel/pt-br/dados/qualidade
+- Painel de reclamações - https://informacoes.anatel.gov.br/paineis/consumidor/reclamacoes
+
+</details>
+
+### Não Me Perturbe
+Cadastro nacional para bloquear ligações de telemarketing de operadoras e bancos, mantido pelas prestadoras sob supervisão da Anatel.
+- https://www.naomeperturbe.com.br/
+
+### Cetic.br - Pesquisas TIC
+Centro do NIC.br com pesquisas sobre uso de internet em domicílios, empresas, escolas, saúde e governo.
+- https://www.cetic.br/pt/pesquisas/
+
+### IX.br - Pontos de Troca de Tráfego
+Lista das localidades do IX.br com participantes e tráfego dos pontos de troca de tráfego de internet no Brasil.
+- https://ix.br/localidades/atuais
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -1986,6 +2980,179 @@ Validação de diplomas digitais emitidos por instituições de ensino.
 ### Plataforma Sucupira
 Sistema de informações sobre os programas de pós-graduação stricto sensu.
 - https://sucupira.capes.gov.br/
+
+### CNPq - Diretório dos Grupos de Pesquisa
+Consulta aos grupos de pesquisa certificados no Brasil, com líderes, pesquisadores, estudantes e linhas de pesquisa.
+- http://dgp.cnpq.br/dgp/faces/consulta/consulta_parametrizada.jsf
+
+### CAPES - Catálogo de Teses e Dissertações
+Busca de teses e dissertações defendidas em programas de pós-graduação reconhecidos, com autor, orientador e instituição.
+- https://catalogodeteses.capes.gov.br/catalogo-teses/
+
+### MEC - SISTEC (Cursos e Diplomas Técnicos)
+Consulta pública de unidades de ensino, cursos técnicos e validação de diplomas de educação profissional registrados no SISTEC.
+- https://sistec.mec.gov.br/consultapublicaunidadeensino
+
+### MEC - Plataforma Carolina Bori
+Sistema de revalidação e reconhecimento de diplomas estrangeiros de graduação e pós-graduação no Brasil.
+- https://carolinabori.mec.gov.br/
+
+### INEP - IDEB, Censo Escolar e Catálogo de Escolas
+Indicadores de qualidade da educação básica por escola e município, dados do Censo Escolar e catálogo das escolas do país.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- IDEB - https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb
+- Censo Escolar - https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar
+- Catálogo de Escolas - https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data/catalogo-de-escolas
+
+</details>
+
+### CAPES - GeoCAPES
+Painel georreferenciado com bolsas, programas de pós-graduação e investimentos da CAPES por UF e município.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- GeoCAPES - https://geocapes.capes.gov.br/geocapes/
+
+</details>
+
+### CNPq - Memória
+Portal de memória institucional do CNPq com documentos e histórico de bolsistas e programas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Memória CNPq - https://memoria.cnpq.br/
+
+</details>
+
+### FAPESP - Biblioteca Virtual
+Busca de bolsas e auxílios concedidos pela FAPESP com pesquisador, instituição, valores e resumos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Biblioteca Virtual FAPESP - https://bv.fapesp.br/pt/
+
+</details>
+
+### ORCID
+Registro de identificadores únicos de pesquisadores, com vínculos, publicações e financiamentos declarados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ORCID - https://orcid.org/
+
+</details>
+
+### Ibict - Oasisbr, Diadorim e Miguilim
+Agregador brasileiro de produção científica em acesso aberto (Oasisbr) e diretórios de políticas editoriais (Diadorim) e de revistas (Miguilim).
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Oasisbr - https://oasisbr.ibict.br/
+- Diadorim - https://diadorim.ibict.br/
+- Miguilim - https://miguilim.ibict.br/
+
+</details>
+
+### Sucupira Legado - Dados da Pós-Graduação
+Versão legada da Plataforma Sucupira com coleta, docentes, discentes e produção de programas de pós-graduação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Sucupira Legado - https://sucupira-legado.capes.gov.br/sucupira/
+
+</details>
+
+### Repositórios Institucionais de Universidades
+Repositórios digitais de teses, dissertações, artigos e TCCs de universidades e institutos brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- UFMG - https://repositorio.ufmg.br/
+- Unicamp - https://repositorio.unicamp.br/
+- Unicamp - Biblioteca Digital - https://www.bibliotecadigital.unicamp.br/
+- UFSC - https://repositorio.ufsc.br/
+- UFPE - https://repositorio.ufpe.br/
+- UFBA - https://repositorio.ufba.br/
+- PUC-Rio - Maxwell - https://www.maxwell.vrac.puc-rio.br/
+- UFRRJ - RIMA - https://rima.ufrrj.br/
+- FGV - https://repositorio.fgv.br/
+- Fiocruz - Arca - https://arca.fiocruz.br/
+
+</details>
+
+### Repositórios de Órgãos Públicos e do Legislativo
+Repositórios de estudos, notas técnicas, livros e documentos produzidos por órgãos públicos e casas legislativas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Ipea - https://repositorio.ipea.gov.br/
+- Enap - https://repositorio.enap.gov.br/
+- Senado - Biblioteca Digital - https://www2.senado.leg.br/bdsf/
+- Câmara - Biblioteca Digital - https://bd.camara.leg.br/bd/
+- STJ - BDJur - https://bdjur.stj.jus.br/
+- STF - Biblioteca Digital - https://bibliotecadigital.stf.jus.br/xmlui/
+- TSE - Biblioteca Digital - https://bibliotecadigital.tse.jus.br/
+- CGU - Base de Conhecimento - https://basedeconhecimento.cgu.gov.br/
+
+</details>
+
+### Portais de Periódicos Científicos
+Portais e indexadores de revistas científicas brasileiras e latino-americanas em acesso aberto.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Portal de Revistas da USP - https://revistas.usp.br/wp/
+- Redalyc - https://www.redalyc.org/
+- Latindex - https://latindex.org/latindex/
+
+</details>
+
+### Buscadores Acadêmicos Abertos
+Índices bibliográficos abertos para localizar publicações, autores, afiliações e citações de pesquisadores brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Google Acadêmico - https://scholar.google.com.br/
+- OpenAlex - https://openalex.org/
+- Semantic Scholar - https://www.semanticscholar.org/
+- Crossref Search - https://search.crossref.org/
+- BASE - https://www.base-search.net/
+- The Lens - https://www.lens.org/
+
+</details>
+
+### LexML Brasil
+Rede de informação legislativa e jurídica que unifica a busca de leis, decretos, projetos, jurisprudência e doutrina de todo o país.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca LexML - https://www.lexml.gov.br/busca/search
+
+</details>
+
+### Normas.leg.br
+Portal de normas jurídicas federais compiladas pelo Congresso Nacional, com texto atualizado e histórico de alterações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Câmara - Legislação - https://www.camara.leg.br/legislacao
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)  
 ---
@@ -2098,6 +3265,74 @@ Sistema com informações georreferenciadas sobre mineração no Brasil.
 ### INDE - Infraestrutura Nacional de Dados Espaciais
 Portal da Infraestrutura Nacional de Dados Espaciais.
 - https://www.inde.gov.br/
+
+### IBGE - Ferramentas Geográficas e Estatísticas
+Ferramentas do IBGE para dados territoriais: SIDRA, BDiA (recursos naturais), mapas interativos, Panorama do Censo 2022 e repositório geoftp.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SIDRA - https://sidra.ibge.gov.br/
+- BDiA - Banco de Dados de Informações Ambientais - https://bdiaweb.ibge.gov.br/
+- Mapas interativos - https://mapasinterativos.ibge.gov.br/
+- Panorama do Censo 2022 - https://censo2022.ibge.gov.br/panorama/
+- geoftp (malhas e bases) - https://geoftp.ibge.gov.br/
+
+</details>
+
+### Embrapa - GeoInfo
+Infraestrutura de dados espaciais da Embrapa com mapas de solos, uso da terra, aptidão agrícola e zoneamentos.
+- https://geoinfo.dados.embrapa.br/
+
+### SGB - Geoportais do Serviço Geológico do Brasil
+Mapas geológicos, recursos minerais, áreas de risco e repositório institucional do SGB/CPRM.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- GeoSGB - https://geosgb.sgb.gov.br/
+- Geoportal - https://geoportal.sgb.gov.br/portal/home/
+- RIGeo - Repositório - https://rigeo.sgb.gov.br/
+
+</details>
+
+### Geoportais Estaduais (IDEs)
+Infraestruturas de dados espaciais dos estados com bases cartográficas, imagens, limites e camadas temáticas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- IDE-SP - São Paulo (SP) - https://www.idesp.sp.gov.br/
+- DataGEO - São Paulo (SP) - https://datageo.ambiente.sp.gov.br/
+- SIGSC - Santa Catarina (SC) - https://sigsc.sc.gov.br/
+- GeoPR - IAT - Paraná (PR) - https://geopr.iat.pr.gov.br/portal/home/
+- INEA - Rio de Janeiro (RJ) - https://inea.maps.arcgis.com/home/index.html
+- Geoportal SEMA - Mato Grosso (MT) - https://geoportal.sema.mt.gov.br/
+- IDE-DF Geoportal - Distrito Federal (DF) - https://www.ide.df.gov.br/geoportal/
+- IPECE Mapas - Ceará (CE) - https://mapas.ipece.ce.gov.br/
+
+</details>
+
+### Geoportais das Capitais
+Portais geográficos municipais com cadastro territorial, lotes, zoneamento, ortofotos e equipamentos públicos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- GeoSampa - São Paulo (SP) - https://geosampa.prefeitura.sp.gov.br/
+- Data.Rio - Rio de Janeiro (RJ) - https://www.data.rio/
+- BHMap - Belo Horizonte (MG) - https://bhmap.pbh.gov.br/
+- GeoCuritiba - Curitiba (PR) - https://geocuritiba.ippuc.org.br/portal/home/
+- Mapeamento Salvador - Salvador (BA) - https://mapeamento.salvador.ba.gov.br/
+- Mapas Fortaleza - Fortaleza (CE) - https://mapas.fortaleza.ce.gov.br/
+- Geoportal - Florianópolis (SC) - https://geoportal.pmf.sc.gov.br/
+- GeoWeb - Vitória (ES) - https://geoweb.vitoria.es.gov.br/
+- Geo Manaus - Manaus (AM) - https://geo.manaus.am.gov.br/
+- Geo Natal - Natal (RN) - https://geo.natal.rn.gov.br/portal/home/
+- Filipeia - João Pessoa (PB) - https://filipeia.joaopessoa.pb.gov.br/
+- GeoPortal - Teresina (PI) - https://geoportal.teresina.pi.gov.br/
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -2241,6 +3476,69 @@ Conjuntos de dados sobre hidrologia, qualidade da água, usos e balanço hídric
 
 - https://dadosabertos.ana.gov.br/
 
+### ISA - Terras Indígenas no Brasil
+Base do Instituto Socioambiental com situação jurídica, população, mapas e pressões sobre cada terra indígena.
+- https://terrasindigenas.org.br/
+
+### ISA - Unidades de Conservação no Brasil
+Fichas das unidades de conservação federais e estaduais com mapa, ato de criação, gestão e ameaças.
+- https://uc.socioambiental.org/
+
+### MMA - CNUC (Cadastro Nacional de Unidades de Conservação)
+Cadastro oficial das unidades de conservação federais, estaduais, municipais e RPPNs, com limites e dados de gestão.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Consulta - https://cnuc.mma.gov.br/consulta
+- Plataforma CNUC - https://www.gov.br/mma/pt-br/assuntos/biodiversidade-e-biomas/areas-protegidas/plataforma-cnuc-1
+
+</details>
+
+### ICMBio - Unidades de Conservação por Bioma
+Lista das unidades de conservação federais geridas pelo ICMBio, organizadas por bioma, com acesso às páginas de cada UC.
+- https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/unidade-de-conservacao/unidades-de-biomas
+
+### INCRA - Acervo Fundiário
+Mapa do acervo fundiário do INCRA com imóveis certificados (SIGEF/SNCI), assentamentos, quilombolas e glebas públicas.
+- https://acervofundiario.incra.gov.br/
+
+### INCRA - Painel dos Assentamentos
+Painel com dados de projetos de assentamento da reforma agrária: localização, área, capacidade e famílias assentadas.
+- https://painel.incra.gov.br/sistemas/index.php
+
+### ANM - Arrecadação de CFEM
+Relatórios públicos da Compensação Financeira pela Exploração Mineral por titular, substância, município e período.
+- https://sistemas.anm.gov.br/arrecadacao/extra/relatorios/arrecadacao_cfem.aspx
+
+### ANM - Barragens de Mineração
+Informações sobre barragens de mineração cadastradas, classificação de risco, dano potencial e situação de emergência.
+- https://www.gov.br/anm/pt-br/assuntos/barragens
+
+### ANA - HidroWeb
+Banco de dados da rede hidrometeorológica nacional com séries de chuva, nível e vazão das estações.
+- https://www.snirh.gov.br/hidroweb/
+
+### ANA - SNISB (Segurança de Barragens)
+Sistema Nacional de Informações sobre Segurança de Barragens com cadastro, empreendedores e classificação de risco de barragens.
+- https://www.snirh.gov.br/portal/snisb
+
+### ANA - SAR (Acompanhamento de Reservatórios)
+Volumes, cotas e vazões dos principais reservatórios do país, atualizados diariamente.
+- https://www.ana.gov.br/sar/
+
+### Monitor de Secas
+Mapas mensais da severidade da seca nos estados brasileiros, elaborados pela ANA com instituições estaduais.
+- https://monitordesecas.ana.gov.br/
+
+### CPT - Conflitos no Campo
+Comissão Pastoral da Terra: registros e cadernos anuais de conflitos agrários, violência no campo e trabalho escravo.
+- https://cptnacional.org.br/
+
+### CIMI - Violência contra Povos Indígenas
+Conselho Indigenista Missionário: relatórios anuais de violência contra povos indígenas e situação das terras.
+- https://cimi.org.br/
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -2312,6 +3610,88 @@ Monitoramento semanal de dengue, zika e chikungunya por município, com níveis 
 Microdados de saúde harmonizados e documentados (SIM, SINASC, CNES, SIH-SUS) com dicionários e notebooks de análise.
 
 - https://pcdas.icict.fiocruz.br/conjunto-de-dados/
+
+### DATASUS - TabNet
+Tabulador do DATASUS com dados de mortalidade (SIM), nascidos vivos (SINASC), internações (SIH), atendimentos e indicadores por município.
+- https://tabnet.datasus.gov.br/
+
+### OpenDataSUS - Dados Abertos da Saúde
+Portal de dados abertos do Ministério da Saúde com bases de vacinação, notificações, leitos, SRAG e estabelecimentos.
+- https://dadosabertos.saude.gov.br/
+
+### SI-PNI e Painel de Vacinação
+Sistema de Informação do Programa Nacional de Imunizações e painel de doses aplicadas por município e faixa etária.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SI-PNI - https://sipni.datasus.gov.br/si-pni-web/faces/inicio.jsf
+- Painel de vacinação - https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_Vacina_C19/SEIDIGI_DEMAS_Vacina_C19.html
+- Vacinação (Ministério da Saúde) - https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/covid-19/vacinacao
+
+</details>
+
+### Ministério da Saúde - Painéis de Monitoramento (SVSA e SAGE)
+Painéis de mortalidade, doenças e agravos da vigilância em saúde e a Sala de Apoio à Gestão Estratégica com indicadores por município.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Painéis de monitoramento (SVSA) - https://svs.aids.gov.br/daent/centrais-de-conteudos/paineis-de-monitoramento/
+- SAGE - https://novasage.saude.gov.br/
+
+</details>
+
+### SIOPS - Orçamentos Públicos em Saúde
+Sistema de Informações sobre Orçamentos Públicos em Saúde com receitas e despesas de saúde declaradas por municípios e estados.
+- http://siops.datasus.gov.br/
+
+### Atenção Primária - SISAB e e-Gestor APS
+Sistema de Informação em Saúde para a Atenção Básica e portal e-Gestor com relatórios públicos de equipes, cobertura e produção.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SISAB - https://sisab.saude.gov.br/
+- e-Gestor APS - https://egestoraps.saude.gov.br/
+
+</details>
+
+### Plataforma Brasil - Pesquisas com Seres Humanos
+Base nacional de projetos de pesquisa com seres humanos submetidos ao sistema CEP/CONEP, com consulta pública de pesquisas aprovadas.
+- https://plataformabrasil.saude.gov.br/
+
+### ANS - Dados Abertos e TabNet
+Bases da Agência Nacional de Saúde Suplementar com beneficiários, operadoras, reclamações e ressarcimento ao SUS.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Portal de dados abertos - https://dadosabertos.ans.gov.br/
+- ANS TabNet - https://www.ans.gov.br/anstabnet/
+- Dados abertos (página) - https://www.gov.br/ans/pt-br/acesso-a-informacao/perfil-do-setor/dados-abertos-1
+
+</details>
+
+### ANS - Informações e Avaliações de Operadoras
+Consulta de operadoras de planos de saúde ativas, índice de reclamações, qualificação (IDSS) e situação regulatória.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Informações e avaliações - https://www.gov.br/ans/pt-br/assuntos/informacoes-e-avaliacoes-de-operadoras
+- Operadoras - https://www.gov.br/ans/pt-br/assuntos/operadoras
+- Qualificação de operadoras - https://www.ans.gov.br/qualificacao_consumidor/
+
+</details>
+
+### ANVISA - Produtos Irregulares
+Consulta de produtos proibidos, suspensos ou recolhidos pela ANVISA, como medicamentos, cosméticos e alimentos irregulares.
+- https://www.gov.br/anvisa/pt-br/assuntos/fiscalizacao-e-monitoramento/produtos-irregulares
+
+### ANVISA - CMED (Preços de Medicamentos)
+Listas oficiais de preços máximos de medicamentos definidas pela Câmara de Regulação do Mercado de Medicamentos.
+- https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/precos
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -3080,6 +4460,47 @@ O projeto reúne mais de 1600 links úteis categorizados em formato de bookmarks
 
 - https://github.com/felipeluan20/OSINTKit-Brasil
 
+### Google - Central de Transparência de Anúncios
+Biblioteca de anúncios do Google filtrável para o Brasil, incluindo anúncios políticos e eleitorais com anunciante e gastos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Anúncios políticos - Brasil - https://adstransparency.google.com/political?region=BR
+
+</details>
+
+### TikTok - Biblioteca de Anúncios
+Biblioteca pública de anúncios do TikTok filtrável por país, com anunciante, período e alcance.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Biblioteca de anúncios - Brasil - https://library.tiktok.com/ads?region=BR
+- Central de Transparência - https://www.tiktok.com/safety/pt-BR/transparency
+
+</details>
+
+### NetLab UFRJ
+Laboratório de estudos de internet e redes sociais da UFRJ com relatórios sobre desinformação, anúncios e redes no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- NetLab - https://netlab.eco.ufrj.br/
+
+</details>
+
+### PegaBot
+Ferramenta do ITS Rio que estima a probabilidade de um perfil de rede social ser automatizado (bot).
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- PegaBot - https://pegabot.com.br/
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -3362,6 +4783,231 @@ Portal da B3 (Brasil, Bolsa, Balcão) com dados públicos de companhias listadas
 
 - https://www.b3.com.br/pt_br/
 
+### Base dos Dados - Data Lake Público Brasileiro
+Repositório que trata e padroniza centenas de bases públicas brasileiras (RAIS, CNPJ, TSE, IBGE) com busca e acesso via BigQuery, Python e R.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca de conjuntos - https://basedosdados.org/search
+- Documentação do pacote (SDK) - https://basedosdados.github.io/sdk/
+
+</details>
+
+### Brasil.IO - Conjuntos de Dados Específicos
+Datasets libertados pelo Brasil.IO com busca direta no navegador, como sócios de empresas, gastos diretos do governo, candidatos e gênero de nomes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Sócios de empresas - https://brasil.io/dataset/socios-brasil/
+- Gastos diretos do Governo Federal - https://brasil.io/dataset/gastos-diretos/
+- Candidatos e eleições - https://brasil.io/dataset/eleicoes-brasil/
+- Gênero de nomes - https://brasil.io/dataset/genero-nomes/
+- Documentos brasileiros - https://brasil.io/dataset/documentos-brasil/
+
+</details>
+
+### Portais Estaduais de Dados Abertos
+Catálogos oficiais de dados abertos mantidos pelos governos estaduais, com bases de despesas, servidores, segurança, saúde e educação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- RJ - https://dadosabertos.rj.gov.br/
+- SP - https://dadosabertos.sp.gov.br/
+- ES - https://dados.es.gov.br/
+- RS - https://dados.rs.gov.br/
+- PR - https://www.dados.pr.gov.br/
+- GO - https://dados.go.gov.br/
+- DF - https://dados.df.gov.br/
+- MT - https://dados.mt.gov.br/
+- MS - https://www.dados.ms.gov.br/
+- BA - https://dados.ba.gov.br/
+- RN - https://dados.rn.gov.br/
+- PB - https://dados.pb.gov.br/
+- RO - https://dados.ro.gov.br/
+- AC - https://dados.ac.gov.br/
+- CE - https://cearatransparente.ce.gov.br/portal-da-transparencia/dados-abertos
+
+</details>
+
+### Portais de Dados Abertos das Capitais
+Portais municipais de dados abertos com bases de licitações, servidores, mobilidade, saúde, obras e ocorrências urbanas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Recife/PE - https://dados.recife.pe.gov.br/
+- Fortaleza/CE - https://dados.fortaleza.ce.gov.br/
+- Porto Alegre/RS - https://dadosabertos.poa.br/
+- Curitiba/PR - https://dadosabertos.curitiba.pr.gov.br/
+- Salvador/BA - https://dados.salvador.ba.gov.br/
+
+</details>
+
+### Agências Reguladoras e Órgãos Federais - Portais de Dados Abertos
+Portais de dados abertos setoriais de agências e órgãos federais, com bases de operadoras, registros sanitários, energia, combustíveis, aviação e educação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Anvisa - Vigilância sanitária - https://dados.anvisa.gov.br/
+- FNDE - Educação - https://www.gov.br/fnde/pt-br/acesso-a-informacao/dados-abertos
+- MEC - https://dadosabertos.mec.gov.br/
+- MinC - Cultura - https://dados.cultura.gov.br/
+
+</details>
+
+### Ministério da Saúde - OpenDataSUS
+Portal de dados abertos do SUS com microdados de vacinação, internações, notificações, estabelecimentos e Síndrome Respiratória Aguda Grave.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- OpenDataSUS - https://opendatasus.saude.gov.br/
+
+</details>
+
+### TCU - Portal de Dados Abertos (novo)
+Novo portal de dados abertos do Tribunal de Contas da União, com acórdãos, responsáveis com contas irregulares, inidôneos e fiscalizações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados abertos TCU - https://sites.tcu.gov.br/dados-abertos/
+
+</details>
+
+### Tribunais de Contas - Portais de Dados Abertos
+Portais de dados dos Tribunais de Contas com despesas, licitações e folha de pagamento de órgãos estaduais e municipais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- TCE-RS - https://dados.tce.rs.gov.br/
+- TCE-PB - https://dados-abertos.tce.pb.gov.br/
+- TCE-MT - Radar - https://radar.tce.mt.gov.br/
+- TCE-SP - Transparência Municipal - https://transparencia.tce.sp.gov.br/
+- TCE-SP - Painéis - https://painel.tce.sp.gov.br/
+
+</details>
+
+### Tesouro Nacional - Tesouro Transparente e Siconfi
+Dados fiscais da União, estados e municípios: execução orçamentária, dívida, transferências e declarações contábeis (RREO, RGF, DCA).
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Tesouro Transparente - Catálogo - https://www.tesourotransparente.gov.br/ckan/dataset
+
+</details>
+
+### Senado Federal - SIGA Brasil
+Sistema de informações sobre o orçamento federal, com execução de emendas parlamentares, despesas e transferências por beneficiário.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Painel Cidadão - https://www9.senado.leg.br/QvAJAXZfc/opendoc.htm?document=senado%2Fsigabrasilpainelcidadao.qvw&host=QVS%40www9&anonymous=true
+
+</details>
+
+### Câmara dos Deputados - Emendas e Orçamento
+Consulta de emendas parlamentares ao orçamento e aos projetos de lei apresentadas pelos deputados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Emendas da Câmara - https://emendas.camara.leg.br/
+
+</details>
+
+### Assembleias Legislativas e Câmaras Municipais - Dados e Proposições
+Portais de dados abertos e consulta de proposições, votações e despesas de assembleias legislativas e câmaras municipais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ALMG - Dados abertos (MG) - http://dadosabertos.almg.gov.br/documentacao/index
+- Câmara Municipal de São Paulo - SPLegis - https://splegisconsulta.saopaulo.sp.leg.br/
+- Câmara Municipal de Fortaleza - SAPL - https://sapl.fortaleza.ce.leg.br/
+
+</details>
+
+### Institutos Estaduais de Estatística
+Órgãos estaduais de estatística e planejamento com séries socioeconômicas, PIB municipal, emprego e anuários estatísticos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Fundação Seade (SP) - https://www.seade.gov.br/
+- Seade - Repositório de dados (SP) - https://repositorio.seade.gov.br/
+- IPARDES (PR) - https://www.ipardes.pr.gov.br/
+- IPECE (CE) - https://www.ipece.ce.gov.br/
+- DEE (RS) - https://www.dee.rs.gov.br/inicial
+- IJSN (ES) - https://ijsn.es.gov.br/
+- SEI (BA) - https://www.ba.gov.br/sei/
+- IMB (GO) - https://goias.gov.br/imb/
+- Codeplan/IPEDF (DF) - https://www.codeplan.df.gov.br/
+
+</details>
+
+### Atlas do Desenvolvimento Humano no Brasil
+Plataforma do PNUD, Ipea e FJP com IDHM e mais de 330 indicadores socioeconômicos por município, estado e região metropolitana.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Atlas Brasil - https://www.atlasbrasil.org.br/
+
+</details>
+
+### Ipea - geobr e Acesso a Oportunidades
+Bases geográficas oficiais do Brasil prontas para análise (geobr) e indicadores de acesso a empregos, saúde e educação nas grandes cidades.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- geobr - https://www.ipea.gov.br/geobr/
+- Acesso a Oportunidades - https://www.ipea.gov.br/acessooportunidades/
+
+</details>
+
+### IBGE - SIDRA e Servidor de Arquivos
+Sistema IBGE de Recuperação Automática para tabelas do Censo, PNAD e pesquisas econômicas, além do FTP com microdados e malhas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Servidor de arquivos (FTP) - https://ftp.ibge.gov.br/
+
+</details>
+
+### Universidades Federais - Portais de Dados Abertos
+Portais de dados abertos de universidades federais com servidores, discentes, contratos, projetos e bolsas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- UFRN - https://dados.ufrn.br/
+- UFS - https://dados.ufs.br/
+- UFPE - https://dados.ufpe.br/
+- UnB - https://dados.unb.br/
+
+</details>
+
+### Receita Federal - Receita Data
+Portal de dados abertos da Receita Federal com arrecadação, benefícios tributários, comércio exterior e estudos estatísticos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Receita Data - https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata
+- Dados abertos Receita - https://www.gov.br/receitafederal/dados
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -3604,6 +5250,113 @@ Consultas veiculares, CNH, pontuação e outros serviços dos DETRANs estaduais.
 
 </details>
 
+### DETRANs Estaduais - Portais que faltavam
+Portais dos Departamentos Estaduais de Trânsito ainda não catalogados, com consultas de veículos, débitos, CNH e infrações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Pernambuco (PE) - https://www.detran.pe.gov.br/
+- Rio de Janeiro (RJ) - https://www.detran.rj.gov.br/
+- Rio Grande do Norte (RN) - https://www.detran.rn.gov.br/
+- Sergipe (SE) - https://www.detran.se.gov.br/
+
+</details>
+
+### SENATRAN - Portal de Serviços
+Portal federal de serviços de trânsito: consulta de infrações, veículos vinculados ao CPF/CNPJ, CNH e recall, mediante login gov.br.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Portal de Serviços - https://portalservicos.senatran.serpro.gov.br/
+- Página da SENATRAN - https://www.gov.br/transportes/pt-br/assuntos/transito/senatran
+
+</details>
+
+### SENATRAN - Estatísticas da Frota de Veículos
+Séries mensais da frota de veículos registrada no RENAVAM por município, UF, tipo e combustível.
+- https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/estatisticas-frota-de-veiculos-senatran
+
+### SENATRAN - RENAEST (Registro Nacional de Acidentes e Estatísticas de Trânsito)
+Base nacional de sinistros de trânsito com ocorrências, vítimas, perfil e localização, alimentada pelos órgãos estaduais.
+- https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/docs/renaest
+
+### Consulta de Recall de Veículos
+Verifica se um veículo possui campanha de recall pendente a partir da placa ou do chassi, com base nos dados da SENATRAN.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Serviço federal (gov.br) - https://www.gov.br/pt-br/servicos/realizar-consulta-sobre-recall-de-veiculos
+- Minas Gerais (MG) - https://www.mg.gov.br/servico/verificar-situacao-de-recall-do-veiculo
+
+</details>
+
+### PRF - Dados Abertos e Serviços
+Dados abertos da Polícia Rodoviária Federal sobre acidentes, infrações e apreensões em rodovias federais, além da carta de serviços ao cidadão.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados abertos - https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf
+- Serviços - https://www.gov.br/prf/pt-br/servicos
+
+</details>
+
+### Infosiga SP - Sinistros de Trânsito
+Painel do DETRAN-SP com sinistros e vítimas fatais no trânsito paulista, filtrável por município, via, data e tipo de veículo.
+- https://infosiga.detran.sp.gov.br/
+
+### DNIT - VGeo (Visualizador Geográfico)
+Mapa do DNIT com o Sistema Nacional de Viação, rodovias federais, obras, pontes, balanças e postos de pesagem.
+- https://servicos.dnit.gov.br/vgeo/
+
+### ANTT - Concessões Rodoviárias e Ferroviárias
+Informações da ANTT sobre concessionárias de rodovias federais, praças de pedágio, malha ferroviária e operadoras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Rodovias - https://www.gov.br/antt/pt-br/assuntos/rodovias
+- Ferrovias - https://www.gov.br/antt/pt-br/assuntos/ferrovias
+
+</details>
+
+### DERs Estaduais - Departamentos de Estradas de Rodagem
+Portais dos DERs com condições das rodovias estaduais, obras, interdições e serviços de transporte intermunicipal.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Minas Gerais (MG) - https://www.der.mg.gov.br/
+- Paraná (PR) - https://www.der.pr.gov.br/
+- Distrito Federal (DF) - https://www.der.df.gov.br/
+
+</details>
+
+### ARTESP - Rodovias Concedidas de São Paulo
+Agência reguladora dos transportes de SP, com dados de concessionárias, pedágios, transporte intermunicipal e painéis de transparência.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Transparência e dados - https://www.artesp.sp.gov.br/transparencia-e-dados/
+
+</details>
+
+### Órgãos Municipais de Trânsito
+Órgãos gestores de trânsito das capitais com ocorrências, interdições, fiscalização e informações de mobilidade.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CET-Rio - Rio de Janeiro (RJ) - https://cetrio.prefeitura.rio/
+- BHTrans - Belo Horizonte (MG) - https://prefeitura.pbh.gov.br/bhtrans
+- EPTC - Porto Alegre (RS) - https://prefeitura.poa.br/eptc
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -3707,6 +5460,40 @@ Rastreamento de informações sobre transporte na cidade de Curitiba. É possive
 
 - https://centraldecruzeiros.com.br/
 
+### Marinha - Diretoria de Portos e Costas (DPC)
+Portal da autoridade marítima com normas, Capitanias dos Portos, habilitação de amadores e registro de embarcações.
+- https://www.marinha.mil.br/dpc/
+
+### Marinha - Centro de Hidrografia (CHM)
+Tábuas de marés, cartas náuticas, avisos aos navegantes e informações de segurança da navegação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CHM - https://www.marinha.mil.br/chm/
+- Tábuas de marés - https://www.marinha.mil.br/chm/tabuas-de-mare
+
+</details>
+
+### ANTAQ - Estatística Aquaviária
+Página de estatística da ANTAQ com o painel do Estatístico Aquaviário, movimentação de cargas por porto, instalação e mercadoria.
+- https://www.gov.br/antaq/pt-br/assuntos/estatistica
+
+### Autoridades Portuárias - Movimento de Navios
+Portais das autoridades portuárias com programação de atracações, line-up de navios e operações portuárias.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Porto de Santos (SP) - https://www.portodesantos.com.br/informacoes-operacionais/operacoes-portuarias/navegacao-e-movimento-de-navios/
+- Portos do Paraná - Paranaguá e Antonina (PR) - https://www.portosdoparana.pr.gov.br/Operacional
+- PortosRio (RJ) - https://www.portosrio.gov.br/
+- Suape (PE) - https://www.suape.pe.gov.br/pt/
+- Porto do Itaqui (MA) - https://website.portodoitaqui.com.br/home
+- Porto de Itajaí (SC) - https://www.portoitajai.com.br/
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -3754,6 +5541,66 @@ Todas as aeronaves civis brasileiras devem ser registradas na ANAC. O Registro A
 - Consulta RAB - Resposta - https://aeronaves.anac.gov.br/aeronaves/cons_rab_resposta2.asp?
 - Sistema Antigo - https://sistemas.anac.gov.br/aeronaves/cons_rab.asp
 - Cavok RAB - https://ais.cavok.in/rab/
+
+</details>
+
+### DECEA - AISWEB (Informações Aeronáuticas)
+Portal oficial de informações aeronáuticas do Brasil: dados de aeródromos, cartas, NOTAM, ROTAER e publicações AIP.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- AISWEB - https://aisweb.decea.mil.br/
+- Aeródromos (ROTAER) - https://aisweb.decea.mil.br/?i=aerodromos
+- NOTAM - https://aisweb.decea.mil.br/?i=notam
+
+</details>
+
+### DECEA - SARPAS (Drones)
+Sistema de solicitação de acesso ao espaço aéreo por aeronaves não tripuladas, com consulta de áreas e solicitações.
+- https://servicos.decea.mil.br/sarpas/
+
+### ANAC - Cadastro de Aeródromos
+Dados abertos com a lista de aeródromos civis públicos e privados cadastrados, com códigos, coordenadas e operadores.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados abertos de aeródromos - https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos/areas-de-atuacao/aerodromos
+- Aeroportos e aeródromos - https://www.gov.br/anac/pt-br/assuntos/regulados/aeroportos-e-aerodromos
+
+</details>
+
+### ANAC - SIROS (Registro de Operações e Voos)
+Consulta de voos regulares autorizados por empresa, aeroporto e período, com dados do registro de serviços aéreos.
+- https://siros.anac.gov.br/SIROS/view/registro/frmConsultaVoos
+
+### ANAC - Dados e Estatísticas do Transporte Aéreo
+Bases estatísticas da ANAC: histórico de voos (VRA), passageiros, carga, empresas e dados abertos do setor.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados e estatísticas - https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas
+- Histórico de voos (VRA) - https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas/historico-de-voos
+- Dados estatísticos - https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas/dados-estatisticos
+- Passageiros - https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas/passageiros
+- Dados abertos - https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos
+
+</details>
+
+### ANAC - Empresas Aéreas
+Relação de empresas de transporte aéreo regular e não regular autorizadas a operar no Brasil.
+- https://www.gov.br/anac/pt-br/assuntos/regulados/empresas-aereas
+
+### CENIPA - Ocorrências Aeronáuticas
+Painel e dados abertos de acidentes e incidentes aeronáuticos da aviação civil brasileira investigados pelo CENIPA.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Painel SIPAER - https://painelsipaer.cenipa.fab.mil.br/
+- Dados abertos - https://dados.gov.br/dados/conjuntos-dados/ocorrencias-aeronauticas-da-aviacao-civil-brasileira
 
 </details>
 
@@ -3997,6 +5844,34 @@ Câmeras de monitoramento de rodovias, segurança pública e clima por estado.
 
 - https://mapas.sinfra.mt.gov.br/portal/apps/sites/#/central-infra-20-2-1/pages/monitoramento-de-obras
 
+### CET-SP - Trânsito nas Principais Vias
+Situação do trânsito em tempo real nas principais vias de São Paulo, com lentidão por corredor e região.
+- https://www.cetsp.com.br/transito-agora/transito-nas-principais-vias.aspx
+
+### COR Rio - Centro de Operações Rio
+Centro de Operações da Prefeitura do Rio com informes em tempo real de trânsito, chuvas, eventos e ocorrências na cidade.
+- https://cor.rio/
+
+### ARTESP - Câmeras das Rodovias Paulistas
+Imagens ao vivo das câmeras das rodovias concedidas do estado de São Paulo.
+- https://www.artesp.sp.gov.br/cameras
+
+### Concessionárias de Rodovias - Condições de Tráfego e Câmeras
+Portais das concessionárias com condições de tráfego, ocorrências e câmeras nas rodovias administradas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Motiva (ex-CCR) - todas as rodovias - https://rodovias.motiva.com.br/
+- Motiva RioSP (Via Dutra e Rio-Santos) - https://rodovias.motiva.com.br/riosp/
+- Motiva AutoBAn (SP) - https://rodovias.motiva.com.br/autoban/
+- Motiva ViaOeste (SP) - https://rodovias.motiva.com.br/viaoeste/
+- Arteris - https://www.arteris.com.br/
+- Rodovias do Tietê (SP) - https://www.rodoviasdotiete.com.br/
+- Concer - BR-040 (RJ) - https://www.concer.com.br/
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -4131,6 +6006,92 @@ Notificações de incidentes, estatísticas de segurança e alertas de vulnerabi
 
 </details>
 
+### CTIR Gov - Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo
+Centro do GSI responsável por alertas, recomendações e coordenação de incidentes cibernéticos na Administração Pública Federal.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CTIR Gov - https://www.gov.br/gsi/pt-br/assuntos/ctir
+
+</details>
+
+### NIC.br e Cetic.br - Pesquisas e Indicadores
+Pesquisas TIC Domicílios, TIC Empresas e outras sobre uso da internet no Brasil, com portal de visualização de dados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- NIC.br - https://nic.br/
+- Cetic.br - Portal de dados - https://data.cetic.br/
+
+</details>
+
+### SIMET - Medição da Qualidade da Internet
+Sistema do NIC.br/Ceptro.br para medir a qualidade de conexões de internet no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SIMET - https://simet.nic.br/
+- Ceptro.br - https://ceptro.br/
+
+</details>
+
+### Registro.br - Estatísticas de Domínios
+Estatísticas oficiais de domínios .br registrados por categoria, úteis para dimensionar e acompanhar o espaço de nomes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Estatísticas - https://registro.br/estatisticas/
+
+</details>
+
+### CERT.br - Documentos e Cartilhas
+Documentos técnicos, boas práticas e materiais do CERT.br sobre tratamento de incidentes e segurança.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Documentos - https://cert.br/docs/
+- Antispam.br - https://www.antispam.br/
+- Internet Segura - https://internetsegura.br/
+
+</details>
+
+### SaferNet Brasil - Indicadores e Denúncias
+Central nacional de denúncias de crimes cibernéticos contra direitos humanos, com indicadores públicos de denúncias por tipo.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SaferNet - https://new.safernet.org.br/
+- Indicadores - https://indicadores.safernet.org.br/
+
+</details>
+
+### ANPD - Comunicação de Incidentes de Segurança
+Autoridade Nacional de Proteção de Dados, com orientações e canal de comunicação de incidentes de segurança com dados pessoais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ANPD - https://www.gov.br/anpd/pt-br
+- Comunicado de incidente - https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/comunicado-de-incidente-de-seguranca-cis
+
+</details>
+
+### Infraestrutura de Internet no Brasil - ASNs
+Panoramas de sistemas autônomos (ASN) brasileiros, prefixos e população de usuários por provedor.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- APNIC - População por ASN - https://stats.labs.apnic.net/aspop?c=BR
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -4173,6 +6134,321 @@ Informações sobre o Cadastro Positivo e consulta de bureaus de crédito autori
 
 - Consultar informações sobre: Veículos, Mandados de prisão, Pessoas desaparecidas, Criminosos procurados
 - https://seguranca.sinesp.gov.br/sinesp-seguranca/login.jsf
+
+### Agência Lupa
+Primeira agência de checagem do Brasil, signatária da IFCN, com acervo pesquisável de verificações. Útil para saber se uma alegação ou imagem viral já foi checada.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Agência Lupa - https://www.agencialupa.org/
+
+</details>
+
+### Aos Fatos
+Agência de checagem e monitoramento de desinformação, com acervo de verificações e radar de redes. Também publica investigações sobre redes de desinformação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Aos Fatos - https://www.aosfatos.org/
+- Checagens e notícias - https://www.aosfatos.org/noticias/
+
+</details>
+
+### Projeto Comprova
+Coalizão de veículos que verifica conteúdos virais sobre políticas públicas, eleições e saúde. Cada checagem traz o passo a passo da verificação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Projeto Comprova - https://projetocomprova.com.br/
+- Publicações - https://projetocomprova.com.br/publicações/
+
+</details>
+
+### Fato ou Fake (g1)
+Serviço de checagem do Grupo Globo com verificações de boatos e declarações. Acervo grande e indexado por tema.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Fato ou Fake - https://g1.globo.com/fato-ou-fake/
+
+</details>
+
+### Estadão Verifica
+Núcleo de checagem do Estadão, signatário da IFCN, com verificações de conteúdos virais e declarações públicas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Estadão Verifica - https://www.estadao.com.br/estadao-verifica/
+
+</details>
+
+### AFP Checamos e UOL Confere
+Checagens da AFP em português e do UOL, com foco em conteúdos virais em redes sociais e mensageiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- AFP Checamos - https://checamos.afp.com/
+- UOL Confere - https://noticias.uol.com.br/confere/
+
+</details>
+
+### Boatos.org e E-farsas
+Sites veteranos de desmentidos de boatos, correntes e golpes digitais brasileiros. Úteis para golpes recorrentes de WhatsApp.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Boatos.org - https://www.boatos.org/
+- E-farsas - https://www.e-farsas.com/
+
+</details>
+
+### Coletivo Bereia
+Checagem especializada em conteúdos que circulam em ambientes religiosos, com foco em mídias cristãs. Cobre um nicho relevante da desinformação no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Coletivo Bereia - https://www.coletivobereia.com.br/
+
+</details>
+
+### CENSEC - Central Notarial de Serviços Eletrônicos Compartilhados
+Central do Colégio Notarial que indica em qual tabelionato foram lavrados testamentos, procurações, escrituras e separações/divórcios.
+- https://www.censec.org.br/
+
+### Registro Civil - Portal da ARPEN Brasil
+Portal oficial dos cartórios de registro civil para solicitar certidões de nascimento, casamento e óbito de qualquer cartório do país.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Portal Registro Civil - https://www.registrocivil.org.br/
+- ARPEN Brasil - https://arpenbrasil.org.br/
+
+</details>
+
+### Colégio Notarial do Brasil
+Entidade nacional dos tabeliães de notas, com localização de cartórios de notas e serviços notariais eletrônicos.
+- https://www.notariado.org.br/
+
+### Ferramentas de Jornalismo de Dados e Investigação
+Organizações brasileiras que publicam bases, guias e investigações baseadas em dados públicos, úteis como fonte de métodos e datasets.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Abraji - https://www.abraji.org.br/
+- Escola de Dados - https://escoladedados.org/
+- Colaboradados - catálogo colaborativo - https://colaboradados.github.io/
+- Data Fixers - https://datafixers.org/
+- Volt Data Lab - https://www.voltdata.info/
+- Núcleo Jornalismo - https://nucleo.jor.br/
+- Gênero e Número - https://www.generonumero.media/
+- Atlas da Notícia - https://atlas.jor.br/
+- Agência Pública - https://apublica.org/
+- Repórter Brasil - https://reporterbrasil.org.br/
+- De Olho nos Ruralistas - https://deolhonosruralistas.com.br/
+- Política Por Inteiro - https://politicaporinteiro.org/
+- Legisdados - https://www.legisdados.com.br/
+
+</details>
+
+### Biblioteca Nacional - Hemeroteca Digital Brasileira
+Acervo digitalizado de jornais e revistas brasileiros desde o século XIX, com busca textual por OCR em milhares de periódicos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Hemeroteca Digital - https://memoria.bn.gov.br/hdb/periodico.aspx
+- BN Digital - https://bndigital.bn.gov.br/
+- Brasiliana Fotográfica - https://brasilianafotografica.bn.gov.br/
+- Biblioteca Nacional - https://www.gov.br/bn/pt-br
+
+</details>
+
+### Arquivo Nacional - SIAN
+Sistema de Informações do Arquivo Nacional com fundos documentais, inclusive registros do SNI e de órgãos de informação do regime militar.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SIAN - https://sian.an.gov.br/
+- Arquivo Nacional - https://www.gov.br/arquivonacional/pt-br
+
+</details>
+
+### Memórias Reveladas e Comissão Nacional da Verdade
+Centro de referência sobre a ditadura militar (1964-1985) e acervo digital do relatório e documentos da Comissão Nacional da Verdade.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Memórias Reveladas - https://www.gov.br/memoriasreveladas/pt-br
+- Comissão Nacional da Verdade - https://cnv.memoriasreveladas.gov.br/
+
+</details>
+
+### Brasil: Nunca Mais Digital
+Acervo digital dos processos do Superior Tribunal Militar sobre presos políticos reunidos pelo projeto Brasil: Nunca Mais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- BNM Digital - https://bnmdigital.mpf.mp.br/
+
+</details>
+
+### Memorial da Democracia
+Museu virtual do Instituto Lula com linha do tempo, documentos e reportagens sobre a história política brasileira.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Memorial da Democracia - https://memorialdademocracia.com.br/
+
+</details>
+
+### Acervos Históricos de Jornais e Revistas
+Arquivos digitais de grandes veículos brasileiros com edições antigas pesquisáveis, alguns com acesso gratuito parcial.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Folha de S.Paulo - https://acervo.folha.com.br/index.do
+- Estadão - https://www.estadao.com.br/acervo/
+- O Globo - https://oglobo.globo.com/acervo
+- Veja - https://veja.abril.com.br/acervo/
+- Correio Braziliense - https://www.correiobraziliense.com.br/acervo
+
+</details>
+
+### Arquivos Públicos Estaduais
+Arquivos estaduais com acervos digitalizados, inclusive fundos do DOPS, jornais históricos e documentos governamentais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Arquivo Público do Estado de SP - Repositório - https://www.arquivoestado.sp.gov.br/site/acervo/repositorio_digital
+- SP - Memória Política - http://www.arquivoestado.sp.gov.br/memoriapolitica/
+- APERJ (RJ) - https://www.aperj.rj.gov.br/
+- Arquivo Público Mineiro (MG) - https://www.siaapm.cultura.mg.gov.br/
+
+</details>
+
+### Acervos de Memória Política e Movimentos Sociais
+Centros de documentação com arquivos sobre ditadura, movimentos sociais, sindicatos e partidos políticos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- FGV CPDOC - https://cpdoc.fgv.br/
+- FGV - Atlas Histórico do Brasil - https://atlas.fgv.br/
+- Arquivo Edgard Leuenroth (Unicamp) - https://ael.ifch.unicamp.br/
+- CEDEM (Unesp) - https://www.cedem.unesp.br/
+- Memorial da Resistência de SP - https://memorialdaresistenciasp.org.br/
+- Documentos Revelados - https://documentosrevelados.com.br/
+- Armazém Memória - https://armazemmemoria.com.br/
+
+</details>
+
+### DocReader - Acervos Digitalizados (Docvirt)
+Plataforma que hospeda acervos digitalizados de diversas instituições brasileiras, incluindo jornais e documentos históricos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Docvirt - https://docvirt.com/
+
+</details>
+
+### Bibliotecas Digitais Históricas
+Bibliotecas digitais com obras raras, mapas, iconografia e documentos sobre o Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Biblioteca Brasiliana Guita e José Mindlin (USP) - https://digital.bbm.usp.br/handle/bbm/1
+- Brasiliana Digital - https://brasilianadigital.com.br/
+- Instituto Moreira Salles - Acervos - https://acervos.ims.com.br/
+
+</details>
+
+### Câmara e Senado - Discursos, Diários e Arquivo
+Busca de discursos e notas taquigráficas, diários do Congresso digitalizados, Jornal do Senado e arquivos históricos do Legislativo.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Câmara - Discursos - https://www.camara.leg.br/busca-portal?contextoBusca=BuscaDiscursos
+- Câmara - Diários digitalizados - https://imagem.camara.leg.br/diarios.asp
+- Câmara - Arquivo - https://www2.camara.leg.br/a-camara/documentos-e-pesquisa/arquivo
+- Senado - Pronunciamentos - https://www25.senado.leg.br/web/atividade/pronunciamentos
+- Senado - Jornal do Senado - https://www12.senado.leg.br/noticias/acervo-historico/jornal-do-senado
+- Senado - Arquivo - https://www12.senado.leg.br/institucional/arquivo
+
+</details>
+
+### Arquivos da Web
+Arquivos de páginas web para recuperar versões antigas de sites, inclusive de órgãos .gov.br removidos ou alterados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Wayback Machine - gov.br - https://web.archive.org/web/*/gov.br*
+- Arquivo.pt - https://arquivo.pt/
+
+</details>
+
+### IBGE - Memória e Biblioteca
+Acervo histórico do IBGE com censos antigos, anuários estatísticos e publicações digitalizadas desde o século XIX.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Memória IBGE - https://memoria.ibge.gov.br/
+- Biblioteca IBGE - https://biblioteca.ibge.gov.br/
+
+</details>
+
+### Agência Brasil - EBC
+Agência pública de notícias com textos e fotos de livre reprodução, útil para checar datas e contextos de fatos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Agência Brasil - https://agenciabrasil.ebc.com.br/
+
+</details>
+
+### Organização da Sociedade Civil - Igarapé
+Instituto com plataformas de dados sobre segurança, armas, clima e crimes ambientais no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Instituto Igarapé - https://igarape.org.br/
+
+</details>
+
+### Banco Central - Consultas Públicas Úteis
+Cadastro de instituições autorizadas, ranking de reclamações, processos administrativos sancionadores e histórico de cotações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Ranking de reclamações - https://www.bcb.gov.br/estabilidadefinanceira/rankingreclamacoes
+- Processos sancionadores - https://www.bcb.gov.br/estabilidadefinanceira/processos_sancionadores
+- Histórico de cotações - https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes
+- Conversor de moedas - https://www.bcb.gov.br/conversao
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -4332,6 +6608,191 @@ curl 'https://queridodiario.ok.org.br/api/gazettes?territory_id=3550308&since=20
 
 </details>
 
+### BrasilAPI - Endpoints Úteis para Investigação
+Endpoints gratuitos da BrasilAPI para CNPJ, CEP v2, bancos, DDD, domínios .br, participantes do Pix, ISBN, NCM, FIPE, feriados e taxas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CNPJ - https://brasilapi.com.br/api/cnpj/v1/00000000000191
+- CEP v2 com coordenadas - https://brasilapi.com.br/api/cep/v2/01001000
+- Bancos - https://brasilapi.com.br/api/banks/v1
+- DDD - https://brasilapi.com.br/api/ddd/v1/11
+- Domínios .br - https://brasilapi.com.br/api/registrobr/v1/google.com.br
+- Participantes do Pix - https://brasilapi.com.br/api/pix/v1/participants
+- ISBN - https://brasilapi.com.br/api/isbn/v1/9788545702870
+- NCM - https://brasilapi.com.br/api/ncm/v1
+- FIPE - https://brasilapi.com.br/api/fipe/marcas/v1/carros
+- Feriados - https://brasilapi.com.br/api/feriados/v1/2026
+- Taxas (Selic, CDI, IPCA) - https://brasilapi.com.br/api/taxas/v1
+- Código no GitHub - https://github.com/BrasilAPI/BrasilAPI
+
+</details>
+
+### Minha Receita - API de CNPJ
+API aberta e de código livre que serve os dados públicos de CNPJ da Receita Federal, incluindo quadro societário.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Documentação - https://docs.minhareceita.org/
+- Exemplo de consulta - https://minhareceita.org/00000000000191
+- Código no GitHub - https://github.com/cuducos/minha-receita
+
+</details>
+
+### Banco Central - API SGS e Olinda (PTAX, Pix, Tarifas)
+APIs públicas do Banco Central para séries temporais do SGS, cotações PTAX, estatísticas do Pix, tarifas bancárias e expectativas de mercado.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SGS - Exemplo série IPCA - https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json&dataInicial=01/01/2025&dataFinal=31/01/2025
+- PTAX - Cotações de câmbio - https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao
+- Pix - Dados abertos - https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/aplicacao
+- Tarifas bancárias - https://olinda.bcb.gov.br/olinda/servico/Informes_ListaTarifas/versao/v1/aplicacao
+- Expectativas de mercado (Focus) - https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao
+
+</details>
+
+### IBGE - API de Nomes e Localidades
+Endpoints do IBGE com frequência de nomes por década e UF (Censo) e lista oficial de estados, municípios e distritos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Nomes - Exemplo - https://servicodados.ibge.gov.br/api/v2/censos/nomes/maria
+- Localidades - Documentação - https://servicodados.ibge.gov.br/api/docs/localidades
+
+</details>
+
+### IBGE - API SIDRA
+API de agregados do SIDRA para extrair tabelas do Censo, PNAD e pesquisas econômicas em JSON.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- API SIDRA - https://apisidra.ibge.gov.br/
+
+</details>
+
+### Câmara e Senado - Endpoints REST
+Exemplos de endpoints das APIs legislativas: deputados por UF na Câmara e senadores em exercício no Senado.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Câmara - Deputados por UF - https://dadosabertos.camara.leg.br/api/v2/deputados?siglaUf=SP&itens=5
+- Câmara - Swagger - https://dadosabertos.camara.leg.br/swagger/api.html
+- Senado - Senadores em exercício - https://legis.senado.leg.br/dadosabertos/senador/lista/atual
+- Senado - Swagger - https://legis.senado.leg.br/dadosabertos/api-docs/swagger-ui/index.html
+
+</details>
+
+### Portal da Transparência - Swagger da API
+Documentação interativa da API do Portal da Transparência com endpoints de servidores, sanções, contratos, convênios e benefícios.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Swagger - https://api.portaldatransparencia.gov.br/swagger-ui/index.html
+
+</details>
+
+### PNCP - API de Consulta
+API pública do Portal Nacional de Contratações Públicas para consultar editais, atas e contratos de todos os entes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Swagger PNCP - https://pncp.gov.br/api/consulta/swagger-ui/index.html
+
+</details>
+
+### Compras.gov.br - API de Dados Abertos
+API de dados abertos de compras do Governo Federal com licitações, contratos, fornecedores e preços praticados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Swagger Compras - https://dadosabertos.compras.gov.br/swagger-ui/index.html
+
+</details>
+
+### dados.gov.br - API do Catálogo
+API do Portal Brasileiro de Dados Abertos para buscar conjuntos, organizações e recursos de forma automatizada.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Swagger dados.gov.br - https://dados.gov.br/swagger-ui/index.html
+
+</details>
+
+### Conecta gov.br - Catálogo de APIs
+Catálogo oficial de APIs do Governo Federal, com descrição de serviços abertos e de interoperabilidade entre órgãos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Catálogo de APIs - https://www.gov.br/conecta/catalogo/apis
+
+</details>
+
+### Tesouro Nacional - API Siconfi
+API do Siconfi para extrair relatórios fiscais (RREO, RGF, DCA) de estados e municípios.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Documentação - https://apidatalake.tesouro.gov.br/docs/siconfi/
+
+</details>
+
+### MDIC - API Comex Stat
+API oficial de estatísticas de exportação e importação por produto, país, UF e município.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Documentação - https://api-comexstat.mdic.gov.br/docs
+
+</details>
+
+### APIs de CEP Alternativas
+Serviços gratuitos de consulta de CEP com coordenadas geográficas, úteis como redundância ao ViaCEP.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CEP Aberto - https://www.cepaberto.com/
+- OpenCEP - https://opencep.com/
+- Correios - Busca por endereço - https://buscacepinter.correios.com.br/app/endereco/index.php
+
+</details>
+
+### AwesomeAPI - Cotações
+API gratuita de cotações de moedas e criptomoedas em reais, atualizada em tempo quase real.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Documentação - https://docs.awesomeapi.com.br/
+- Exemplo USD-BRL - https://economia.awesomeapi.com.br/json/last/USD-BRL
+
+</details>
+
+### API FIPE (Parallelum)
+API não oficial e gratuita que expõe a tabela FIPE de veículos por marca, modelo e ano.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Documentação - https://deividfortuna.github.io/fipe/
+- Exemplo de marcas - https://parallelum.com.br/fipe/api/v1/carros/marcas
+
+</details>
+
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
@@ -4345,6 +6806,52 @@ Processos administrativos e sanções relacionadas a criptoativos.
 ### CVM - Alertas sobre Fraudes com Criptomoedas
 Comunicados oficiais sobre esquemas fraudulentos.
 - https://www.gov.br/cvm/pt-br/assuntos/noticias
+
+### Banco Central - Ativos Virtuais e Criptoativos
+Regulação dos prestadores de serviços de ativos virtuais (VASP) pelo Banco Central e orientações sobre criptoativos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Ativos virtuais - https://www.bcb.gov.br/estabilidadefinanceira/ativosvirtuais
+- Criptoativos - https://www.bcb.gov.br/estabilidadefinanceira/criptoativos
+
+</details>
+
+### Receita Federal - Criptoativos e IN 1888
+Obrigação de declaração de operações com criptoativos à Receita Federal e texto da Instrução Normativa RFB 1888/2019.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Criptoativos - https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/declaracoes-e-demonstrativos/criptoativos
+- IN RFB 1888/2019 - https://normas.receita.fazenda.gov.br/sijut2consulta/link.action?idAto=100592
+
+</details>
+
+### CVM - Alertas ao Mercado
+Lista de alertas e stop orders da CVM contra pessoas e empresas que oferecem investimentos irregulares, incluindo pirâmides com criptoativos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Alertas CVM - https://www.gov.br/cvm/pt-br/assuntos/protecao/alertas
+- Portal do Investidor - https://www.gov.br/investidor/pt-br
+
+</details>
+
+### Exploradores de Blockchain
+Exploradores públicos para rastrear transações e endereços em Bitcoin e outras redes, com denúncias de golpes associadas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Mempool (Bitcoin) - https://mempool.space/
+- OKLink (multichain) - https://www.oklink.com/
+- WalletExplorer (agrupamento de carteiras) - https://www.walletexplorer.com/
+- Chainabuse (denúncias de golpes) - https://chainabuse.com/
+
+</details>
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -4377,6 +6884,63 @@ Localização de abrigos emergenciais por município.
 ### Mapa de Áreas de Risco
 Identificação de áreas suscetíveis a deslizamentos e inundações.
 - https://www.cprm.gov.br/publique/Gestao-Territorial/Cartas-de-Suscetibilidade-a-Movimentos-Gravitacionais-de-Massa-e-Inundacoes-5511.html
+
+### Defesas Civis Estaduais
+Portais das coordenadorias estaduais de defesa civil com alertas, boletins, decretos de emergência e áreas de risco.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- São Paulo (SP) - https://www.defesacivil.sp.gov.br/
+- Rio de Janeiro (RJ) - https://www.defesacivil.rj.gov.br/
+- Minas Gerais (MG) - https://www.mg.gov.br/defesacivil
+- Espírito Santo (ES) - https://defesacivil.es.gov.br/
+- Paraná (PR) - https://www.defesacivil.pr.gov.br/
+- Santa Catarina (SC) - https://www.defesacivil.sc.gov.br/
+- Rio Grande do Sul (RS) - https://www.defesacivil.rs.gov.br/
+- Bahia (BA) - https://www.ba.gov.br/defesacivil/
+
+</details>
+
+### Defesa Civil Alerta
+Sistema federal de envio de alertas de desastres por SMS e cell broadcast, com orientações de cadastro por CEP.
+- https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/defesa-civil-alerta
+
+### Atlas Digital de Desastres no Brasil
+Série histórica de desastres registrados no país com danos humanos, materiais e prejuízos por município e tipologia.
+- https://atlasdigital.mdr.gov.br/
+
+### INMET - Instituto Nacional de Meteorologia
+Previsão do tempo, alertas meteorológicos, mapas de estações e banco de dados meteorológicos históricos (BDMEP).
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Portal - https://portal.inmet.gov.br/
+- Tempo - https://tempo.inmet.gov.br/
+- Mapas de estações - https://mapas.inmet.gov.br/
+- BDMEP - dados históricos - https://bdmep.inmet.gov.br/
+
+</details>
+
+### SGB - SACE (Alerta de Cheias)
+Sistema de Alerta de Eventos Críticos do Serviço Geológico do Brasil com níveis de rios e previsões de cheias por bacia.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SACE - https://www.sgb.gov.br/sace/
+- Bacias monitoradas - https://www.sgb.gov.br/sace/index_bacias_monitoradas.php
+
+</details>
+
+### Alerta Rio
+Sistema de alerta de chuvas da Prefeitura do Rio com dados dos pluviômetros, radar e estágios operacionais da cidade.
+- https://alertario.rio.rj.gov.br/
+
+### CEPED/UFSC - Estudos sobre Desastres
+Centro de estudos e pesquisas em desastres da UFSC, responsável por atlas, relatórios de danos e capacitações em defesa civil.
+- https://www.ceped.ufsc.br/
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -4418,6 +6982,61 @@ Sistema de registro e acompanhamento de apagões e interrupções.
 ### Tarifa de Energia - Simulador
 Comparação de tarifas de energia elétrica por região.
 - https://www.aneel.gov.br/ranking-das-tarifas
+
+### ANP - Preços de Combustíveis
+Levantamento semanal de preços de combustíveis por município e posto e série histórica de preços em dados abertos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Levantamento semanal - https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas
+- Série histórica - https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/serie-historica-de-precos-de-combustiveis
+
+</details>
+
+### ANP - Painéis Dinâmicos e Autorizações
+Painéis da ANP sobre produção, vendas e mercado de combustíveis, e relatórios de agentes autorizados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Painéis dinâmicos - https://www.gov.br/anp/pt-br/centrais-de-conteudo/paineis-dinamicos-da-anp
+- Relatórios de autorizações - https://www.gov.br/anp/pt-br/assuntos/distribuicao-e-revenda/relatorios-de-autorizacoes
+- Dados abertos - https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
+
+</details>
+
+### ANP - GeoANP
+Mapa da ANP com blocos exploratórios, campos de produção, poços, dutos e instalações de petróleo e gás.
+- https://geomaps.anp.gov.br/geoanp/
+
+### ANEEL - Dados Abertos e Relatórios
+Portal de dados abertos e relatórios da ANEEL sobre geração, distribuição, tarifas, geração distribuída e indicadores de qualidade.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados abertos - https://dadosabertos.aneel.gov.br/
+- Portal de relatórios - https://portalrelatorios.aneel.gov.br/
+- Relatórios e indicadores - https://www.gov.br/aneel/pt-br/centrais-de-conteudos/relatorios-e-indicadores
+
+</details>
+
+### ONS - Dados Abertos e Energia Agora
+Dados abertos do Operador Nacional do Sistema com carga, geração por usina, intercâmbios e mapas do SIN.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Dados abertos - https://dados.ons.org.br/
+- Carga e geração em tempo real - https://www.ons.org.br/paginas/energia-agora/carga-e-geracao
+- Mapas do SIN - https://www.ons.org.br/paginas/sobre-o-sin/mapas
+
+</details>
+
+### EPE - WebMap
+Mapa interativo da EPE com usinas, linhas de transmissão, subestações, gasodutos e infraestrutura energética.
+- https://gisepeprd2.epe.gov.br/WebMapEPE/
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
@@ -4904,6 +7523,1264 @@ Lista oficial dos domínios sob `.gov.br`, publicada como dados abertos pela Sec
 
 ##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
+
+---
+
+## Fontes Internacionais com Cobertura do Brasil 🌍 <a name="fontes-internacionais"></a>
+
+Bases e ferramentas mundiais que retornam resultados relevantes para pessoas, empresas, ativos e infraestrutura ligados ao Brasil. Úteis quando a investigação cruza a fronteira: empresas offshore, listas de sanções, aeronaves e embarcações, domínios hospedados fora do país e verificação de imagens.
+
+> [!NOTE]
+> Fontes estrangeiras seguem as leis do país de origem. O tratamento de dados de pessoas no Brasil continua sujeito à LGPD, e alguns serviços exigem cadastro gratuito ou limitam consultas na versão gratuita.
+
+#### 🏢 Empresas, Offshore e Beneficiário Final
+
+### OpenCorporates - Empresas do Brasil e Diretores
+Maior base aberta de empresas do mundo, com a jurisdição br espelhando dados da Receita e milhões de diretores indexados. Permite achar empresas ligadas a um mesmo nome ou endereço dentro e fora do Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Empresas com jurisdição Brasil - https://opencorporates.com/companies/br
+- Busca geral de empresas - https://opencorporates.com/
+- Busca de diretores e administradores - https://www.opencorporates.com/officers
+- API (chave gratuita para uso público) - https://api.opencorporates.com/
+
+</details>
+
+### OpenCorporates - Jurisdições Offshore e de Interesse
+Atalhos para registros de Delaware, Ilhas Virgens Britânicas, Panamá, Ilhas Cayman, Uruguai, Paraguai e Portugal, destinos frequentes de estruturas societárias de brasileiros. Útil para cruzar nomes de sócios brasileiros com empresas no exterior.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Delaware (EUA) - https://opencorporates.com/companies/us_de
+- Ilhas Virgens Britânicas - https://opencorporates.com/companies/vg
+- Panamá - https://opencorporates.com/companies/pa
+- Ilhas Cayman - https://opencorporates.com/companies/ky
+- Uruguai - https://opencorporates.com/companies/uy
+- Paraguai - https://opencorporates.com/companies/py
+- Portugal - https://opencorporates.com/companies/pt
+
+</details>
+
+### ICIJ - Offshore Leaks Database
+Base do Consórcio Internacional de Jornalistas Investigativos com entidades, intermediários e beneficiários de Panama Papers, Paradise Papers, Pandora Papers e outros vazamentos já publicados jornalisticamente. Permite filtrar por país e encontrar milhares de pessoas e empresas ligadas ao Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca na base Offshore Leaks - https://offshoreleaks.icij.org/
+- Investigações do ICIJ - https://www.icij.org/investigations/
+- Panama Papers - https://www.icij.org/investigations/panama-papers/
+
+</details>
+
+### OCCRP Aleph - Arquivo de Dados Investigativos
+Plataforma do OCCRP que reúne centenas de datasets de registros empresariais, sanções, licitações e documentos de investigações. Busca de nomes cruza registros de vários países, incluindo bases brasileiras e latino-americanas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca no Aleph - https://aleph.occrp.org/
+- Lista de datasets - https://aleph.occrp.org/datasets
+
+</details>
+
+### GLEIF - Identificador de Entidade Legal (LEI)
+Registro global de códigos LEI com nome, endereço, matriz e controladoras de entidades que operam no mercado financeiro. Mostra a cadeia de controle de empresas brasileiras com LEI e de seus veículos no exterior.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca de LEI - https://search.gleif.org/
+- API com filtro de país Brasil - https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalAddress.country%5D=BR&page%5Bsize%5D=1
+- Golden Copy (download completo) - https://www.gleif.org/en/lei-data/gleif-golden-copy
+
+</details>
+
+### Open Ownership - Beneficiários Finais
+Mapa global da situação dos registros de beneficiário final por país e dados no padrão BODS para download. Ajuda a saber onde é possível descobrir quem controla uma empresa estrangeira ligada a um brasileiro.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Mapa de registros de beneficiário final - https://www.openownership.org/en/map/
+- Dados BODS para download - https://bods-data.openownership.org/
+
+</details>
+
+### SEC EDGAR - Empresas Listadas nos EUA
+Documentos arquivados na SEC por empresas brasileiras com ADRs ou dívida nos EUA, como Petrobras, Vale e Itaú (formulários 20-F, 6-K). Traz administradores, partes relacionadas, litígios e fatores de risco em detalhe.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca textual completa - https://www.sec.gov/edgar/search/
+- Busca de empresas - https://www.sec.gov/edgar/searchedgar/companysearch
+- Empresas com sede no Brasil (código D5) - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&State=D5&type=&dateb=&owner=include&count=40
+- API de busca textual (JSON) - https://efts.sec.gov/LATEST/search-index?q=%22Brazil%22
+
+</details>
+
+### Delaware - Division of Corporations
+Busca oficial de entidades registradas em Delaware, estado preferido para holdings e veículos de investimento. Retorna número de arquivo, data de constituição e agente registrado.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca de entidades - https://icis.corp.delaware.gov/ecorp/entitysearch/namesearch.aspx
+
+</details>
+
+### Registros Estaduais dos EUA (Flórida, Wyoming, Nevada, Califórnia)
+Buscas oficiais de empresas em estados com grande presença de brasileiros (Flórida) ou populares para empresas de fachada (Wyoming, Nevada). Mostram administradores, endereço e histórico de arquivamentos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Flórida - Sunbiz - https://search.sunbiz.org/Inquiry/CorporationSearch/ByName
+- Wyoming - Filing Search - https://wyobiz.wyo.gov/Business/FilingSearch.aspx
+- Nevada - SilverFlume - https://esos.nv.gov/EntitySearch/OnlineEntitySearch
+- Califórnia - bizfile - https://bizfileonline.sos.ca.gov/search/business
+
+</details>
+
+### Panamá - Registro Público e Panadata
+Registro Público do Panamá e o buscador Panadata, que indexa sociedades anônimas, fundações de interesse privado, diretores e agentes residentes panamenhos. Útil para rastrear offshores citadas em investigações envolvendo brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Registro Público de Panamá - https://www.registro-publico.gob.pa/
+- Panadata - https://www.panadata.net/
+
+</details>
+
+### Ilhas Virgens Britânicas e Ilhas Cayman - Reguladores
+Listas públicas de entidades reguladas (fundos, bancos, administradoras e prestadores de serviços corporativos) da BVI FSC e da CIMA de Cayman. Confirmam se um fundo ou gestora citada por um brasileiro é de fato autorizada.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- BVI FSC - Entidades reguladas - https://www.bvifsc.vg/regulated-entities
+- CIMA (Cayman) - Busca de entidades - https://www.cima.ky/search-entities-cima
+
+</details>
+
+### Dependências da Coroa Britânica (Jersey, Guernsey, Ilha de Man)
+Registros de empresas de jurisdições offshore tradicionais, com busca por nome e situação. Complementam o rastreamento de estruturas usadas por grupos brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Jersey - Registry - https://www.jerseyfsc.org/registry/registry-entities/
+- Guernsey - Registry - https://www.guernseyregistry.com/
+- Ilha de Man - Companies Registry - https://services.gov.im/ded/services/companiesregistry/companysearch.iom
+
+</details>
+
+### Reino Unido - Companies House
+Registro britânico gratuito com diretores, sócios com controle significativo (PSC) e balanços. Permite buscar diretores por nome e achar brasileiros à frente de empresas no Reino Unido.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca de empresas e diretores - https://find-and-update.company-information.service.gov.uk/
+
+</details>
+
+### Portugal - Atos Societários e Empresas
+Publicações oficiais de atos societários e bases de empresas portuguesas, país com muitas empresas abertas por brasileiros. Mostram constituição, sócios, gerentes e alterações contratuais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Publicações de atos societários (MJ) - https://publicacoes.mj.pt/
+- Racius - Empresas portuguesas - https://www.racius.com/
+- Citius - Publicações judiciais - https://www.citius.mj.pt/
+
+</details>
+
+### Registros Comerciais Europeus
+Registros oficiais de empresas de Holanda, Suíça, Luxemburgo, Alemanha, França e Espanha, países usados por holdings de grupos brasileiros. Retornam situação, sede, administradores e, em alguns casos, documentos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Holanda - KvK - https://www.kvk.nl/zoeken/
+- Suíça - Zefix - https://www.zefix.ch/
+- Luxemburgo - LBR - https://www.lbr.lu/
+- Alemanha - Unternehmensregister - https://www.unternehmensregister.de/
+- França - Annuaire des Entreprises - https://annuaire-entreprises.data.gouv.fr/
+- Espanha - Registradores - https://www.registradores.org/
+
+</details>
+
+### North Data - Rede de Empresas Europeias
+Agrega registros comerciais europeus e mostra redes de pessoas e empresas em grafo. Ajuda a mapear a atuação de executivos brasileiros na Europa.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- North Data - https://www.northdata.com/
+
+</details>
+
+### LittleSis - Mapa de Relações de Poder
+Base colaborativa de conexões entre executivos, empresas, doadores e políticos, com foco nos EUA. Útil para ver vínculos de multinacionais e investidores com negócios no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- LittleSis - https://littlesis.org/
+- Busca por Brazil - https://littlesis.org/search?q=brazil
+
+</details>
+
+### EUA - Lobby e Agentes Estrangeiros (FARA) e Gastos Federais
+Registros FARA de agentes que representam governos e empresas estrangeiras nos EUA, incluindo contratos ligados ao Brasil, e base de contratos e repasses federais americanos. Mostra lobby e pagamentos envolvendo entidades brasileiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- FARA - Busca de registros - https://efile.fara.gov/ords/fara/f?p=1381:1
+- USAspending - https://www.usaspending.gov/
+- LobbyFacts (lobby na União Europeia) - https://www.lobbyfacts.eu/
+
+</details>
+
+#### 🚫 Sanções, PEP e Procurados
+
+### OpenSanctions - Sanções e PEPs
+Agrega centenas de listas de sanções, PEPs e entidades de interesse criminal, incluindo bases brasileiras como CEIS. Permite filtrar por Brasil e conferir se uma pessoa ou empresa aparece em listas internacionais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca - https://www.opensanctions.org/
+- Pesquisa filtrada por Brasil - https://www.opensanctions.org/search/?countries=br
+- Catálogo de datasets - https://www.opensanctions.org/datasets/
+- Dataset CEIS (Brasil) - https://www.opensanctions.org/datasets/br_ceis/
+
+</details>
+
+### OFAC - Lista SDN (Tesouro dos EUA)
+Lista de pessoas e empresas bloqueadas pelo Tesouro americano, com busca por nome, país e programa. Inclui alvos brasileiros sancionados por narcotráfico, corrupção e Magnitsky.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Sanctions List Search - https://sanctionssearch.ofac.treas.gov/
+- Lista SDN para download - https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists
+
+</details>
+
+### ONU - Lista Consolidada do Conselho de Segurança
+Lista de pessoas e entidades sujeitas a sanções do Conselho de Segurança, que o Brasil é obrigado a cumprir pela Lei 13.810/2019. Base para checar terrorismo e proliferação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Lista consolidada - https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list
+
+</details>
+
+### União Europeia - Sanções
+Mapa interativo dos regimes de sanções da UE e lista consolidada oficial para download. Confere se um alvo ligado ao Brasil foi sancionado pela UE.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- EU Sanctions Map - https://www.sanctionsmap.eu/
+- Lista consolidada (data.europa.eu) - https://data.europa.eu/data/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions
+
+</details>
+
+### Reino Unido - UK Sanctions List
+Busca e download da lista oficial de sanções britânicas. Complementa a checagem de pessoas e empresas brasileiras com negócios na Europa.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca na lista - https://search-uk-sanctions-list.service.gov.uk/
+- Publicação oficial - https://www.gov.uk/government/publications/the-uk-sanctions-list
+
+</details>
+
+### Banco Mundial e BID - Empresas Impedidas (Debarred)
+Listas de empresas e pessoas proibidas de participar de contratos financiados pelo Banco Mundial e pelo BID por fraude ou corrupção. Inclui várias empreiteiras e consultorias brasileiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Banco Mundial - Debarred Firms - https://www.worldbank.org/en/projects-operations/procurement/debarred-firms
+- Banco Mundial - Sistema de sanções - https://www.worldbank.org/en/about/unit/sanctions-system/osd
+- BID - Empresas e indivíduos sancionados - https://www.iadb.org/en/transparency/sanctioned-firms-and-individuals
+- BID - Dataset aberto de sancionados - https://data.iadb.org/dataset/dataset-of-sanctioned-firms-and-individuals
+
+</details>
+
+### INTERPOL - Difusões Vermelhas e Amarelas
+Busca pública das difusões vermelhas (procurados para extradição) e amarelas (desaparecidos), com filtro por nacionalidade. Permite listar brasileiros procurados ou desaparecidos no exterior.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Difusões vermelhas - https://www.interpol.int/How-we-work/Notices/Red-Notices/View-Red-Notices
+- Difusões amarelas (desaparecidos) - https://www.interpol.int/How-we-work/Notices/Yellow-Notices/View-Yellow-Notices
+
+</details>
+
+### EUA - Procurados Federais (FBI, ICE, DEA)
+Listas públicas de foragidos das agências federais americanas, com fotos e descrição. Incluem brasileiros procurados por tráfico, fraude e crimes violentos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- FBI Most Wanted - https://www.fbi.gov/wanted
+- ICE Most Wanted - https://www.ice.gov/most-wanted
+- DEA Fugitives - https://www.dea.gov/fugitives
+
+</details>
+
+### Europol - EU Most Wanted
+Lista dos foragidos mais procurados da Europa, com filtro por nacionalidade e crime. Útil para brasileiros procurados em países europeus.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- EU Most Wanted - https://eumostwanted.eu/
+- Europol - https://www.europol.europa.eu/
+
+</details>
+
+### GAFI/FATF - Listas Negra e Cinza
+Jurisdições de alto risco e sob monitoramento reforçado em lavagem de dinheiro. Ajuda a avaliar o risco de contrapartes e destinos de recursos saídos do Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Listas de jurisdições - https://www.fatf-gafi.org/en/countries/black-and-grey-lists.html
+
+</details>
+
+#### 🚢 Transporte, Logística e Comércio
+
+### ADS-B Exchange e Rastreadores sem Filtro
+Mapas de voos ao vivo e histórico a partir de receptores comunitários, sem ocultar aeronaves por pedido do dono. Úteis para acompanhar jatos executivos, táxis aéreos e aeronaves suspeitas no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ADS-B Exchange - https://globe.adsbexchange.com/
+- adsb.lol - https://www.adsb.lol/
+- airplanes.live - https://globe.airplanes.live/
+
+</details>
+
+### OpenSky Network
+Rede aberta de dados ADS-B com mapa ao vivo e acesso a dados históricos para pesquisa. Permite reconstruir trajetos de aeronaves sobre o Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- OpenSky Network - https://opensky-network.org/
+- Mapa ao vivo - https://map.opensky-network.org/
+
+</details>
+
+### FlightAware
+Rastreamento de voos com histórico por matrícula e aeroporto. Ajuda a ver deslocamentos recentes de aeronaves de prefixo PP, PR, PS e PT.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- FlightAware - https://www.flightaware.com/
+
+</details>
+
+### Registro e Fotos de Aeronaves
+Bases de matrícula, histórico de proprietários e fotos de aeronaves. Permitem identificar aviões vendidos do Brasil para o exterior e vice-versa, e confirmar a aparência de uma aeronave em imagens.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- FAA Registry (EUA) - https://registry.faa.gov/aircraftinquiry/
+- Airframes.org - https://www.airframes.org/
+- Planespotters - https://www.planespotters.net/
+- JetPhotos - https://www.jetphotos.com/
+
+</details>
+
+### Global Fishing Watch
+Mapa de atividade pesqueira e de navios a partir de AIS e satélite, incluindo transbordos e embarcações sem AIS. Útil para pesca ilegal na costa brasileira e rastreamento de navios.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Mapa - https://globalfishingwatch.org/map
+- Global Fishing Watch - https://globalfishingwatch.org/
+
+</details>
+
+### Rastreamento de Navios (AIS)
+Posição e histórico de navios por nome, IMO ou MMSI, com chegadas a portos brasileiros. Alternativas gratuitas que complementam o MarineTraffic.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- VesselFinder - https://www.vesselfinder.com/
+- MyShipTracking - https://www.myshiptracking.com/
+- BalticShipping - Base de navios - https://www.balticshipping.com/vessels
+
+</details>
+
+### Registro de Navios (Equasis, IMO GISIS, ITU MARS)
+Bases oficiais com proprietário registrado, gestor, bandeira, inspeções e estação de rádio de navios. Revelam empresas por trás de embarcações que operam em portos brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Equasis - https://www.equasis.org/
+- IMO GISIS - https://gisis.imo.org/Public/Default.aspx
+- ITU MARS - Estações de navio - https://www.itu.int/mmsapp/ShipStation/list
+
+</details>
+
+### IMF PortWatch
+Painel do FMI com chamadas de navios e volume de comércio por porto a partir de AIS, incluindo portos brasileiros. Serve para detectar interrupções e anomalias logísticas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- PortWatch - https://portwatch.imf.org/
+
+</details>
+
+### ImportYeti - Conhecimentos de Embarque dos EUA
+Busca gratuita em registros de importação marítima dos EUA por empresa. Mostra fornecedores brasileiros que exportam para os EUA, compradores e volumes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ImportYeti - https://www.importyeti.com/
+
+</details>
+
+### Estatísticas de Comércio Internacional
+Bases de comércio exterior por país, produto (HS) e parceiro. Permitem checar se fluxos declarados por empresas brasileiras batem com as estatísticas espelho dos países de destino.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- UN Comtrade - https://comtradeplus.un.org/
+- WITS (Banco Mundial) - https://wits.worldbank.org/
+- OEC - Perfil do Brasil - https://oec.world/en/profile/country/bra
+- Trade Map (ITC) - https://www.trademap.org/
+
+</details>
+
+### Trase - Cadeias de Commodities
+Mapeia exportadores, importadores e municípios de origem de soja, carne e outras commodities brasileiras, com risco de desmatamento associado. Útil para investigar tradings e frigoríficos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Trase - https://trase.earth/
+
+</details>
+
+#### 🌐 Domínios, IPs e Infraestrutura
+
+### crt.sh - Transparência de Certificados
+Busca em logs de certificados TLS por domínio ou organização. Revela subdomínios e sites ligados a um domínio .br, inclusive ambientes ocultos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- crt.sh - https://crt.sh/
+
+</details>
+
+### DNSDumpster
+Mapeamento de registros DNS, subdomínios e servidores de um domínio. Útil para entender a infraestrutura de sites brasileiros suspeitos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- DNSDumpster - https://dnsdumpster.com/
+
+</details>
+
+### SecurityTrails
+Histórico de DNS e WHOIS e busca reversa por IP e servidores. Mostra para onde um domínio apontou no passado e outros domínios no mesmo IP.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SecurityTrails - https://securitytrails.com/
+
+</details>
+
+### ViewDNS.info
+Conjunto de ferramentas de DNS, WHOIS reverso, histórico de IP e domínios no mesmo servidor. Ajuda a ligar sites de golpe hospedados juntos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ViewDNS - https://viewdns.info/
+
+</details>
+
+### Hurricane Electric BGP Toolkit
+Informações de ASNs, prefixos e peering, com lista de todos os sistemas autônomos do Brasil. Identifica o provedor e a rede responsável por um IP.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ASNs do Brasil - https://bgp.he.net/country/BR
+
+</details>
+
+### RIPEstat
+Painel de dados de roteamento, geolocalização, histórico de anúncios BGP e WHOIS de qualquer IP ou ASN. Funciona para redes brasileiras alocadas pelo LACNIC e NIC.br.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- RIPEstat - https://stat.ripe.net/
+- RIPE NCC - https://www.ripe.net/
+
+</details>
+
+### PeeringDB
+Base de redes, pontos de troca de tráfego (IX.br) e data centers com contatos técnicos. Ajuda a identificar onde um provedor brasileiro está presente.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- PeeringDB - https://www.peeringdb.com/
+
+</details>
+
+### LACNIC - WHOIS e RDAP
+Registro regional de IPs e ASNs da América Latina, com titular, contatos e blocos atribuídos. Resolve IPs de países vizinhos e encaminha consultas de IPs brasileiros ao Registro.br.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- WHOIS web (MiLACNIC) - https://query.milacnic.lacnic.net/
+- RDAP exemplo por ASN - https://rdap.lacnic.net/rdap/autnum/28000
+- Documentação do WHOIS - https://www.lacnic.net/1040/2/lacnic/lacnics-whois
+
+</details>
+
+### WHOIS e RDAP Globais de Domínios
+Consulta de titular, registrador e datas de domínios genéricos (.com, .net, .org) usados por brasileiros fora do .br. Útil para golpes que usam domínios estrangeiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ICANN Lookup - https://lookup.icann.org/
+- DomainTools WHOIS - https://whois.domaintools.com/
+- who.is - https://who.is/
+- Whois.com - https://www.whois.com/whois/
+
+</details>
+
+### Censys
+Motor de busca de hosts, certificados e serviços expostos na internet. Alternativa ao Shodan para mapear servidores em redes brasileiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Censys Platform - https://platform.censys.io/
+
+</details>
+
+### Motores de Busca de Dispositivos (Criminal IP, ZoomEye, FOFA)
+Alternativas ao Shodan que indexam serviços, banners e certificados expostos. Ampliam a visão de infraestrutura exposta em IPs do Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Criminal IP - https://www.criminalip.io/
+- ZoomEye - https://www.zoomeye.ai/
+- FOFA - https://fofa.info/
+
+</details>
+
+### GreyNoise
+Classifica IPs que fazem varreduras em massa na internet como benignos ou maliciosos. Ajuda a saber se um IP brasileiro em logs é scanner conhecido.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- GreyNoise Visualizer - https://viz.greynoise.io/
+
+</details>
+
+### AbuseIPDB
+Base colaborativa de denúncias de abuso por IP, com histórico e categorias de ataque. Mostra se um IP de provedor brasileiro já foi denunciado.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- AbuseIPDB - https://www.abuseipdb.com/
+
+</details>
+
+### Have I Been Pwned - Checagem de Exposição
+Informa se um e-mail apareceu em incidentes de vazamento conhecidos, sem exibir os dados vazados. Serve para avaliar a exposição de contas de vítimas ou organizações brasileiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Have I Been Pwned - https://haveibeenpwned.com/
+
+</details>
+
+### Inteligência de Ameaças (OTX, abuse.ch, PhishTank)
+Bases abertas de indicadores de comprometimento, URLs de malware e phishing. Permitem checar se um domínio ou IP ligado a golpes no Brasil já foi reportado.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- AlienVault OTX - https://otx.alienvault.com/
+- URLhaus - https://urlhaus.abuse.ch/
+- ThreatFox - https://threatfox.abuse.ch/
+- PhishTank - https://phishtank.org/
+
+</details>
+
+### Hybrid Analysis
+Sandbox gratuita de análise de arquivos e URLs com relatórios públicos. Útil para examinar anexos e APKs de golpes que circulam no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Hybrid Analysis - https://www.hybrid-analysis.com/
+
+</details>
+
+### Tecnologias e Código de Sites (BuiltWith, Wappalyzer, PublicWWW)
+Identificam tecnologias, IDs de Google Analytics e AdSense e trechos de código em sites. Permitem ligar vários sites ao mesmo operador pelo mesmo ID de rastreamento.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- BuiltWith - https://builtwith.com/
+- Wappalyzer - https://www.wappalyzer.com/
+- PublicWWW - https://publicwww.com/
+
+</details>
+
+### Web-Check
+Relatório único com DNS, SSL, cabeçalhos, tecnologias, portas e histórico de um site. Agiliza a triagem de domínios suspeitos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Web-Check - https://web-check.xyz/
+
+</details>
+
+### IPinfo
+Geolocalização, ASN, provedor e tipo de conexão de IPs, com ranking de redes do Brasil. Ajuda a distinguir IP residencial, de data center ou de VPN.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Redes do Brasil - https://ipinfo.io/countries/br
+- IPinfo - https://ipinfo.io/
+
+</details>
+
+### Utilitários de DNS e Rede
+Ferramentas de consulta DNS, MX, subdomínios, DNS reverso e DNS passivo. Complementam a investigação de domínios e e-mails usados em fraudes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- MXToolbox - https://mxtoolbox.com/
+- HackerTarget IP Tools - https://hackertarget.com/ip-tools/
+- Robtex - https://www.robtex.com/
+- Subdomain Finder (C99) - https://subdomainfinder.c99.nl/
+- Google Public DNS - https://dns.google/
+- CIRCL Passive DNS (sob solicitação) - https://www.circl.lu/services/passive-dns/
+
+</details>
+
+#### 🗄️ Arquivos da Web e Verificação
+
+### Internet Archive - Wayback Machine
+Arquivo histórico de páginas web desde 1996, com capturas de sites governamentais e empresariais brasileiros. Recupera conteúdo apagado e permite arquivar páginas como prova.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Wayback Machine - https://web.archive.org/
+- Internet Archive - https://archive.org/
+
+</details>
+
+### Outros Arquivos Web (archive.today, Ghost Archive, CachedView)
+Serviços alternativos de arquivamento e busca de capturas antigas. Úteis quando a Wayback Machine não capturou ou foi bloqueada, e para preservar posts de redes sociais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- archive.today - https://archive.ph/
+- Ghost Archive - https://ghostarchive.org/
+- CachedView - https://cachedview.nl/
+
+</details>
+
+### Google Fact Check Explorer
+Busca checagens publicadas por agências do mundo todo via ClaimReview, incluindo as brasileiras, e permite busca por imagem. Mostra se uma alegação já foi verificada.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Fact Check Explorer - https://toolbox.google.com/factcheck/explorer
+
+</details>
+
+### InVID / WeVerify - Plugin de Verificação
+Extensão para navegador com quadros-chave de vídeo, busca reversa, metadados e análise forense. Padrão das redações brasileiras para checar vídeos virais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- InVID - https://www.invid-project.eu/tools-and-services/invid-verification-plugin/
+- WeVerify - https://weverify.eu/verification-plugin/
+
+</details>
+
+### Busca Reversa de Imagens (TinEye, Google, Yandex, Bing)
+Encontram a origem e outras ocorrências de uma imagem. Essenciais para desmontar fotos fora de contexto e perfis falsos com fotos roubadas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- TinEye - https://tineye.com/
+- Google Imagens - https://images.google.com/
+- Google Lens - https://lens.google.com/
+- Yandex Imagens - https://yandex.com/images/
+- Bing Imagens - https://www.bing.com/images/feed
+- IMGOps (vários buscadores) - https://imgops.com/
+
+</details>
+
+### Análise Forense de Imagens
+Ferramentas de ELA, clonagem e ruído para detectar manipulação em fotos. Ajudam a avaliar imagens adulteradas em disputas e desinformação.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- FotoForensics - https://fotoforensics.com/
+- Forensically (29a.ch) - https://29a.ch/photo-forensics/
+
+</details>
+
+### Metadados de Arquivos (EXIF)
+Extraem data, câmera, software e coordenadas GPS de fotos, vídeos e documentos. Podem revelar onde e quando um arquivo foi produzido.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ExifTool - https://exiftool.org/
+- exif.tools - https://exif.tools/
+- Metadata2Go - https://www.metadata2go.com/
+
+</details>
+
+### Google Ads Transparency Center
+Biblioteca de anúncios do Google filtrada para o Brasil, inclusive anúncios políticos. Mostra quem pagou anúncios e quais criativos foram veiculados.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Anunciantes no Brasil - https://adstransparency.google.com/?region=BR
+- Anúncios políticos - https://transparencyreport.google.com/political-ads/region/BR
+
+</details>
+
+### Junkipedia
+Plataforma de monitoramento de conteúdo em redes sociais abertas, como Telegram e TikTok, usada para pesquisa de desinformação. Útil para acompanhar narrativas que circulam no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Junkipedia - https://www.junkipedia.org/
+
+</details>
+
+#### 🛰️ Imagens de Satélite e Geolocalização
+
+### Copernicus Browser e Sentinel Hub EO Browser
+Imagens Sentinel-1, Sentinel-2 e Landsat gratuitas, com revisita de poucos dias e índices como NDVI. Permitem ver desmatamento, garimpo, enchentes e obras em qualquer ponto do Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Copernicus Browser - https://browser.dataspace.copernicus.eu/
+- EO Browser - https://apps.sentinel-hub.com/eo-browser/
+
+</details>
+
+### Copernicus EMS - Mapeamento de Emergências
+Mapas de danos produzidos por satélite em desastres, como as enchentes do Rio Grande do Sul. Úteis para dimensionar áreas atingidas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Copernicus Emergency Management - https://emergency.copernicus.eu/
+
+</details>
+
+### NASA FIRMS - Focos de Incêndio
+Focos de calor MODIS e VIIRS quase em tempo real, com histórico para download. Complementa o INPE na checagem de queimadas no Brasil.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Mapa FIRMS - https://firms.modaps.eosdis.nasa.gov/map/
+- Mapa centrado no Brasil - https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@-52.0,-14.0,4.0z
+
+</details>
+
+### Google Earth, Earth Engine e Timelapse
+Imagens históricas e animações de 1984 até hoje para ver mudanças no território. Mostram a evolução de fazendas, garimpos, loteamentos e áreas urbanas brasileiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Timelapse - https://earthengine.google.com/timelapse/
+- Google Earth Web - https://earth.google.com/web/
+- Earth Engine - https://earthengine.google.com/
+
+</details>
+
+### Imagens Históricas e Diárias (Esri Wayback, Worldview, EarthExplorer, Planet)
+Arquivos de imagens de satélite por data, de mosaicos de alta resolução a imagens diárias. Permitem datar construções e eventos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Esri World Imagery Wayback - https://livingatlas.arcgis.com/wayback/
+- NASA Worldview - https://worldview.earthdata.nasa.gov/
+- USGS EarthExplorer - https://earthexplorer.usgs.gov/
+- Planet Explorer - https://www.planet.com/explorer/
+- Zoom Earth - https://zoom.earth/
+
+</details>
+
+### Global Forest Watch (Global Nature Watch)
+Painéis de perda de cobertura florestal e alertas de desmatamento por país, estado e município. Dados do Brasil úteis para cruzar com propriedades rurais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Painel do Brasil - https://www.globalforestwatch.org/dashboards/country/BRA/
+
+</details>
+
+### OpenStreetMap e Overpass Turbo
+Mapa colaborativo com consultas avançadas por tipo de objeto, como pistas de pouso, antenas ou postos em uma área. Ajuda a geolocalizar fotos e listar estruturas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Overpass Turbo - https://overpass-turbo.eu/
+- OpenStreetMap - https://www.openstreetmap.org/
+- Fronteira do Brasil no OSM - https://www.openstreetmap.org/relation/59470
+- OpenHistoricalMap - https://www.openhistoricalmap.org/
+
+</details>
+
+### Imagens de Rua (Mapillary, KartaView)
+Fotos de nível de rua colaborativas, que cobrem trechos do Brasil sem Street View. Úteis para confirmar locais de fotos e vídeos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Mapillary - https://www.mapillary.com/app/
+- KartaView - https://kartaview.org/map/
+
+</details>
+
+### Cronolocalização por Sombras e Relevo (SunCalc, ShadowFinder, PeakVisor)
+Calculam posição do sol e sombras e identificam montanhas no horizonte. Ajudam a estimar hora e local de imagens.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SunCalc - https://www.suncalc.org/
+- ShadowFinder (Bellingcat) - https://github.com/bellingcat/ShadowFinder
+- PeakVisor - https://www.peakvisor.com/
+
+</details>
+
+### Wikimapia, MapChecking e GeoSpy
+Mapa colaborativo com descrição de lugares, estimador de público em áreas e geolocalização de fotos assistida por IA. Úteis para checar atos e manifestações.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Wikimapia - https://wikimapia.org/
+- MapChecking (estimativa de público) - https://www.mapchecking.com/
+- GeoSpy - https://geospy.ai/
+
+</details>
+
+### ACLED - Dados de Conflitos e Protestos
+Base georreferenciada de eventos de violência política e protestos, com cobertura do Brasil. Útil para análise de violência e mobilizações por município.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- ACLED - https://acleddata.com/
+
+</details>
+
+#### 👤 Pessoas, Usernames e E-mails
+
+### WhatsMyName
+Verifica a existência de um nome de usuário em centenas de sites, inclusive plataformas brasileiras. Projeto aberto com lista mantida pela comunidade.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- WhatsMyName Web - https://whatsmyname.app/
+- Repositório - https://github.com/WebBreacher/WhatsMyName
+
+</details>
+
+### Sherlock, Maigret, Blackbird e Nexfil
+Ferramentas de linha de comando que procuram um username em centenas de sites. O Maigret também extrai dados dos perfis encontrados e gera relatório.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Sherlock - https://github.com/sherlock-project/sherlock
+- Maigret - https://github.com/soxoj/maigret
+- Blackbird - https://github.com/p1ngul1n0/blackbird
+- Nexfil - https://github.com/thewhiteh4t/nexfil
+
+</details>
+
+### Holehe e GHunt
+Holehe verifica em quais sites um e-mail tem conta cadastrada, e GHunt extrai informações públicas de contas Google. Ajudam a ligar e-mails a serviços e perfis.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Holehe - https://github.com/megadose/holehe
+- GHunt - https://github.com/mxrch/GHunt
+
+</details>
+
+### Buscadores Web de Username
+Checagem rápida de usernames em redes e serviços sem instalar nada. Útil para triagem inicial de perfis.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Namechk - https://namechk.com/
+- Instant Username - https://instantusername.com/
+- UserSearch.org - https://usersearch.org/
+
+</details>
+
+### Gravatar, Keybase e about.me
+Perfis públicos associados a e-mails ou usernames, com fotos, links e chaves. Um Gravatar pode revelar foto e nome ligados a um e-mail.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Gravatar - https://gravatar.com/
+- Keybase - https://keybase.io/
+- about.me - https://about.me/
+
+</details>
+
+### Bluesky - Busca
+Busca de posts e perfis no Bluesky, rede que recebeu muitos usuários brasileiros. Funciona sem login para conteúdo público.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Busca no Bluesky - https://bsky.app/search
+
+</details>
+
+### Frameworks de Automação OSINT (SpiderFoot, theHarvester, Recon-ng)
+Ferramentas abertas que automatizam coleta sobre domínios, e-mails, nomes e IPs a partir de dezenas de fontes. Úteis para mapear rapidamente a exposição de uma organização brasileira.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SpiderFoot - https://github.com/smicallef/spiderfoot
+- theHarvester - https://github.com/laramies/theHarvester
+- Recon-ng - https://github.com/lanmaster53/recon-ng
+
+</details>
+
+#### 🌎 América Latina e Mercosul
+
+### Argentina - CUIT e Constância de Inscrição
+Consulta de CUIT/CUIL por nome e constância de inscrição tributária na AFIP/ARCA. Identifica empresas e pessoas argentinas ligadas a investigados brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CuitOnline - https://www.cuitonline.com/
+- Constância de inscrição (AFIP) - https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do
+- AFIP/ARCA - https://www.afip.gob.ar/
+
+</details>
+
+### Argentina - Boletim Oficial, IGJ e Registro de Sociedades
+Publicações societárias, nomeações e editais no Boletín Oficial, além da Inspeção Geral de Justiça e do Registro Nacional de Sociedades. Mostram constituição e diretores de empresas argentinas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Boletín Oficial - https://www.boletinoficial.gob.ar/
+- Inspección General de Justicia - https://www.argentina.gob.ar/justicia/igj
+- Registro Nacional de Sociedades - https://www.argentina.gob.ar/justicia/registro-nacional-sociedades
+
+</details>
+
+### Argentina - Justiça e UIF
+Consulta de causas do Poder Judiciário da Nação, jurisprudência da Corte Suprema, Registro Nacional de Reincidência e Unidade de Informação Financeira. Úteis para casos transfronteiriços.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Consulta de causas (PJN) - https://scw.pjn.gov.ar/scw/home.seam
+- Poder Judicial de la Nación - https://www.pjn.gov.ar/
+- Corte Suprema (CSJN) - https://www.csjn.gov.ar/
+- Registro Nacional de Reincidencia - https://www.argentina.gob.ar/justicia/reincidencia
+- UIF Argentina - https://www.argentina.gob.ar/uif
+
+</details>
+
+### Paraguai - Justiça, Ministério Público e DNIT
+Consultas do Poder Judiciário, Ministério Público, serviços sem senha da DNIT (antiga SET) para RUC e a SEPRELAD, unidade de inteligência financeira. Essenciais para investigações na fronteira e em empresas paraguaias de brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Poder Judicial - https://www.pj.gov.py/
+- Ministerio Público - https://www.ministeriopublico.gov.py/
+- DNIT - Serviços sem senha (RUC) - https://www.dnit.gov.py/web/portal-institucional/servicios-online-sin-clave-de-acceso
+- SEPRELAD - https://www.seprelad.gov.py/
+
+</details>
+
+### Paraguai - Contratações Públicas e Dados Abertos
+Portal de compras públicas com fornecedores e contratos, além do catálogo de dados abertos e do Ministério de Indústria e Comércio. Útil para rastrear empresas brasileiras contratadas no Paraguai.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Contrataciones Públicas (DNCP) - https://www.contrataciones.gov.py/
+- Datos Abiertos - https://www.datos.gov.py/
+- Ministerio de Industria y Comercio - https://www.mic.gov.py/
+
+</details>
+
+### Uruguai - IMPO, Justiça, DGI e Dados Abertos
+Diário Oficial e bases normativas (IMPO), consulta do Poder Judiciário, Direção Geral Impositiva e catálogo de dados abertos. Ajudam a investigar sociedades uruguaias usadas por brasileiros.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- IMPO - Diario Oficial - https://www.impo.com.uy/
+- Poder Judicial - https://www.poderjudicial.gub.uy/
+- DGI - https://www.gub.uy/direccion-general-impositiva/
+- Catálogo de Datos Abiertos - https://catalogodatos.gub.uy/
+
+</details>
+
+### Chile - Empresas, SII e Diário Oficial
+Registro de Empresas e Sociedades, consulta de situação tributária de terceiros no SII e publicações societárias do Diario Oficial. Mostram sócios e situação de empresas chilenas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Registro de Empresas y Sociedades - https://www.registrodeempresasysociedades.cl/
+- SII - Situação tributária de terceiros - https://www.sii.cl/como_se_hace_para/situacion_trib_terceros.html
+- Diario Oficial - https://www.diariooficial.interior.gob.cl/
+
+</details>
+
+### Chile - Justiça, Compras Públicas e UAF
+Oficina Judicial Virtual para consulta de causas, Mercado Público e ChileCompra para contratos, e Unidade de Análise Financeira. Complementam due diligence no Chile.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Oficina Judicial Virtual - https://oficinajudicialvirtual.pjud.cl/
+- Mercado Público - https://www.mercadopublico.cl/
+- ChileCompra - https://www.chilecompra.cl/
+- UAF - https://www.uaf.cl/
+- Datos Abiertos - https://datos.gob.cl/
+
+</details>
+
+### Peru - SUNAT e Dados Abertos
+Portal tributário peruano, com consulta de RUC, e catálogo de dados abertos do governo. Úteis para empresas na tríplice fronteira amazônica e obras de empreiteiras brasileiras no Peru.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- SUNAT - https://www.sunat.gob.pe/
+- Datos Abiertos - https://www.datosabiertos.gob.pe/
+
+</details>
+
+### OCCRP - Investigações
+Consórcio de jornalismo investigativo sobre crime organizado e corrupção, com reportagens sobre Brasil e América Latina. Fonte de contexto e documentos sobre redes transnacionais.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- OCCRP - https://www.occrp.org/en
+- Investigações - https://www.occrp.org/en/investigations
+
+</details>
+
+### InSight Crime
+Centro de pesquisa sobre crime organizado nas Américas, com perfis de PCC, Comando Vermelho e rotas na fronteira. Ajuda a contextualizar investigações sobre facções brasileiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- InSight Crime (inglês) - https://insightcrime.org/
+- InSight Crime (espanhol) - https://insightcrime.org/es/
+
+</details>
+
+### Jornalismo Investigativo Latino-americano (CLIP, Connectas, Ojo Público)
+Redes e veículos regionais com investigações transfronteiriças sobre corrupção, como Lava Jato e Odebrecht na região. Publicam bases de dados e documentos.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- CLIP - https://www.elclip.org/
+- Connectas - https://www.connectas.org/
+- Ojo Público - https://www.ojo-publico.com/
+
+</details>
+
+### Checagem na América Latina (LatamChequea, Chequeado)
+Rede regional de checadores e agência argentina pioneira, com checagens de boatos que também circulam no Brasil. Útil para desinformação que cruza fronteiras.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- LatamChequea - https://latamchequea.com/
+- Chequeado - https://chequeado.com/
+
+</details>
+
+#### 📚 Referências e Metodologia
+
+### OSINT Framework
+Árvore interativa de ferramentas OSINT organizadas por tipo de dado. Bom ponto de partida para achar fontes de qualquer país.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- OSINT Framework - https://osintframework.com/
+
+</details>
+
+### Bellingcat - Online Investigations Toolkit e Guias
+Catálogo de ferramentas mantido pela Bellingcat com descrição, custo e exemplos, mais guias práticos de investigação. Referência para verificação e geolocalização.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Toolkit - https://bellingcat.gitbook.io/toolkit
+- Guias how-to - https://www.bellingcat.com/category/resources/how-tos/
+
+</details>
+
+### IntelTechniques - Ferramentas de Busca
+Coleção de formulários de busca de Michael Bazzell para redes sociais, e-mails, usernames e domínios. Útil para montar consultas rápidas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- IntelTechniques Tools - https://inteltechniques.com/tools/
+
+</details>
+
+### Awesome OSINT e Coleções no GitHub
+Listas curadas e comunitárias de ferramentas OSINT por categoria. Atualizadas com frequência.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- awesome-osint - https://github.com/jivoi/awesome-osint
+- OSINT Stuff Tool Collection (site) - https://cipher387.github.io/osint_stuff_tool_collection/
+- OSINT Stuff Tool Collection (repositório) - https://github.com/cipher387/osint_stuff_tool_collection
+- MetaOSINT - https://metaosint.github.io/
+
+</details>
+
+### Painéis Start.me e Bookmarks OSINT
+Painéis de favoritos mantidos por investigadores, organizados por tema. Facilitam navegar por centenas de fontes.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Start.me OSINT - https://start.me/p/ZME8nR/osint
+- Nixintel OSINT Resource List - https://start.me/p/rx6Qj8/nixintel-s-osint-resource-list
+- OSINT Combine Bookmarks - https://www.osintcombine.com/osint-bookmarks
+- OSINT Dojo Resources - https://www.osintdojo.com/resources/
+- OSINT Techniques Tools - https://www.osinttechniques.com/osint-tools.html
+
+</details>
+
+### GIJN e DataJournalism.com
+Guias e cursos da Rede Global de Jornalismo Investigativo e do European Journalism Centre, com material em português e espanhol. Ensinam a investigar empresas, contratos e pessoas.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- GIJN - Ferramentas de pesquisa online - https://gijn.org/resource/online-research-tools/
+- DataJournalism.com - https://datajournalism.com/
+
+</details>
+
+### Wikidata Query Service
+Consulta SPARQL à base estruturada da Wikipédia, com políticos, empresas, parentescos e cargos. Permite listar, por exemplo, todos os deputados brasileiros com determinado vínculo.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Query Service - https://query.wikidata.org/
+- Wikidata - https://www.wikidata.org/
+
+</details>
+
+### IFCN - Signatários do Código de Princípios
+Lista de agências de checagem certificadas pela International Fact-Checking Network, incluindo as brasileiras. Ajuda a avaliar a credibilidade de quem publicou uma checagem.
+
+<details>
+<summary>Links de pesquisa</summary>
+
+- Signatários - https://ifcncodeofprinciples.poynter.org/signatories
+
+</details>
+
+##### [![](https://img.shields.io/badge/Voltar-Sum%C3%A1rio-1E88E5?style=flat-square&logo=github&logoColor=white)](#sumário)
 
 ---
 

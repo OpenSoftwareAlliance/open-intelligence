@@ -24,7 +24,7 @@ from collections import defaultdict
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-DOCS = ["README.md", "CONTRIBUICAO.md", "EXEMPLOS_PRATICOS.md", "FLUXOGRAMA.md", "GUIA_RAPIDO.md"]
+DOCS = ["README.md", "README.en.md", "CONTRIBUICAO.md", "EXEMPLOS_PRATICOS.md", "FLUXOGRAMA.md", "GUIA_RAPIDO.md"]
 
 RE_TRAVESSAO = re.compile(r"(?<!`)—(?!`)")
 RE_MENU = re.compile(r'^<p align="center">\n((?:  <a href=.*\n)+)</p>$', re.M)
