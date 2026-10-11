@@ -1,6 +1,6 @@
 # 0001. Arquivos YAML por categoria como fonte de verdade do catálogo
 
-- **Status:** Proposto
+- **Status:** Aceito (2026-10-11)
 - **Data:** 2026-10-11
 - **Spec:** [001-fonte-de-verdade-estruturada](../specs/001-fonte-de-verdade-estruturada/spec.md)
 
@@ -34,7 +34,7 @@ Cada fonte carrega `id` explícito e estável (o mesmo id gerado hoje), a classi
 
 `README.md`, `data/sources.json` e `data/index.json` passam a ser artefatos gerados e verificados pelo CI. Conteúdo livre (código, tabelas) entra num campo de Markdown literal por fonte.
 
-A biblioteca de YAML é a única dependência externa admitida, com versão fixada. O schema dos arquivos fica em `data/schemas/`, ao lado dos atuais.
+O PyYAML, com versão fixada, é a única dependência externa admitida, aceita como consequência direta da escolha do formato YAML. O schema dos arquivos fica em `data/schemas/`, ao lado dos atuais.
 
 ## Consequências
 
@@ -50,5 +50,5 @@ Negativas e riscos:
 - Contribuidores precisam aprender o formato YAML; a spec 002 cobre guia, modelos e mensagens de erro claras.
 - Editar o `README.md` direto passa a ser erro de CI, o que exige comunicação aos contribuidores.
 - Indentação errada em YAML é um erro comum; o CI precisa apontar arquivo e linha.
-- Portar mudanças do upstream, que segue editando o README, vira trabalho manual.
-- O projeto ganha a primeira dependência fora da biblioteca padrão.
+- Este repositório é um fork independente e aceita divergir do original (osintbrazuca/osint-brazuca). Mudanças de lá, que seguem editando o README, são portadas à mão para `catalogo/` quando valerem; não há sincronização automática.
+- O projeto ganha a primeira dependência fora da biblioteca padrão (PyYAML, versão fixada).

@@ -15,6 +15,8 @@ Esse arranjo tem custos concretos:
 - A classificação fica separada da fonte (`overrides.json`, indexado por um id derivado do título), então renomear uma fonte quebra o vínculo silenciosamente.
 - Verificação de links, tradução e um site de busca (specs 003, 005 e 006) precisam anotar dados por fonte e por link, o que não cabe no Markdown.
 
+Este repositório é um fork independente: aceita-se divergir do original (osintbrazuca/osint-brazuca), e mudanças de lá são portadas à mão para `catalogo/` quando valerem.
+
 ## Objetivo
 
 Inverter a direção do fluxo: as fontes passam a ser declaradas em arquivos estruturados, um por categoria, e o `README.md`, o `data/sources.json` e o `data/index.json` passam a ser gerados a partir deles. A migração não altera o conteúdo do catálogo: mesmas fontes, mesmos links, mesmos ids, mesma classificação.
@@ -40,7 +42,7 @@ Inverter a direção do fluxo: as fontes passam a ser declaradas em arquivos est
 ### Migração
 
 - **R11.** Um script de migração de uso único converte o `README.md` atual e o `data/overrides.json` em `catalogo/`, reaproveitando o parser existente. Ele fica versionado para auditoria da migração.
-- **R12.** Após a migração, `data/overrides.json` deixa de ser lido: a classificação de cada fonte passa a morar no próprio arquivo da categoria. A heurística de classificação deixa de rodar a cada build.
+- **R12.** A classificação é congelada nos arquivos YAML na migração. Depois dela, `data/overrides.json` e a heurística de classificação por palavra-chave saem do build: nenhum dos dois é lido ou executado, e a classificação de cada fonte só muda por edição do arquivo da categoria.
 - **R13.** As duas seções "Outras Buscas", que o parser atual já funde numa única categoria (`outras-buscas`, 54 fontes), viram uma única seção no README gerado. Essa é a única mudança de forma permitida no README; nenhuma fonte ou link é removido ou alterado.
 
 ### Validação e documentação
@@ -61,7 +63,8 @@ Inverter a direção do fluxo: as fontes passam a ser declaradas em arquivos est
 - **CA8.** Casos negativos, cada um com teste automatizado: termo fora da taxonomia, id de fonte duplicado, fonte sem link, campo obrigatório ausente, categoria fora do manifesto e README editado à mão fazem o `--check` falhar com mensagem que cita o arquivo e a linha.
 - **CA9.** Editar a descrição de uma fonte num arquivo de categoria e regenerar altera apenas essa fonte no `README.md`, no `data/sources.json` e no `data/index.json`.
 - **CA10.** O build completo roda em menos de 10 segundos numa máquina de desenvolvimento comum.
-- **CA11.** A única dependência fora da biblioteca padrão do Python é a biblioteca de YAML, com versão fixada num arquivo de requisitos usado pelo CI.
+- **CA11.** A única dependência fora da biblioteca padrão do Python é o PyYAML, com versão fixada num arquivo de requisitos usado pelo CI e pelo hook de pre-commit.
+- **CA12.** Após a migração, nenhum código do build lê `data/overrides.json` nem executa a heurística de classificação por palavra-chave.
 
 ## Fora de escopo
 
@@ -77,4 +80,4 @@ Inverter a direção do fluxo: as fontes passam a ser declaradas em arquivos est
 ## Riscos
 
 - **PRs abertos contra o README.md** ficam obsoletos com a migração. Mitigação: anunciar uma janela de congelamento e reaplicar as mudanças pendentes no novo formato.
-- **Sincronização com o upstream** passa a ser manual, porque o upstream continua editando o README. Mudanças de lá precisam ser portadas para `catalogo/`.
+- **Divergência do original** é aceita: o original continua editando o README, e suas mudanças são portadas à mão para `catalogo/` quando valerem, sem sincronização automática.
