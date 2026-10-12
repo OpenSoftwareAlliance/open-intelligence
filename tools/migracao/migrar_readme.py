@@ -11,7 +11,11 @@ build_dataset.py anterior à spec 001) e congela o resultado em YAML:
 
 Antes de terminar, relê catalogo/ e confere que o dataset gerado a partir
 dele é idêntico ao que o parser antigo extrai do README. Fica versionado só
-para auditoria; depois da migração não deve ser rodado de novo.
+para auditoria; depois da migração não deve ser rodado de novo. O
+data/overrides.json saiu do repositório na spec 002; para reexecutar a
+migração, use um checkout do commit anterior a ela:
+
+    git worktree add ../antes-da-migracao a4466fa^
 
 Uso:
     python3 tools/migracao/migrar_readme.py
