@@ -1,0 +1,381 @@
+# Categoria: Informações Acadêmicas
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: informacoes-academicas/buscar-curriculo-lattes
+    nome: Buscar Currículo Lattes
+    descricao: Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) é uma entidade ligada ao Ministério da Ciência, Tecnologia, Inovações e Comunicações para incentivo à pesquisa no Brasil.
+    links:
+      - url: https://buscatextual.cnpq.br/buscatextual/busca.do?metodo=apresentar
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/buscar-informacoes-de-instituicoes-de-ensino-superior
+    nome: Buscar Informações de Instituições de Ensino Superior
+    descricao: Sistema do Ministerio da Educacao (MEC) responsavel pela tramitacao dos processos de ato regulatorio das instituicoes de educacao superior do Brasil. É possível buscar cursos e outras informações das instituições direto no MEC.
+    links:
+      - url: https://emec.mec.gov.br/
+    input: [nome, numero_processo]
+    output: [curriculo, processo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/biblioteca-digital-de-teses-e-dissertacoes-bdtd
+    nome: Biblioteca Digital de Teses e Dissertações (BDTD)
+    descricao: Repositório nacional que integra teses e dissertações defendidas em todo o Brasil.
+    links:
+      - url: https://bdtd.ibict.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/biblioteca-digital-de-teses-e-dissertacoes-da-usp
+    nome: Biblioteca Digital de Teses e Dissertações da USP
+    descricao: Repositório oficial com teses e dissertações da Universidade de São Paulo.
+    links:
+      - url: https://www.teses.usp.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: informacoes-academicas/repositorio-institucional-da-unb
+    nome: Repositório Institucional da UnB
+    descricao: Acervo digital de produção científica da Universidade de Brasília.
+    links:
+      - url: https://repositorio.unb.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: informacoes-academicas/pantheon-ufrj
+    nome: Pantheon - UFRJ
+    descricao: Repositório institucional da Universidade Federal do Rio de Janeiro.
+    links:
+      - url: https://pantheon.ufrj.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: informacoes-academicas/lume-ufrgs
+    nome: Lume - UFRGS
+    descricao: Repositório digital da Universidade Federal do Rio Grande do Sul.
+    links:
+      - url: https://lume.ufrgs.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: informacoes-academicas/enade-resultados-por-instituicao
+    nome: ENADE - Resultados por Instituição
+    descricao: Consulta de resultados do Exame Nacional de Desempenho dos Estudantes.
+    links:
+      - url: https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enade
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/scielo-brasil-scientific-electronic-library-online
+    nome: SciELO Brasil - Scientific Electronic Library Online
+    descricao: Biblioteca científica eletrônica com periódicos brasileiros de acesso aberto.
+    links:
+      - url: https://www.scielo.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/portal-capes-de-periodicos
+    nome: Portal CAPES de Periódicos
+    descricao: Acesso a publicações científicas nacionais e internacionais (requer acesso institucional).
+    links:
+      - url: https://www.periodicos.capes.gov.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/observatorio-do-pne-plano-nacional-de-educacao
+    nome: Observatório do PNE - Plano Nacional de Educação
+    descricao: Acompanhamento e monitoramento das metas do Plano Nacional de Educação.
+    links:
+      - url: https://www.observatoriodopne.org.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: informacoes-academicas/censo-da-educacao-superior-inep
+    nome: Censo da Educação Superior - INEP
+    descricao: Dados estatísticos completos sobre educação superior no Brasil.
+    links:
+      - url: https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-da-educacao-superior
+    input: [nome]
+    output: [curriculo, estatistica, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/inep-data-dados-abertos
+    nome: INEP Data - Dados Abertos
+    descricao: Dados abertos sobre educação, incluindo censo escolar, ENEM, ENADE e outros indicadores educacionais.
+    links:
+      - url: https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+    input: [nome]
+    output: [curriculo, dataset, estatistica, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/microdados-inep
+    nome: Microdados INEP
+    descricao: Microdados detalhados de pesquisas, exames e avaliações educacionais.
+    links:
+      - url: https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados
+    input: [nome]
+    output: [curriculo, dataset, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/mec-consulta-de-diplomas-digitais
+    nome: MEC - Consulta de Diplomas Digitais
+    descricao: Validação de diplomas digitais emitidos por instituições de ensino.
+    links:
+      - url: https://diplomadigital.mec.gov.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/plataforma-sucupira
+    nome: Plataforma Sucupira
+    descricao: Sistema de informações sobre os programas de pós-graduação stricto sensu.
+    links:
+      - url: https://sucupira.capes.gov.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/cnpq-diretorio-dos-grupos-de-pesquisa
+    nome: CNPq - Diretório dos Grupos de Pesquisa
+    descricao: Consulta aos grupos de pesquisa certificados no Brasil, com líderes, pesquisadores, estudantes e linhas de pesquisa.
+    links:
+      - url: http://dgp.cnpq.br/dgp/faces/consulta/consulta_parametrizada.jsf
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/capes-catalogo-de-teses-e-dissertacoes
+    nome: CAPES - Catálogo de Teses e Dissertações
+    descricao: Busca de teses e dissertações defendidas em programas de pós-graduação reconhecidos, com autor, orientador e instituição.
+    links:
+      - url: https://catalogodeteses.capes.gov.br/catalogo-teses/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/mec-sistec-cursos-e-diplomas-tecnicos
+    nome: MEC - SISTEC (Cursos e Diplomas Técnicos)
+    descricao: Consulta pública de unidades de ensino, cursos técnicos e validação de diplomas de educação profissional registrados no SISTEC.
+    links:
+      - url: https://sistec.mec.gov.br/consultapublicaunidadeensino
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/mec-plataforma-carolina-bori
+    nome: MEC - Plataforma Carolina Bori
+    descricao: Sistema de revalidação e reconhecimento de diplomas estrangeiros de graduação e pós-graduação no Brasil.
+    links:
+      - url: https://carolinabori.mec.gov.br/
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/inep-ideb-censo-escolar-e-catalogo-de-escolas
+    nome: INEP - IDEB, Censo Escolar e Catálogo de Escolas
+    descricao: Indicadores de qualidade da educação básica por escola e município, dados do Censo Escolar e catálogo das escolas do país.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb
+        label: IDEB
+      - url: https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar
+        label: Censo Escolar
+      - url: https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data/catalogo-de-escolas
+        label: Catálogo de Escolas
+    input: [municipio, nome]
+    output: [curriculo, estatistica, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/capes-geocapes
+    nome: CAPES - GeoCAPES
+    descricao: Painel georreferenciado com bolsas, programas de pós-graduação e investimentos da CAPES por UF e município.
+    resumo: Links de pesquisa
+    links:
+      - url: https://geocapes.capes.gov.br/geocapes/
+        label: GeoCAPES
+    input: [cpf, municipio, nome]
+    output: [beneficio, curriculo, estatistica, mapa, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/cnpq-memoria
+    nome: CNPq - Memória
+    descricao: Portal de memória institucional do CNPq com documentos e histórico de bolsistas e programas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://memoria.cnpq.br/
+        label: Memória CNPq
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/fapesp-biblioteca-virtual
+    nome: FAPESP - Biblioteca Virtual
+    descricao: Busca de bolsas e auxílios concedidos pela FAPESP com pesquisador, instituição, valores e resumos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://bv.fapesp.br/pt/
+        label: Biblioteca Virtual FAPESP
+    input: [cpf, nome]
+    output: [beneficio, curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/orcid
+    nome: ORCID
+    descricao: Registro de identificadores únicos de pesquisadores, com vínculos, publicações e financiamentos declarados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://orcid.org/
+        label: ORCID
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: informacoes-academicas/ibict-oasisbr-diadorim-e-miguilim
+    nome: Ibict - Oasisbr, Diadorim e Miguilim
+    descricao: Agregador brasileiro de produção científica em acesso aberto (Oasisbr) e diretórios de políticas editoriais (Diadorim) e de revistas (Miguilim).
+    resumo: Links de pesquisa
+    links:
+      - url: https://oasisbr.ibict.br/
+        label: Oasisbr
+      - url: https://diadorim.ibict.br/
+        label: Diadorim
+      - url: https://miguilim.ibict.br/
+        label: Miguilim
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/sucupira-legado-dados-da-pos-graduacao
+    nome: Sucupira Legado - Dados da Pós-Graduação
+    descricao: Versão legada da Plataforma Sucupira com coleta, docentes, discentes e produção de programas de pós-graduação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sucupira-legado.capes.gov.br/sucupira/
+        label: Sucupira Legado
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/repositorios-institucionais-de-universidades
+    nome: Repositórios Institucionais de Universidades
+    descricao: Repositórios digitais de teses, dissertações, artigos e TCCs de universidades e institutos brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://repositorio.ufmg.br/
+        label: UFMG
+      - url: https://repositorio.unicamp.br/
+        label: Unicamp
+      - url: https://www.bibliotecadigital.unicamp.br/
+        label: Unicamp - Biblioteca Digital
+      - url: https://repositorio.ufsc.br/
+        label: UFSC
+      - url: https://repositorio.ufpe.br/
+        label: UFPE
+      - url: https://repositorio.ufba.br/
+        label: UFBA
+      - url: https://www.maxwell.vrac.puc-rio.br/
+        label: PUC-Rio - Maxwell
+      - url: https://rima.ufrrj.br/
+        label: UFRRJ - RIMA
+      - url: https://repositorio.fgv.br/
+        label: FGV
+      - url: https://arca.fiocruz.br/
+        label: Fiocruz - Arca
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/repositorios-de-orgaos-publicos-e-do-legislativo
+    nome: Repositórios de Órgãos Públicos e do Legislativo
+    descricao: Repositórios de estudos, notas técnicas, livros e documentos produzidos por órgãos públicos e casas legislativas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://repositorio.ipea.gov.br/
+        label: Ipea
+      - url: https://repositorio.enap.gov.br/
+        label: Enap
+      - url: https://www2.senado.leg.br/bdsf/
+        label: Senado - Biblioteca Digital
+      - url: https://bd.camara.leg.br/bd/
+        label: Câmara - Biblioteca Digital
+      - url: https://bdjur.stj.jus.br/
+        label: STJ - BDJur
+      - url: https://bibliotecadigital.stf.jus.br/xmlui/
+        label: STF - Biblioteca Digital
+      - url: https://bibliotecadigital.tse.jus.br/
+        label: TSE - Biblioteca Digital
+      - url: https://basedeconhecimento.cgu.gov.br/
+        label: CGU - Base de Conhecimento
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/portais-de-periodicos-cientificos
+    nome: Portais de Periódicos Científicos
+    descricao: Portais e indexadores de revistas científicas brasileiras e latino-americanas em acesso aberto.
+    resumo: Links de pesquisa
+    links:
+      - url: https://revistas.usp.br/wp/
+        label: Portal de Revistas da USP
+      - url: https://www.redalyc.org/
+        label: Redalyc
+      - url: https://latindex.org/latindex/
+        label: Latindex
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: informacoes-academicas/buscadores-academicos-abertos
+    nome: Buscadores Acadêmicos Abertos
+    descricao: Índices bibliográficos abertos para localizar publicações, autores, afiliações e citações de pesquisadores brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://scholar.google.com.br/
+        label: Google Acadêmico
+      - url: https://openalex.org/
+        label: OpenAlex
+      - url: https://www.semanticscholar.org/
+        label: Semantic Scholar
+      - url: https://search.crossref.org/
+        label: Crossref Search
+      - url: https://www.base-search.net/
+        label: BASE
+      - url: https://www.lens.org/
+        label: The Lens
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: informacoes-academicas/lexml-brasil
+    nome: LexML Brasil
+    descricao: Rede de informação legislativa e jurídica que unifica a busca de leis, decretos, projetos, jurisprudência e doutrina de todo o país.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.lexml.gov.br/busca/search
+        label: Busca LexML
+    input: [nome, numero_processo]
+    output: [curriculo, processo, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: informacoes-academicas/normas-leg-br
+    nome: Normas.leg.br
+    descricao: Portal de normas jurídicas federais compiladas pelo Congresso Nacional, com texto atualizado e histórico de alterações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.camara.leg.br/legislacao
+        label: Câmara - Legislação
+    input: [nome]
+    output: [curriculo, publicacao_academica]
+    tipo_fonte: legislativo
+    classificacao: heuristica

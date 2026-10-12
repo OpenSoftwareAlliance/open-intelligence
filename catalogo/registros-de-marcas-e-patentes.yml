@@ -1,0 +1,31 @@
+# Categoria: Registros de Marcas e Patentes
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: registros-de-marcas-e-patentes/inpi-busca-de-marcas
+    nome: INPI - Busca de Marcas
+    descricao: Consulta de marcas registradas no Brasil.
+    links:
+      - url: https://busca.inpi.gov.br/pePI/jsp/marcas/Pesquisa_classe_basica.jsp
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-de-marcas-e-patentes/inpi-busca-de-patentes
+    nome: INPI - Busca de Patentes
+    descricao: Consulta de patentes registradas no Brasil.
+    links:
+      - url: https://busca.inpi.gov.br/pePI/jsp/patentes/PatenteSearchBasico.jsp
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-de-marcas-e-patentes/inpi-desenhos-industriais
+    nome: INPI - Desenhos Industriais
+    descricao: Consulta de desenhos industriais registrados.
+    links:
+      - url: https://busca.inpi.gov.br/pePI/jsp/desenhos/DesenhoSearchBasico.jsp
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica

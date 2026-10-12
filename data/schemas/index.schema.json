@@ -1,6 +1,6 @@
 {
   "_sobre": "Modelo vazio de data/index.json. Mostra a estrutura exata do arquivo gerado: um objeto por URL dentro de 'links', com os metadados da fonte repetidos em cada registro. 'uf' é null quando o link não pertence a lista por estado.",
-  "fonte": "README.md",
+  "fonte": "catalogo/",
   "links": [
     {
       "categoria": "",

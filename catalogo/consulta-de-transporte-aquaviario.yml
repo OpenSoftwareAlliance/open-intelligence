@@ -1,0 +1,155 @@
+# Categoria: Consulta de Transporte Aquaviário
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: consulta-de-transporte-aquaviario/consulta-dados-publicos-de-fiscalizacao-e-processos-sancionadores-da-antaq
+    nome: Consulta dados públicos de fiscalização e processos sancionadores da ANTAQ
+    descricao: ''
+    links:
+      - url: https://aquarela.antaq.gov.br/single/?appid=62518b21-6421-4eab-9c35-bcfac6d57ffd&sheet=70ada7af-9026-4f15-a862-8a40becb7e7d&theme=horizon&opt=currsel
+        em_markdown: true
+    input: [embarcacao, numero_processo]
+    output: [dados_cadastrais, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '- https://aquarela.antaq.gov.br/single/?appid=62518b21-6421-4eab-9c35-bcfac6d57ffd&sheet=70ada7af-9026-4f15-a862-8a40becb7e7d&theme=horizon&opt=currsel,ctxmenu'
+  - id: consulta-de-transporte-aquaviario/dados-publicos-gestao-de-multas-e-indicadores-antaq
+    nome: Dados Públicos - Gestão de multas e indicadores | ANTAQ
+    descricao: ''
+    links:
+      - url: https://app.powerbi.com/view?r=eyJrIjoiYTI4MDc3OWEtMmY5Yi00OTU4LTk3OWYtZjExODY0NTExMTQ0IiwidCI6IjhlNTdmNzI3LTBlNWUtNDEzMC04ZTI0LTJkNWY3YzhjMzhmNiJ9
+    input: [embarcacao, placa]
+    output: [dados_cadastrais, estatistica, multa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/navegacao-interior-pesquisa-de-empresas-autorizadas
+    nome: Navegação Interior - Pesquisa de Empresas Autorizadas
+    descricao: ''
+    links:
+      - url: https://web3.antaq.gov.br/Portal/Frota/ConsultarEmpresaInteriorAutorizada.aspx
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/pesquisa-de-linhas-e-horarios-navegacao-interior
+    nome: Pesquisa de Linhas e Horários Navegação Interior
+    descricao: ''
+    links:
+      - url: https://web3.antaq.gov.br/ea/sense/index.html#pt
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/atlas-aquaviarios
+    nome: Atlas Aquaviários
+    descricao: ''
+    links:
+      - url: https://www.gov.br/dnit/pt-br/assuntos/aquaviario/atlas-aquaviario/
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/patrimonio-imobiliario-do-dnit-no-ambito-da-infraestrutura-aquaviaria
+    nome: Patrimônio Imobiliário do DNIT no Âmbito da Infraestrutura Aquaviária
+    descricao: ''
+    links:
+      - url: https://www.gov.br/dnit/pt-br/assuntos/aquaviario/patrimonio
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/radar-de-trafego-maritimo
+    nome: Radar de Tráfego Marítimo
+    descricao: ''
+    links:
+      - url: https://www.marinetraffic.com/en/ais/home/centerx:-40.1/centery:-3.4/zoom:7
+      - url: https://radar24.net/ship-radar/
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/rotas-de-trafego-maritimo
+    nome: Rotas de Tráfego Marítimo
+    descricao: ''
+    links:
+      - url: https://marineradar.de/en/
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/pesquisa-de-ferrys
+    nome: Pesquisa de Ferrys
+    descricao: ''
+    links:
+      - url: https://www.ferryscanner.com/pt/navios-de-ferry
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/pesquisa-de-cruzeiros
+    nome: Pesquisa de Cruzeiros
+    descricao: ''
+    links:
+      - url: https://centraldecruzeiros.com.br/
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/marinha-diretoria-de-portos-e-costas-dpc
+    nome: Marinha - Diretoria de Portos e Costas (DPC)
+    descricao: Portal da autoridade marítima com normas, Capitanias dos Portos, habilitação de amadores e registro de embarcações.
+    links:
+      - url: https://www.marinha.mil.br/dpc/
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/marinha-centro-de-hidrografia-chm
+    nome: Marinha - Centro de Hidrografia (CHM)
+    descricao: Tábuas de marés, cartas náuticas, avisos aos navegantes e informações de segurança da navegação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.marinha.mil.br/chm/
+        label: CHM
+      - url: https://www.marinha.mil.br/chm/tabuas-de-mare
+        label: Tábuas de marés
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/antaq-estatistica-aquaviaria
+    nome: ANTAQ - Estatística Aquaviária
+    descricao: Página de estatística da ANTAQ com o painel do Estatístico Aquaviário, movimentação de cargas por porto, instalação e mercadoria.
+    links:
+      - url: https://www.gov.br/antaq/pt-br/assuntos/estatistica
+    input: [embarcacao]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aquaviario/autoridades-portuarias-movimento-de-navios
+    nome: Autoridades Portuárias - Movimento de Navios
+    descricao: Portais das autoridades portuárias com programação de atracações, line-up de navios e operações portuárias.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.portodesantos.com.br/informacoes-operacionais/operacoes-portuarias/navegacao-e-movimento-de-navios/
+        label: Porto de Santos (SP)
+        uf: SP
+      - url: https://www.portosdoparana.pr.gov.br/Operacional
+        label: Portos do Paraná - Paranaguá e Antonina (PR)
+        uf: PR
+      - url: https://www.portosrio.gov.br/
+        label: PortosRio (RJ)
+        uf: RJ
+      - url: https://www.suape.pe.gov.br/pt/
+        label: Suape (PE)
+        uf: PE
+      - url: https://website.portodoitaqui.com.br/home
+        label: Porto do Itaqui (MA)
+        uf: MA
+      - url: https://www.portoitajai.com.br/
+        label: Porto de Itajaí (SC)
+        uf: SC
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica

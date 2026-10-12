@@ -2,7 +2,7 @@
 """Valida as regras de formatação dos documentos do OSINT Brazuca.
 
 Erros (saída 1), conforme CONTRIBUICAO.md:
-    travessão (—) fora de crases em qualquer .md
+    travessão (U+2014) fora de crases em qualquer .md e em catalogo/*.yml
     menu de navegação (bloco de badges) diferente entre os documentos
     link interno (#ancora) sem âncora correspondente no README.md
 
@@ -26,22 +26,24 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 DOCS = ["README.md", "README.en.md", "CONTRIBUICAO.md", "EXEMPLOS_PRATICOS.md", "FLUXOGRAMA.md", "GUIA_RAPIDO.md"]
 
-RE_TRAVESSAO = re.compile(r"(?<!`)—(?!`)")
+TRAVESSAO = "—"
+RE_TRAVESSAO = re.compile(f"(?<!`){TRAVESSAO}(?!`)")
 RE_MENU = re.compile(r'^<p align="center">\n((?:  <a href=.*\n)+)</p>$', re.M)
 RE_ANCORA = re.compile(r'<a name="([^"]+)"')
 RE_LINK_INTERNO = re.compile(r"\]\(#([^)]+)\)")
 
 
-def le(nome):
-    return (RAIZ / nome).read_text(encoding="utf-8")
+def le(nome, raiz=RAIZ):
+    return (raiz / nome).read_text(encoding="utf-8")
 
 
-def checa_travessao():
+def checa_travessao(raiz=RAIZ):
     erros = []
-    for nome in DOCS:
-        for n, linha in enumerate(le(nome).splitlines(), start=1):
+    catalogo = sorted(f"catalogo/{p.name}" for p in (raiz / "catalogo").glob("*.yml"))
+    for nome in DOCS + catalogo:
+        for n, linha in enumerate(le(nome, raiz).splitlines(), start=1):
             if RE_TRAVESSAO.search(linha):
-                erros.append(f"{nome}:{n}: travessão (—); use vírgula, dois-pontos, ponto final ou parênteses")
+                erros.append(f"{nome}:{n}: travessão ({TRAVESSAO}); use vírgula, dois-pontos, ponto final ou parênteses")
     return erros
 
 

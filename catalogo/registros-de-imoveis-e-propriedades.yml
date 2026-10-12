@@ -1,0 +1,105 @@
+# Categoria: Registros de Imóveis e Propriedades
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: registros-de-imoveis-e-propriedades/srei-sistema-de-registro-eletronico-de-imoveis
+    nome: SREI - Sistema de Registro Eletrônico de Imóveis
+    descricao: Sistema que integra informações de registros de imóveis.
+    links:
+      - url: https://www.registradores.org.br/
+    input: [endereco, matricula_imovel]
+    output: [imovel]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/consulta-iptu-sao-paulo
+    nome: Consulta IPTU São Paulo
+    descricao: Consulta de IPTU da cidade de São Paulo.
+    links:
+      - url: https://www.prefeitura.sp.gov.br/cidade/secretarias/fazenda/servicos/iptu/
+        uf: SP
+    input: [endereco, matricula_imovel]
+    output: [imovel]
+    tipo_fonte: municipal
+    classificacao: override
+  - id: registros-de-imoveis-e-propriedades/consulta-iptu-rio-de-janeiro
+    nome: Consulta IPTU Rio de Janeiro
+    descricao: Consulta de IPTU da cidade do Rio de Janeiro.
+    links:
+      - url: https://carioca.rio/servicos/consulta-iptu/
+    input: [endereco, matricula_imovel]
+    output: [imovel]
+    tipo_fonte: municipal
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/spu-secretaria-do-patrimonio-da-uniao
+    nome: SPU - Secretaria do Patrimônio da União
+    descricao: Consulta de imóveis da União.
+    links:
+      - url: https://www.gov.br/economia/pt-br/assuntos/patrimonio-da-uniao
+    input: [endereco, matricula_imovel]
+    output: [imovel]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/incra-sistema-nacional-de-cadastro-rural
+    nome: INCRA - Sistema Nacional de Cadastro Rural
+    descricao: Consulta e certificação de imóveis rurais.
+    links:
+      - url: https://sncr.serpro.gov.br/sncr-web/
+    input: [endereco, matricula_imovel]
+    output: [imovel]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/cartorios-de-registro-de-imoveis
+    nome: Cartórios de Registro de Imóveis
+    descricao: Diretório de cartórios de registro de imóveis no Brasil.
+    links:
+      - url: https://www.registrodeimoveis.org.br/cartorios
+    input: [endereco, matricula_imovel, nome]
+    output: [certidao, imovel]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/incra-consulta-publica-de-imoveis-rurais-sncr
+    nome: INCRA - Consulta Pública de Imóveis Rurais (SNCR)
+    descricao: Download da relação de imóveis rurais cadastrados no SNCR por UF e município, em planilha com uma linha por detentor do imóvel. Traz código do imóvel, denominação, código IBGE, município, UF, área total, titular (nome parcialmente mascarado), natureza jurídica, condição da pessoa e percentual de detenção. Possui captcha.
+    links:
+      - url: https://sncr.serpro.gov.br/sncr-web/consultaPublica.jsf
+    input: [municipio, uf]
+    output: [area_rural, dataset, imovel]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Possui captcha.
+  - id: registros-de-imoveis-e-propriedades/onr-mapa-do-registro-de-imoveis-do-brasil
+    nome: ONR - Mapa do Registro de Imóveis do Brasil
+    descricao: Mapa do Operador Nacional do Registro Eletrônico de Imóveis. Permite buscar por endereço, latitude e longitude, Código Nacional de Matrícula, cartório e matrícula, nome do imóvel, CCIR/SNCR, certificação SIGEF, SNCI, Cadastro Ambiental Rural, imóveis públicos da SPU e cadastro municipal (SQL) de São Paulo, com filtro de serventia por CNS.
+    links:
+      - url: https://mapa.onr.org.br/
+    input: [car, cns, coordenadas, endereco, matricula_imovel]
+    output: [cartorio, imovel, mapa]
+    tipo_fonte: ong
+    classificacao: override
+  - id: registros-de-imoveis-e-propriedades/onr-operador-nacional-do-registro-eletronico-de-imoveis
+    nome: ONR - Operador Nacional do Registro Eletrônico de Imóveis
+    descricao: Portal do SAEC/ONR para pedidos eletrônicos de certidões de matrícula, visualização de matrícula e pesquisa de bens em cartórios de registro de imóveis.
+    links:
+      - url: https://www.onr.org.br/
+    input: [endereco, matricula_imovel, nome]
+    output: [certidao, imovel]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/cnib-central-nacional-de-indisponibilidade-de-bens
+    nome: CNIB - Central Nacional de Indisponibilidade de Bens
+    descricao: Central que concentra as ordens judiciais e administrativas de indisponibilidade de bens, com consulta por CPF/CNPJ.
+    links:
+      - url: https://indisponibilidade.onr.org.br/
+    input: [cnpj, cpf, endereco, matricula_imovel]
+    output: [dados_cadastrais, imovel]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-de-imoveis-e-propriedades/rtdbrasil-registro-de-titulos-e-documentos-e-pessoas-juridicas
+    nome: RTDBrasil - Registro de Títulos e Documentos e Pessoas Jurídicas
+    descricao: Central nacional dos cartórios de RTD e RCPJ para registro e pedido de certidões de documentos, contratos e pessoas jurídicas não empresariais.
+    links:
+      - url: https://www.rtdbrasil.org.br/
+    input: [cnpj, endereco, matricula_imovel, nome]
+    output: [certidao, contrato_publico, imovel]
+    tipo_fonte: ong
+    classificacao: heuristica

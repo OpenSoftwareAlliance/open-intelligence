@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "catalogo.schema.json",
+  "title": "Arquivo de categoria do catálogo (catalogo/<categoria_id>.yml)",
+  "description": "Uma categoria do catálogo. A ordem das fontes é a ordem de exibição no README.md. Os termos de input, output e tipo_fonte são validados à parte contra data/taxonomy.json.",
+  "type": "object",
+  "required": ["fontes"],
+  "additionalProperties": false,
+  "properties": {
+    "fontes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "nome", "descricao", "links", "input", "output", "tipo_fonte", "classificacao"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "Identificador estável da fonte. Não muda quando o nome muda.",
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "nome": {"type": "string", "minLength": 1},
+          "descricao": {"description": "Texto exibido abaixo do título; pode ser vazio.", "type": "string"},
+          "subsecao": {"description": "Abre um subtítulo (####) da categoria antes desta fonte.", "type": "string", "minLength": 1},
+          "resumo": {"description": "Quando presente, os links ficam recolhidos num <details> com este <summary>.", "type": "string", "minLength": 1},
+          "links": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["url"],
+              "additionalProperties": false,
+              "properties": {
+                "url": {"type": "string", "pattern": "^https?://\\S+$"},
+                "label": {"type": "string", "minLength": 1},
+                "uf": {
+                  "type": "string",
+                  "enum": ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
+                },
+                "grupo": {"description": "Texto em Markdown exibido antes deste link, como cabeçalho de um grupo de links.", "type": "string", "minLength": 1},
+                "em_markdown": {"description": "O link já aparece no campo markdown da fonte e não é repetido na lista de links.", "type": "boolean"}
+              }
+            }
+          },
+          "input": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "output": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "tipo_fonte": {"type": "string"},
+          "classificacao": {"type": "string", "enum": ["heuristica", "override"]},
+          "observacao": {"type": "string", "minLength": 1},
+          "markdown": {"description": "Markdown livre (exemplos de código, tabelas, notas) reproduzido sem alteração depois dos links. Toda URL fora de bloco de código precisa estar em links.", "type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

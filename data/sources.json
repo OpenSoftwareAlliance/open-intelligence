@@ -1,6 +1,6 @@
 {
-  "_sobre": "GERADO por tools/build_dataset.py a partir de README.md. Não editar à mão: use data/overrides.json.",
-  "fonte": "README.md",
+  "_sobre": "GERADO por tools/build_dataset.py a partir de catalogo/. Não editar à mão: edite catalogo/<categoria>.yml.",
+  "fonte": "catalogo/",
   "sources": [
     {
       "categoria": "Benefícios sociais (Políticas Públicas)",
@@ -22047,6 +22047,546 @@
       "tipo_fonte": "privado"
     },
     {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/busca-de-falecidos-obitos",
+      "input": [
+        "nome"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.falecidosnobrasil.org.br/"
+        }
+      ],
+      "nome": "Busca de Falecidos/Óbitos",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "ong"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/consulta-de-embarcacoes-navais",
+      "input": [
+        "embarcacao"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.mercante.transportes.gov.br/g36127/html/Manife/EmbarcConsul.html?noCampo=cdIrin"
+        }
+      ],
+      "nome": "Consulta de Embarcações Navais",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "federal"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/estatisticas-de-nascimentos-obitos-registros-e-casamentos",
+      "input": [
+        "nome"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://transparencia.registrocivil.org.br/registros"
+        }
+      ],
+      "nome": "Estatísticas de Nascimentos, Óbitos, Registros e Casamentos",
+      "output": [
+        "dados_cadastrais",
+        "estatistica"
+      ],
+      "tipo_fonte": "ong"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/empresas-de-seguranca-privada",
+      "input": [
+        "cnpj"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.gov.br/pf/pt-br/assuntos/seguranca-privada"
+        }
+      ],
+      "nome": "Empresas de Segurança Privada",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "federal"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/consulta-de-registro-licenca-e-controle-de-produtos-quimicos",
+      "input": [
+        "cnpj"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos"
+        }
+      ],
+      "nome": "Consulta de Registro, Licença e Controle de Produtos Quimicos",
+      "output": [
+        "licenca_ambiental"
+      ],
+      "tipo_fonte": "federal"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.",
+      "id": "outras-buscas/informacoes-sobre-um-endereco-de-e-mail",
+      "input": [
+        "email"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.predictasearch.com"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://tools.epieos.com/email.php"
+        }
+      ],
+      "nome": "Informações sobre um endereço de e-mail",
+      "output": [
+        "mapa"
+      ],
+      "tipo_fonte": "privado"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.olx.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.estantevirtual.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.enjoei.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.repassa.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.pegueibode.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.ficoupequeno.com/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.facebook.com/marketplace/?locale=pt_BR"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.mercadolivre.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.elo7.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://shopee.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://napista.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://autoline.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.kavak.com/br"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.webmotors.com.br/"
+        }
+      ],
+      "nome": "Busca de Bens a venda ou aluguel",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "override",
+      "descricao": "",
+      "id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.vrbo.com/pt-br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.airbnb.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.quintoandar.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.trivago.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.tripadvisor.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.booking.com/index.pt-br.html"
+        }
+      ],
+      "nome": "Conhecimento de empreendimentos por dentro",
+      "observacao": "Plataformas de hospedagem e aluguel com fotos internas de imóveis e empreendimentos.",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "Lista de sites que devem ser evitados, pois tiveram reclamações de consumidores registrada no Procon-SP, foram notificados, não responderam ou não foram encontrados.",
+      "id": "outras-buscas/sites-notificados-pelo-procon-sp",
+      "input": [
+        "cnpj"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": "SP",
+          "url": "https://sistemas.procon.sp.gov.br/evitesite/list/evitesites.php"
+        }
+      ],
+      "nome": "Sites Notificados pelo Procon-SP",
+      "output": [
+        "sancao"
+      ],
+      "tipo_fonte": "estadual"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/consulta-em-cartorios",
+      "input": [
+        "nome"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.pesquisaprotesto.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://protestosp.com.br/consulta-de-protesto?hc=1"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://e-cartoriodobrasil.com/pedido/imoveis/pesquisa-qualificada-de-bens"
+        }
+      ],
+      "nome": "Consulta em cartórios",
+      "output": [
+        "certidao"
+      ],
+      "tipo_fonte": "privado"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/lista-telefonica",
+      "input": [
+        "nome",
+        "telefone"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.telenumeros.com/"
+        }
+      ],
+      "nome": "Lista Telefônica",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "privado"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "No link abaixo é possível consultar informações referentes a: Marcas, Patentes, Desenhos Industriais, Patentes Tecnológicas, dentre outras áreas.",
+      "id": "outras-buscas/consulta-no-instituto-nacional-da-propriedade-industrial-inpi",
+      "input": [
+        "razao_social"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://busca.inpi.gov.br/pePI/servlet/LoginController?action=login"
+        }
+      ],
+      "nome": "Consulta no Instituto Nacional da Propriedade Industrial (INPI)",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "federal"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "heuristica",
+      "descricao": "",
+      "id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
+      "input": [
+        "cnpj"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://alertalicitacao.com.br/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://www.portaldecompraspublicas.com.br/18/Processos/"
+        },
+        {
+          "label": "",
+          "uf": null,
+          "url": "http://www.portaltransparencia.gov.br/"
+        }
+      ],
+      "nome": "Consulta de Licitações, Contratos e Compras Públicas",
+      "output": [
+        "contrato_publico",
+        "licitacao"
+      ],
+      "tipo_fonte": "privado"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "override",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "links": [
+        {
+          "label": "Portal de Licitações SPTrans",
+          "uf": null,
+          "url": "https://sptrans.com.br/licitacoes/"
+        },
+        {
+          "label": "Consulta de Resultados de Licitações por Ano",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2rc_Ano.aspx"
+        },
+        {
+          "label": "Consulta de Atas de Registro de Preços",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtarp.aspx"
+        },
+        {
+          "label": "Consulta de Avisos de Prorrogação",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtap.aspx"
+        },
+        {
+          "label": "Consulta de Contratos Administrativos",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ca.aspx"
+        },
+        {
+          "label": "Consulta de Convênios e Termos de Cooperação",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp_tc.aspx"
+        },
+        {
+          "label": "Consulta de Contratos de Parceria",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp.aspx"
+        },
+        {
+          "label": "Consulta de Contratos Rescindidos",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2cr.aspx"
+        },
+        {
+          "label": "Consulta de Editais",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrted.aspx"
+        },
+        {
+          "label": "Consulta de Extrato de Contratos",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ec.aspx"
+        },
+        {
+          "label": "Consulta de Avisos de Prorrogação (Novo)",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2apn.aspx"
+        },
+        {
+          "label": "Editais da Secretaria de Mobilidade",
+          "uf": "SP",
+          "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/edital/index.php?p=247319"
+        },
+        {
+          "label": "Demonstrativo de Pagamentos",
+          "uf": null,
+          "url": "https://sistemas.sptrans.com.br/DemPag/hdempag.aspx"
+        }
+      ],
+      "nome": "Consulta os Processos Licitatórios da SPTrans",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "override",
+      "descricao": "Portal de acesso à informação da São Paulo Transporte S/A com dados sobre contratos, despesas, licitações e transparência.",
+      "id": "outras-buscas/acesso-a-informacao-sptrans",
+      "input": [
+        "cnpj"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": "SP",
+          "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/institucional/sptrans/acesso_a_informacao/index.php"
+        }
+      ],
+      "nome": "Acesso à Informação - SPTrans",
+      "output": [
+        "contrato_publico",
+        "licitacao"
+      ],
+      "tipo_fonte": "municipal"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "classificacao": "override",
+      "descricao": "Consulta de cartórios por UF, município, CNS e atribuição. Retorna CNS, denominação, tipo de cartório, telefone, site, e-mail, endereço, situação jurídica, nome do responsável com data de ingresso e substitutos.",
+      "id": "outras-buscas/cnj-justica-aberta-serventias-extrajudiciais",
+      "input": [
+        "cns",
+        "municipio",
+        "uf"
+      ],
+      "links": [
+        {
+          "label": "",
+          "uf": null,
+          "url": "https://justicaaberta.cnj.jus.br/produtividade-e-localizacao-de-serventias-extrajudiciais"
+        }
+      ],
+      "nome": "CNJ - Justiça Aberta (Serventias Extrajudiciais)",
+      "output": [
+        "cartorio",
+        "endereco"
+      ],
+      "tipo_fonte": "judiciario"
+    },
+    {
       "categoria": "APIs Públicas Brasileiras",
       "categoria_id": "apis-publicas-brasileiras",
       "classificacao": "heuristica",
@@ -24100,546 +24640,6 @@
         "dados_cadastrais"
       ],
       "tipo_fonte": "estadual"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/busca-de-falecidos-obitos",
-      "input": [
-        "nome"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.falecidosnobrasil.org.br/"
-        }
-      ],
-      "nome": "Busca de Falecidos/Óbitos",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "ong"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/consulta-de-embarcacoes-navais",
-      "input": [
-        "embarcacao"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.mercante.transportes.gov.br/g36127/html/Manife/EmbarcConsul.html?noCampo=cdIrin"
-        }
-      ],
-      "nome": "Consulta de Embarcações Navais",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "federal"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/estatisticas-de-nascimentos-obitos-registros-e-casamentos",
-      "input": [
-        "nome"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://transparencia.registrocivil.org.br/registros"
-        }
-      ],
-      "nome": "Estatísticas de Nascimentos, Óbitos, Registros e Casamentos",
-      "output": [
-        "dados_cadastrais",
-        "estatistica"
-      ],
-      "tipo_fonte": "ong"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/empresas-de-seguranca-privada",
-      "input": [
-        "cnpj"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.gov.br/pf/pt-br/assuntos/seguranca-privada"
-        }
-      ],
-      "nome": "Empresas de Segurança Privada",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "federal"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/consulta-de-registro-licenca-e-controle-de-produtos-quimicos",
-      "input": [
-        "cnpj"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos"
-        }
-      ],
-      "nome": "Consulta de Registro, Licença e Controle de Produtos Quimicos",
-      "output": [
-        "licenca_ambiental"
-      ],
-      "tipo_fonte": "federal"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.",
-      "id": "outras-buscas/informacoes-sobre-um-endereco-de-e-mail",
-      "input": [
-        "email"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.predictasearch.com"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://tools.epieos.com/email.php"
-        }
-      ],
-      "nome": "Informações sobre um endereço de e-mail",
-      "output": [
-        "mapa"
-      ],
-      "tipo_fonte": "privado"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.olx.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.estantevirtual.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.enjoei.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.repassa.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.pegueibode.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.ficoupequeno.com/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.facebook.com/marketplace/?locale=pt_BR"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.mercadolivre.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.elo7.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://shopee.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://napista.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://autoline.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.kavak.com/br"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.webmotors.com.br/"
-        }
-      ],
-      "nome": "Busca de Bens a venda ou aluguel",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "override",
-      "descricao": "",
-      "id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.vrbo.com/pt-br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.airbnb.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.quintoandar.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.trivago.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.tripadvisor.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.booking.com/index.pt-br.html"
-        }
-      ],
-      "nome": "Conhecimento de empreendimentos por dentro",
-      "observacao": "Plataformas de hospedagem e aluguel com fotos internas de imóveis e empreendimentos.",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "Lista de sites que devem ser evitados, pois tiveram reclamações de consumidores registrada no Procon-SP, foram notificados, não responderam ou não foram encontrados.",
-      "id": "outras-buscas/sites-notificados-pelo-procon-sp",
-      "input": [
-        "cnpj"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": "SP",
-          "url": "https://sistemas.procon.sp.gov.br/evitesite/list/evitesites.php"
-        }
-      ],
-      "nome": "Sites Notificados pelo Procon-SP",
-      "output": [
-        "sancao"
-      ],
-      "tipo_fonte": "estadual"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/consulta-em-cartorios",
-      "input": [
-        "nome"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.pesquisaprotesto.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://protestosp.com.br/consulta-de-protesto?hc=1"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://e-cartoriodobrasil.com/pedido/imoveis/pesquisa-qualificada-de-bens"
-        }
-      ],
-      "nome": "Consulta em cartórios",
-      "output": [
-        "certidao"
-      ],
-      "tipo_fonte": "privado"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/lista-telefonica",
-      "input": [
-        "nome",
-        "telefone"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.telenumeros.com/"
-        }
-      ],
-      "nome": "Lista Telefônica",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "privado"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "No link abaixo é possível consultar informações referentes a: Marcas, Patentes, Desenhos Industriais, Patentes Tecnológicas, dentre outras áreas.",
-      "id": "outras-buscas/consulta-no-instituto-nacional-da-propriedade-industrial-inpi",
-      "input": [
-        "razao_social"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://busca.inpi.gov.br/pePI/servlet/LoginController?action=login"
-        }
-      ],
-      "nome": "Consulta no Instituto Nacional da Propriedade Industrial (INPI)",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "federal"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "heuristica",
-      "descricao": "",
-      "id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
-      "input": [
-        "cnpj"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://alertalicitacao.com.br/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://www.portaldecompraspublicas.com.br/18/Processos/"
-        },
-        {
-          "label": "",
-          "uf": null,
-          "url": "http://www.portaltransparencia.gov.br/"
-        }
-      ],
-      "nome": "Consulta de Licitações, Contratos e Compras Públicas",
-      "output": [
-        "contrato_publico",
-        "licitacao"
-      ],
-      "tipo_fonte": "privado"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "override",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "links": [
-        {
-          "label": "Portal de Licitações SPTrans",
-          "uf": null,
-          "url": "https://sptrans.com.br/licitacoes/"
-        },
-        {
-          "label": "Consulta de Resultados de Licitações por Ano",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2rc_Ano.aspx"
-        },
-        {
-          "label": "Consulta de Atas de Registro de Preços",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtarp.aspx"
-        },
-        {
-          "label": "Consulta de Avisos de Prorrogação",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtap.aspx"
-        },
-        {
-          "label": "Consulta de Contratos Administrativos",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ca.aspx"
-        },
-        {
-          "label": "Consulta de Convênios e Termos de Cooperação",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp_tc.aspx"
-        },
-        {
-          "label": "Consulta de Contratos de Parceria",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp.aspx"
-        },
-        {
-          "label": "Consulta de Contratos Rescindidos",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2cr.aspx"
-        },
-        {
-          "label": "Consulta de Editais",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrted.aspx"
-        },
-        {
-          "label": "Consulta de Extrato de Contratos",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ec.aspx"
-        },
-        {
-          "label": "Consulta de Avisos de Prorrogação (Novo)",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2apn.aspx"
-        },
-        {
-          "label": "Editais da Secretaria de Mobilidade",
-          "uf": "SP",
-          "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/edital/index.php?p=247319"
-        },
-        {
-          "label": "Demonstrativo de Pagamentos",
-          "uf": null,
-          "url": "https://sistemas.sptrans.com.br/DemPag/hdempag.aspx"
-        }
-      ],
-      "nome": "Consulta os Processos Licitatórios da SPTrans",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "override",
-      "descricao": "Portal de acesso à informação da São Paulo Transporte S/A com dados sobre contratos, despesas, licitações e transparência.",
-      "id": "outras-buscas/acesso-a-informacao-sptrans",
-      "input": [
-        "cnpj"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": "SP",
-          "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/institucional/sptrans/acesso_a_informacao/index.php"
-        }
-      ],
-      "nome": "Acesso à Informação - SPTrans",
-      "output": [
-        "contrato_publico",
-        "licitacao"
-      ],
-      "tipo_fonte": "municipal"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "classificacao": "override",
-      "descricao": "Consulta de cartórios por UF, município, CNS e atribuição. Retorna CNS, denominação, tipo de cartório, telefone, site, e-mail, endereço, situação jurídica, nome do responsável com data de ingresso e substitutos.",
-      "id": "outras-buscas/cnj-justica-aberta-serventias-extrajudiciais",
-      "input": [
-        "cns",
-        "municipio",
-        "uf"
-      ],
-      "links": [
-        {
-          "label": "",
-          "uf": null,
-          "url": "https://justicaaberta.cnj.jus.br/produtividade-e-localizacao-de-serventias-extrajudiciais"
-        }
-      ],
-      "nome": "CNJ - Justiça Aberta (Serventias Extrajudiciais)",
-      "output": [
-        "cartorio",
-        "endereco"
-      ],
-      "tipo_fonte": "judiciario"
     },
     {
       "categoria": "Categorias de Domínios .br",

@@ -1,0 +1,251 @@
+# Categoria: Saúde
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: saude/cadastro-nacional-de-estabelecimentos-de-saude
+    nome: Cadastro Nacional de Estabelecimentos de Saúde
+    descricao: Informações acerca de estabelecimentos e profissionais de saúde.
+    links:
+      - url: https://cnes.datasus.gov.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/fundo-nacional-de-saude-fns
+    nome: Fundo Nacional de Saúde (FNS)
+    descricao: ''
+    links:
+      - url: https://consultafns.saude.gov.br/#/consolidada
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/ans-consulta-de-operadoras-de-planos-de-saude
+    nome: ANS - Consulta de Operadoras de Planos de Saúde
+    descricao: Dados e indicadores sobre operadoras de planos de saúde.
+    links:
+      - url: https://www.ans.gov.br/perfil-do-setor/dados-e-indicadores-do-setor
+    input: [cnes, municipio]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/anvisa-consulta-de-medicamentos-registrados
+    nome: ANVISA - Consulta de Medicamentos Registrados
+    descricao: Consulta de medicamentos e produtos registrados na ANVISA.
+    links:
+      - url: https://consultas.anvisa.gov.br/#/medicamentos/
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/sinan-sistema-de-informacao-de-agravos-de-notificacao
+    nome: SINAN - Sistema de Informação de Agravos de Notificação
+    descricao: Informações sobre agravos de notificação compulsória.
+    links:
+      - url: http://www.portalsinan.saude.gov.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/farmacia-popular-estabelecimentos-credenciados
+    nome: Farmácia Popular - Estabelecimentos Credenciados
+    descricao: Lista de estabelecimentos credenciados no programa Farmácia Popular.
+    links:
+      - url: https://www.gov.br/saude/pt-br/assuntos/assistencia-farmaceutica-no-sus/farmacia-popular
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/datasus-transferencia-de-arquivos
+    nome: DataSUS - Transferência de Arquivos
+    descricao: Portal para download de bases de dados de saúde pública, incluindo SIM, SINASC, SIH, SIA e outros sistemas.
+    links:
+      - url: https://datasus.saude.gov.br/transferencia-de-arquivos/
+      - url: https://datasus.saude.gov.br/wp-content/zipupload/
+        label: Transferência de Arquivos / DataSUS
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/ripsa-rede-interagencial-de-informacoes-para-a-saude
+    nome: RIPSA - Rede Interagencial de Informações para a Saúde
+    descricao: Portal com indicadores de saúde, dados demográficos e socioeconômicos relacionados à saúde no Brasil.
+    links:
+      - url: https://www.ripsa.org.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: saude/fiocruz-mapas-de-clima-e-saude
+    nome: Fiocruz - Mapas de Clima e Saúde
+    descricao: Plataforma de monitoramento e análise da relação entre clima e saúde no Brasil.
+    links:
+      - url: https://mapas.climaesaude.icict.fiocruz.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: saude/fiocruz-monitoramento-de-seca
+    nome: Fiocruz - Monitoramento de Seca
+    descricao: Sistema de monitoramento de eventos de seca e seus impactos na saúde.
+    links:
+      - url: https://shiny.icict.fiocruz.br/sentseca2/
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: saude/monitoramento-dos-gastos-no-combate-a-covid-19
+    nome: Monitoramento dos Gastos no Combate à COVID-19
+    descricao: ''
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.tesourotransparente.gov.br/visualizacao/painel-de-monitoramentos-dos-gastos-com-covid-19
+      - url: https://www.gov.br/compras/pt-br/painel-covid
+      - url: https://portaldatransparencia.gov.br/coronavirus
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/infodengue-fiocruz-e-fgv
+    nome: InfoDengue (Fiocruz e FGV)
+    descricao: Monitoramento semanal de dengue, zika e chikungunya por município, com níveis de alerta e API pública para os dados.
+    links:
+      - url: https://info.dengue.mat.br/
+    input: [cnes, municipio]
+    output: [api_json, dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: saude/pcdas-plataforma-de-ciencia-de-dados-aplicada-a-saude-fiocruz
+    nome: PCDaS - Plataforma de Ciência de Dados aplicada à Saúde (Fiocruz)
+    descricao: Microdados de saúde harmonizados e documentados (SIM, SINASC, CNES, SIH-SUS) com dicionários e notebooks de análise.
+    links:
+      - url: https://pcdas.icict.fiocruz.br/conjunto-de-dados/
+    input: [cnes, municipio]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: saude/datasus-tabnet
+    nome: DATASUS - TabNet
+    descricao: Tabulador do DATASUS com dados de mortalidade (SIM), nascidos vivos (SINASC), internações (SIH), atendimentos e indicadores por município.
+    links:
+      - url: https://tabnet.datasus.gov.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/opendatasus-dados-abertos-da-saude
+    nome: OpenDataSUS - Dados Abertos da Saúde
+    descricao: Portal de dados abertos do Ministério da Saúde com bases de vacinação, notificações, leitos, SRAG e estabelecimentos.
+    links:
+      - url: https://dadosabertos.saude.gov.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/si-pni-e-painel-de-vacinacao
+    nome: SI-PNI e Painel de Vacinação
+    descricao: Sistema de Informação do Programa Nacional de Imunizações e painel de doses aplicadas por município e faixa etária.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sipni.datasus.gov.br/si-pni-web/faces/inicio.jsf
+        label: SI-PNI
+      - url: https://infoms.saude.gov.br/extensions/SEIDIGI_DEMAS_Vacina_C19/SEIDIGI_DEMAS_Vacina_C19.html
+        label: Painel de vacinação
+      - url: https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/covid-19/vacinacao
+        label: Vacinação (Ministério da Saúde)
+    input: [cnes, municipio]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/ministerio-da-saude-paineis-de-monitoramento-svsa-e-sage
+    nome: Ministério da Saúde - Painéis de Monitoramento (SVSA e SAGE)
+    descricao: Painéis de mortalidade, doenças e agravos da vigilância em saúde e a Sala de Apoio à Gestão Estratégica com indicadores por município.
+    resumo: Links de pesquisa
+    links:
+      - url: https://svs.aids.gov.br/daent/centrais-de-conteudos/paineis-de-monitoramento/
+        label: Painéis de monitoramento (SVSA)
+      - url: https://novasage.saude.gov.br/
+        label: SAGE
+    input: [cnes, municipio]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/siops-orcamentos-publicos-em-saude
+    nome: SIOPS - Orçamentos Públicos em Saúde
+    descricao: Sistema de Informações sobre Orçamentos Públicos em Saúde com receitas e despesas de saúde declaradas por municípios e estados.
+    links:
+      - url: http://siops.datasus.gov.br/
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/atencao-primaria-sisab-e-e-gestor-aps
+    nome: Atenção Primária - SISAB e e-Gestor APS
+    descricao: Sistema de Informação em Saúde para a Atenção Básica e portal e-Gestor com relatórios públicos de equipes, cobertura e produção.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sisab.saude.gov.br/
+        label: SISAB
+      - url: https://egestoraps.saude.gov.br/
+        label: e-Gestor APS
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/plataforma-brasil-pesquisas-com-seres-humanos
+    nome: Plataforma Brasil - Pesquisas com Seres Humanos
+    descricao: Base nacional de projetos de pesquisa com seres humanos submetidos ao sistema CEP/CONEP, com consulta pública de pesquisas aprovadas.
+    links:
+      - url: https://plataformabrasil.saude.gov.br/
+    input: [cep, cnes, municipio]
+    output: [dados_cadastrais, endereco]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/ans-dados-abertos-e-tabnet
+    nome: ANS - Dados Abertos e TabNet
+    descricao: Bases da Agência Nacional de Saúde Suplementar com beneficiários, operadoras, reclamações e ressarcimento ao SUS.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dadosabertos.ans.gov.br/
+        label: Portal de dados abertos
+      - url: https://www.ans.gov.br/anstabnet/
+        label: ANS TabNet
+      - url: https://www.gov.br/ans/pt-br/acesso-a-informacao/perfil-do-setor/dados-abertos-1
+        label: Dados abertos (página)
+    input: [cnes, cnpj, municipio]
+    output: [dados_cadastrais, dataset, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/ans-informacoes-e-avaliacoes-de-operadoras
+    nome: ANS - Informações e Avaliações de Operadoras
+    descricao: Consulta de operadoras de planos de saúde ativas, índice de reclamações, qualificação (IDSS) e situação regulatória.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/ans/pt-br/assuntos/informacoes-e-avaliacoes-de-operadoras
+        label: Informações e avaliações
+      - url: https://www.gov.br/ans/pt-br/assuntos/operadoras
+        label: Operadoras
+      - url: https://www.ans.gov.br/qualificacao_consumidor/
+        label: Qualificação de operadoras
+    input: [cnes, cnpj, municipio]
+    output: [dados_cadastrais, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/anvisa-produtos-irregulares
+    nome: ANVISA - Produtos Irregulares
+    descricao: Consulta de produtos proibidos, suspensos ou recolhidos pela ANVISA, como medicamentos, cosméticos e alimentos irregulares.
+    links:
+      - url: https://www.gov.br/anvisa/pt-br/assuntos/fiscalizacao-e-monitoramento/produtos-irregulares
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: saude/anvisa-cmed-precos-de-medicamentos
+    nome: ANVISA - CMED (Preços de Medicamentos)
+    descricao: Listas oficiais de preços máximos de medicamentos definidas pela Câmara de Regulação do Mercado de Medicamentos.
+    links:
+      - url: https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/precos
+    input: [cnes, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica

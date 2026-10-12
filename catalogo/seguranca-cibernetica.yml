@@ -1,0 +1,142 @@
+# Categoria: Segurança Cibernética
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: seguranca-cibernetica/cert-br-centro-de-estudos-resposta-e-tratamento-de-incidentes
+    nome: CERT.br - Centro de Estudos, Resposta e Tratamento de Incidentes
+    descricao: Notificações de incidentes, estatísticas de segurança e alertas de vulnerabilidades.
+    links:
+      - url: https://www.cert.br/
+      - url: https://www.cert.br/stats/
+        label: Estatísticas
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: seguranca-cibernetica/delegacias-de-crimes-ciberneticos
+    nome: Delegacias de Crimes Cibernéticos
+    descricao: ''
+    resumo: Delegacias Especializadas por Estado
+    links:
+      - url: https://www.policiacivil.sp.gov.br/portal/faces/pages_home/cidadao/delegacias_especializadas
+        label: São Paulo
+        uf: SP
+      - url: http://www.policiacivil.rj.gov.br/
+        label: Rio de Janeiro
+        uf: RJ
+      - url: https://www.policiacivil.mg.gov.br/
+        label: Minas Gerais
+        uf: MG
+      - url: https://www.policiacivil.pr.gov.br/
+        label: Paraná
+        uf: PR
+      - url: https://www.pc.rs.gov.br/
+        label: Rio Grande do Sul
+        uf: RS
+      - url: https://www.pc.sc.gov.br/
+        label: Santa Catarina
+        uf: SC
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: seguranca-cibernetica/ctir-gov-centro-de-prevencao-tratamento-e-resposta-a-incidentes-ciberneticos-de-governo
+    nome: CTIR Gov - Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo
+    descricao: Centro do GSI responsável por alertas, recomendações e coordenação de incidentes cibernéticos na Administração Pública Federal.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/gsi/pt-br/assuntos/ctir
+        label: CTIR Gov
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: seguranca-cibernetica/nic-br-e-cetic-br-pesquisas-e-indicadores
+    nome: NIC.br e Cetic.br - Pesquisas e Indicadores
+    descricao: Pesquisas TIC Domicílios, TIC Empresas e outras sobre uso da internet no Brasil, com portal de visualização de dados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://nic.br/
+        label: NIC.br
+      - url: https://data.cetic.br/
+        label: Cetic.br - Portal de dados
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: seguranca-cibernetica/simet-medicao-da-qualidade-da-internet
+    nome: SIMET - Medição da Qualidade da Internet
+    descricao: Sistema do NIC.br/Ceptro.br para medir a qualidade de conexões de internet no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://simet.nic.br/
+        label: SIMET
+      - url: https://ceptro.br/
+        label: Ceptro.br
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: seguranca-cibernetica/registro-br-estatisticas-de-dominios
+    nome: Registro.br - Estatísticas de Domínios
+    descricao: Estatísticas oficiais de domínios .br registrados por categoria, úteis para dimensionar e acompanhar o espaço de nomes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://registro.br/estatisticas/
+        label: Estatísticas
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: seguranca-cibernetica/cert-br-documentos-e-cartilhas
+    nome: CERT.br - Documentos e Cartilhas
+    descricao: Documentos técnicos, boas práticas e materiais do CERT.br sobre tratamento de incidentes e segurança.
+    resumo: Links de pesquisa
+    links:
+      - url: https://cert.br/docs/
+        label: Documentos
+      - url: https://www.antispam.br/
+        label: Antispam.br
+      - url: https://internetsegura.br/
+        label: Internet Segura
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: seguranca-cibernetica/safernet-brasil-indicadores-e-denuncias
+    nome: SaferNet Brasil - Indicadores e Denúncias
+    descricao: Central nacional de denúncias de crimes cibernéticos contra direitos humanos, com indicadores públicos de denúncias por tipo.
+    resumo: Links de pesquisa
+    links:
+      - url: https://new.safernet.org.br/
+        label: SaferNet
+      - url: https://indicadores.safernet.org.br/
+        label: Indicadores
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: seguranca-cibernetica/anpd-comunicacao-de-incidentes-de-seguranca
+    nome: ANPD - Comunicação de Incidentes de Segurança
+    descricao: Autoridade Nacional de Proteção de Dados, com orientações e canal de comunicação de incidentes de segurança com dados pessoais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/anpd/pt-br
+        label: ANPD
+      - url: https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/comunicado-de-incidente-de-seguranca-cis
+        label: Comunicado de incidente
+    input: [dominio, ip]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: seguranca-cibernetica/infraestrutura-de-internet-no-brasil-asns
+    nome: Infraestrutura de Internet no Brasil - ASNs
+    descricao: Panoramas de sistemas autônomos (ASN) brasileiros, prefixos e população de usuários por provedor.
+    resumo: Links de pesquisa
+    links:
+      - url: https://stats.labs.apnic.net/aspop?c=BR
+        label: APNIC - População por ASN
+    input: [asn, dominio, ip]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica

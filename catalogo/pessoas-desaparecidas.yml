@@ -1,0 +1,71 @@
+# Categoria: Pessoas Desaparecidas
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: pessoas-desaparecidas/portais-de-desaparecidos
+    nome: Portais de Desaparecidos
+    descricao: Uma relação de links com dados sobre desaparecidos, gerida pela estado ou ONGs, tais urls permitem consulta, pela internet, de fotografias e informações de pessoas desaparecidas de diversos estados Brasileiros.
+    resumo: Portais de Desaparecidos
+    links:
+      - url: https://desaparecidos.pcivil.rj.gov.br/pesquisar
+        uf: RJ
+      - url: https://www.desaparecidos.pr.gov.br/desaparecidos/
+        uf: PR
+      - url: https://www.pc.rs.gov.br/desaparecidos
+        uf: RS
+      - url: https://desaparecidos.pjc.mt.gov.br/inicio
+        uf: MT
+      - url: https://carapicuiba.sp.gov.br/desaparecido
+        uf: SP
+      - url: https://desaparecidos.policiacivil.mg.gov.br/desaparecido/album
+        uf: MG
+      - url: https://desaparecidosdobrasil.org/pesquisar-desaparecidos/
+      - url: https://desaparecidos.policiacivil.mg.gov.br/
+        uf: MG
+      - url: https://www.pcdf.df.gov.br/servicos/desaparecidos
+        uf: DF
+      - url: https://www.disquedenuncia.org.br/desaparecidos-list
+      - url: https://www.ssp.ma.gov.br/disque-denuncia/desaparecidos/
+        uf: MA
+      - url: https://desaparecidos.pc.sc.gov.br/#/
+        uf: SC
+      - url: https://www.pm.sc.gov.br/sos-desaparecidos/default/index?sort=-desaparecido_desaparecimento_data
+        uf: SC
+      - url: http://www.policiacivil.pe.gov.br/adultos-desaparecidos
+        uf: PE
+      - url: https://www2.bauru.sp.gov.br/desaparecidos/
+        uf: SP
+      - url: https://desaparecidos.osasco.sp.gov.br/#/portal
+        uf: SP
+      - url: https://www.pm.ce.gov.br/desaparecidos/
+        uf: CE
+      - url: https://desaparecidos.pb.gov.br/desaparecidos/desaparecidos.jsf
+        uf: PB
+      - url: http://www.feiradesantana.ba.gov.br/seprev/desaparecidos/desaparecidos.asp
+        uf: BA
+      - url: https://www.policiacivil.se.gov.br/desaparecidos/
+        uf: SE
+    input: [nome]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: pessoas-desaparecidas/busca-por-desaparecidos-banco-de-dados-geral-sao-paulo
+    nome: Busca por Desaparecidos Banco de Dados Geral / São Paulo
+    descricao: É usado CPF da Pessoa Desaparecida como valor de pesquisa
+    links:
+      - url: https://www.policiacientifica.sp.gov.br/iml/consultadesaparecidos
+        uf: SP
+    input: [cpf, nome]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: pessoas-desaparecidas/busca-por-desaparecidos-banco-de-dados-policia-cientifica-sao-paulo
+    nome: Busca por Desaparecidos Banco de Dados Polícia Científica / São Paulo
+    descricao: É usado nome e CPF da Pessoa Desaparecida como valor de pesquisa
+    links:
+      - url: https://www.policiacientifica.sp.gov.br/iml/consultadesaparecidos
+        uf: SP
+    input: [cpf, nome]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica

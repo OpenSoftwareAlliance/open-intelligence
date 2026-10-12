@@ -1,0 +1,60 @@
+# Categoria: Benefícios sociais (Políticas Públicas)
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: beneficios-sociais-politicas-publicas/beneficios-sociais-existentes
+    nome: Benefícios sociais existentes
+    descricao: ''
+    links:
+      - url: https://www.caixa.gov.br/programas-sociais/Paginas/default.aspx
+    input: [cpf]
+    output: [beneficio]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: beneficios-sociais-politicas-publicas/consulta-ao-auxilio-emergencial
+    nome: Consulta ao Auxílio Emergencial
+    descricao: canal para consulta ao resultado da análise do Auxílio Emergencial. Por aqui você terá condições de saber se atende aos critérios de elegibilidade para recebimento do Auxílio Emergencial.
+    links:
+      - url: https://consultaauxilio.cidadania.gov.br/consulta/#/
+    input: [cpf]
+    output: [beneficio]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: beneficios-sociais-politicas-publicas/comprovante-situacao-cadastral-de-pessoa-juridica
+    nome: Comprovante Situação Cadastral de Pessoa Jurídica
+    descricao: 'Comprovante de Inscrição e de Situação Cadastral de Pessoa Jurídica, obtido por meio de consulta no endereço eletrônico:'
+    links:
+      - url: https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/
+    input: [cpf]
+    output: [beneficio, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: beneficios-sociais-politicas-publicas/meu-inss
+    nome: Meu INSS
+    descricao: Portal oficial para consulta de benefícios previdenciários, extrato de contribuições, agendamentos e outros serviços do INSS.
+    links:
+      - url: https://meu.inss.gov.br/
+    input: [cpf]
+    output: [beneficio]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: beneficios-sociais-politicas-publicas/consulta-de-valores-a-receber-do-sistema-financeiro
+    nome: Consulta de Valores a Receber do Sistema Financeiro
+    descricao: Consulta para saber se a Pessoa Física ou Jurídica possuem valores a receber no Sistema Financeiro.
+    links:
+      - url: https://valoresareceber.bcb.gov.br/publico/
+      - grupo: '- Via Requisição GET, substituir os zeros pelo CPF ou CNPJ sem pontos ou traços, e a data de nascimento no formato ANO-MES-DIA:'
+        url: https://valoresareceber.bcb.gov.br/publico/rest/valoresAReceber/00000000000/1960-12-01
+    input: [cpf]
+    output: [beneficio]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: beneficios-sociais-politicas-publicas/gas-do-povo
+    nome: Gás do Povo
+    descricao: Portal oficial para consulta de beneficiários do programa gás do povo.
+    links:
+      - url: https://gasdopovo.mds.gov.br/
+    input: [cpf]
+    output: [beneficio]
+    tipo_fonte: federal
+    classificacao: heuristica

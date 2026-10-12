@@ -1,0 +1,927 @@
+# Categoria: Busca de Informações via CPF/CNPJ/CRM/CNA
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-situacao-cadastral-cpf
+    nome: Consulta Situação Cadastral CPF
+    descricao: Consulta pública da situação cadastral do CPF na Receita Federal.
+    links:
+      - url: https://servicos.receita.fazenda.gov.br/Servicos/CPF/ConsultaSituacao/ConsultaPublica.asp
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/busca-dados-usando-cnpj
+    nome: Busca Dados Usando CNPJ
+    descricao: ''
+    resumo: Links de Consulta
+    links:
+      - url: https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp
+      - url: https://brasilcnpj.net/
+      - url: https://cnpj.biz/
+      - url: https://cnpja.com/
+      - url: http://cnpj.info/
+      - url: https://www.cnpj.ws/pt-BR
+      - url: https://cadastroempresa.com.br/
+      - url: https://casadosdados.com.br/
+      - url: https://www.informecadastral.com.br/
+      - url: https://www.situacaocadastral.info/
+      - url: http://www8.receita.fazenda.gov.br/simplesnacional/aplicacoes.aspx?id=21
+      - url: https://arquivos.receitafederal.gov.br
+      - grupo: '- ?dir=/Dados/Cadastros/CNPJ'
+        url: https://dados-abertos-rf-cnpj.casadosdados.com.br/arquivos/
+      - url: https://cnpja.com/
+      - url: https://cnpjgo.com.br/
+      - url: https://iefacil.com.br/
+      - url: https://api.opencnpj.org/00000000000191?dataset=receita
+      - url: https://www.contabilizei.com.br/consulta-cnpj-cartao/resultado?cnpj=00000000000191
+      - url: https://www.esimplesauditoria.com/consulta-cnpj
+      - url: https://receitaws.com.br/
+      - url: https://juridicoonline.com.br/
+      - url: https://pesquisaempresas.com.br/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-cadastro-unico-cadunico
+    nome: Consulta - Cadastro Único (CAdunico)
+    descricao: Descubra se determinada família está cadastrada no Cadastro Único, informando apenas do CPF e data de nascimento.
+    links:
+      - url: https://cadunico.dataprev.gov.br/#/consultaCpf
+    input: [cnpj, cpf, nome]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/automacao-de-forca-bruta-para-encontrar-cpf-e-nome-completo
+    nome: Automação de força Bruta para encontrar CPF e Nome completo
+    descricao: 'Este repositório contém duas ferramentas úteis para a manipulação e consulta de CPFs. A primeira ferramenta gera uma lista de CPFs válidos com base em dígitos centrais fornecidos pelo usuário (dígitos que são retornados do pix por exemplo: `***123456**`), enquanto a segunda realiza consultas automáticas de situação cadastral desses CPFs, utilizando um bot automatizado via Selenium para interagir com um site de consulta.'
+    links:
+      - url: https://github.com/fernandobortotti/CPF-Tools
+    input: [cnpj, cpf, nome]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cpf-validador-validacao-e-descoberta-de-cpf-via-trt3
+    nome: CPF Validador - Validação e Descoberta de CPF via TRT3
+    descricao: Valida CPFs, confirma titularidade pelo nome e descobre o CPF correto a partir de dígitos parciais ou ilegíveis. Resolve CAPTCHA automaticamente via rede neural local (CRNN ~99% de acurácia), sem depender de serviços externos. Expõe as operações como MCP tools para integração com agentes AI.
+    links:
+      - url: https://github.com/opastorello/cpf-validador
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/busca-nome-usando-cpf-cnpj
+    nome: Busca Nome Usando CPF/CNPJ
+    descricao: A intenção deste serviço é ajudar você descobrir e confirmar qual a situação cadastral do documento de CPF (Cadastro de Pessoa Física) e/ou CNPJ (Cadastro Nacional da Pessoa Jurídica).
+    links:
+      - url: https://www.situacao-cadastral.com/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/retornando-nome-completo-cpf-cnpj
+    nome: Retornando Nome Completo CPF/CNPJ
+    descricao: Neste serviço é possível descobrir o nome completo utilizando CPF (Cadastro de Pessoa Física) e/ou CNPJ (Cadastro Nacional da Pessoa Jurídica). Bem como, consultar Certidão Eletrônica de Ações Trabalhistas - CEAT. Em escolha ao CPNJ poder ser que retorne o CPF como complemento ao nome.
+    links:
+      - url: https://sistemas.trt3.jus.br/certidao/feitosTrabalhistas/aba1.emissao.htm
+    input: [cnpj, cpf, nome]
+    output: [certidao, dados_cadastrais, situacao_cadastral]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/visualizacao-de-dados-publicos-de-cnpj
+    nome: Visualização de dados públicos de CNPJ
+    descricao: Ferramenta para observar o relacionamento entre empresas e sócios, a partir dos dados públicos disponibilizados pela Receita Federal. Pode ser executado localmente, baixando o código do Github ou executado online diretamente no site do projeto.
+    links:
+      - url: https://www.redecnpj.com.br/rede/
+      - url: https://github.com/rictom/rede-cnpj/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral, socios]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/antecedentes-criminais-por-estado
+    nome: Antecedentes Criminais por Estado
+    descricao: Consultas de antecedentes criminais em Polícias Civis estaduais.
+    resumo: Consultas por Estado
+    links:
+      - grupo: '**Acre (AC)**'
+        url: https://pc.ac.gov.br/certidao-de-antecedentes-criminais/
+        label: Antecedente criminal
+        uf: AC
+      - grupo: '**Pará (PA)**'
+        url: https://antecedentes.pc.pa.gov.br/consulta
+        label: Consulta de Antecedente Criminal
+        uf: PA
+      - grupo: '**Rio de Janeiro (RJ)**'
+        url: http://atestadodic.detran.rj.gov.br/
+        label: Antecedentes Criminais
+        uf: RJ
+      - url: https://dedic.pcivil.rj.gov.br/Consulta.aspx
+        label: B.O
+        uf: RJ
+      - grupo: '**Rio Grande do Sul (RS)**'
+        url: https://www.pc.rs.gov.br/emitir-certidao-de-antecedentes-policiais
+        label: Emitir certidão de antecedentes criminais
+        uf: RS
+      - grupo: '**Santa Catarina (SC)**'
+        url: https://sistemas.pc.sc.gov.br/formulario-antecedentes-cidadao/#/
+        label: Antecedentes Criminais
+        uf: SC
+    input: [cnpj, cpf]
+    output: [antecedentes, dados_cadastrais, situacao_cadastral]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-cadastro-nacional-dos-advogados-cna
+    nome: Consulta Cadastro Nacional dos Advogados (CNA)
+    descricao: Pesquisar no Repositório do cadastro de todos os advogados do Brasil. Mantido pelo Conselho Federal da OAB, que exerce a função de repositório do cadastro de todos os advogados do Brasil. Para realizar a consulta, basta preencher o formulário e pesquisar. (Nome; Nº da inscrição; Seccional; Tipo de inscrição)
+    links:
+      - url: https://cna.oab.org.br
+    input: [cnpj, cpf, oab, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-conselho-federal-de-medicina-cfm
+    nome: Consulta Conselho Federal de Medicina (CFM)
+    descricao: Pesquisar no Repositório do cadastro de médicos do Brasil. Mantido pelo Conselho Federal de Medicina, órgão que fiscaliza e normatiza a prática médica no Brasil. Para realizar a consulta, basta preencher o formulário e pesquisar.
+    links:
+      - url: https://portal.cfm.org.br/busca-medicos/
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-conselho-federal-de-psicologia-cfp
+    nome: Consulta Conselho Federal de Psicologia (CFP)
+    descricao: Pesquisar no Repositório do cadastro de psicólogos do Brasil. Mantido pelo Conselho Federal de Psicologia, órgão com a finalidade fiscalizar o exercício da profissão de Psicólogo no Brasil. Para realizar a consulta, basta preencher o formulário e pesquisar.
+    links:
+      - url: https://cadastro.cfp.org.br
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/conselho-de-arquitetura-e-urbanismo-cau
+    nome: Conselho de Arquitetura e Urbanismo (CAU)
+    descricao: Consulta de profissionais registrados no CAU.
+    links:
+      - url: https://www.caubr.gov.br/
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/conselho-federal-de-farmacia-cff
+    nome: Conselho Federal de Farmácia (CFF)
+    descricao: Consulta de profissionais de farmácia registrados.
+    links:
+      - url: https://www.cff.org.br/
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/coffito-conselho-federal-de-fisioterapia-e-terapia-ocupacional
+    nome: COFFITO - Conselho Federal de Fisioterapia e Terapia Ocupacional
+    descricao: Consulta de fisioterapeutas e terapeutas ocupacionais.
+    links:
+      - url: https://www.coffito.gov.br/
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/conselho-federal-de-nutricionistas-cfn
+    nome: Conselho Federal de Nutricionistas (CFN)
+    descricao: Consulta de nutricionistas registrados.
+    links:
+      - url: https://www.cfn.org.br/
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/conselho-federal-de-engenharia-e-agronomia-confea
+    nome: Conselho Federal de Engenharia e Agronomia (Confea)
+    descricao: Pesquisar no Repositório do cadastro das profissões inseridas no Sistema Confea/Crea. Mantido pelo Conselho Federal de Engenharia e Agronomia – Confea, instituído juntamente com os Conselhos Regionais de Engenharia e Agronomia pelo Decreto nº 23.569, de 11 de dezembro de 1933, é a instância superior da fiscalização do exercício das profissões inseridas no Sistema Confea/Crea. Para realizar a consulta, basta preencher o formulário e pesquisar.
+    links:
+      - url: https://consultaprofissional.confea.org.br
+    input: [cnpj, cpf, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/declaracao-do-simples-nacional
+    nome: Declaração do Simples Nacional
+    descricao: Para obter informações de declaração do simples nacional, basta informar o CNPJ nessa pesquisa. Vale para todo o território nacional
+    links:
+      - url: http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/dasnsimei.app/Default.aspx
+      - url: https://www8.receita.fazenda.gov.br/SimplesNacional/aplicacoes.aspx?id=21
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-de-inscricao-estadual-sintegra
+    nome: Consulta de Inscrição Estadual (SINTEGRA)
+    descricao: Consulta ao cadastro de contribuintes de ICMS (Inscrição Estadual) nos sistemas SINTEGRA estaduais. Permite verificar a situação cadastral de empresas junto às Secretarias de Fazenda dos estados.
+    links:
+      - url: http://www.sintegra.fazenda.pr.gov.br/sintegra/
+        label: Paraná (PR)
+        uf: PR
+        em_markdown: true
+      - url: https://www.sefaz.rs.gov.br/consultas/contribuinte
+        label: Rio Grande do Sul (RS)
+        uf: RS
+        em_markdown: true
+      - url: https://sat.sef.sc.gov.br/tax.NET/Sat.Cadastro.Web/ComprovanteIE/Consulta.aspx
+        label: Santa Catarina (SC)
+        uf: SC
+        em_markdown: true
+      - url: https://sucief-sincad-web.fazenda.rj.gov.br/sincad-web/index.jsf
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+        em_markdown: true
+      - url: https://www.cadesp.fazenda.sp.gov.br/
+        label: São Paulo (SP)
+        uf: SP
+        em_markdown: true
+      - url: https://agnet.fazenda.df.gov.br/area.cfm?id_area=1140
+        label: Distrito Federal (DF)
+        uf: DF
+        em_markdown: true
+      - url: https://appasp.sefaz.go.gov.br/Sintegra/Consulta/default.html
+        label: Goiás (GO)
+        uf: GO
+        em_markdown: true
+      - url: https://servicos.efazenda.ms.gov.br/consultapublica
+        label: Mato Grosso do Sul (MS)
+        uf: MS
+        em_markdown: true
+      - url: https://sintegra.sefaz.al.gov.br/#/
+        label: Alagoas (AL)
+        uf: AL
+        em_markdown: true
+      - url: https://portal.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/consultaBa.asp
+        label: Bahia (BA)
+        uf: BA
+        em_markdown: true
+      - url: https://consultapublica.sefaz.ce.gov.br/sintegra/preparar-consultar
+        label: Ceará (CE)
+        uf: CE
+        em_markdown: true
+      - url: https://sistemas1.sefaz.ma.gov.br/sintegra/jsp/consultaSintegra/consultaSintegraFiltro.jsf
+        label: Maranhão (MA)
+        uf: MA
+        em_markdown: true
+      - url: https://www4.sefaz.pb.gov.br/sintegra/SINf_ConsultaSintegra.jsp
+        label: Paraíba (PB)
+        uf: PB
+        em_markdown: true
+      - url: https://uvt.sefaz.rn.gov.br/#/services/consultaContribuinte
+        label: Rio Grande do Norte (RN)
+        uf: RN
+        em_markdown: true
+      - url: https://security.sefaz.se.gov.br/SIC/sintegra/index.jsp
+        label: Sergipe (SE)
+        uf: SE
+        em_markdown: true
+      - url: https://sefazonline.ac.gov.br/sefazonline/app.wmsintegralista
+        label: Acre (AC)
+        uf: AC
+        em_markdown: true
+      - url: https://online.sefaz.am.gov.br/sintegra/index.asp
+        label: Amazonas (AM)
+        uf: AM
+        em_markdown: true
+      - url: https://app.sefa.pa.gov.br/sintegra/
+        label: Pará (PA)
+        uf: PA
+        em_markdown: true
+      - url: https://portalcontribuinte.sefin.ro.gov.br/Publico/parametropublica.jsp
+        label: Rondônia (RO)
+        uf: RO
+        em_markdown: true
+      - url: https://portalweb.sefaz.rr.gov.br/sintegra/servlet/wp_siate_consultasintegra
+        label: Roraima (RR)
+        uf: RR
+        em_markdown: true
+      - url: https://sintegra.sefaz.to.gov.br/sintegra/servlet/wpsico01
+        label: Tocantins (TO)
+        uf: TO
+        em_markdown: true
+    input: [cnpj, cpf, inscricao_estadual]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: estadual
+    classificacao: heuristica
+    markdown: |-
+      <details>
+      <summary>Consultas por Estado</summary>
+
+      - Paraná (PR) - http://www.sintegra.fazenda.pr.gov.br/sintegra/
+      - Rio Grande do Sul (RS) - https://www.sefaz.rs.gov.br/consultas/contribuinte
+      - Santa Catarina (SC) - https://sat.sef.sc.gov.br/tax.NET/Sat.Cadastro.Web/ComprovanteIE/Consulta.aspx
+      - Rio de Janeiro (RJ) - https://sucief-sincad-web.fazenda.rj.gov.br/sincad-web/index.jsf
+      - São Paulo (SP) - https://www.cadesp.fazenda.sp.gov.br/(S(o4dmnsp1bcc2na341cmodgoq))/Pages/Cadastro/Consultas/ConsultaPublica/ConsultaPublica.aspx
+      - Distrito Federal (DF) - https://agnet.fazenda.df.gov.br/area.cfm?id_area=1140
+      - Goiás (GO) - https://appasp.sefaz.go.gov.br/Sintegra/Consulta/default.html
+      - Mato Grosso do Sul (MS) - https://servicos.efazenda.ms.gov.br/consultapublica
+      - Alagoas (AL) - https://sintegra.sefaz.al.gov.br/#/
+      - Bahia (BA) - https://portal.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/consultaBa.asp
+      - Ceará (CE) - https://consultapublica.sefaz.ce.gov.br/sintegra/preparar-consultar
+      - Maranhão (MA) - https://sistemas1.sefaz.ma.gov.br/sintegra/jsp/consultaSintegra/consultaSintegraFiltro.jsf
+      - Paraíba (PB) - https://www4.sefaz.pb.gov.br/sintegra/SINf_ConsultaSintegra.jsp
+      - Rio Grande do Norte (RN) - https://uvt.sefaz.rn.gov.br/#/services/consultaContribuinte
+      - Sergipe (SE) - https://security.sefaz.se.gov.br/SIC/sintegra/index.jsp
+      - Acre (AC) - https://sefazonline.ac.gov.br/sefazonline/app.wmsintegralista
+      - Amazonas (AM) - https://online.sefaz.am.gov.br/sintegra/index.asp
+      - Pará (PA) - https://app.sefa.pa.gov.br/sintegra/
+      - Rondônia (RO) - https://portalcontribuinte.sefin.ro.gov.br/Publico/parametropublica.jsp
+      - Roraima (RR) - https://portalweb.sefaz.rr.gov.br/sintegra/servlet/wp_siate_consultasintegra
+      - Tocantins (TO) - https://sintegra.sefaz.to.gov.br/sintegra/servlet/wpsico01
+
+      </details>
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-de-inutilizacao-cnpj
+    nome: Consulta de Inutilização / CNPJ
+    descricao: Consulta de inutilização de numeração de documentos fiscais eletrônicos e verificação de CNPJ no sistema de CT-e.
+    links:
+      - url: https://www.cte.fazenda.gov.br/portal/consulta.aspx?tipoConsulta=inutilizacao&tipoConteudo=MZ1N+CQHCgA=
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-restituicao-do-imposto-de-renda
+    nome: Consulta Restituição do Imposto de Renda
+    descricao: Nesta consulta serão exibidas informações (banco, agência e data de restituição) da Restituição do Imposto de Renda. Para consulta é necessário apenas o CPF e data de nascimento.
+    links:
+      - url: https://www.restituicao.receita.fazenda.gov.br/
+    input: [cpf]
+    output: [debito]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Requer CPF e data de nascimento. Retorna banco, agência e data da restituição.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/portal-e-cac-receita-federal
+    nome: Portal e-CAC Receita Federal
+    descricao: Centro de Atendimento Virtual (e-CAC) da Receita Federal permite acesso a serviços digitais.
+    links:
+      - url: https://cav.receita.fazenda.gov.br/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/ceis-cadastro-de-empresas-inidoneas-e-suspensas
+    nome: CEIS - Cadastro de Empresas Inidôneas e Suspensas
+    descricao: Consulta de empresas impedidas de participar de licitações e celebrar contratos com a Administração Pública.
+    links:
+      - url: http://www.portaltransparencia.gov.br/sancoes/ceis
+    input: [cnpj, cpf]
+    output: [contrato_publico, dados_cadastrais, licitacao, sancao, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cnep-cadastro-nacional-de-empresas-punidas
+    nome: CNEP - Cadastro Nacional de Empresas Punidas
+    descricao: Consulta de empresas punidas com base na Lei Anticorrupção.
+    links:
+      - url: http://www.portaltransparencia.gov.br/sancoes/cnep
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, sancao, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cepim-cadastro-de-entidades-privadas-sem-fins-lucrativos-impedidas
+    nome: CEPIM - Cadastro de Entidades Privadas Sem Fins Lucrativos Impedidas
+    descricao: Consulta de entidades privadas sem fins lucrativos impedidas de celebrar convênios com a Administração Pública Federal.
+    links:
+      - url: http://www.portaltransparencia.gov.br/sancoes/cepim
+    input: [cnpj, cpf]
+    output: [contrato_publico, dados_cadastrais, sancao, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-junta-comercial-do-estado-de-sao-paulo-jucesp
+    nome: Consulta Junta Comercial do Estado de São Paulo (Jucesp)
+    descricao: Pesquisa no banco de dados da Junta Comercial do Estado de São Paulo. Para consulta é necessário apenas o Nome da empresa, CNPJ, Razão social ou NIRE.
+    resumo: Consultas JUCESP
+    links:
+      - url: https://www.jucesponline.sp.gov.br/pesquisa.aspx
+        label: Pesquisa Geral
+        uf: SP
+      - url: https://www.jucesponline.sp.gov.br/Valida_Ficha.aspx
+        label: Validação de Ficha
+        uf: SP
+      - url: https://www.jucesponline.sp.gov.br/pesquisa.aspx?IDProduto=7
+        label: Consulta Produto 7
+        uf: SP
+      - url: https://www.jucesponline.sp.gov.br/Pesquisa.aspx?IDProduto=4
+        label: Consulta Produto 4
+        uf: SP
+      - url: https://www.jucesponline.sp.gov.br/Pre_Visualiza.aspx?nire={VALOR}&idproduto=
+        label: Pré-visualização por NIRE
+        uf: SP
+    input: [cnpj, cpf, inscricao_estadual, nome]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/simples-nacional-consulta-de-optantes
+    nome: Simples Nacional - Consulta de Optantes
+    descricao: Verificação se empresa é optante do regime Simples Nacional, incluindo histórico de opção.
+    links:
+      - url: https://www8.receita.fazenda.gov.br/SimplesNacional/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/redesim-rede-nacional-para-simplificacao
+    nome: REDESIM - Rede Nacional para Simplificação
+    descricao: Plataforma para consulta de viabilidade e registro de empresas em todo Brasil.
+    links:
+      - url: https://www.redesim.gov.br/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-etrevistador-do-ibge
+    nome: Consulta Etrevistador do IBGE
+    descricao: 'Pesquisa informações sobre entrevistador do IBGE. Para consulta é necessário: número matrícula, CPF ou RG.'
+    links:
+      - url: https://respondendo.ibge.gov.br/entrevistador.html
+      - url: https://www.ibge.gov.br/acesso-informacao/institucional/documentos-ibge/1861-novo-portal/institucional/17422-servidores.html
+    input: [cnpj, cpf, municipio]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/susep-consulta-de-corretores
+    nome: SUSEP - Consulta de Corretores
+    descricao: Pesquisa pública de corretores de seguros habilitados pela Superintendência de Seguros Privados, pessoa natural ou jurídica. Permite filtrar por tipo de pessoa, CNPJ (pessoa jurídica), nome, produto e situação do registro (ativo ou cancelado).
+    links:
+      - url: https://www2.susep.gov.br/safe/Corretores/pesquisa
+    input: [cnpj, nome]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Sem cadastro. O campo de documento só aceita CNPJ (pessoa jurídica); corretores pessoa natural são localizados pelo nome.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/pgfn-divida-aberta
+    nome: PGFN - Dívida Aberta
+    descricao: Consulta pública de devedores inscritos em dívida ativa da União e do FGTS em situação irregular. Pesquisa por CPF, CNPJ, nome ou razão social, com filtros por natureza e valor da dívida e exportação dos resultados.
+    links:
+      - url: https://www.dividaaberta.pgfn.gov.br/consultar-devedores
+    input: [cnpj, cpf, nome, razao_social]
+    output: [dados_cadastrais, debito]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Sem cadastro. Lista apenas dívidas em situação irregular; permite exportar resultados.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/tst-certidao-negativa-de-debitos-trabalhistas-cndt
+    nome: TST - Certidão Negativa de Débitos Trabalhistas (CNDT)
+    descricao: Emissão de certidão que informa se a pessoa física ou jurídica consta no Banco Nacional de Devedores Trabalhistas. Para consulta é necessário apenas o CPF ou CNPJ.
+    links:
+      - url: https://cndt-certidao.tst.jus.br/inicio.faces
+    input: [cnpj, cpf]
+    output: [certidao, debito]
+    tipo_fonte: judiciario
+    classificacao: override
+    observacao: Sem cadastro. Certidão positiva ou negativa emitida na hora.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/caixa-consulta-regularidade-do-empregador-crf
+    nome: Caixa - Consulta Regularidade do Empregador (CRF)
+    descricao: Consulta do Certificado de Regularidade do FGTS do empregador. Para consulta é necessário o CNPJ ou CEI e a UF.
+    links:
+      - url: https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf
+    input: [cnpj, uf]
+    output: [certidao, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Sem cadastro. Aceita CNPJ ou CEI.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/banco-central-encontre-uma-instituicao
+    nome: Banco Central - Encontre uma Instituição
+    descricao: Consulta de instituições reguladas ou supervisionadas pelo Banco Central, por nome, CNPJ (8 primeiros dígitos), UF e município, com opção de incluir agências e instituições em regime especial ou liquidação.
+    links:
+      - url: https://www.bcb.gov.br/meubc/encontreinstituicao
+    input: [cnpj, municipio, nome, uf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Sem cadastro. Aceita apenas os 8 primeiros dígitos do CNPJ.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cenprot-consulta-de-protestos
+    nome: CENPROT - Consulta de Protestos
+    descricao: Consulta gratuita de protestos em cartórios de todo o Brasil. Para consulta é necessário apenas o CPF ou CNPJ.
+    links:
+      - url: https://www.pesquisaprotesto.com.br/
+    input: [cnpj, cpf]
+    output: [debito]
+    tipo_fonte: privado
+    classificacao: override
+    observacao: Consulta gratuita; a certidão é paga.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cnes-consulta-de-profissionais-de-saude
+    nome: CNES - Consulta de Profissionais de Saúde
+    descricao: Consulta de profissionais no Cadastro Nacional de Estabelecimentos de Saúde. Campo único que aceita nome do profissional, CPF ou CNS, com filtro de vínculo (geral, mais de 2 vínculos públicos ou carga horária superior a 168 horas). Retorna o CNS do profissional e a relação de vínculos por estabelecimento (UF, município, CBO, CNES, CNPJ, estabelecimento, natureza jurídica e carga horária).
+    links:
+      - url: https://cnes.datasus.gov.br/pages/profissionais/consulta.jsp
+    input: [cns, cpf, nome]
+    output: [dados_cadastrais, endereco, vinculo_profissional]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cofen-consulta-de-profissionais-de-enfermagem
+    nome: COFEN - Consulta de Profissionais de Enfermagem
+    descricao: 'Consulta pública de inscritos no sistema Cofen/Conselhos Regionais de Enfermagem. Para consulta é necessário informar um ou mais critérios: nome completo, CPF ou número de inscrição. Retorna nome do profissional, inscrição, categoria, Coren, situação e data da inscrição. Possui captcha.'
+    links:
+      - url: https://sigen.cofen.gov.br/profissional/consultar
+    input: [cpf, nome, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cfo-busca-de-profissionais-de-odontologia
+    nome: CFO - Busca de Profissionais de Odontologia
+    descricao: Busca de inscritos no Conselho Federal de Odontologia por CRO/UF, categoria (cirurgião-dentista, TPD, TSB, ASB, APD), número de inscrição, especialidade, habilitação e nome completo ou palavra-chave. Retorna nome, inscrição, situação, categoria, tipo de inscrição, especialidades, data de inscrição no CRO e data de registro no CFO. Possui reCAPTCHA.
+    links:
+      - url: https://busca-profissionais.cfo.org.br/
+    input: [nome, registro_profissional, uf]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: ong
+    classificacao: override
+    observacao: Possui reCAPTCHA.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cfmv-busca-por-profissionais-e-empresas-de-medicina-veterinaria
+    nome: CFMV - Busca por Profissionais e Empresas de Medicina Veterinária
+    descricao: Busca de pessoa física (por nome, nome social ou inscrição) ou jurídica (por razão social, registro ou CNPJ) registrada no sistema CFMV/CRMVs, com filtro de UF. Retorna nome ou razão social, nome fantasia, CRMV, situação, UF, área e data de registro.
+    links:
+      - url: https://app.cfmv.gov.br/paginas/busca
+    input: [cnpj, nome, razao_social, registro_profissional, uf]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/confef-pesquisa-de-profissionais-de-educacao-fisica-registrados
+    nome: CONFEF - Pesquisa de Profissionais de Educação Física Registrados
+    descricao: Pesquisa de profissionais e de pessoas jurídicas registradas no sistema CONFEF/CREFs. Campo único de busca (mínimo de 3 caracteres) que retorna UF, registro, nome, conselho regional, categoria e natureza do título.
+    links:
+      - url: https://www.confef.org.br/registrados/
+    input: [nome, razao_social, registro_profissional]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: ong
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/corretores-e-avaliadores-de-imoveis-cofeci-crecisp
+    nome: Corretores e Avaliadores de Imóveis (COFECI / CRECISP)
+    descricao: Consulta de avaliadores imobiliários no Cadastro Nacional de Avaliadores Imobiliários do COFECI (por nome, estado e cidade, retornando nome e número CNAI) e busca de corretores no CRECISP (por CRECI, CPF, nome, zona de atuação, município e idiomas, retornando nome, CRECI, data de inscrição, situação e e-mail oficial). Ambas possuem captcha.
+    resumo: Links de pesquisa
+    links:
+      - url: https://intranet.cofeci.gov.br/cnai/consultaCNAI.aspx
+        label: COFECI - Consulta CNAI
+      - url: https://www.crecisp.gov.br/cidadao/buscaporcorretores
+        label: CRECISP - Busca por Corretores
+    input: [cpf, municipio, nome, registro_profissional, uf]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Ambas as consultas possuem captcha.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/mte-situacao-do-registro-profissional-sirpweb
+    nome: MTE - Situação do Registro Profissional (SIRPWEB)
+    descricao: Consulta da situação de registro profissional emitido pelo Ministério do Trabalho e Emprego. Pesquisa por nome, UF do registro, CPF ou número do registro. Retorna nome, registro, categoria, função, data de concessão e situação. Registros antigos feitos em livro podem não aparecer. Possui captcha.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sirpweb.trabalho.gov.br/sirpweb/pages/consultas/situacaoRegistro.seam
+        label: Registro de Profissional
+      - url: https://sirpweb.trabalho.gov.br/sirpweb/pages/consultas/situacaoRegistroEmpresa.seam
+        label: Registro de Empresa Contratante
+    input: [cpf, nome, registro_profissional, uf]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Possui captcha.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/anbima-consulta-de-pessoas-certificadas
+    nome: ANBIMA - Consulta de Pessoas Certificadas
+    descricao: Consulta de profissionais certificados pela ANBIMA. Para consulta é necessário apenas o CPF. Retorna CPF, nome, certificações, status e validade.
+    links:
+      - url: https://anbimaedu.com.br/consulta-certificado
+    input: [cpf]
+    output: [dados_cadastrais, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: privado
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cvm-consultas-de-participantes-regulados
+    nome: CVM - Consultas de Participantes Regulados
+    descricao: Consultas públicas da Comissão de Valores Mobiliários. O cadastro geral pesquisa por razão social ou denominação, CPF/CNPJ, tipo de participante (agentes autônomos, analistas, consultores, auditores, companhias abertas, fundos, entre outros) e situação, com captcha, e retorna a lista de participantes agrupada por tipo, com razão social e denominação comercial (o detalhe de cada participante pede novo captcha). As consultas de companhias abertas e de fundos aceitam parte do nome ou CNPJ e retornam CNPJ, nome, tipo de participante, código CVM e situação do registro.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sistemas.cvm.gov.br/?CadGeral
+        label: Cadastro Geral de Participantes
+      - url: https://cvmweb.cvm.gov.br/SWB/Sistemas/SCW/CPublica/CiaAb/FormBuscaCiaAb.aspx?TipoConsult=c
+        label: Companhias Abertas
+      - url: https://cvmweb.cvm.gov.br/SWB/Sistemas/SCW/CPublica/CConsolFdo/FormBuscaParticFdo.aspx
+        label: Fundos de Investimento
+      - url: https://www.rad.cvm.gov.br/ENETWeb/frmConsultaExternaCVM.aspx
+        label: Documentos de Companhias
+      - url: https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv
+        label: 'Dados Abertos: Cadastro de Companhias Abertas'
+      - url: https://dados.cvm.gov.br/dataset/agente_auton-cad
+        label: 'Dados Abertos: Cadastro de Agentes Autônomos'
+    input: [cnpj, cpf, nome, razao_social]
+    output: [dados_cadastrais, dataset, situacao_cadastral, vinculo_profissional]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: O cadastro geral possui captcha; companhias abertas e fundos não.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cjf-certidao-unificada-da-justica-federal
+    nome: CJF - Certidão Unificada da Justiça Federal
+    descricao: Solicitação de certidão criminal, cível ou para fins eleitorais dos Tribunais Regionais Federais em um único pedido. Para consulta é necessário CPF ou CNPJ e um e-mail, para o qual a certidão é enviada. Possui aba de validação de certidão.
+    links:
+      - url: https://certidao-unificada.cjf.jus.br/#/solicitacao-certidao
+    input: [cnpj, cpf, email]
+    output: [certidao]
+    tipo_fonte: judiciario
+    classificacao: override
+    observacao: A certidão é enviada para o e-mail informado.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/receita-federal-certidao-de-regularidade-fiscal
+    nome: Receita Federal - Certidão de Regularidade Fiscal
+    descricao: Consulta e emissão de certidão de débitos relativos a créditos tributários federais e à dívida ativa da União, sem necessidade de login. Pessoa jurídica exige apenas o CNPJ; pessoa física exige CPF e data de nascimento. A consulta retorna a relação de certidões emitidas, com código de controle, tipo, data de emissão, validade, situação e segunda via. Possui captcha. Também emite certidão de imóvel rural e de obra de construção civil.
+    links:
+      - url: https://servicos.receitafederal.gov.br/servico/certidoes/
+    input: [cnpj, cpf]
+    output: [certidao, debito]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Pessoa física exige também a data de nascimento.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/portal-da-transparencia-pessoas-expostas-politicamente-pep-e-expulsoes-ceaf
+    nome: Portal da Transparência - Pessoas Expostas Politicamente (PEP) e Expulsões (CEAF)
+    descricao: Bases da CGU com a lista de pessoas expostas politicamente (CPF, nome, função, órgão e período de exercício) e o Cadastro de Expulsões da Administração Federal (punição, pessoa, órgão de lotação, cargo e fundamentação). Os arquivos podem ser baixados sem cadastro; a API de dados aceita CPF ou nome e exige chave gratuita.
+    resumo: Links de pesquisa
+    links:
+      - url: https://portaldatransparencia.gov.br/download-de-dados/pep
+        label: Download PEP
+      - url: https://portaldatransparencia.gov.br/download-de-dados/ceaf
+        label: Download CEAF
+      - url: https://portaldatransparencia.gov.br/download-de-dados/servidores
+        label: Download Servidores
+      - url: https://api.portaldatransparencia.gov.br/v3/api-docs
+        label: Especificação da API
+    input: [cpf, nenhum, nome]
+    output: [api_json, dados_cadastrais, dataset, remuneracao, sancao]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Downloads sem cadastro; a API exige chave gratuita.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/sit-consulta-de-processos-de-autos-de-infracao-por-empregador
+    nome: SIT - Consulta de Processos de Autos de Infração por Empregador
+    descricao: Consulta da Secretaria de Inspeção do Trabalho. Para consulta é necessário apenas o CNPJ raiz do empregador. Retorna UF, inscrição da filial autuada, número do processo, tipo, situação e último movimento.
+    resumo: Links de pesquisa
+    links:
+      - url: https://eprocesso.sit.trabalho.gov.br/ProcessoEletronico/Consultar/ProcessosPorEmpregador
+        label: Processos Eletrônicos
+      - url: https://eprocesso.sit.trabalho.gov.br/ProcessoFisico/Consultar/ProcessosPorEmpregador
+        label: Processos Físicos
+    input: [cnpj]
+    output: [auto_infracao, movimentacao, processo]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Informar o CNPJ raiz (8 primeiros dígitos).
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/mte-cadastro-nacional-de-entidades-sindicais-cnes
+    nome: MTE - Cadastro Nacional de Entidades Sindicais (CNES)
+    descricao: Consulta pública de entidades sindicais por CNPJ, número de solicitação, processo/carta, representação ou parâmetros (como a razão social). Retorna razão social, denominação, CNPJ, grau e situação. Possui captcha.
+    links:
+      - url: https://cnes.trabalho.gov.br/app/publico/consultas/cadastro-entidade
+    input: [cnpj, numero_processo, razao_social]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Possui captcha.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/anvisa-consulta-de-autorizacao-de-funcionamento-de-empresas
+    nome: ANVISA - Consulta de Autorização de Funcionamento de Empresas
+    descricao: Consulta por CNPJ, número da autorização ou NUVS. Retorna razão social, nome fantasia, autorização, número do processo, tipo de produto, site, SAC, data da autorização e situação.
+    links:
+      - url: https://consultas.anvisa.gov.br/#/empresas/empresas/
+    input: [cnpj]
+    output: [dados_cadastrais, processo, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/anp-consulta-de-postos-revendedores-de-combustiveis
+    nome: ANP - Consulta de Postos Revendedores de Combustíveis
+    descricao: Consulta de Dados Públicos da ANP por CNPJ, nome do posto, estado, município, bandeira, combustível e tipo de posto, com exportação incluindo tancagem. Retorna CNPJ, razão social, nome fantasia, UF, município e bandeira; o detalhamento do posto traz endereço, CEP, despacho de autorização, tipo de posto, latitude, longitude, produtos, tancagem e bicos. Possui captcha. A base de dados abertos traz autorização, razão social, CNPJ, endereço, bandeira e data de vinculação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://cdp.anp.gov.br/ords/r/cdp_apex/consulta-dados-publicos-cdp/consulta-de-postos-lista
+        label: Consulta de Postos
+      - url: https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/dados-cadastrais-dos-revendedores-varejistas-de-combustiveis-automotivos
+        label: Dados Abertos de Revendedores
+    input: [cnpj, municipio, razao_social, uf]
+    output: [dados_cadastrais, dataset, endereco]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: A consulta possui captcha; a base de dados abertos não.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/mapa-consulta-de-estabelecimentos-com-sif-sigsif
+    nome: MAPA - Consulta de Estabelecimentos com SIF (SIGSIF)
+    descricao: Consulta de estabelecimentos nacionais registrados no Serviço de Inspeção Federal. Pesquisa por número do SIF, razão social ou CNPJ. Retorna CNPJ/CPF, nome empresarial, número do SIF e situação de cada unidade.
+    links:
+      - url: https://sigsif.agricultura.gov.br/sigsif_cons/!ap_estabelec_nacional_cons
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/mds-cadastro-nacional-de-entidades-de-assistencia-social-cneas
+    nome: MDS - Cadastro Nacional de Entidades de Assistência Social (CNEAS)
+    descricao: Consulta pública de entidades privadas de assistência social. Pesquisa por nome da entidade ou CNPJ, com UF e município obrigatórios. Retorna CNPJ, nome da entidade, UF, município, endereço, e-mail e status do cadastro.
+    links:
+      - url: https://aplicacoes.mds.gov.br/cneas/publico/xhtml/consultapublica/pesquisar.jsf
+    input: [cnpj, municipio, razao_social, uf]
+    output: [dados_cadastrais, endereco, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/transferegov-acesso-livre-a-convenios-e-transferencias
+    nome: Transferegov - Acesso Livre a Convênios e Transferências
+    descricao: Consulta pública de programas, propostas e instrumentos de transferências da União. A pesquisa de instrumentos aceita, entre outros filtros, nome do proponente, CNPJ do proponente, CPF do responsável, órgão, ano, situação e número de emenda parlamentar. Retorna código do instrumento, órgão, situação, datas de início e fim da execução e programa, com detalhamento de cada instrumento.
+    resumo: Links de pesquisa
+    links:
+      - url: https://discricionarias.transferegov.sistema.gov.br/voluntarias/Principal/Principal.do?Usr=guest&Pwd=guest
+        label: Acesso Livre
+      - url: https://transfere.transferegov.sistema.gov.br/habilitacao/consulta-entidade.html
+        label: Consultar Ente/Entidade
+    input: [cnpj, cpf, municipio, razao_social, uf]
+    output: [contrato_publico]
+    tipo_fonte: federal
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/bndes-consulta-a-operacoes-de-financiamento
+    nome: BNDES - Consulta a Operações de Financiamento
+    descricao: Operações contratadas com o BNDES. A API de dados abertos permite pesquisar pelo nome do cliente ou CNPJ formatado e retorna cliente, CNPJ, descrição do projeto, UF, município, número e data do contrato, valores contratado e desembolsado, juros, prazos, instituição financeira credenciada e tipo de garantia.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.bndes.gov.br/wps/portal/site/home/transparencia/consulta-operacoes-bndes
+        label: Painel de Operações
+      - url: https://dadosabertos.bndes.gov.br/api/3/action/datastore_search?resource_id=6f56b78c-510f-44b6-8274-78a5b7e931f4&q={VALOR}
+        label: 'API: Operações Não Automáticas'
+      - url: https://dadosabertos.bndes.gov.br/api/3/action/datastore_search?resource_id=612faa0b-b6be-4b2c-9317-da5dc2c0b901&q={VALOR}
+        label: 'API: Operações Indiretas Automáticas'
+    input: [cnpj, razao_social]
+    output: [api_json, dataset, financiamento]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Na API o CNPJ deve ser informado formatado (00.000.000/0000-00).
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/salic-lei-rouanet-proponentes-incentivadores-e-fornecedores
+    nome: SALIC - Lei Rouanet (Proponentes, Incentivadores e Fornecedores)
+    descricao: Sistema de Apoio às Leis de Incentivo à Cultura. A API pública, sem chave, pesquisa por nome ou CPF/CNPJ e retorna proponentes (nome, CPF/CNPJ, responsável, UF, município e total captado), incentivadores (total doado), fornecedores (CPF/CNPJ, nome e e-mail) e projetos (PRONAC, situação e providência).
+    resumo: Links de pesquisa
+    links:
+      - url: https://aplicacoes.cultura.gov.br/comparar/salicnet/
+        label: Salic Comparar
+      - url: https://api.salic.cultura.gov.br/docs
+        label: Documentação da API
+      - url: https://api.salic.cultura.gov.br/api/v1/proponentes?nome={VALOR}
+        label: 'API: Proponentes'
+      - url: https://api.salic.cultura.gov.br/api/v1/incentivadores?cgccpf={VALOR}
+        label: 'API: Incentivadores'
+      - url: https://api.salic.cultura.gov.br/api/v1/fornecedores?nome={VALOR}
+        label: 'API: Fornecedores'
+    input: [cnpj, cpf, nome, razao_social]
+    output: [api_json, dados_cadastrais, financiamento]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: API sem chave.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-junta-comercial-de-pernambuco-jucepe
+    nome: Consulta Junta Comercial de Pernambuco (JUCEPE)
+    descricao: Consulta de empresas sem login. Para consulta é necessário apenas o nome da empresa, CNPJ ou NIRE. Retorna nome empresarial, NIRE, natureza jurídica, situação, município, CNPJ, porte e objeto social.
+    links:
+      - url: https://portal.jucepe.pe.gov.br/consulta-empresas
+        uf: PE
+    input: [cnpj, inscricao_estadual, razao_social]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: estadual
+    classificacao: override
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-junta-comercial-do-rio-de-janeiro-jucerja
+    nome: Consulta Junta Comercial do Rio de Janeiro (JUCERJA)
+    descricao: Consulta da situação cadastral de empresas por nome, CNPJ ou NIRE, e busca de empresas inativas (artigo 60). Retorna CNPJ, nome da empresa, porte empresarial, situação e status. Possui reCAPTCHA.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.jucerja.rj.gov.br/Servicos/SituacaoCadastralEmpresas
+        label: Situação Cadastral
+        uf: RJ
+      - url: https://www.jucerja.rj.gov.br/Servicos/BuscaEmpresasArtigo60
+        label: Empresas Inativas (Artigo 60)
+        uf: RJ
+    input: [cnpj, inscricao_estadual, razao_social]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: estadual
+    classificacao: override
+    observacao: Possui reCAPTCHA.
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/registrato-banco-central-relacionamentos-com-instituicoes-financeiras
+    nome: Registrato (Banco Central) - Relacionamentos com Instituições Financeiras
+    descricao: Consulta, por CPF ou CNPJ, dos relacionamentos mantidos com instituições financeiras, como contas, empréstimos, cheques e chaves PIX, além de dívidas registradas no SSCR.
+    links:
+      - url: https://registrato.bcb.gov.br/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/juntas-comerciais-estaduais-estados-faltantes
+    nome: Juntas Comerciais estaduais (estados faltantes)
+    descricao: Portais das juntas comerciais, onde se pesquisam empresas por nome ou NIRE, se pedem certidões simplificadas e de inteiro teor e se consultam atos arquivados como contratos sociais e alterações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://juceac.ac.gov.br/
+        label: JUCEAC - Acre (AC)
+        uf: AC
+      - url: https://www.jucap.ap.gov.br/
+        label: JUCAP - Amapá (AP)
+        uf: AP
+      - url: https://www.ba.gov.br/juceb/
+        label: JUCEB - Bahia (BA)
+        uf: BA
+      - url: https://www.ce.gov.br/jucec/
+        label: JUCEC - Ceará (CE)
+        uf: CE
+      - url: https://www.jucis.df.gov.br/
+        label: JUCIS - Distrito Federal (DF)
+        uf: DF
+      - url: https://jucees.es.gov.br/
+        label: JUCEES - Espírito Santo (ES)
+        uf: ES
+      - url: https://goias.gov.br/juceg/
+        label: JUCEG - Goiás (GO)
+        uf: GO
+      - url: https://www.jucemat.mt.gov.br/
+        label: JUCEMAT - Mato Grosso (MT)
+        uf: MT
+      - url: https://www.jucems.ms.gov.br/
+        label: JUCEMS - Mato Grosso do Sul (MS)
+        uf: MS
+      - url: https://www.jucemg.mg.gov.br/
+        label: JUCEMG - Minas Gerais (MG)
+        uf: MG
+      - url: https://www.jucepa.pa.gov.br/
+        label: JUCEPA - Pará (PA)
+        uf: PA
+      - url: https://jucep.pb.gov.br/
+        label: JUCEP - Paraíba (PB)
+        uf: PB
+      - url: https://www.juntacomercial.pr.gov.br/
+        label: JUCEPAR - Paraná (PR)
+        uf: PR
+      - url: https://www.jucepi.pi.gov.br/
+        label: JUCEPI - Piauí (PI)
+        uf: PI
+      - url: https://www.jucern.rn.gov.br/
+        label: JUCERN - Rio Grande do Norte (RN)
+        uf: RN
+      - url: https://jucisrs.rs.gov.br/inicial
+        label: JucisRS - Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://rondonia.ro.gov.br/jucer/
+        label: JUCER - Rondônia (RO)
+        uf: RO
+      - url: https://jucerr.rr.gov.br/
+        label: JUCERR - Roraima (RR)
+        uf: RR
+      - url: https://www.jucesc.sc.gov.br/
+        label: JUCESC - Santa Catarina (SC)
+        uf: SC
+      - url: https://jucese.se.gov.br/
+        label: JUCESE - Sergipe (SE)
+        uf: SE
+      - url: https://www.to.gov.br/jucetins
+        label: JUCETINS - Tocantins (TO)
+        uf: TO
+    input: [cnpj, cpf, inscricao_estadual]
+    output: [certidao, contrato_publico, dados_cadastrais, situacao_cadastral]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/drei-departamento-nacional-de-registro-empresarial-e-integracao
+    nome: DREI - Departamento Nacional de Registro Empresarial e Integração
+    descricao: Órgão federal que normatiza o registro empresarial, com orientações, legislação e lista das juntas comerciais.
+    links:
+      - url: https://www.gov.br/empresas-e-negocios/pt-br/drei
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/mapa-de-empresas-governo-federal
+    nome: Mapa de Empresas - Governo Federal
+    descricao: Painel oficial com dados de abertura e fechamento de empresas, tempo de abertura e estatísticas por município, UF, natureza jurídica e CNAE.
+    links:
+      - url: https://www.gov.br/empresas-e-negocios/pt-br/mapa-de-empresas
+    input: [cnpj, cpf, municipio]
+    output: [cnae, dados_cadastrais, estatistica, mapa, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/receita-federal-dados-publicos-do-cnpj-no-dados-gov-br
+    nome: Receita Federal - Dados públicos do CNPJ no dados.gov.br
+    descricao: Conjunto de dados abertos do Cadastro Nacional da Pessoa Jurídica, com empresas, estabelecimentos e quadro de sócios e administradores.
+    links:
+      - url: https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, dataset, situacao_cadastral, socios]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/b3-empresas-listadas
+    nome: B3 - Empresas listadas
+    descricao: Busca de companhias listadas na B3 com dados cadastrais, composição acionária, administradores, eventos corporativos e documentos enviados.
+    links:
+      - url: https://sistemaswebb3-listados.b3.com.br/listedCompaniesPage/
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/banco-central-relacao-de-instituicoes-em-funcionamento
+    nome: Banco Central - Relação de instituições em funcionamento
+    descricao: Listas oficiais de bancos, cooperativas de crédito, instituições de pagamento, consórcios e demais entidades autorizadas pelo BCB.
+    links:
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/relacao_instituicoes_funcionamento
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/banco-central-ranking-de-reclamacoes
+    nome: Banco Central - Ranking de reclamações
+    descricao: Ranking trimestral de reclamações procedentes contra bancos e instituições financeiras registradas no Banco Central.
+    links:
+      - url: https://www.bcb.gov.br/meubc/rankingreclamacoes
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, sancao, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/cvm-sistema-de-consultas-cadastro-geral
+    nome: CVM - Sistema de consultas (cadastro geral)
+    descricao: Portal de consultas da CVM com cadastro de participantes, fundos, companhias, auditores e administradores de carteira.
+    links:
+      - url: https://cvmweb.cvm.gov.br/swb/default.asp?sg_sistema=scw
+    input: [cnpj, cpf]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: heuristica

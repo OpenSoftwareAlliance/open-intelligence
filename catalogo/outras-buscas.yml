@@ -1,0 +1,710 @@
+# Categoria: Outras Buscas
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: outras-buscas/mcti-ministerio-da-ciencia-tecnologia-e-inovacao
+    nome: MCTI - Ministério da Ciência, Tecnologia e Inovação
+    descricao: Portal oficial do Ministério com informações sobre políticas de ciência, tecnologia e inovação.
+    links:
+      - url: https://www.gov.br/mcti/pt-br
+    input: [nenhum]
+    output: [dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Portal institucional; dados de CT&I ficam em painéis e bases vinculadas ao ministério.
+  - id: outras-buscas/embrapii-unidades-de-pesquisa-e-inovacao
+    nome: Embrapii - Unidades de Pesquisa e Inovação
+    descricao: Consulta de unidades credenciadas da Empresa Brasileira de Pesquisa e Inovação Industrial.
+    links:
+      - url: https://embrapii.org.br/unidades/
+    input: [nenhum]
+    output: [dados_cadastrais, endereco]
+    tipo_fonte: ong
+    classificacao: override
+    observacao: Lista de unidades credenciadas, com localização e áreas de competência.
+  - id: outras-buscas/ipea-mapa-das-organizacoes-da-sociedade-civil
+    nome: IPEA - Mapa das Organizações da Sociedade Civil
+    descricao: Busca de organizações da sociedade civil por nome ou CNPJ, com dados cadastrais, projetos e recursos públicos recebidos.
+    links:
+      - url: https://mapaosc.ipea.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: override
+  - id: outras-buscas/finep-financiadora-de-estudos-e-projetos
+    nome: Finep - Financiadora de Estudos e Projetos
+    descricao: Portal da agência de fomento à inovação com informações sobre editais, financiamentos e projetos.
+    links:
+      - url: http://www.finep.gov.br/
+    input: [nenhum]
+    output: [contrato_publico, estatistica]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Editais, chamadas públicas e projetos financiados.
+  - id: outras-buscas/ibre-instituto-brasileiro-de-economia-fgv
+    nome: IBRE - Instituto Brasileiro de Economia (FGV)
+    descricao: Portal com indicadores econômicos, pesquisas e análises do Instituto Brasileiro de Economia da FGV.
+    links:
+      - url: https://portalibre.fgv.br/
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/suframa-superintendencia-da-zona-franca-de-manaus
+    nome: SUFRAMA - Superintendência da Zona Franca de Manaus
+    descricao: Portal oficial da Suframa com informações sobre a Zona Franca de Manaus, incentivos fiscais e projetos aprovados.
+    links:
+      - url: https://www.gov.br/suframa/pt-br
+    input: [nenhum]
+    output: [contrato_publico, estatistica]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Projetos industriais aprovados e indicadores da Zona Franca de Manaus.
+  - id: outras-buscas/banco-central-cadastro-positivo
+    nome: Banco Central - Cadastro Positivo
+    descricao: Informações sobre o Cadastro Positivo e consulta de bureaus de crédito autorizados.
+    links:
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/cadastropositivo
+    input: [cpf]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/antecedentes-criminais
+    nome: Antecedentes Criminais
+    descricao: ''
+    links:
+      - url: https://servicos.dpf.gov.br/antecedentes-criminais/certidao
+    input: []
+    output: [antecedentes]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/sinesp-cidadao-site-a-app
+    nome: Sinesp Cidadão (Site a APP)
+    descricao: ''
+    links:
+      - grupo: '- Consultar informações sobre: Veículos, Mandados de prisão, Pessoas desaparecidas, Criminosos procurados'
+        url: https://seguranca.sinesp.gov.br/sinesp-seguranca/login.jsf
+    input: [chassi, nome, placa]
+    output: [dados_cadastrais, mandado_prisao, veiculo]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Exige cadastro gov.br. Consulta veículos, mandados de prisão, desaparecidos e procurados.
+  - id: outras-buscas/agencia-lupa
+    nome: Agência Lupa
+    descricao: Primeira agência de checagem do Brasil, signatária da IFCN, com acervo pesquisável de verificações. Útil para saber se uma alegação ou imagem viral já foi checada.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.agencialupa.org/
+        label: Agência Lupa
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/aos-fatos
+    nome: Aos Fatos
+    descricao: Agência de checagem e monitoramento de desinformação, com acervo de verificações e radar de redes. Também publica investigações sobre redes de desinformação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.aosfatos.org/
+        label: Aos Fatos
+      - url: https://www.aosfatos.org/noticias/
+        label: Checagens e notícias
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/projeto-comprova
+    nome: Projeto Comprova
+    descricao: Coalizão de veículos que verifica conteúdos virais sobre políticas públicas, eleições e saúde. Cada checagem traz o passo a passo da verificação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://projetocomprova.com.br/
+        label: Projeto Comprova
+      - url: https://projetocomprova.com.br/publicações/
+        label: Publicações
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/fato-ou-fake-g1
+    nome: Fato ou Fake (g1)
+    descricao: Serviço de checagem do Grupo Globo com verificações de boatos e declarações. Acervo grande e indexado por tema.
+    resumo: Links de pesquisa
+    links:
+      - url: https://g1.globo.com/fato-ou-fake/
+        label: Fato ou Fake
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/estadao-verifica
+    nome: Estadão Verifica
+    descricao: Núcleo de checagem do Estadão, signatário da IFCN, com verificações de conteúdos virais e declarações públicas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.estadao.com.br/estadao-verifica/
+        label: Estadão Verifica
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/afp-checamos-e-uol-confere
+    nome: AFP Checamos e UOL Confere
+    descricao: Checagens da AFP em português e do UOL, com foco em conteúdos virais em redes sociais e mensageiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://checamos.afp.com/
+        label: AFP Checamos
+      - url: https://noticias.uol.com.br/confere/
+        label: UOL Confere
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/boatos-org-e-e-farsas
+    nome: Boatos.org e E-farsas
+    descricao: Sites veteranos de desmentidos de boatos, correntes e golpes digitais brasileiros. Úteis para golpes recorrentes de WhatsApp.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.boatos.org/
+        label: Boatos.org
+      - url: https://www.e-farsas.com/
+        label: E-farsas
+    input: [nome]
+    output: [perfil_social]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: outras-buscas/coletivo-bereia
+    nome: Coletivo Bereia
+    descricao: Checagem especializada em conteúdos que circulam em ambientes religiosos, com foco em mídias cristãs. Cobre um nicho relevante da desinformação no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.coletivobereia.com.br/
+        label: Coletivo Bereia
+    input: [nome]
+    output: [checagem]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/censec-central-notarial-de-servicos-eletronicos-compartilhados
+    nome: CENSEC - Central Notarial de Serviços Eletrônicos Compartilhados
+    descricao: Central do Colégio Notarial que indica em qual tabelionato foram lavrados testamentos, procurações, escrituras e separações/divórcios.
+    links:
+      - url: https://www.censec.org.br/
+    input: [cnpj, cpf, nome]
+    output: [cartorio, certidao]
+    tipo_fonte: ong
+    classificacao: override
+    observacao: Busca de testamentos, procurações e escrituras exige cadastro.
+  - id: outras-buscas/registro-civil-portal-da-arpen-brasil
+    nome: Registro Civil - Portal da ARPEN Brasil
+    descricao: Portal oficial dos cartórios de registro civil para solicitar certidões de nascimento, casamento e óbito de qualquer cartório do país.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.registrocivil.org.br/
+        label: Portal Registro Civil
+      - url: https://arpenbrasil.org.br/
+        label: ARPEN Brasil
+    input: [nome]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: outras-buscas/colegio-notarial-do-brasil
+    nome: Colégio Notarial do Brasil
+    descricao: Entidade nacional dos tabeliães de notas, com localização de cartórios de notas e serviços notariais eletrônicos.
+    links:
+      - url: https://www.notariado.org.br/
+    input: [nome]
+    output: [certidao]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: outras-buscas/ferramentas-de-jornalismo-de-dados-e-investigacao
+    nome: Ferramentas de Jornalismo de Dados e Investigação
+    descricao: Organizações brasileiras que publicam bases, guias e investigações baseadas em dados públicos, úteis como fonte de métodos e datasets.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.abraji.org.br/
+        label: Abraji
+      - url: https://escoladedados.org/
+        label: Escola de Dados
+      - url: https://colaboradados.github.io/
+        label: Colaboradados - catálogo colaborativo
+      - url: https://datafixers.org/
+        label: Data Fixers
+      - url: https://www.voltdata.info/
+        label: Volt Data Lab
+      - url: https://nucleo.jor.br/
+        label: Núcleo Jornalismo
+      - url: https://www.generonumero.media/
+        label: Gênero e Número
+      - url: https://atlas.jor.br/
+        label: Atlas da Notícia
+      - url: https://apublica.org/
+        label: Agência Pública
+      - url: https://reporterbrasil.org.br/
+        label: Repórter Brasil
+      - url: https://deolhonosruralistas.com.br/
+        label: De Olho nos Ruralistas
+      - url: https://politicaporinteiro.org/
+        label: Política Por Inteiro
+      - url: https://www.legisdados.com.br/
+        label: Legisdados
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: outras-buscas/biblioteca-nacional-hemeroteca-digital-brasileira
+    nome: Biblioteca Nacional - Hemeroteca Digital Brasileira
+    descricao: Acervo digitalizado de jornais e revistas brasileiros desde o século XIX, com busca textual por OCR em milhares de periódicos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://memoria.bn.gov.br/hdb/periodico.aspx
+        label: Hemeroteca Digital
+      - url: https://bndigital.bn.gov.br/
+        label: BN Digital
+      - url: https://brasilianafotografica.bn.gov.br/
+        label: Brasiliana Fotográfica
+      - url: https://www.gov.br/bn/pt-br
+        label: Biblioteca Nacional
+    input: []
+    output: [publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/arquivo-nacional-sian
+    nome: Arquivo Nacional - SIAN
+    descricao: Sistema de Informações do Arquivo Nacional com fundos documentais, inclusive registros do SNI e de órgãos de informação do regime militar.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sian.an.gov.br/
+        label: SIAN
+      - url: https://www.gov.br/arquivonacional/pt-br
+        label: Arquivo Nacional
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: federal
+    classificacao: override
+  - id: outras-buscas/memorias-reveladas-e-comissao-nacional-da-verdade
+    nome: Memórias Reveladas e Comissão Nacional da Verdade
+    descricao: Centro de referência sobre a ditadura militar (1964-1985) e acervo digital do relatório e documentos da Comissão Nacional da Verdade.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/memoriasreveladas/pt-br
+        label: Memórias Reveladas
+      - url: https://cnv.memoriasreveladas.gov.br/
+        label: Comissão Nacional da Verdade
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: federal
+    classificacao: override
+  - id: outras-buscas/brasil-nunca-mais-digital
+    nome: 'Brasil: Nunca Mais Digital'
+    descricao: 'Acervo digital dos processos do Superior Tribunal Militar sobre presos políticos reunidos pelo projeto Brasil: Nunca Mais.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://bnmdigital.mpf.mp.br/
+        label: BNM Digital
+    input: [numero_processo]
+    output: [processo]
+    tipo_fonte: ministerio_publico
+    classificacao: heuristica
+  - id: outras-buscas/memorial-da-democracia
+    nome: Memorial da Democracia
+    descricao: Museu virtual do Instituto Lula com linha do tempo, documentos e reportagens sobre a história política brasileira.
+    resumo: Links de pesquisa
+    links:
+      - url: https://memorialdademocracia.com.br/
+        label: Memorial da Democracia
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/acervos-historicos-de-jornais-e-revistas
+    nome: Acervos Históricos de Jornais e Revistas
+    descricao: Arquivos digitais de grandes veículos brasileiros com edições antigas pesquisáveis, alguns com acesso gratuito parcial.
+    resumo: Links de pesquisa
+    links:
+      - url: https://acervo.folha.com.br/index.do
+        label: Folha de S.Paulo
+      - url: https://www.estadao.com.br/acervo/
+        label: Estadão
+      - url: https://oglobo.globo.com/acervo
+        label: O Globo
+      - url: https://veja.abril.com.br/acervo/
+        label: Veja
+      - url: https://www.correiobraziliense.com.br/acervo
+        label: Correio Braziliense
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/arquivos-publicos-estaduais
+    nome: Arquivos Públicos Estaduais
+    descricao: Arquivos estaduais com acervos digitalizados, inclusive fundos do DOPS, jornais históricos e documentos governamentais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.arquivoestado.sp.gov.br/site/acervo/repositorio_digital
+        label: Arquivo Público do Estado de SP - Repositório
+        uf: SP
+      - url: http://www.arquivoestado.sp.gov.br/memoriapolitica/
+        label: SP - Memória Política
+        uf: SP
+      - url: https://www.aperj.rj.gov.br/
+        label: APERJ (RJ)
+        uf: RJ
+      - url: https://www.siaapm.cultura.mg.gov.br/
+        label: Arquivo Público Mineiro (MG)
+        uf: MG
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: estadual
+    classificacao: override
+  - id: outras-buscas/acervos-de-memoria-politica-e-movimentos-sociais
+    nome: Acervos de Memória Política e Movimentos Sociais
+    descricao: Centros de documentação com arquivos sobre ditadura, movimentos sociais, sindicatos e partidos políticos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://cpdoc.fgv.br/
+        label: FGV CPDOC
+      - url: https://atlas.fgv.br/
+        label: FGV - Atlas Histórico do Brasil
+      - url: https://ael.ifch.unicamp.br/
+        label: Arquivo Edgard Leuenroth (Unicamp)
+      - url: https://www.cedem.unesp.br/
+        label: CEDEM (Unesp)
+      - url: https://memorialdaresistenciasp.org.br/
+        label: Memorial da Resistência de SP
+      - url: https://documentosrevelados.com.br/
+        label: Documentos Revelados
+      - url: https://armazemmemoria.com.br/
+        label: Armazém Memória
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/docreader-acervos-digitalizados-docvirt
+    nome: DocReader - Acervos Digitalizados (Docvirt)
+    descricao: Plataforma que hospeda acervos digitalizados de diversas instituições brasileiras, incluindo jornais e documentos históricos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://docvirt.com/
+        label: Docvirt
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/bibliotecas-digitais-historicas
+    nome: Bibliotecas Digitais Históricas
+    descricao: Bibliotecas digitais com obras raras, mapas, iconografia e documentos sobre o Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://digital.bbm.usp.br/handle/bbm/1
+        label: Biblioteca Brasiliana Guita e José Mindlin (USP)
+      - url: https://brasilianadigital.com.br/
+        label: Brasiliana Digital
+      - url: https://acervos.ims.com.br/
+        label: Instituto Moreira Salles - Acervos
+    input: []
+    output: [mapa]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: outras-buscas/camara-e-senado-discursos-diarios-e-arquivo
+    nome: Câmara e Senado - Discursos, Diários e Arquivo
+    descricao: Busca de discursos e notas taquigráficas, diários do Congresso digitalizados, Jornal do Senado e arquivos históricos do Legislativo.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.camara.leg.br/busca-portal?contextoBusca=BuscaDiscursos
+        label: Câmara - Discursos
+      - url: https://imagem.camara.leg.br/diarios.asp
+        label: Câmara - Diários digitalizados
+      - url: https://www2.camara.leg.br/a-camara/documentos-e-pesquisa/arquivo
+        label: Câmara - Arquivo
+      - url: https://www25.senado.leg.br/web/atividade/pronunciamentos
+        label: Senado - Pronunciamentos
+      - url: https://www12.senado.leg.br/noticias/acervo-historico/jornal-do-senado
+        label: Senado - Jornal do Senado
+      - url: https://www12.senado.leg.br/institucional/arquivo
+        label: Senado - Arquivo
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: legislativo
+    classificacao: override
+  - id: outras-buscas/arquivos-da-web
+    nome: Arquivos da Web
+    descricao: Arquivos de páginas web para recuperar versões antigas de sites, inclusive de órgãos .gov.br removidos ou alterados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://web.archive.org/web/*/gov.br*
+        label: Wayback Machine - gov.br
+      - url: https://arquivo.pt/
+        label: Arquivo.pt
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: ong
+    classificacao: override
+  - id: outras-buscas/ibge-memoria-e-biblioteca
+    nome: IBGE - Memória e Biblioteca
+    descricao: Acervo histórico do IBGE com censos antigos, anuários estatísticos e publicações digitalizadas desde o século XIX.
+    resumo: Links de pesquisa
+    links:
+      - url: https://memoria.ibge.gov.br/
+        label: Memória IBGE
+      - url: https://biblioteca.ibge.gov.br/
+        label: Biblioteca IBGE
+    input: [municipio]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/agencia-brasil-ebc
+    nome: Agência Brasil - EBC
+    descricao: Agência pública de notícias com textos e fotos de livre reprodução, útil para checar datas e contextos de fatos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://agenciabrasil.ebc.com.br/
+        label: Agência Brasil
+    input: [nome]
+    output: [acervo_historico]
+    tipo_fonte: privado
+    classificacao: override
+  - id: outras-buscas/organizacao-da-sociedade-civil-igarape
+    nome: Organização da Sociedade Civil - Igarapé
+    descricao: Instituto com plataformas de dados sobre segurança, armas, clima e crimes ambientais no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://igarape.org.br/
+        label: Instituto Igarapé
+    input: [nenhum]
+    output: [estatistica, mapa]
+    tipo_fonte: ong
+    classificacao: override
+  - id: outras-buscas/banco-central-consultas-publicas-uteis
+    nome: Banco Central - Consultas Públicas Úteis
+    descricao: Cadastro de instituições autorizadas, ranking de reclamações, processos administrativos sancionadores e histórico de cotações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/rankingreclamacoes
+        label: Ranking de reclamações
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/processos_sancionadores
+        label: Processos sancionadores
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes
+        label: Histórico de cotações
+      - url: https://www.bcb.gov.br/conversao
+        label: Conversor de moedas
+    input: [cnpj, numero_processo]
+    output: [processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/consulta-informacoes-sobre-dominios
+    nome: Consulta Informações Sobre Domínios
+    descricao: Informações sobre proprietários de domínios brasileiros.
+    resumo: Links para Pesquisa
+    links:
+      - url: https://registro.br/dominio/lista-processo-liberacao.txt
+      - url: https://rdap.registro.br/domain/seu_dominio_exemplo.com.br
+      - url: https://registro.br/tecnologia/ferramentas/whois/
+      - url: https://registro.br/tecnologia/ferramentas/pesquisa-de-usuario/
+      - url: https://kaponline.com.br/whois/
+    input: [dominio]
+    output: []
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/busca-de-falecidos-obitos
+    nome: Busca de Falecidos/Óbitos
+    descricao: ''
+    links:
+      - url: https://www.falecidosnobrasil.org.br/
+    input: [nome]
+    output: [dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: outras-buscas/consulta-de-embarcacoes-navais
+    nome: Consulta de Embarcações Navais
+    descricao: ''
+    links:
+      - url: https://www.mercante.transportes.gov.br/g36127/html/Manife/EmbarcConsul.html?noCampo=cdIrin
+    input: [embarcacao]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/estatisticas-de-nascimentos-obitos-registros-e-casamentos
+    nome: Estatísticas de Nascimentos, Óbitos, Registros e Casamentos
+    descricao: ''
+    links:
+      - url: https://transparencia.registrocivil.org.br/registros
+    input: [nome]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: outras-buscas/empresas-de-seguranca-privada
+    nome: Empresas de Segurança Privada
+    descricao: ''
+    links:
+      - url: https://www.gov.br/pf/pt-br/assuntos/seguranca-privada
+    input: [cnpj]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/consulta-de-registro-licenca-e-controle-de-produtos-quimicos
+    nome: Consulta de Registro, Licença e Controle de Produtos Quimicos
+    descricao: ''
+    links:
+      - url: https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos
+    input: [cnpj]
+    output: [licenca_ambiental]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/informacoes-sobre-um-endereco-de-e-mail
+    nome: Informações sobre um endereço de e-mail
+    descricao: Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.predictasearch.com
+      - url: https://tools.epieos.com/email.php
+    input: [email]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/busca-de-bens-a-venda-ou-aluguel
+    nome: Busca de Bens a venda ou aluguel
+    descricao: ''
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.olx.com.br/
+      - url: https://www.estantevirtual.com.br/
+      - url: https://www.enjoei.com.br/
+      - url: https://www.repassa.com.br/
+      - url: https://www.pegueibode.com.br/
+      - url: https://www.ficoupequeno.com/
+      - url: https://www.facebook.com/marketplace/?locale=pt_BR
+      - url: https://www.mercadolivre.com.br/
+      - url: https://www.elo7.com.br/
+      - url: https://shopee.com.br/
+      - url: https://napista.com.br/
+      - url: https://autoline.com.br/
+      - url: https://www.kavak.com/br
+      - url: https://www.webmotors.com.br/
+    input: [endereco]
+    output: [imovel]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/conhecimento-de-empreendimentos-por-dentro
+    nome: Conhecimento de empreendimentos por dentro
+    descricao: ''
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.vrbo.com/pt-br/
+      - url: https://www.airbnb.com.br/
+      - url: https://www.quintoandar.com.br/
+      - url: https://www.trivago.com.br/
+      - url: https://www.tripadvisor.com.br/
+      - url: https://www.booking.com/index.pt-br.html
+    input: [endereco, municipio]
+    output: [endereco, imovel]
+    tipo_fonte: privado
+    classificacao: override
+    observacao: Plataformas de hospedagem e aluguel com fotos internas de imóveis e empreendimentos.
+  - id: outras-buscas/sites-notificados-pelo-procon-sp
+    nome: Sites Notificados pelo Procon-SP
+    descricao: Lista de sites que devem ser evitados, pois tiveram reclamações de consumidores registrada no Procon-SP, foram notificados, não responderam ou não foram encontrados.
+    links:
+      - url: https://sistemas.procon.sp.gov.br/evitesite/list/evitesites.php
+        uf: SP
+    input: [cnpj]
+    output: [sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: outras-buscas/consulta-em-cartorios
+    nome: Consulta em cartórios
+    descricao: ''
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.pesquisaprotesto.com.br/
+      - url: https://protestosp.com.br/consulta-de-protesto?hc=1
+      - url: https://e-cartoriodobrasil.com/pedido/imoveis/pesquisa-qualificada-de-bens
+    input: [nome]
+    output: [certidao]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/lista-telefonica
+    nome: Lista Telefônica
+    descricao: ''
+    links:
+      - url: https://www.telenumeros.com/
+    input: [nome, telefone]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/consulta-no-instituto-nacional-da-propriedade-industrial-inpi
+    nome: Consulta no Instituto Nacional da Propriedade Industrial (INPI)
+    descricao: 'No link abaixo é possível consultar informações referentes a: Marcas, Patentes, Desenhos Industriais, Patentes Tecnológicas, dentre outras áreas.'
+    links:
+      - url: https://busca.inpi.gov.br/pePI/servlet/LoginController?action=login
+    input: [razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas
+    nome: Consulta de Licitações, Contratos e Compras Públicas
+    descricao: ''
+    resumo: Links de pesquisa
+    links:
+      - url: https://alertalicitacao.com.br/
+      - url: https://www.portaldecompraspublicas.com.br/18/Processos/
+      - url: http://www.portaltransparencia.gov.br/
+    input: [cnpj]
+    output: [contrato_publico, licitacao]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: outras-buscas/consulta-os-processos-licitatorios-da-sptrans
+    nome: Consulta os Processos Licitatórios da SPTrans
+    descricao: Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.
+    resumo: Links para Pesquisa
+    links:
+      - url: https://sptrans.com.br/licitacoes/
+        label: Portal de Licitações SPTrans
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2rc_Ano.aspx
+        label: Consulta de Resultados de Licitações por Ano
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtarp.aspx
+        label: Consulta de Atas de Registro de Preços
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtap.aspx
+        label: Consulta de Avisos de Prorrogação
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ca.aspx
+        label: Consulta de Contratos Administrativos
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp_tc.aspx
+        label: Consulta de Convênios e Termos de Cooperação
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp.aspx
+        label: Consulta de Contratos de Parceria
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2cr.aspx
+        label: Consulta de Contratos Rescindidos
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrted.aspx
+        label: Consulta de Editais
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ec.aspx
+        label: Consulta de Extrato de Contratos
+      - url: https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2apn.aspx
+        label: Consulta de Avisos de Prorrogação (Novo)
+      - url: https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/edital/index.php?p=247319
+        label: Editais da Secretaria de Mobilidade
+        uf: SP
+      - url: https://sistemas.sptrans.com.br/DemPag/hdempag.aspx
+        label: Demonstrativo de Pagamentos
+    input: [cnpj, numero_processo]
+    output: [contrato_publico, licitacao, processo]
+    tipo_fonte: municipal
+    classificacao: override
+  - id: outras-buscas/acesso-a-informacao-sptrans
+    nome: Acesso à Informação - SPTrans
+    descricao: Portal de acesso à informação da São Paulo Transporte S/A com dados sobre contratos, despesas, licitações e transparência.
+    links:
+      - url: https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/institucional/sptrans/acesso_a_informacao/index.php
+        uf: SP
+    input: [cnpj]
+    output: [contrato_publico, licitacao]
+    tipo_fonte: municipal
+    classificacao: override
+  - id: outras-buscas/cnj-justica-aberta-serventias-extrajudiciais
+    nome: CNJ - Justiça Aberta (Serventias Extrajudiciais)
+    descricao: Consulta de cartórios por UF, município, CNS e atribuição. Retorna CNS, denominação, tipo de cartório, telefone, site, e-mail, endereço, situação jurídica, nome do responsável com data de ingresso e substitutos.
+    links:
+      - url: https://justicaaberta.cnj.jus.br/produtividade-e-localizacao-de-serventias-extrajudiciais
+    input: [cns, municipio, uf]
+    output: [cartorio, endereco]
+    tipo_fonte: judiciario
+    classificacao: override

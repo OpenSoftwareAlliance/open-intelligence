@@ -1,0 +1,190 @@
+# Categoria: Registros Ambientais
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: registros-ambientais/ibama-consulta-de-autuacoes-ambientais
+    nome: IBAMA - Consulta de Autuações Ambientais
+    descricao: Consulta pública de áreas embargadas e autuações ambientais.
+    links:
+      - url: https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-ambientais/ctf-app-cadastro-tecnico-federal-de-atividades-potencialmente-poluidoras
+    nome: CTF/APP - Cadastro Técnico Federal de Atividades Potencialmente Poluidoras
+    descricao: Cadastro obrigatório de pessoas físicas e jurídicas que realizam atividades potencialmente poluidoras.
+    links:
+      - url: https://servicos.ibama.gov.br/ctf/
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-ambientais/sinaflor-sistema-nacional-de-controle-da-origem-dos-produtos-florestais
+    nome: SINAFLOR - Sistema Nacional de Controle da Origem dos Produtos Florestais
+    descricao: Sistema de controle do transporte e armazenamento de produtos e subprodutos florestais.
+    links:
+      - url: https://sinaflor2.ibama.gov.br/
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-ambientais/ibama-certificado-de-regularidade-ctf
+    nome: IBAMA - Certificado de Regularidade (CTF)
+    descricao: Consulta da regularidade de pessoas físicas e jurídicas no Cadastro Técnico Federal de Atividades Potencialmente Poluidoras. Para consulta é necessário apenas o CPF ou CNPJ.
+    links:
+      - url: https://servicos.ibama.gov.br/ctf/publico/certificado_regularidade_consulta.php
+    input: [cnpj, cpf]
+    output: [certidao, situacao_cadastral]
+    tipo_fonte: federal
+    classificacao: override
+  - id: registros-ambientais/cetesb-licenciamento-ambiental-sao-paulo
+    nome: CETESB - Licenciamento Ambiental São Paulo
+    descricao: Consulta de licenças ambientais do Estado de São Paulo.
+    links:
+      - url: https://cetesb.sp.gov.br/licenciamentoambiental/
+        uf: SP
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: registros-ambientais/mapbiomas-plataforma-de-consulta
+    nome: MapBiomas - Plataforma de Consulta
+    descricao: Plataforma interativa para consulta de dados de cobertura e uso do solo no Brasil com visualização de mapas e análises temporais.
+    links:
+      - url: https://plataforma.brasil.mapbiomas.org/
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/mapbiomas-estatisticas
+    nome: MapBiomas - Estatísticas
+    descricao: Estatísticas detalhadas sobre mudanças no uso da terra e cobertura vegetal no Brasil.
+    links:
+      - url: https://brasil.mapbiomas.org/estatisticas/
+    input: [cnpj]
+    output: [auto_infracao, estatistica, licenca_ambiental]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/mapbiomas-cobertura-10m
+    nome: MapBiomas - Cobertura 10m
+    descricao: Mapas de alta resolução (10 metros) de cobertura e uso da terra.
+    links:
+      - url: https://brasil.mapbiomas.org/mapbiomas-cobertura-10m/
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/mapbiomas-alerta
+    nome: MapBiomas Alerta
+    descricao: Alertas de desmatamento validados com laudo, imagens antes e depois e cruzamento com CAR, unidades de conservação e embargos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://alerta.mapbiomas.org/
+        label: Portal
+      - url: https://plataforma.alerta.mapbiomas.org/
+        label: Plataforma
+    input: [car, cnpj]
+    output: [area_rural, auto_infracao, licenca_ambiental]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/mapbiomas-fogo
+    nome: MapBiomas Fogo
+    descricao: Mapeamento anual e mensal de cicatrizes de fogo no Brasil desde 1985, por bioma, estado, município e categoria fundiária.
+    links:
+      - url: https://plataforma.monitorfogo.mapbiomas.org/
+    input: [cnpj, municipio]
+    output: [auto_infracao, licenca_ambiental]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/global-forest-watch-brasil
+    nome: Global Forest Watch - Brasil
+    descricao: Painel internacional de monitoramento florestal com perda de cobertura arbórea, alertas e focos de incêndio no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://globalnaturewatch.org/dashboards/country/BRA/
+        label: Dashboard Brasil
+      - url: https://globalnaturewatch.org/map/country/BRA/
+        label: Mapa Brasil
+    input: [cnpj]
+    output: [auto_infracao, estatistica, licenca_ambiental]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/imazon-imazongeo
+    nome: Imazon - ImazonGeo
+    descricao: Plataforma do Imazon com o Sistema de Alerta de Desmatamento (SAD), degradação florestal e mapas da Amazônia.
+    resumo: Links de pesquisa
+    links:
+      - url: https://imazongeo.org.br/
+        label: ImazonGeo
+      - url: https://imazon.org.br/
+        label: Imazon
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-ambientais/ibama-licenciamento-ambiental-federal
+    nome: IBAMA - Licenciamento Ambiental Federal
+    descricao: Consulta pública de processos de licenciamento ambiental federal, licenças emitidas e empreendimentos licenciados pelo IBAMA.
+    resumo: Links de pesquisa
+    links:
+      - url: https://servicos.ibama.gov.br/licenciamento/
+        label: Sistema de licenciamento
+      - url: https://siscom.ibama.gov.br/licenciamento_ambiental/
+        label: SISCOM - Licenciamento
+    input: [cnpj, numero_processo]
+    output: [auto_infracao, licenca_ambiental, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-ambientais/ibama-pamgia-painel-de-mapas-e-geoinformacao
+    nome: IBAMA - PAMGIA (Painel de Mapas e Geoinformação)
+    descricao: Plataforma geográfica do IBAMA com camadas de embargos, autos de infração, licenciamento e monitoramento ambiental.
+    links:
+      - url: https://pamgia.ibama.gov.br/
+    input: [cnpj]
+    output: [auto_infracao, estatistica, licenca_ambiental, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-ambientais/cetesb-qualar-qualidade-do-ar
+    nome: CETESB - QUALAR (Qualidade do Ar)
+    descricao: Sistema da CETESB com dados horários de poluentes medidos nas estações de monitoramento da qualidade do ar em São Paulo.
+    links:
+      - url: https://qualar.cetesb.sp.gov.br/qualar/
+        uf: SP
+    input: [cnpj]
+    output: [auto_infracao, licenca_ambiental]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: registros-ambientais/orgaos-estaduais-de-meio-ambiente
+    nome: Órgãos Estaduais de Meio Ambiente
+    descricao: Portais e sistemas dos órgãos ambientais estaduais com licenciamento, fiscalização e consulta pública de processos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://monitoramento.semas.pa.gov.br/simlam/
+        label: SEMAS - SIMLAM Público - Pará (PA)
+        uf: PA
+      - url: https://www.semas.pa.gov.br/
+        label: SEMAS - Pará (PA)
+        uf: PA
+      - url: https://www.fepam.rs.gov.br/
+        label: FEPAM - Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://www.feam.br/
+        label: FEAM - Minas Gerais (MG)
+        uf: MG
+      - url: https://www.iat.pr.gov.br/
+        label: IAT - Paraná (PR)
+        uf: PR
+      - url: https://www.ba.gov.br/inema/
+        label: INEMA - Bahia (BA)
+        uf: BA
+      - url: https://www.ce.gov.br/sema/
+        label: SEMA - Ceará (CE)
+        uf: CE
+      - url: https://sigam.ambiente.sp.gov.br/sigam3/
+        label: SIGAM - São Paulo (SP)
+        uf: SP
+    input: [cnpj, numero_processo]
+    output: [auto_infracao, licenca_ambiental, processo]
+    tipo_fonte: estadual
+    classificacao: heuristica

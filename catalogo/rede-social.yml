@@ -1,0 +1,246 @@
+# Categoria: Rede Social
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: rede-social/linkedin
+    nome: LinkedIn
+    descricao: É uma rede social de negócios fundada com mais de 750 milhões de usuários.
+    links:
+      - url: https://www.linkedin.com/jobs/search/?keywords=SEU_ALVO&location=Brasil
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/instagram
+    nome: Instagram
+    descricao: Rede mais utilizada atualmente, ótimo para a busca de imagens por localidade
+    links:
+      - url: https://www.instagram.com/explore/
+      - grupo: Ferramenta para busca de dados no Instagram
+        url: https://www.aware-online.com/en/osint-tools/instagram-search-tool/
+      - url: https://www.aware-online.com/en/osint-tools/instagram-tools/
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/twitter
+    nome: Twitter
+    descricao: É uma rede social e um servidor para microblogging e é possível uma busca mais efetiva usando sua busca avançada.
+    links:
+      - url: https://twitter.com/search?q=seu_alvo+lang%3Apt&src=typed_query
+        label: seu_alvo lang:pt
+        em_markdown: true
+      - url: https://twitter.com/search-advanced
+        em_markdown: true
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: |-
+      - `seu_alvo lang:pt`
+        - https://twitter.com/search?q=seu_alvo+lang%3Apt&src=typed_query
+        - https://twitter.com/search-advanced
+  - id: rede-social/omnisci-tweetmap-demo
+    nome: OmniSci Tweetmap Demo
+    descricao: OmniSci é um banco de dados alimentado por GPU (Unidade de Processador Gráfico) e plataforma de visualização projetada para exploração de dados imersiva e ultrarrápida que elimina a desconexão entre o analista e os dados.
+    links:
+      - url: https://www.omnisci.com/demos/tweetmap
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/maptimize-demo-sentiment-analysis-on-tweets
+    nome: Maptimize Demo Sentiment Analysis on Tweets
+    descricao: Esta página exibe os tweets e geolocalização das últimas 24 horas entregues pela API de fluxo público do Twitter.
+    links:
+      - url: https://onemilliontweetmap.com/?center=-18.79191774423444
+        em_markdown: true
+    input: [email, nome, telefone]
+    output: [api_json, perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: '- https://onemilliontweetmap.com/?center=-18.79191774423444,-39.33105468750001&zoom=5&search=SEU_ALVO'
+  - id: rede-social/tweetstats-graficamente
+    nome: TweetStats Graficamente
+    descricao: Represente graficamente suas estatísticas do Twitter, incluindo Tweets por hora, Tweets por mês, cronograma do Tweet, estatísticas de resposta.
+    links:
+      - url: https://www.tweetstats.com/graphs/PERFIL_ALVO
+    input: [email, nome, telefone]
+    output: [estatistica, perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/trend24-trends-e-buscas-locais-e-global
+    nome: Trend24 Trends e buscas locais e global
+    descricao: Uma ferramenta para capturando pensamentos e emoções da população do Twitter em qualquer ponto do tempo.
+    links:
+      - url: https://trends24.in/SEU_ALVO/
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/snap-map
+    nome: Snap Map
+    descricao: ''
+    links:
+      - url: https://map.snapchat.com/@-15.127315
+        em_markdown: true
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: '- https://map.snapchat.com/@-15.127315,-51.412151,4.51z'
+  - id: rede-social/youtube
+    nome: YouTube
+    descricao: ''
+    links:
+      - url: https://www.aware-online.com/en/osint-tools/youtube-search-tool/
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/reedit
+    nome: Reedit
+    descricao: ''
+    links:
+      - url: https://www.aware-online.com/en/osint-tools/reddit-search-tool/
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/tiktok
+    nome: Tiktok
+    descricao: ''
+    links:
+      - url: https://www.tiktok.com/explore
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/kwai
+    nome: Kwai
+    descricao: ''
+    links:
+      - url: https://www.kwai.com/discover/
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/facebook-biblioteca-de-anuncios
+    nome: Facebook Biblioteca de Anúncios
+    descricao: A Biblioteca de Anúncios garante a transparência publicitária oferecendo uma coleção abrangente e pesquisável de todos os anúncios em veiculação nos aplicativos e serviços do Facebook, incluindo o Instagram
+    links:
+      - url: https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&media_type=all
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/procurador-de-redes-sociais
+    nome: Procurador de redes sociais
+    descricao: Uma ferramenta que busca redes sociais como Linkedin, instagram e facebook somente adicionando o nome no final do link.
+    links:
+      - url: https://www.social-searcher.com/search-users/?q6=NOME+SOBRENOME
+    input: [email, nome, telefone]
+    output: [mandado_prisao, perfil_social]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: rede-social/uvrx-buscador-de-redes-sociais
+    nome: UVRX buscador de redes sociais
+    descricao: Um site onde utiliza a busca do google para fazer uma pesquisa mais avançada em redes sociais.
+    links:
+      - url: http://www.uvrx.com/social.html
+      - url: https://www.aware-online.com/osint-tools/
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: rede-social/osint-steam
+    nome: OSINT Steam
+    descricao: ''
+    links:
+      - url: https://github.com/Berchez/OSINT-steam
+        label: open-source
+        em_markdown: true
+      - url: https://osint-steam.vercel.app/pt
+        em_markdown: true
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: |-
+      Uma ferramenta [open-source](https://github.com/Berchez/OSINT-steam) que retorna informações públicas, como lista de amigos e possíveis localizações, de perfís do Steam.
+
+      - https://osint-steam.vercel.app/pt
+  - id: rede-social/scan-user
+    nome: Scan User
+    descricao: Ferramenta desenvolvida em linguagem shellscript em português para buscas de perfis online com e-mail e nickname, incluindo fotos, onde é possível enviar os resultados para o Telegram via API.
+    links:
+      - url: https://github.com/faciltech/scan-user
+    input: [email, nome, telefone]
+    output: [api_json, perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: '- Autor: Eduardo Amaral'
+  - id: rede-social/caipora-pro
+    nome: Caipora Pro
+    descricao: Repositório de ferramentas para Inteligência de Fontes Abertas (OSINT) e Investigação Digital com enfoque no Brasil.
+    links:
+      - url: https://caipora.pro
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: rede-social/osintkit-brasil
+    nome: OSINTkit-Brasil
+    descricao: Curadoria nacional de ferramentas de OSINT (Open Source Intelligence), cuidadosamente organizadas para facilitar investigações, pesquisas e atividades de segurança da informação. O projeto reúne mais de 1600 links úteis categorizados em formato de bookmarks HTML compatíveis com qualquer navegador.
+    links:
+      - url: https://github.com/felipeluan20/OSINTKit-Brasil
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/google-central-de-transparencia-de-anuncios
+    nome: Google - Central de Transparência de Anúncios
+    descricao: Biblioteca de anúncios do Google filtrável para o Brasil, incluindo anúncios políticos e eleitorais com anunciante e gastos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://adstransparency.google.com/political?region=BR
+        label: Anúncios políticos - Brasil
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/tiktok-biblioteca-de-anuncios
+    nome: TikTok - Biblioteca de Anúncios
+    descricao: Biblioteca pública de anúncios do TikTok filtrável por país, com anunciante, período e alcance.
+    resumo: Links de pesquisa
+    links:
+      - url: https://library.tiktok.com/ads?region=BR
+        label: Biblioteca de anúncios - Brasil
+      - url: https://www.tiktok.com/safety/pt-BR/transparency
+        label: Central de Transparência
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: rede-social/netlab-ufrj
+    nome: NetLab UFRJ
+    descricao: Laboratório de estudos de internet e redes sociais da UFRJ com relatórios sobre desinformação, anúncios e redes no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://netlab.eco.ufrj.br/
+        label: NetLab
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: academico
+    classificacao: heuristica
+  - id: rede-social/pegabot
+    nome: PegaBot
+    descricao: Ferramenta do ITS Rio que estima a probabilidade de um perfil de rede social ser automatizado (bot).
+    resumo: Links de pesquisa
+    links:
+      - url: https://pegabot.com.br/
+        label: PegaBot
+    input: [email, nome, telefone]
+    output: [perfil_social]
+    tipo_fonte: privado
+    classificacao: heuristica

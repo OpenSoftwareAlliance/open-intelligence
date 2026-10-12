@@ -1,0 +1,638 @@
+# Categoria: Consulta de Processos
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: consulta-de-processos/portal-e-s
+    nome: Portal e-S\*\*
+    descricao: O portal e-S\*\* é uma solução que visa facilitar a troca de informações e agilizar o trâmite processual por meio de diversos serviços WEB voltados para os advogados, cidadãos e serventuários da justiça.
+    resumo: Portais TJ
+    links:
+      - url: https://esaj.tjac.jus.br/esaj/portal.do?servico=190090
+      - url: https://www.tjba.jus.br/portal/busca-resultado/
+      - url: https://esaj.tjce.jus.br/esaj/portal.do?servico=190090
+      - url: http://esaj.tjac.jus.br/esaj/portal.do?servico=190090
+      - url: http://esaj.tjce.jus.br/esaj/portal.do?servico=190090
+    input: [cnpj, cpf, nome, numero_processo, oab]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/pje-processo-judicial-eletronico-por-tribunal
+    nome: PJe - Processo Judicial Eletrônico por Tribunal
+    descricao: Sistema de consulta processual unificado utilizado por diversos tribunais brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - grupo: |-
+          **Consultas PJe - Justiça Federal**
+          **Tribunais Regionais Federais:**
+        url: https://pje1g.trf1.jus.br/consultapublica/ConsultaPublica/listView.seam
+        label: TRF1 (1ª Região - DF, GO, TO, MT, BA, PI, MA, PA, AM, AC, RR, RO, AP)
+      - url: https://pje.trf5.jus.br/pje/ConsultaPublica/listView.seam
+        label: TRF5 (5ª Região - CE, RN, PB, PE, AL, SE)
+      - grupo: |-
+          **Consultas PJe - Justiça do Trabalho**
+          **Tribunais Regionais do Trabalho (principais):**
+        url: https://pje.tst.jus.br/consultaprocessual/
+        label: TST (Tribunal Superior do Trabalho)
+      - url: https://pje.trt1.jus.br/consultaprocessual/
+        label: TRT1 (Rio de Janeiro)
+        uf: RJ
+      - url: https://pje.trt2.jus.br/consultaprocessual/
+        label: TRT2 (São Paulo)
+        uf: SP
+      - url: https://pje.trt3.jus.br/consultaprocessual/
+        label: TRT3 (Minas Gerais)
+        uf: MG
+      - url: https://pje.trt4.jus.br/consultaprocessual/
+        label: TRT4 (Rio Grande do Sul)
+        uf: RS
+      - url: https://pje.trt15.jus.br/consultaprocessual/
+        label: TRT15 (Campinas/SP)
+      - grupo: |-
+          **Consultas PJe - Justiça Eleitoral**
+          **Tribunal Superior Eleitoral:**
+        url: https://pje.tse.jus.br/pje/ConsultaPublica/listView.seam
+        label: TSE
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/portal-de-jurisprudencia-unificada
+    nome: Portal de Jurisprudência Unificada
+    descricao: Busca unificada de jurisprudência e acórdãos dos tribunais superiores (STF, STJ, TST, TSE, STM).
+    links:
+      - url: https://jurisprudencia.stf.jus.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/consulta-processual-unificada-cnj
+    nome: Consulta Processual Unificada - CNJ
+    descricao: Sistema em desenvolvimento para consulta unificada de processos em todos os tribunais do Brasil.
+    links:
+      - url: https://www.cnj.jus.br/pjecnj/ConsultaPublica/listView.seam
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/banco-nacional-de-mandados-de-prisao
+    nome: Banco Nacional de Mandados de Prisão
+    descricao: O Sistema BNMP – Banco Nacional de Mandados de Prisão tem a finalidade de facilitar o conhecimento por qualquer pessoa e o cumprimento de diligências por parte das autoridades policiais, assim como auxiliar os juízes no exercício de sua jurisdição. Este será alimentado através de um WebService e tem a finalidade de disponibilizar a consulta e a recepção dos mandados de prisão.
+    links:
+      - url: https://portalbnmp.cnj.jus.br/#/pesquisa-peca
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [mandado_prisao, movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/portais-de-tribunais-regionais-federal-trf
+    nome: Portais de Tribunais Regionais Federal (TRF)
+    descricao: '**TRF1**: O Tribunal Regional Federal da 1ª Região, com sede em Brasília, tem sob sua jurisdição o Distrito Federal e os estados do Acre, Amapá, Amazonas, Bahia, Goiás, Maranhão, Mato Grosso, Minas Gerais, Pará, Piauí, Rondônia, Roraima e Tocantins.'
+    links:
+      - url: https://portal.trf1.jus.br
+      - grupo: '**TRF2**: 2a instância da Justiça Federal da 2a Região, com jurisdição no Rio de Janeiro e no Espírito Santo.'
+        url: https://portal.trf2.jus.br
+      - grupo: '**TRF5**: Portal com informações e serviços providos pelo TRF5, tem sob sua jurisdição jfal ,jfce ,jfpb ,jfpe ,jfrn ,jfse.'
+        url: https://www.trf5.jus.br/index.php/portal-dos-servicos-publicos2
+      - grupo: |-
+          **TRF5 - Consultar RPV/Precatório**: O Portal de Precatórios do Tribunal Regional Federal da 5ª Região permite consultar RPVs e precatórios por diferentes critérios, como CPF, número de processo e OAB.
+          Também oferece acesso a certidões, normas relacionadas, perguntas frequentes e serviços autenticados com certificado digital.
+        url: https://rpvprecatorio.trf5.jus.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/jusbrasil
+    nome: JusBrasil
+    descricao: Startup que une Direito e Tecnologia para fazer com que a justiça ultrapasse as fronteiras dos tribunais e chegue às casas de qualquer cidadão ou cidadã, empoderando suas decisões por meio da informação.
+    links:
+      - url: https://www.jusbrasil.com.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-processos/escavador
+    nome: Escavador
+    descricao: Encontre e acompanhe informações relevantes para você sua empresa seu cliente. Pesquise por pessoas, instituições, processos judiciais ou qualquer termo do seu interesse.
+    links:
+      - url: https://www.escavador.com/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-processos/abraji-publique-se
+    nome: ABRAJI - Publique-se
+    descricao: Descubra os processos judiciais no Brasil que citam políticos como partes em ações judiciais de interesse público. O banco de dados do projeto permite atualmente a consulta de processos do STF, STJ, tribunais federais e tribunais de Justiça, que citam 3445 políticos. Mais processos e tribunais serão adicionados ao longo de 2025.
+    links:
+      - url: https://www.publique-se.org.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: consulta-de-processos/stj-superior-tribunal-de-justica
+    nome: STJ - Superior Tribunal de Justiça
+    descricao: Sistema de consultas processuais do Superior Tribunal de Justiça com múltiplas funcionalidades.
+    resumo: Consultas STJ
+    links:
+      - url: https://processo.stj.jus.br/processo/
+        label: Portal de Processos
+      - url: https://processo.stj.jus.br/processo/dj/init
+        label: Diário da Justiça
+      - url: https://processo.stj.jus.br/processo/pesquisa/
+        label: Pesquisa de Processos
+      - url: https://processo.stj.jus.br/processo/pesquisa/preferencias/
+        label: Preferências de Pesquisa
+      - url: https://processo.stj.jus.br/processo/ita/
+        label: Informações Técnico-Administrativas
+      - url: https://processo.stj.jus.br/processo/certidao/emissao
+        label: Emissão de Certidão
+      - url: https://processo.stj.jus.br/processo/certidao/validacao
+        label: Validação de Certidão
+      - url: https://processo.stj.jus.br/processo/dj/edital/?aplicacao=dj.editais&ind_vigentes=true
+        label: Editais do Diário da Justiça
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-consulta-de-processos-de-improbidade-administrativa
+    nome: CNJ - Consulta de Processos de Improbidade Administrativa
+    descricao: Consulta pública de processos de improbidade administrativa por número do processo.
+    links:
+      - url: https://www.cnj.jus.br/improbidade_adm/consultar_processo.php
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-consulta-de-requeridos-por-improbidade
+    nome: CNJ - Consulta de Requeridos por Improbidade
+    descricao: Consulta de pessoas e entidades requeridas em ações de improbidade administrativa.
+    links:
+      - url: https://www.cnj.jus.br/improbidade_adm/consultar_requerido.php
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cade-pesquisa-publica-de-processos
+    nome: CADE - Pesquisa Pública de Processos
+    descricao: Pesquisa pública de processos e documentos do Conselho Administrativo de Defesa Econômica por número SEI, texto, interessado, unidade geradora e tipo de processo.
+    links:
+      - url: https://sei.cade.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-processos/sei-pesquisa-publica-de-processos-por-orgao
+    nome: SEI - Pesquisa Pública de Processos por Órgão
+    descricao: O Sistema Eletrônico de Informações (SEI) é o sistema de processos de 500+ órgãos federais, com o mesmo formulário de pesquisa pública em todos (número SEI, texto, interessado, unidade geradora e tipo de processo).
+    links:
+      - url: https://sei.ibama.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: IBAMA
+      - url: https://sei.antt.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: ANTT
+      - url: https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: ANATEL
+      - url: https://sei.aneel.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: ANEEL
+      - url: https://sei.anvisa.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: ANVISA
+      - url: https://sei.agro.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: MAPA
+      - url: https://sei.mcti.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: MCTI
+      - url: https://sei.mdic.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+        label: MDIC
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-consulta-de-classes-processuais-sgt
+    nome: CNJ - Consulta de Classes Processuais SGT
+    descricao: Sistema de Gestão de Tabelas Processuais Unificadas - consulta de classes processuais.
+    links:
+      - url: https://www.cnj.jus.br/sgt/consulta_publica_classes.php
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/pje-comunicacao-processual
+    nome: PJe - Comunicação Processual
+    descricao: Sistema de intimações e comunicações processuais eletrônicas do Processo Judicial Eletrônico.
+    links:
+      - url: https://comunica.pje.jus.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/consultas-processuais-por-estado
+    nome: Consultas Processuais por Estado
+    descricao: Consultas de processos judiciais em Tribunais de Justiça Estaduais e outras instâncias.
+    resumo: Consultas por Estado
+    links:
+      - grupo: '**Acre (AC)**'
+        url: https://esaj.tjac.jus.br/esaj/portal.do?servico=190090
+        label: ESAJ (Processos)
+        uf: AC
+      - grupo: '**Alagoas (AL)**'
+        url: https://www2.tjal.jus.br/cpopg/open.do
+        label: TJ-AL Processos
+        uf: AL
+      - grupo: '**Amapá (AP)**'
+        url: https://pje.tjap.jus.br/1g/ConsultaPublica/listView.seam
+        label: TJ-AP PJe 1º Grau
+        uf: AP
+      - url: https://pje.tjap.jus.br/2g/ConsultaPublica/listView.seam
+        label: TJ-AP PJe 2º Grau
+        uf: AP
+      - url: https://tucujuris.tjap.jus.br/pages/consultar-processo/consultar-processo.html
+        label: TJ-AP Tucujuris (Processos Físicos)
+        uf: AP
+      - url: https://seeu-consulta-pub.pje.jus.br/seeu/processo/consultaPublica.do?actionType=iniciar
+        label: SEEU-AP Sistema Eletrônico de Execução Unificado
+        uf: AP
+      - grupo: '**Amazonas (AM)**'
+        url: https://consultasaj.tjam.jus.br/cpopg/open.do
+        label: TJ-AM Processos
+        uf: AM
+      - grupo: '**Bahia (BA)**'
+        url: http://esaj.tjba.jus.br/cpopg/open.do
+        label: TJ-BA Processos 1º Grau
+        uf: BA
+      - grupo: '**Ceará (CE)**'
+        url: https://esaj.tjce.jus.br/cpopg/open.do
+        label: TJ-CE Processos
+        uf: CE
+      - grupo: '**Distrito Federal (DF)**'
+        url: https://pje2i-consultapublica.tjdft.jus.br/
+        label: TJ-DFT Processos
+        uf: DF
+      - grupo: '**Goiás (GO)**'
+        url: https://www.tjgo.jus.br/index.php/processo-fisico/primeiro-grau
+        label: Processos físicos 1º grau
+        uf: GO
+      - url: https://www.tjgo.jus.br/index.php/processo-fisico/segundo-grau
+        label: Processos físicos 2º grau
+        uf: GO
+      - url: https://acordoaqui.tjgo.jus.br/acordo-aqui/pesquisa
+        label: TJ-GO Acordo Aqui
+        uf: GO
+      - grupo: '**Rio de Janeiro (RJ)**'
+        url: https://www.stm.jus.br/servicos-ao-cidadao/atendimentoaocidadao/certidao-negativa?view=default
+        label: Justiça Militar
+        uf: RJ
+      - url: https://procweb.jfrj.jus.br/certidao/emissao_cert.asp
+        label: Justiça Federal
+        uf: RJ
+      - grupo: '**São Paulo (SP)**'
+        url: https://serv42.limeira.sp.gov.br/procweb/cnsProcesso/
+        label: Consulta de Processos WEB | Limeira
+        uf: SP
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/carf-consulta-de-acordaos-e-processos-fiscais
+    nome: CARF - Consulta de Acórdãos e Processos Fiscais
+    descricao: Consulta pública de acórdãos e processos administrativos fiscais do Conselho Administrativo de Recursos Fiscais (CARF), órgão colegiado do Ministério da Fazenda.
+    links:
+      - url: https://carf.economia.gov.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-processos/cvm-rad-consulta-de-documentos-de-companhias
+    nome: CVM RAD - Consulta de Documentos de Companhias
+    descricao: Sistema RAD da Comissão de Valores Mobiliários para consulta pública de documentos de companhias abertas, como fatos relevantes, formulários de referência e demonstrações financeiras.
+    links:
+      - url: https://www.rad.cvm.gov.br/ENET/frmConsultaExternaCVM.aspx
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-processos/tribunais-de-justica-consulta-processual-publica-estados-faltantes
+    nome: Tribunais de Justiça - Consulta processual pública (estados faltantes)
+    descricao: Consulta pública de processos de primeiro e segundo grau nos sistemas e-SAJ, PJe, eproc e Projudi dos Tribunais de Justiça estaduais, por número, nome da parte, CPF/CNPJ ou advogado.
+    resumo: Links de pesquisa
+    links:
+      - url: https://esaj.tjsp.jus.br/cpopg/open.do
+        label: São Paulo - e-SAJ (SP)
+        uf: SP
+      - url: https://eproc-consulta.tjsp.jus.br/consulta_1g/externo_controlador.php?acao=tjsp@consulta_unificada_publica/consultar
+        label: São Paulo - eproc consulta unificada (SP)
+        uf: SP
+      - url: https://esaj.tjms.jus.br/cpopg5/open.do
+        label: Mato Grosso do Sul - e-SAJ (MS)
+        uf: MS
+      - url: https://www3.tjrj.jus.br/consultaprocessual/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www.tjmg.jus.br/portal-tjmg/processos/andamento-processual/
+        label: Minas Gerais - andamento processual (MG)
+        uf: MG
+      - url: https://pje-consulta-publica.tjmg.jus.br/
+        label: Minas Gerais - PJe consulta pública (MG)
+        uf: MG
+      - url: https://www.tjrs.jus.br/novo/processos-e-servicos/consultas-processuais/
+        label: Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://eprocwebcon.tjsc.jus.br/consulta1g/externo_controlador.php?acao=processo_consulta_publica
+        label: Santa Catarina - eproc (SC)
+        uf: SC
+      - url: https://projudi.tjpr.jus.br/projudi/
+        label: Paraná - Projudi (PR)
+        uf: PR
+      - url: https://srv03.tjpe.jus.br/consultaprocessualunificada/
+        label: Pernambuco - consulta unificada (PE)
+        uf: PE
+      - url: https://jurisconsult.tjma.jus.br/
+        label: Maranhão - Jurisconsult (MA)
+        uf: MA
+      - url: https://pje.tjma.jus.br/pje/ConsultaPublica/listView.seam
+        label: Maranhão - PJe (MA)
+        uf: MA
+      - url: https://consultaprocessual.tjmt.jus.br/
+        label: Mato Grosso (MT)
+        uf: MT
+      - url: https://projudi.tjrr.jus.br/projudi/
+        label: Roraima - Projudi (RR)
+        uf: RR
+      - url: https://www.tjse.jus.br/tjnet/consultas/internet/consnomeparte.wsp
+        label: Sergipe - consulta por nome da parte (SE)
+        uf: SE
+      - url: https://consultapublica.tjpb.jus.br/pje/ConsultaPublica/listView.seam
+        label: Paraíba - PJe (PB)
+        uf: PB
+      - url: https://pje.tjes.jus.br/pje/ConsultaPublica/listView.seam
+        label: Espírito Santo - PJe (ES)
+        uf: ES
+      - url: https://pje.tjrn.jus.br/
+        label: Rio Grande do Norte - PJe (RN)
+        uf: RN
+    input: [cnpj, cpf, nome, numero_processo, oab]
+    output: [dados_cadastrais, movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-portal-de-servicos-pdpj-consulta-processual-nacional
+    nome: CNJ - Portal de Serviços PDPJ (consulta processual nacional)
+    descricao: Consulta processual unificada da Plataforma Digital do Poder Judiciário, que reúne processos de diversos tribunais integrados ao PDPJ-Br em uma única busca.
+    links:
+      - url: https://portaldeservicos.pdpj.jus.br/consulta
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/tribunais-regionais-federais-consulta-processual-trf2-trf4-trf6
+    nome: Tribunais Regionais Federais - Consulta processual (TRF2, TRF4, TRF6)
+    descricao: Consulta pública de processos da Justiça Federal de primeiro e segundo grau nos sistemas eproc e PJe dos TRFs ainda não catalogados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://eproc-consulta.trf2.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica
+        label: TRF2 - eproc (RJ/ES)
+      - url: https://eproc-consulta.jfrj.jus.br/eproc/externo_controlador.php?acao=processo_consulta_publica
+        label: JFRJ - eproc 1º grau (RJ)
+        uf: RJ
+      - url: https://consulta.trf4.jus.br/trf4/controlador.php?acao=consulta_processual_pesquisa
+        label: TRF4 - consulta processual (RS/SC/PR)
+      - url: https://jurisprudencia.trf4.jus.br/eproc2trf4/externo_controlador.php?acao=jurisprudencia@jurisprudencia/pesquisar
+        label: TRF4 - jurisprudência
+      - url: https://portal.trf6.jus.br/
+        label: TRF6 - portal (MG)
+        uf: MG
+      - url: https://pje1g.trf6.jus.br/consultapublica/ConsultaPublica/listView.seam
+        label: TRF6 - PJe 1º grau (MG)
+        uf: MG
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/tribunais-regionais-do-trabalho-pje-consulta-processual-trts-faltantes
+    nome: Tribunais Regionais do Trabalho - PJe consulta processual (TRTs faltantes)
+    descricao: Consulta pública de processos trabalhistas no PJe dos Tribunais Regionais do Trabalho, por número do processo, útil para identificar reclamações contra empresas e empregadores.
+    resumo: Links de pesquisa
+    links:
+      - url: https://pje.trt5.jus.br/consultaprocessual/
+        label: TRT5 (BA)
+        uf: BA
+      - url: https://pje.trt6.jus.br/consultaprocessual/
+        label: TRT6 (PE)
+        uf: PE
+      - url: https://pje.trt7.jus.br/consultaprocessual/
+        label: TRT7 (CE)
+        uf: CE
+      - url: https://pje.trt8.jus.br/consultaprocessual/
+        label: TRT8 (PA/AP)
+      - url: https://pje.trt9.jus.br/consultaprocessual/
+        label: TRT9 (PR)
+        uf: PR
+      - url: https://pje.trt10.jus.br/consultaprocessual/
+        label: TRT10 (DF/TO)
+      - url: https://pje.trt11.jus.br/consultaprocessual/
+        label: TRT11 (AM/RR)
+      - url: https://pje.trt12.jus.br/consultaprocessual/
+        label: TRT12 (SC)
+        uf: SC
+      - url: https://pje.trt13.jus.br/consultaprocessual/
+        label: TRT13 (PB)
+        uf: PB
+      - url: https://pje.trt14.jus.br/consultaprocessual/
+        label: TRT14 (RO/AC)
+      - url: https://pje.trt16.jus.br/consultaprocessual/
+        label: TRT16 (MA)
+        uf: MA
+      - url: https://pje.trt17.jus.br/consultaprocessual/
+        label: TRT17 (ES)
+        uf: ES
+      - url: https://pje.trt18.jus.br/consultaprocessual/
+        label: TRT18 (GO)
+        uf: GO
+      - url: https://pje.trt19.jus.br/consultaprocessual/
+        label: TRT19 (AL)
+        uf: AL
+      - url: https://pje.trt20.jus.br/consultaprocessual/
+        label: TRT20 (SE)
+        uf: SE
+      - url: https://pje.trt21.jus.br/consultaprocessual/
+        label: TRT21 (RN)
+        uf: RN
+      - url: https://pje.trt22.jus.br/consultaprocessual/
+        label: TRT22 (PI)
+        uf: PI
+      - url: https://pje.trt23.jus.br/consultaprocessual/
+        label: TRT23 (MT)
+        uf: MT
+      - url: https://pje.trt24.jus.br/consultaprocessual/
+        label: TRT24 (MS)
+        uf: MS
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo, sancao]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/tst-pesquisa-de-jurisprudencia
+    nome: TST - Pesquisa de jurisprudência
+    descricao: Busca de acórdãos e decisões do Tribunal Superior do Trabalho por termo, parte, relator e período.
+    links:
+      - url: https://jurisprudencia.tst.jus.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/stf-consulta-processual
+    nome: STF - Consulta processual
+    descricao: Acompanhamento processual do Supremo Tribunal Federal por número, classe, parte ou advogado, com andamentos, decisões e peças.
+    links:
+      - url: https://portal.stf.jus.br/processos/
+    input: [cnpj, cpf, nome, numero_processo, oab]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/tse-consulta-unificada-pje-da-justica-eleitoral
+    nome: TSE - Consulta unificada PJe da Justiça Eleitoral
+    descricao: Consulta pública unificada de processos do TSE e dos Tribunais Regionais Eleitorais no PJe, por número, parte ou documento.
+    links:
+      - url: https://consultaunificadapje.tse.jus.br/
+    input: [cnpj, cpf, nome, numero_processo, titulo_eleitor]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/stm-consulta-processual-e-jurisprudencia-da-justica-militar
+    nome: STM - Consulta processual e jurisprudência da Justiça Militar
+    descricao: Acompanhamento processual e pesquisa de jurisprudência do Superior Tribunal Militar e da Justiça Militar da União.
+    resumo: Links de pesquisa
+    links:
+      - url: https://processos.stm.jus.br/
+        label: Acompanhamento processual
+      - url: https://jurisprudencia.stm.jus.br/
+        label: Jurisprudência
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-justica-em-numeros-e-paineis-estatisticos
+    nome: CNJ - Justiça em Números e painéis estatísticos
+    descricao: Painéis do Conselho Nacional de Justiça com estatísticas de casos novos, pendentes e julgados por tribunal, assunto e classe, incluindo o painel de grandes litigantes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://justica-em-numeros.cnj.jus.br/
+        label: Justiça em Números
+      - url: https://painel-estatistica.stg.cloud.cnj.jus.br/
+        label: Painel de estatísticas do Poder Judiciário
+      - url: https://grandes-litigantes.stg.cloud.cnj.jus.br/
+        label: Painel de grandes litigantes
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [estatistica, movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-datajud-base-nacional-de-dados-do-poder-judiciario
+    nome: CNJ - DataJud (Base Nacional de Dados do Poder Judiciário)
+    descricao: Página institucional do DataJud, base centralizada de metadados processuais de todos os tribunais, com acesso público via API.
+    links:
+      - url: https://www.cnj.jus.br/sistemas/datajud/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [api_json, movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/cnj-banco-nacional-de-medidas-penais-e-prisoes-bnmp-3-0
+    nome: CNJ - Banco Nacional de Medidas Penais e Prisões (BNMP 3.0)
+    descricao: Novo endereço do BNMP na Plataforma Digital do Poder Judiciário, com consulta pública de mandados de prisão e demais peças.
+    links:
+      - url: https://bnmp.pdpj.jus.br/
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [mandado_prisao, movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/tjsp-diario-da-justica-eletronico-dje
+    nome: TJSP - Diário da Justiça Eletrônico (DJe)
+    descricao: Consulta e pesquisa por palavra-chave nos cadernos do Diário da Justiça Eletrônico do Tribunal de Justiça de São Paulo.
+    links:
+      - url: https://dje.tjsp.jus.br/cdje/index.do
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: consulta-de-processos/tribunais-regionais-eleitorais-portais
+    nome: Tribunais Regionais Eleitorais - Portais
+    descricao: Portais dos 27 Tribunais Regionais Eleitorais, com serviços ao eleitor, consulta de processos, prestação de contas e resultados por UF.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.tre-ac.jus.br/
+        label: Acre (AC)
+        uf: AC
+      - url: https://www.tre-al.jus.br/
+        label: Alagoas (AL)
+        uf: AL
+      - url: https://www.tre-ap.jus.br/
+        label: Amapá (AP)
+        uf: AP
+      - url: https://www.tre-am.jus.br/
+        label: Amazonas (AM)
+        uf: AM
+      - url: https://www.tre-ba.jus.br/
+        label: Bahia (BA)
+        uf: BA
+      - url: https://www.tre-ce.jus.br/
+        label: Ceará (CE)
+        uf: CE
+      - url: https://www.tre-df.jus.br/
+        label: Distrito Federal (DF)
+        uf: DF
+      - url: https://www.tre-es.jus.br/
+        label: Espírito Santo (ES)
+        uf: ES
+      - url: https://www.tre-go.jus.br/
+        label: Goiás (GO)
+        uf: GO
+      - url: https://www.tre-ma.jus.br/
+        label: Maranhão (MA)
+        uf: MA
+      - url: https://www.tre-mt.jus.br/
+        label: Mato Grosso (MT)
+        uf: MT
+      - url: https://www.tre-ms.jus.br/
+        label: Mato Grosso do Sul (MS)
+        uf: MS
+      - url: https://www.tre-mg.jus.br/
+        label: Minas Gerais (MG)
+        uf: MG
+      - url: https://www.tre-pa.jus.br/
+        label: Pará (PA)
+        uf: PA
+      - url: https://www.tre-pb.jus.br/
+        label: Paraíba (PB)
+        uf: PB
+      - url: https://www.tre-pr.jus.br/
+        label: Paraná (PR)
+        uf: PR
+      - url: https://www.tre-pe.jus.br/
+        label: Pernambuco (PE)
+        uf: PE
+      - url: https://www.tre-pi.jus.br/
+        label: Piauí (PI)
+        uf: PI
+      - url: https://www.tre-rj.jus.br/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www.tre-rn.jus.br/
+        label: Rio Grande do Norte (RN)
+        uf: RN
+      - url: https://www.tre-rs.jus.br/
+        label: Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://www.tre-ro.jus.br/
+        label: Rondônia (RO)
+        uf: RO
+      - url: https://www.tre-rr.jus.br/
+        label: Roraima (RR)
+        uf: RR
+      - url: https://www.tre-sc.jus.br/
+        label: Santa Catarina (SC)
+        uf: SC
+      - url: https://www.tre-sp.jus.br/
+        label: São Paulo (SP)
+        uf: SP
+      - url: https://www.tre-se.jus.br/
+        label: Sergipe (SE)
+        uf: SE
+      - url: https://www.tre-to.jus.br/
+        label: Tocantins (TO)
+        uf: TO
+    input: [cnpj, cpf, nome, numero_processo]
+    output: [movimentacao, partes, processo]
+    tipo_fonte: judiciario
+    classificacao: heuristica

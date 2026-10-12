@@ -1,0 +1,134 @@
+# Categoria: Ministérios Públicos e Defensorias Públicas
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: ministerios-publicos-e-defensorias-publicas/ministerios-publicos-estaduais
+    nome: Ministérios Públicos Estaduais
+    descricao: Instituições responsáveis pela defesa da ordem jurídica, do regime democrático e dos interesses sociais.
+    resumo: Ministérios Públicos por Estado
+    links:
+      - grupo: '**Acre (AC)**'
+        url: https://www.mpac.mp.br/
+        label: Portal
+        uf: AC
+      - grupo: '**Amazonas (AM)**'
+        url: https://www.mpam.mp.br/
+        label: Portal
+        uf: AM
+      - grupo: '**Maranhão (MA)**'
+        url: https://www.mpma.mp.br/
+        label: Portal
+        uf: MA
+      - grupo: '**Mato Grosso do Sul (MS)**'
+        url: https://www.mpms.mp.br/
+        label: Portal
+        uf: MS
+      - grupo: '**Pará (PA)**'
+        url: https://www2.mppa.mp.br/
+        label: Portal
+        uf: PA
+      - grupo: '**Paraná (PR)**'
+        url: https://www.mppr.mp.br/
+        label: Portal
+        uf: PR
+      - grupo: '**Rio de Janeiro (RJ)**'
+        url: https://www.mprj.mp.br/
+        label: Portal
+        uf: RJ
+      - grupo: '**Rio Grande do Norte (RN)**'
+        url: https://www.mprn.mp.br/
+        label: Portal
+        uf: RN
+      - grupo: '**Rio Grande do Sul (RS)**'
+        url: https://www.mprs.mp.br/
+        label: Portal
+        uf: RS
+      - grupo: '**Santa Catarina (SC)**'
+        url: https://www.mpsc.mp.br/
+        label: Portal
+        uf: SC
+      - grupo: '**Sergipe (SE)**'
+        url: https://www.mpse.mp.br/
+        label: Portal
+        uf: SE
+    input: [nome, numero_processo]
+    output: [processo]
+    tipo_fonte: ministerio_publico
+    classificacao: heuristica
+  - id: ministerios-publicos-e-defensorias-publicas/defensorias-publicas
+    nome: Defensorias Públicas
+    descricao: Instituições que prestam assistência jurídica gratuita aos cidadãos que não podem pagar por advogado.
+    resumo: Defensorias por Estado e União
+    links:
+      - grupo: '**Defensoria Pública da União (DPU)**'
+        url: https://www.dpu.def.br/
+        label: Portal
+      - grupo: '**Bahia (BA)**'
+        url: https://www.defensoria.ba.def.br/
+        label: Portal
+        uf: BA
+      - grupo: '**Ceará (CE)**'
+        url: https://www.defensoria.ce.def.br/
+        label: Portal
+        uf: CE
+      - grupo: '**Espírito Santo (ES)**'
+        url: https://www.defensoria.es.def.br/
+        label: Portal
+        uf: ES
+      - grupo: '**Pará (PA)**'
+        url: https://www.defensoria.pa.def.br/
+        label: Portal
+        uf: PA
+      - grupo: '**Paraná (PR)**'
+        url: https://www.defensoriapublica.pr.def.br/
+        label: Portal
+        uf: PR
+      - grupo: '**Rio de Janeiro (RJ)**'
+        url: https://www.defensoria.rj.def.br/
+        label: Portal
+        uf: RJ
+      - grupo: '**São Paulo (SP)**'
+        url: https://www.defensoria.sp.def.br/
+        label: Portal
+        uf: SP
+    input: [nome, numero_processo, oab]
+    output: [processo]
+    tipo_fonte: defensoria
+    classificacao: heuristica
+  - id: ministerios-publicos-e-defensorias-publicas/disque-denuncia-e-seguranca-publica
+    nome: Disque Denúncia e Segurança Pública
+    descricao: Canais para denúncias anônimas e informações sobre segurança pública.
+    resumo: Portais por Estado
+    links:
+      - grupo: '**Disque Denúncia Rio de Janeiro**'
+        url: https://www.disquedenuncia.org.br/
+        label: Portal
+      - grupo: '**SSP-SP - Disque Denúncia São Paulo**'
+        url: https://www.ssp.sp.gov.br/disque-denuncia
+        label: Portal
+        uf: SP
+      - grupo: '**Espírito Santo - Disque Denúncia**'
+        url: https://www.es.gov.br/disquedenuncia
+        label: Portal
+        uf: ES
+    input: [nome, numero_processo]
+    output: [processo]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: ministerios-publicos-e-defensorias-publicas/policias-estaduais
+    nome: Polícias Estaduais
+    descricao: Órgãos de segurança pública responsáveis pela investigação e prevenção de crimes.
+    resumo: Polícias por Estado
+    links:
+      - grupo: '**Minas Gerais**'
+        url: https://www.policiacivil.mg.gov.br/
+        label: Polícia Civil MG
+        uf: MG
+      - grupo: '**São Paulo**'
+        url: https://www.policiacientifica.sp.gov.br/
+        label: Polícia Científica SP
+        uf: SP
+    input: [nome, numero_processo]
+    output: [processo]
+    tipo_fonte: estadual
+    classificacao: heuristica

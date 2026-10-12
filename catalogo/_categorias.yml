@@ -1,0 +1,363 @@
+# Manifesto do catálogo: ordem das categorias no README.md e apresentação de cada uma.
+# Cada id corresponde a catalogo/<id>.yml. Formato: data/schemas/categorias.schema.json
+categorias:
+  - id: beneficios-sociais-politicas-publicas
+    titulo: Benefícios sociais (Políticas Públicas)
+    emoji: 📑
+    ancora: beneficios-sociais
+    sumario: Benefícios Sociais
+  - id: pessoas-desaparecidas
+    titulo: Pessoas Desaparecidas
+    emoji: 🔍
+    ancora: pessoas-desaparecidas
+    sumario: Pessoas Desaparecidas
+  - id: pessoas-procuradas-pela-justica-no-brasil
+    titulo: Pessoas Procuradas pela Justiça no Brasil
+    ancora: pessoas-procuradas
+    sumario: Pessoas Procuradas pela Justiça
+  - id: consulta-de-processos
+    titulo: Consulta de Processos
+    emoji: 🧑‍⚖️
+    ancora: consulta-processos
+    sumario: Consulta de Processos
+  - id: busca-de-informacoes-via-cpf-cnpj-crm-cna
+    titulo: Busca de Informações via CPF/CNPJ/CRM/CNA
+    emoji: 🔭
+    ancora: busca-cpf-cnpj-crm-cna
+    sumario: Busca de Informações via CPF/CNPJ/CRM/CNA
+  - id: estatisticas-seguranca-publica
+    titulo: Estatísticas Segurança Pública
+    emoji: 🔐
+    ancora: estatísticas
+    sumario: Estatísticas
+    introducao: |-
+      Fontes oficiais de estatísticas criminais (OSINT)
+      Painéis governamentais, dados abertos e relatórios públicos por UF.
+  - id: registros-eleitorais-e-politicos
+    titulo: Registros Eleitorais e Políticos
+    emoji: 🗳️
+    ancora: registros-eleitorais-politicos
+    sumario: Registros Eleitorais e Políticos
+  - id: registros-de-imoveis-e-propriedades
+    titulo: Registros de Imóveis e Propriedades
+    emoji: 🏠
+    ancora: registros-imoveis-propriedades
+    sumario: Registros de Imóveis e Propriedades
+  - id: registros-ambientais
+    titulo: Registros Ambientais
+    emoji: 🌳
+    ancora: registros-ambientais
+    sumario: Registros Ambientais
+  - id: comercio-exterior
+    titulo: Comércio Exterior
+    emoji: 📦
+    ancora: comercio-exterior
+    sumario: Comércio Exterior
+  - id: registros-de-marcas-e-patentes
+    titulo: Registros de Marcas e Patentes
+    emoji: ™️
+    ancora: registros-marcas-patentes
+    sumario: Registros de Marcas e Patentes
+  - id: transparencia-publica-e-defesa-do-consumidor
+    titulo: Transparência Pública e Defesa do Consumidor
+    emoji: 🧾
+    ancora: transparencia-defesa-consumidor
+    sumario: Transparência Pública e Defesa do Consumidor
+  - id: diarios-oficiais
+    titulo: Diários Oficiais
+    emoji: 📰
+    ancora: diarios-oficiais
+    sumario: Diários Oficiais
+  - id: cultura-e-audiovisual
+    titulo: Cultura e Audiovisual
+    emoji: 🎬
+    ancora: cultura-audiovisual
+    sumario: Cultura e Audiovisual
+  - id: telecom
+    titulo: Telecom
+    emoji: 📡
+    ancora: telecom
+    sumario: Telecom
+  - id: estacao-radio-base-erbs
+    titulo: Estação Rádio Base / ERBs
+    emoji: 📻
+    ancora: estacoes-radio-erbs
+    sumario: Estação Rádio Base - ERBs
+  - id: informacoes-academicas
+    titulo: Informações Acadêmicas
+    emoji: 📄
+    ancora: informacoes-academicas
+    sumario: Informações Acadêmicas
+  - id: mapas-e-georreferenciamento
+    titulo: Mapas e Georreferenciamento
+    emoji: 🗺️
+    ancora: mapas-geo
+    sumario: Mapas e Georreferenciamento
+  - id: territorio-meio-ambiente-fiscalizacao
+    titulo: Território, Meio Ambiente & Fiscalização
+    emoji: 🏞️
+    ancora: territorio-meio-ambiente-fiscalizacao
+    sumario: Território, Meio Ambiente & Fiscalização
+  - id: saude
+    titulo: Saúde
+    emoji: 🏥
+    ancora: saude
+    sumario: Saúde
+  - id: motores-de-busca-contexto-brasil
+    titulo: Motores de Busca Contexto Brasil
+    emoji: 🤖
+    ancora: dorks
+    sumario: Motores de Busca Contexto Brasil
+  - id: rede-social
+    titulo: Rede Social
+    emoji: 👥
+    ancora: redes-sociais
+    sumario: Rede Social
+  - id: indexadores-de-servico-de-mensagens-instantaneas
+    titulo: Indexadores de Serviço de Mensagens Instantâneas
+    emoji: 💬
+    ancora: indexador-mensagens
+    sumario: Indexadores de Serviço de Mensagens Instantâneas
+  - id: datasets-dados-abertos
+    titulo: Datasets / Dados Abertos
+    emoji: 🗂️
+    ancora: datasets
+    sumario: Datasets / Dados Abertos
+  - id: dados-de-remuneracao-do-judiciario
+    titulo: Dados de remuneração do Judiciário
+    emoji: 📊
+    ancora: dados-de-remuneracao-do-judiciario
+    sumario: Dados de remuneração do Judiciário
+  - id: consulta-de-transporte-terrestre
+    titulo: Consulta de Transporte Terrestre
+    emoji: 🚗
+    ancora: consulta-transporte-terrestre
+    sumario: Consulta de Transporte Terrestre
+  - id: tracking-de-viagens-de-onibus
+    titulo: Tracking de Viagens de Ônibus
+    emoji: 🚌
+    ancora: tracking-viagens-onibus
+    sumario: 'Tracking de Viagens de Ônibus '
+  - id: consulta-de-transporte-aquaviario
+    titulo: Consulta de Transporte Aquaviário
+    emoji: 🛫
+    ancora: consulta-transporte-aquaviario
+    sumario: Consulta de Transporte Aquaviário
+  - id: consulta-de-transporte-aereo
+    titulo: Consulta de Transporte Aéreo
+    emoji: 🛫
+    ancora: consulta-transporte-aereo
+    sumario: Consulta de Transporte Aéreo
+  - id: cameras-online
+    titulo: Câmeras Online
+    emoji: 🎥
+    ancora: cameras-online
+    sumario: Câmeras Online
+  - id: ministerios-publicos-e-defensorias-publicas
+    titulo: Ministérios Públicos e Defensorias Públicas
+    emoji: ⚖️
+    ancora: ministerios-publicos-defensorias
+    sumario: Ministérios Públicos e Defensorias Públicas
+  - id: seguranca-cibernetica
+    titulo: Segurança Cibernética
+    emoji: 🛡️
+    ancora: seguranca-cibernetica
+    sumario: Segurança Cibernética
+  - id: outras-buscas
+    titulo: Outras Buscas
+    emoji: 🔎
+    ancora: outras-buscas
+    sumario: Outras Buscas
+  - id: apis-publicas-brasileiras
+    titulo: APIs Públicas Brasileiras
+    emoji: 🔌
+    ancora: apis-publicas
+    sumario: APIs Públicas Brasileiras
+  - id: blockchain-e-criptomoedas
+    titulo: Blockchain e Criptomoedas
+    emoji: 💰
+    ancora: blockchain-criptomoedas
+    sumario: Blockchain e Criptomoedas
+  - id: defesa-civil-e-emergencias
+    titulo: Defesa Civil e Emergências
+    emoji: 🚨
+    ancora: defesa-civil-emergencias
+    sumario: Defesa Civil e Emergências
+  - id: energia-e-infraestrutura
+    titulo: Energia e Infraestrutura
+    emoji: ⚡
+    ancora: energia-infraestrutura
+    sumario: Energia e Infraestrutura
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais
+    titulo: Serviços Públicos Estaduais e Conselhos Profissionais
+    emoji: 🏛️
+    ancora: servicos-estaduais
+    sumario: Serviços Públicos Estaduais e Conselhos Profissionais
+  - id: categorias-de-dominios-br
+    titulo: Categorias de Domínios .br
+    emoji: 📰
+    ancora: dominios-br
+    sumario: Categorias de Domínios .br
+    introducao: |-
+      Abaixo estão listadas todas as categorias de domínio .br oferecidas pelo Registro.br. Os domínios de pessoa física e profissionais liberais só podem ser registrados por um titular com CPF. Os domínios de pessoa jurídica devem ser associados a um CNPJ. Já os domínios genéricos e de cidades podem ser registrados por CPF ou CNPJ.
+
+      <details>
+      <summary>Lista de Domínios</summary>
+
+        | TLD              | Destinado a            | Descrição                                                              |
+        | ---------------- | ---------------------- | ---------------------------------------------------------------------- |
+        | APP.BR           | Genéricos              | Aplicativos                                                            |
+        | ART.BR           | Genéricos              | Artes: música, pintura, folclore                                       |
+        | COM.BR           | Genéricos              | Atividades comerciais                                                  |
+        | DEV.BR           | Genéricos              | Desenvolvedores e Plataformas de Desenvolvimento                       |
+        | ECO.BR           | Genéricos              | Atividades com foco eco-ambiental                                      |
+        | EMP.BR           | Genéricos              | Pequenas e micro-empresas                                              |
+        | LOG.BR           | Genéricos              | Transportes e Logistica                                                |
+        | NET.BR           | Genéricos              | Atividades comerciais                                                  |
+        | ONG.BR           | Genéricos              | Atividades não governamentais individuais ou associativas              |
+        | SEG.BR           | Genéricos              | Segurança                                                              |
+        | TEC.BR           | Genéricos              | Tecnologia                                                             |
+        | EDU.BR           | Universidades          | Instituições de ensino superior                                        |
+        | BLOG.BR          | Pessoas Físicas        | Web logs                                                               |
+        | FLOG.BR          | Pessoas Físicas        | Foto logs                                                              |
+        | NOM.BR           | Pessoas Físicas        | Pessoas Físicas                                                        |
+        | VLOG.BR          | Pessoas Físicas        | Vídeo logs                                                             |
+        | WIKI.BR          | Pessoas Físicas        | Páginas do tipo 'wiki'                                                 |
+        | ADM.BR           | Profissionais Liberais | Administradores                                                        |
+        | ADV.BR           | Profissionais Liberais | Advogados                                                              |
+        | ARQ.BR           | Profissionais Liberais | Arquitetos                                                             |
+        | ATO.BR           | Profissionais Liberais | Atores                                                                 |
+        | BIB.BR           | Profissionais Liberais | Bibliotecários / Biblioteconomistas                                    |
+        | BIO.BR           | Profissionais Liberais | Biólogos                                                               |
+        | BMD.BR           | Profissionais Liberais | Biomédicos                                                             |
+        | CIM.BR           | Profissionais Liberais | Corretores                                                             |
+        | CNG.BR           | Profissionais Liberais | Cenógrafos                                                             |
+        | CNT.BR           | Profissionais Liberais | Contadores                                                             |
+        | COZ.BR           | Profissionais Liberais | Profissionais de Gastronomia                                           |
+        | DES.BR           | Profissionais Liberais | "Designers" e Desenhistas                                              |
+        | DET.BR           | Profissionais Liberais | Detetives / Investigadores Particulares                                |
+        | ECN.BR           | Profissionais Liberais | Economistas                                                            |
+        | ENF.BR           | Profissionais Liberais | Profissionais de Enfermagem                                            |
+        | ENG.BR           | Profissionais Liberais | Engenheiros                                                            |
+        | ETI.BR           | Profissionais Liberais | Especialista em Tecnologia da Informação                               |
+        | FND.BR           | Profissionais Liberais | Fonoaudiólogos                                                         |
+        | FOT.BR           | Profissionais Liberais | Fotógrafos                                                             |
+        | FST.BR           | Profissionais Liberais | Fisioterapeutas                                                        |
+        | GEO.BR           | Profissionais Liberais | Geólogos                                                               |
+        | GGF.BR           | Profissionais Liberais | Geógrafos                                                              |
+        | JOR.BR           | Profissionais Liberais | Jornalistas                                                            |
+        | LEL.BR           | Profissionais Liberais | Leiloeiros                                                             |
+        | MAT.BR           | Profissionais Liberais | Matemáticos e Estatísticos                                             |
+        | MED.BR           | Profissionais Liberais | Médicos                                                                |
+        | MUS.BR           | Profissionais Liberais | Músicos                                                                |
+        | NOT.BR           | Profissionais Liberais | Notários                                                               |
+        | NTR.BR           | Profissionais Liberais | Nutricionistas                                                         |
+        | ODO.BR           | Profissionais Liberais | Dentistas                                                              |
+        | PPG.BR           | Profissionais Liberais | Publicitários e profissionais da área de propaganda e marketing        |
+        | PRO.BR           | Profissionais Liberais | Professores                                                            |
+        | PSC.BR           | Profissionais Liberais | Psicólogos                                                             |
+        | QSL.BR           | Profissionais Liberais | Rádio amadores                                                         |
+        | REP.BR           | Profissionais Liberais | Representantes Comerciais                                              |
+        | SLG.BR           | Profissionais Liberais | Sociólogos                                                             |
+        | TAXI.BR          | Profissionais Liberais | Taxistas                                                               |
+        | TEO.BR           | Profissionais Liberais | Teólogos                                                               |
+        | TRD.BR           | Profissionais Liberais | Tradutores                                                             |
+        | VET.BR           | Profissionais Liberais | Veterinários                                                           |
+        | ZLG.BR           | Profissionais Liberais | Zoólogos                                                               |
+        | 9GUACU.BR        | Cidades                | Nova Iguaçu                                                            |
+        | ABC.BR           | Cidades                | Região ABC Paulista                                                    |
+        | AJU.BR           | Cidades                | Aracaju                                                                |
+        | ANANI.BR         | Cidades                | Ananindeua                                                             |
+        | APARECIDA.BR     | Cidades                | Aparecida                                                              |
+        | BARUERI.BR       | Cidades                | Barueri                                                                |
+        | BELEM.BR         | Cidades                | Belém                                                                  |
+        | BHZ.BR           | Cidades                | Belo Horizonte                                                         |
+        | BOAVISTA.BR      | Cidades                | Boa Vista                                                              |
+        | BSB.BR           | Cidades                | Brasília                                                               |
+        | CAMPINAGRANDE.BR | Cidades                | Campina Grande                                                         |
+        | CAMPINAS.BR      | Cidades                | Campinas                                                               |
+        | CAXIAS.BR        | Cidades                | Caxias                                                                 |
+        | CONTAGEM.BR      | Cidades                | Contagem                                                               |
+        | CUIABA.BR        | Cidades                | Cuiabá                                                                 |
+        | CURITIBA.BR      | Cidades                | Curitiba                                                               |
+        | FEIRA.BR         | Cidades                | Feira de Santana                                                       |
+        | FLORIPA.BR       | Cidades                | Florianópolis                                                          |
+        | FORTAL.BR        | Cidades                | Fortaleza                                                              |
+        | FOZ.BR           | Cidades                | Foz do Iguaçu                                                          |
+        | GOIANIA.BR       | Cidades                | Goiânia                                                                |
+        | GRU.BR           | Cidades                | Guarulhos                                                              |
+        | JAB.BR           | Cidades                | Jaboatão dos Guararapes                                                |
+        | JAMPA.BR         | Cidades                | João Pessoa                                                            |
+        | JDF.BR           | Cidades                | Juiz de Fora                                                           |
+        | JOINVILLE.BR     | Cidades                | Joinville                                                              |
+        | LONDRINA.BR      | Cidades                | Londrina                                                               |
+        | MACAPA.BR        | Cidades                | Macapá                                                                 |
+        | MACEIO.BR        | Cidades                | Maceió                                                                 |
+        | MANAUS.BR        | Cidades                | Manaus                                                                 |
+        | MARINGA.BR       | Cidades                | Maringá                                                                |
+        | MORENA.BR        | Cidades                | Campo Grande                                                           |
+        | NATAL.BR         | Cidades                | Natal                                                                  |
+        | NITEROI.BR       | Cidades                | Niterói                                                                |
+        | OSASCO.BR        | Cidades                | Osasco                                                                 |
+        | PALMAS.BR        | Cidades                | Palmas                                                                 |
+        | POA.BR           | Cidades                | Porto Alegre                                                           |
+        | PVH.BR           | Cidades                | Porto Velho                                                            |
+        | RECIFE.BR        | Cidades                | Recife                                                                 |
+        | RIBEIRAO.BR      | Cidades                | Ribeirão                                                               |
+        | RIO.BR           | Cidades                | Rio de Janeiro                                                         |
+        | RIOBRANCO.BR     | Cidades                | Rio Branco                                                             |
+        | RIOPRETO.BR      | Cidades                | São José do Rio Preto                                                  |
+        | SALVADOR.BR      | Cidades                | Salvador                                                               |
+        | SAMPA.BR         | Cidades                | São Paulo                                                              |
+        | SANTAMARIA.BR    | Cidades                | Santa Maria                                                            |
+        | SANTOANDRE.BR    | Cidades                | Santo André                                                            |
+        | SAOBERNARDO.BR   | Cidades                | São Bernardo do Campo                                                  |
+        | SAOGONCA.BR      | Cidades                | São Gonçalo                                                            |
+        | SJC.BR           | Cidades                | São José dos Campos                                                    |
+        | SLZ.BR           | Cidades                | São Luis                                                               |
+        | SOROCABA.BR      | Cidades                | Sorocaba                                                               |
+        | THE.BR           | Cidades                | Teresina                                                               |
+        | UDI.BR           | Cidades                | Uberlândia                                                             |
+        | VIX.BR           | Cidades                | Vitória                                                                |
+        | **##########**   | **Pessoas Jurídicas**  | **SEM RESTRIÇÃO**                                                      |
+        | AGR.BR           | Pessoas Jurídicas      | Empresas agrícolas, fazendas                                           |
+        | ESP.BR           | Pessoas Jurídicas      | Esporte em geral                                                       |
+        | ETC.BR           | Pessoas Jurídicas      | Empresas que não se enquadram nas outras categorias                    |
+        | FAR.BR           | Pessoas Jurídicas      | Farmácias e drogarias                                                  |
+        | IMB.BR           | Pessoas Jurídicas      | Imobiliárias                                                           |
+        | IND.BR           | Pessoas Jurídicas      | Indústrias                                                             |
+        | INF.BR           | Pessoas Jurídicas      | Meios de informação (rádios, jornais, bibliotecas, etc..)              |
+        | RADIO.BR         | Pessoas Jurídicas      | Empresas que queiram enviar áudio pela rede                            |
+        | REC.BR           | Pessoas Jurídicas      | Atividades de entretenimento, diversão, jogos, etc...                  |
+        | SRV.BR           | Pessoas Jurídicas      | Empresas prestadoras de serviços                                       |
+        | TMP.BR           | Pessoas Jurídicas      | Eventos temporários, como feiras e exposições                          |
+        | TUR.BR           | Pessoas Jurídicas      | Empresas da área de turismo                                            |
+        | TV.BR            | Pessoas Jurídicas      | Empresas de radiodifusão ou transmissão via Internet de sons e imagens |
+        | **##########**   | **Pessoas Jurídicas**  | **COM RESTRIÇÃO**                                                      |
+        | AM.BR            | Pessoas Jurídicas      | Empresas de radiodifusão sonora                                        |
+        | COOP.BR          | Pessoas Jurídicas      | Cooperativas                                                           |
+        | FM.BR            | Pessoas Jurídicas      | Empresas de radiodifusão sonora                                        |
+        | G12.BR           | Pessoas Jurídicas      | Instituições de ensino de primeiro e segundo grau                      |
+        | GOV.BR           | Pessoas Jurídicas      | Instituições do governo federal                                        |
+        | MIL.BR           | Pessoas Jurídicas      | Forças Armadas Brasileiras                                             |
+        | ORG.BR           | Pessoas Jurídicas      | Instituições não governamentais sem fins lucrativos                    |
+        | PSI.BR           | Pessoas Jurídicas      | Provedores de serviço Internet                                         |
+        | **##########**   | **Pessoas Jurídicas**  | **DNSSEC OBRIGATÓRIO**                                                 |
+        | B.BR             | Pessoas Jurídicas      | Bancos                                                                 |
+        | DEF.BR           | Pessoas Jurídicas      | Defensorias Públicas                                                   |
+        | JUS.BR           | Pessoas Jurídicas      | Instituições do Poder Judiciário                                       |
+        | LEG.BR           | Pessoas Jurídicas      | Instituições do Poder Legislativo                                      |
+        | MP.BR            | Pessoas Jurídicas      | Instituições do Ministério Público                                     |
+        | TC.BR            | Pessoas Jurídicas      | Tribunais de Contas                                                    |
+
+      </details>
+  - id: fontes-internacionais-com-cobertura-do-brasil
+    titulo: Fontes Internacionais com Cobertura do Brasil
+    emoji: 🌍
+    ancora: fontes-internacionais
+    sumario: Fontes Internacionais com Cobertura do Brasil
+    introducao: |-
+      Bases e ferramentas mundiais que retornam resultados relevantes para pessoas, empresas, ativos e infraestrutura ligados ao Brasil. Úteis quando a investigação cruza a fronteira: empresas offshore, listas de sanções, aeronaves e embarcações, domínios hospedados fora do país e verificação de imagens.
+
+      > [!NOTE]
+      > Fontes estrangeiras seguem as leis do país de origem. O tratamento de dados de pessoas no Brasil continua sujeito à LGPD, e alguns serviços exigem cadastro gratuito ou limitam consultas na versão gratuita.

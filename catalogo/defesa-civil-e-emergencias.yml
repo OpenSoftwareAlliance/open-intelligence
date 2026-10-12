@@ -1,0 +1,161 @@
+# Categoria: Defesa Civil e Emergências
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: defesa-civil-e-emergencias/defesa-civil-nacional-sistema-de-alertas
+    nome: Defesa Civil Nacional - Sistema de Alertas
+    descricao: Sistema nacional de alertas de desastres naturais.
+    links:
+      - url: https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/s2id-sistema-integrado-de-informacoes-sobre-desastres
+    nome: S2iD - Sistema Integrado de Informações sobre Desastres
+    descricao: Registro e consulta de desastres e emergências no Brasil.
+    links:
+      - url: https://s2id.mi.gov.br/
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/cemaden-centro-nacional-de-monitoramento-e-alertas
+    nome: CEMADEN - Centro Nacional de Monitoramento e Alertas
+    descricao: Monitoramento de risco de desastres naturais em tempo real.
+    links:
+      - url: https://www.cemaden.gov.br/
+      - url: https://www.cemaden.gov.br/mapainterativo/
+        label: Mapa interativo
+    input: [municipio]
+    output: [mapa, video_ao_vivo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/ana-monitoramento-de-secas-e-inundacoes
+    nome: ANA - Monitoramento de Secas e Inundações
+    descricao: Sistema de acompanhamento de eventos hidrológicos críticos.
+    links:
+      - url: https://www.snirh.gov.br/
+      - url: https://portal1.snirh.gov.br/ana/apps/webappviewer/index.html?id=0d9d29ec24cc49df89965f05fc5b96b9
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/defesa-civil-consulta-de-abrigos-publicos
+    nome: Defesa Civil - Consulta de Abrigos Públicos
+    descricao: Localização de abrigos emergenciais por município.
+    links:
+      - url: https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/abrigos-temporarios
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/mapa-de-areas-de-risco
+    nome: Mapa de Áreas de Risco
+    descricao: Identificação de áreas suscetíveis a deslizamentos e inundações.
+    links:
+      - url: https://www.cprm.gov.br/publique/Gestao-Territorial/Cartas-de-Suscetibilidade-a-Movimentos-Gravitacionais-de-Massa-e-Inundacoes-5511.html
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/defesas-civis-estaduais
+    nome: Defesas Civis Estaduais
+    descricao: Portais das coordenadorias estaduais de defesa civil com alertas, boletins, decretos de emergência e áreas de risco.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.defesacivil.sp.gov.br/
+        label: São Paulo (SP)
+        uf: SP
+      - url: https://www.defesacivil.rj.gov.br/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www.mg.gov.br/defesacivil
+        label: Minas Gerais (MG)
+        uf: MG
+      - url: https://defesacivil.es.gov.br/
+        label: Espírito Santo (ES)
+        uf: ES
+      - url: https://www.defesacivil.pr.gov.br/
+        label: Paraná (PR)
+        uf: PR
+      - url: https://www.defesacivil.sc.gov.br/
+        label: Santa Catarina (SC)
+        uf: SC
+      - url: https://www.defesacivil.rs.gov.br/
+        label: Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://www.ba.gov.br/defesacivil/
+        label: Bahia (BA)
+        uf: BA
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/defesa-civil-alerta
+    nome: Defesa Civil Alerta
+    descricao: Sistema federal de envio de alertas de desastres por SMS e cell broadcast, com orientações de cadastro por CEP.
+    links:
+      - url: https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/defesa-civil-alerta
+    input: [cep, municipio]
+    output: [endereco, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/atlas-digital-de-desastres-no-brasil
+    nome: Atlas Digital de Desastres no Brasil
+    descricao: Série histórica de desastres registrados no país com danos humanos, materiais e prejuízos por município e tipologia.
+    links:
+      - url: https://atlasdigital.mdr.gov.br/
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/inmet-instituto-nacional-de-meteorologia
+    nome: INMET - Instituto Nacional de Meteorologia
+    descricao: Previsão do tempo, alertas meteorológicos, mapas de estações e banco de dados meteorológicos históricos (BDMEP).
+    resumo: Links de pesquisa
+    links:
+      - url: https://portal.inmet.gov.br/
+        label: Portal
+      - url: https://tempo.inmet.gov.br/
+        label: Tempo
+      - url: https://mapas.inmet.gov.br/
+        label: Mapas de estações
+      - url: https://bdmep.inmet.gov.br/
+        label: BDMEP - dados históricos
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/sgb-sace-alerta-de-cheias
+    nome: SGB - SACE (Alerta de Cheias)
+    descricao: Sistema de Alerta de Eventos Críticos do Serviço Geológico do Brasil com níveis de rios e previsões de cheias por bacia.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.sgb.gov.br/sace/
+        label: SACE
+      - url: https://www.sgb.gov.br/sace/index_bacias_monitoradas.php
+        label: Bacias monitoradas
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/alerta-rio
+    nome: Alerta Rio
+    descricao: Sistema de alerta de chuvas da Prefeitura do Rio com dados dos pluviômetros, radar e estágios operacionais da cidade.
+    links:
+      - url: https://alertario.rio.rj.gov.br/
+        uf: RJ
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: defesa-civil-e-emergencias/ceped-ufsc-estudos-sobre-desastres
+    nome: CEPED/UFSC - Estudos sobre Desastres
+    descricao: Centro de estudos e pesquisas em desastres da UFSC, responsável por atlas, relatórios de danos e capacitações em defesa civil.
+    links:
+      - url: https://www.ceped.ufsc.br/
+    input: [municipio]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica

@@ -1,0 +1,13 @@
+# Categoria: Dados de remuneração do Judiciário
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: dados-de-remuneracao-do-judiciario/dadosjusbr
+    nome: DadosJusBr
+    descricao: Base estruturada (2018–2025) com salários, benefícios e índices de transparência de mais de 120 órgãos do sistema de Justiça Brasileira.
+    links:
+      - url: https://dadosjusbr.org/
+    input: [cpf, nome]
+    output: [beneficio, remuneracao]
+    tipo_fonte: ong
+    classificacao: heuristica

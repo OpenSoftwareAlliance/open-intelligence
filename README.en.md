@@ -249,14 +249,13 @@ Brazilian investigations rarely stop at the border: companies hold assets offsho
 
 ## Structured dataset (JSON)
 
-Besides the Markdown catalog, the [`data/`](data/) folder publishes a structured JSON version, generated automatically from [README.md](README.md). It lets you find sources by **input type** (CPF, CNPJ, plate, domain, phone...) and by **output type** (company data, lawsuits, sanctions, vehicle data...).
+Besides the Markdown catalog, the [`data/`](data/) folder publishes a structured JSON version, generated automatically from the YAML catalog in [`catalogo/`](catalogo/). It lets you find sources by **input type** (CPF, CNPJ, plate, domain, phone...) and by **output type** (company data, lawsuits, sanctions, vehicle data...).
 
 | File | Content |
 |---|---|
 | [`data/sources.json`](data/sources.json) | One record per source, with its links grouped. Canonical file. |
 | [`data/index.json`](data/index.json) | One record per link, flattened and ready for search. |
 | [`data/taxonomy.json`](data/taxonomy.json) | Controlled vocabulary for input, output and source type. |
-| [`data/overrides.json`](data/overrides.json) | Manual classification fixes. |
 
 Examples with [`jq`](https://jqlang.org/):
 
@@ -271,9 +270,10 @@ jq -r '.links[] | select(.uf == "BA") | "\(.fonte)\t\(.url)"' data/index.json
 jq -r '.sources[] | select(.tipo_fonte == "internacional") | .nome' data/sources.json
 ```
 
-To regenerate the dataset after editing the README (Python 3, no dependencies):
+The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files, never edit them by hand. To regenerate them after editing the catalog (Python 3 and PyYAML, install with `pip install -r requirements.txt`):
 
 ```bash
+pip install -r requirements.txt
 python3 tools/build_dataset.py
 ```
 
@@ -284,8 +284,8 @@ python3 tools/build_dataset.py
 Contributions are welcome, in Portuguese or English. The full guide is in [CONTRIBUICAO.md](CONTRIBUICAO.md); in short:
 
 1. **Report broken links** by opening an issue titled `[LINK QUEBRADO] Source name` with the URL, the date you tested it and the error.
-2. **Add new sources** to [README.md](README.md) following the existing format: a `###` heading, a short objective description and the links. Sources must be public, legal and relevant to Brazil.
-3. **Regenerate the dataset** with `python3 tools/build_dataset.py` and commit `data/sources.json` and `data/index.json` together with your change.
+2. **Add new sources** as an entry in the matching `catalogo/<category>.yml` file (id, name, description, links, input, output, source type and classification; see [CONTRIBUICAO.md](CONTRIBUICAO.md)). Sources must be public, legal and relevant to Brazil.
+3. **Regenerate the generated files** with `python3 tools/build_dataset.py` and commit README.md, `data/sources.json` and `data/index.json` together with your change.
 4. **Run the checks** with `python3 tools/validar_docs.py`, or enable the pre-commit hook once with `git config core.hooksPath tools/hooks`.
 
 > [!CAUTION]

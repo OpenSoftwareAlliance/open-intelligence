@@ -1,0 +1,220 @@
+# Categoria: Estatísticas Segurança Pública
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: estatisticas-seguranca-publica/paineis-nacionais
+    nome: Painéis Nacionais
+    descricao: Ministério da Justiça e Segurança Pública (MJSP)
+    links:
+      - url: https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/estatistica
+        label: SINESP – Estatísticas de Segurança Pública (VDE)
+      - url: https://dados.gov.br/dados/temas/seguranca-e-ordem-publica
+        label: Dados abertos – Segurança Pública (Gov.br)
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/paineis-estaduais
+    nome: Painéis Estaduais
+    descricao: ''
+    resumo: Secretarias de Segurança Pública
+    links:
+      - url: https://www.ssp.ma.gov.br/estatisticas-da-grande-sao-luis/
+        label: Estatísticas da Grande São Luís
+        uf: MA
+      - url: https://www.ssp.ma.gov.br/
+        label: Portal institucional da SSP-MA
+        uf: MA
+      - url: https://www.ssp.sp.gov.br/estatistica/painel-estatistico
+        label: Painel Estatístico SSP-SP
+        uf: SP
+      - url: https://www.ssp.sp.gov.br/estatistica
+        label: Dados mensais por tipo de crime (SSP-SP)
+        uf: SP
+      - url: https://www.ispdados.rj.gov.br/
+        label: ISP Dados – Painel interativo
+        uf: RJ
+      - url: https://www.isp.rj.gov.br/
+        label: Séries históricas e dados abertos
+        uf: RJ
+      - url: https://www.seguranca.mg.gov.br/index.php/transparencia/dados-abertos
+        label: Dados abertos de segurança pública (MG)
+        uf: MG
+      - url: https://www.seguranca.mg.gov.br/
+        label: Portal institucional
+        uf: MG
+      - url: https://www.ba.gov.br/ssp/estatistica
+        label: Estatísticas criminais oficiais
+        uf: BA
+      - url: https://www.ssp.ba.gov.br/
+        label: Portal da SSP-BA
+        uf: BA
+      - url: https://www.sspds.ce.gov.br/estatisticas/
+        label: Indicadores criminais do Ceará
+        uf: CE
+      - url: https://www.sspds.ce.gov.br/
+        label: Portal institucional
+        uf: CE
+      - url: https://www.ssp.rs.gov.br/estatisticas
+        label: Estatísticas criminais
+        uf: RS
+      - url: https://www.ssp.rs.gov.br/
+        label: Portal institucional
+        uf: RS
+      - url: https://www.seguranca.pr.gov.br/Estatisticas
+        label: Estatísticas de criminalidade (PR)
+        uf: PR
+      - url: https://www.seguranca.pr.gov.br/
+        label: Portal institucional
+        uf: PR
+      - url: https://www.sds.pe.gov.br/estatisticas
+        label: Estatísticas criminais – SDS PE
+        uf: PE
+      - url: https://www.sds.pe.gov.br/
+        label: Portal institucional
+        uf: PE
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/forum-brasileiro-de-seguranca-publica-fbsp
+    nome: Fórum Brasileiro de Segurança Pública (FBSP)
+    descricao: Anuário Brasileiro de Segurança Pública com dados consolidados sobre violência, criminalidade e sistema de justiça criminal.
+    links:
+      - url: https://forumseguranca.org.br/
+      - url: https://forumseguranca.org.br/anuario-brasileiro-seguranca-publica/
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/monitor-da-violencia-g1-nev-usp-fbsp
+    nome: Monitor da Violência - G1/NEV-USP/FBSP
+    descricao: Painel colaborativo com dados consolidados de homicídios no Brasil.
+    links:
+      - url: https://g1.globo.com/monitor-da-violencia/
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/instituto-sou-da-paz
+    nome: Instituto Sou da Paz
+    descricao: Dados, análises e pesquisas sobre violência urbana e políticas públicas de segurança.
+    links:
+      - url: https://www.soudapaz.org/
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/onde-fui-roubado
+    nome: Onde Fui Roubado
+    descricao: Mapa colaborativo de ocorrências policiais reportadas por usuários em diversas cidades brasileiras.
+    links:
+      - url: https://www.ondefuiroubado.com.br/
+    input: [nenhum]
+    output: [estatistica, mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/crime-brasil
+    nome: Crime Brasil
+    descricao: Plataforma de jornalismo de dados que consolida estatísticas oficiais de segurança pública (SINESP, SSP-SP, SSP-RS, DATASUS, PRF) e publica análises de criminalidade por estado, cidade e bairro. Tem API REST (mediante chave), feed RSS de análises e mapa das fontes que utiliza.
+    links:
+      - url: https://crimebrasil.com.br/
+      - url: https://crimebrasil.com.br/fontes
+    input: [nenhum]
+    output: [api_json, estatistica, mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/atlas-da-violencia-ipea-e-fbsp
+    nome: Atlas da Violência (IPEA e FBSP)
+    descricao: Séries de homicídios e mortes violentas com recortes por raça, gênero, idade e território, publicadas pelo IPEA em parceria com o Fórum Brasileiro de Segurança Pública.
+    links:
+      - url: https://www.ipea.gov.br/atlasviolencia/
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/sisdepen-sistema-de-informacoes-penais-senappen
+    nome: SISDEPEN - Sistema de Informações Penais (SENAPPEN)
+    descricao: 'Diagnóstico do sistema prisional brasileiro por semestre: população carcerária, perfil, vagas, infraestrutura e assistência.'
+    links:
+      - url: https://www.gov.br/senappen/pt-br/servicos/sisdepen
+      - url: https://www.gov.br/senappen/pt-br/servicos/sisdepen/bases-de-dados
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/paineis-estaduais-de-seguranca-publica-estados-que-faltavam
+    nome: Painéis Estaduais de Segurança Pública - Estados que faltavam
+    descricao: Estatísticas criminais publicadas pelas secretarias estaduais de segurança pública ainda não catalogadas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://goias.gov.br/seguranca/estatisticas/
+        label: Goiás (GO)
+        uf: GO
+      - url: https://observatorio.sesp.es.gov.br/
+        label: Espírito Santo (ES) - Observatório
+        uf: ES
+      - url: https://www.sejusp.ms.gov.br/informativos/indicadores/estatisticas-sejusp/
+        label: Mato Grosso do Sul (MS)
+        uf: MS
+      - url: https://www.ssp.pi.gov.br/datassp/estatisticas-criminais/
+        label: Piauí (PI)
+        uf: PI
+      - url: https://www.ssp.df.gov.br/estatisticas
+        label: Distrito Federal (DF)
+        uf: DF
+      - url: https://ssp.sc.gov.br/segurancaemnumeros/
+        label: Santa Catarina (SC)
+        uf: SC
+      - url: https://sejusp.ac.gov.br/estatisticas/
+        label: Acre (AC)
+        uf: AC
+      - url: https://www.to.gov.br/ssp/estatisticas/37s2impwz72k
+        label: Tocantins (TO)
+        uf: TO
+      - url: https://www.segup.pa.gov.br/
+        label: Pará (PA)
+        uf: PA
+      - url: https://seguranca.al.gov.br/
+        label: Alagoas (AL)
+        uf: AL
+      - url: https://ssp.se.gov.br/
+        label: Sergipe (SE)
+        uf: SE
+      - url: https://paraiba.pb.gov.br/diretas/secretaria-da-seguranca-e-defesa-social
+        label: Paraíba (PB)
+        uf: PB
+      - url: https://rondonia.ro.gov.br/sesdec/
+        label: Rondônia (RO)
+        uf: RO
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/sinesp-sistema-nacional-de-informacoes-de-seguranca-publica
+    nome: SINESP - Sistema Nacional de Informações de Segurança Pública
+    descricao: Página do MJSP sobre o SINESP, com acesso aos dados nacionais de ocorrências criminais e indicadores consolidados dos estados.
+    links:
+      - url: https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/sinesp-1
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/rede-de-observatorios-da-seguranca
+    nome: Rede de Observatórios da Segurança
+    descricao: Monitoramento de eventos de violência e segurança pública em vários estados, com boletins e relatórios temáticos.
+    links:
+      - url: https://observatorioseguranca.com.br/
+    input: [nenhum]
+    output: [estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: estatisticas-seguranca-publica/geni-uff-mapa-dos-grupos-armados
+    nome: GENI/UFF - Mapa dos Grupos Armados
+    descricao: 'Grupo de Estudos dos Novos Ilegalismos da UFF: mapas de territórios sob domínio de facções e milícias e estudos sobre violência.'
+    links:
+      - url: https://geni.uff.br/
+    input: [dominio]
+    output: [estatistica, mapa]
+    tipo_fonte: privado
+    classificacao: heuristica

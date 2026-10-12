@@ -1,0 +1,24 @@
+# Categoria: Estação Rádio Base / ERBs
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: estacao-radio-base-erbs/estacao-radio-base-erbs
+    nome: Estação Rádio Base / ERBs
+    descricao: Estações Radio Base ou ERBs são equipamentos que fazem a conexão entre os telefones celulares e a companhia telefônica, ou mais precisamente a Central de Comutação e Controle (CCC).
+    resumo: Links de Consulta
+    links:
+      - url: https://www.teleco.com.br/erb.asp
+      - url: https://sistemas.anatel.gov.br/stel/consultas/ListaEstacoesLocalidade/tela.asp?pNumServico=010
+      - url: http://www.telecocare.com.br/telebrasil/mapa_erb.php
+      - url: https://conexis.org.br/numeros/mapa-de-antenas-2/
+      - url: http://sistemas.anatel.gov.br/se/public/view/b/licenciamento.php
+      - url: http://sistemas.anatel.gov.br/siec-servico-movel-web/
+      - url: https://dados.gov.br/dataset?tags=ERB
+      - url: https://www.google.com/maps/d/u/0/viewer?msa=0&mid=1Xh8EWBDY97vtLnEYuAVLvRGvu2o&ll=-16.816639560865948%2C-51.73607799999998&z=5
+      - url: http://www.coberturacelular.com.br/
+      - url: https://servicos.pc.sc.gov.br/antena/
+        uf: SC
+    input: [coordenadas, municipio, telefone]
+    output: [erb, operadora]
+    tipo_fonte: privado
+    classificacao: heuristica

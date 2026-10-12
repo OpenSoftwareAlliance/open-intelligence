@@ -1,0 +1,717 @@
+# Categoria: Datasets / Dados Abertos
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: datasets-dados-abertos/dados-abertos-gov-br
+    nome: Dados Abertos / Gov BR
+    descricao: Conjuntos de datasets disponibilizados pelo Governo Federal
+    links:
+      - url: https://dados.gov.br/home
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/brasil-io
+    nome: Brasil.io
+    descricao: Repositório de dados públicos disponibilizados em formato acessível
+    links:
+      - url: https://brasil.io/datasets/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-mma-ministerio-do-meio-ambiente-e-mudanca-do-clima
+    nome: Dados MMA - Ministério do Meio Ambiente e Mudança do Clima
+    descricao: Datasets em formato aberto, o conteúdo sobre a área ambiental disponibilizado pelo Ministério do Meio Ambiente
+    links:
+      - url: https://dados.mma.gov.br/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-ibict-instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia
+    nome: Dados Ibict - Instituto Brasileiro de Informação em Ciência e Tecnologia
+    descricao: O Dados Ibict é um repositório de dados abertos para promover, ampliar e aprimorar a abertura de dados do IBICT
+    links:
+      - url: https://dados.ibict.br/dataset
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-bcb-banco-central-do-brasil
+    nome: Dados BCB - Banco Central Do Brasil
+    descricao: O Portal Brasileiro de Dados Abertos do Banco Central é o meio utilizado pelo BC para disponibilizar dados e informações públicas
+    links:
+      - url: https://dadosabertos.bcb.gov.br/dataset
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/if-data-dados-selecionados-de-instituicoes-financeiras
+    nome: IF.data - Dados Selecionados de Instituições Financeiras
+    descricao: Relatórios do Banco Central com dados contábeis e prudenciais das instituições financeiras, por data-base, tipo de instituição e tipo de relatório.
+    links:
+      - url: https://www3.bcb.gov.br/ifdata/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-mtur-ministerio-do-turismo
+    nome: Dados MTur - Ministério do Turismo
+    descricao: O Plano de Dados Abertos do MTur abrange os setores do turismo e da cultura, e é o documento orientador para as ações de implementação e promoção de abertura de dados produzidos ou que estão sob a responsabilidade do Ministério do Turismo (MTur)
+    links:
+      - url: https://dados.turismo.gov.br/dataset/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-ibama-instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis
+    nome: Dados IBAMA - Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis
+    descricao: O IBAMA utilizado o portal abaixo para disponibilizar dados e informações públicas, relacionados a operação e fiscalização.
+    links:
+      - url: https://dadosabertos.ibama.gov.br/en/dataset/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/sistema-nacional-de-dados-migratorios
+    nome: Sistema Nacional de Dados Migratórios
+    descricao: Sistema de dados e estatísticas sobre migração no Brasil, gerido pelo Ministério da Justiça e Segurança Pública.
+    links:
+      - url: https://datamigra.mj.gov.br
+    input: [nenhum]
+    output: [dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-pf-policia-federal
+    nome: Dados PF - Polícia Federal
+    descricao: Em síntese, o trabalho de produção do PDA/PF consistiu na elaboração do inventário de bases de dados da Polícia Federal, no saneamento do inventário pelas Diretorias e unidades responsáveis, e, por fim, na priorização dos bancos a serem abertos com base em critérios sugeridos pelo Comitê Gestor da Infraestrutura Nacional de Dados Abertos-CGINDA.
+    links:
+      - url: https://dados.gov.br/dados/organizacoes/visualizar/policia-federal
+      - url: https://www.gov.br/pf/pt-br/acesso-a-informacao/dados-abertos/plano-de-dados-abertos-2024-2026
+        label: (BETA)
+    input: [nenhum]
+    output: [dataset, publicacao_academica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/superintendencias-e-delegacias-da-policia-federal
+    nome: Superintendências e Delegacias da Polícia Federal
+    descricao: Diretório com informações sobre as superintendências regionais e delegacias da Polícia Federal em todo o Brasil.
+    links:
+      - url: https://www.gov.br/pf/pt-br/acesso-a-informacao/institucional/quem-e-quem/superintendencias-e-delegacias
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-capes-coordenacao-de-aperfeicoamento-de-pessoal-de-nivel-superior
+    nome: Dados CAPES - Coordenação de Aperfeiçoamento de Pessoal de Nível Superior
+    descricao: A primeira iniciativa da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) para a publicação de dados abertos foi a elaboração do Plano de Dados Abertos (PDA). O propósito deste documento é o de publicitar as ações e estratégias organizacionais que nortearão as atividades de implementação e promoção da abertura de dados, no âmbito da CAPES de forma institucionalizada e sistematizada.
+    links:
+      - url: https://dadosabertos.capes.gov.br/dataset/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-ibge-instituto-brasileiro-de-geografia-e-estatistica
+    nome: Dados IBGE - Instituto Brasileiro de Geografia e Estatística
+    descricao: Acesso a conteúdos das pesquisas estruturais, censos, entre outras, na área de estatísticas.
+    links:
+      - url: https://www.ibge.gov.br/estatisticas/downloads-estatisticas.html
+    input: [municipio]
+    output: [dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-prefeitura-de-mogi-das-cruzes
+    nome: Dados Prefeitura de Mogi das Cruzes
+    descricao: O Portal da Prefeitura de Mogi das Cruzes com Dados Abertos da Administração Pública Municipal.
+    links:
+      - url: https://dados.mogidascruzes.sp.gov.br/dataset/
+        uf: SP
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-alagoas-seplag-secretaria-de-estado-do-planejamento-gestao-e-patrimonio
+    nome: Dados Alagoas SEPLAG - Secretaria de Estado do Planejamento, Gestão e Patrimônio
+    descricao: O Portal Alagoas em Dados é uma plataforma desenvolvida pela Secretaria de Estado do Planejamento, Gestão e Patrimônio (SEPLAG) de Alagoas, que oferece acesso a uma ampla gama de informações e estatísticas sobre o estado. Por meio desse portal, os usuários podem obter dados atualizados em áreas cruciais como educação, saúde, economia.
+    links:
+      - url: https://dados.al.gov.br/catalogo/dataset
+        uf: AL
+    input: [nenhum]
+    output: [dataset, estatistica]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-mapa-ministerio-da-agricultura-e-pecuaria
+    nome: Dados MAPA - Ministério da Agricultura e Pecuária
+    descricao: O Ministério da Agricultura e Pecuária (Mapa) é responsável pela gestão das políticas públicas de estímulo à agropecuária, pelo fomento do agronegócio e pela regulação e normatização de serviços vinculados ao setor. No Brasil.
+    links:
+      - url: https://dados.agricultura.gov.br/dataset
+    input: [nenhum]
+    output: [dataset, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-mj-ministerio-da-justica
+    nome: Dados MJ - Ministério da Justiça
+    descricao: O Portal da Dados MJ disponibiliza Dados Abertos da Administração Pública, dentro do contexto de Justiça Brasileira.
+    links:
+      - url: https://dados.mj.gov.br/dataset
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-santa-catarina
+    nome: Dados Santa Catarina
+    descricao: O Portal de Dados Abertos do Estado de Santa Catarina é a plataforma oficial de publicação de dados governamentais em formato aberto.
+    links:
+      - url: https://dados.sc.gov.br/
+        uf: SC
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-dnit-departamento-nacional-de-infraestrutura-de-transportes
+    nome: Dados DNIT - Departamento Nacional de Infraestrutura de Transportes
+    descricao: O Plano de Dados Abertos – PDA é o documento orientador para as ações de implementação e promoção de abertura de dados, inclusive georreferenciados, no Departamento Nacional de Infraestrutura de Transportes
+    links:
+      - url: https://servicos.dnit.gov.br/dadosabertos/
+    input: [nenhum]
+    output: [dataset, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-prefeitura-de-sao-paulo
+    nome: Dados Prefeitura de São Paulo
+    descricao: O Portal de Dados Abertos da Prefeitura de São Paulo tem sua origem no Catálogo Municipal de Bases de Dados (CMBD). Organizado pela Coordenadoria de Promoção da Integridade (COPI) da Controladoria Geral do Município (CGM-SP) em conjunto com os órgãos e entidades da Prefeitura, o Catálogo apresenta aos munícipes uma relação com todos os dados disponíveis produzidos pela Prefeitura.
+    links:
+      - url: http://dados.prefeitura.sp.gov.br/dataset
+        uf: SP
+    input: [municipio]
+    output: [dataset]
+    tipo_fonte: municipal
+    classificacao: override
+  - id: datasets-dados-abertos/dados-abertos-do-estado-de-pernambuco
+    nome: Dados Abertos do Estado de Pernambuco
+    descricao: O Portal de Dados Abertos do Estado de Pernambuco (dados.pe.gov.br) reúne, em um só lugar, os conjuntos de dados dos órgãos pertencentes ao Poder Executivo Estadual.
+    links:
+      - url: https://dados.pe.gov.br/dataset
+        uf: PE
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-bndes-banco-nacional-de-desenvolvimento-economico-e-social
+    nome: Dados BNDES - Banco Nacional de Desenvolvimento Econômico e Social
+    descricao: O Banco Nacional de Desenvolvimento Econômico e Social (BNDES) é uma empresa pública federal cujo principal objetivo é o financiamento de longo prazo e investimento em todos os segmentos da economia brasileira.
+    links:
+      - url: https://dadosabertos.bndes.gov.br/dataset
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-abertos-do-estado-de-minas-gerais
+    nome: Dados Abertos do Estado de Minas Gerais
+    descricao: Os conjuntos de dados (datasets) deste Portal Estado de Minas Gerais estão documentados conforme as especificações Frictionless Data (dados sem fricção), que atendem à caracterização descrita nos normativos citados acima e possibilitam a validação automática dos dados.
+    links:
+      - url: https://dados.mg.gov.br/dataset/
+        uf: MG
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-abertos-do-estado-do-maranhao
+    nome: Dados Abertos do Estado do Maranhão
+    descricao: ''
+    links:
+      - url: https://dados.ma.gov.br/
+        uf: MA
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-abertos-da-prefeitura-de-belo-horizonte
+    nome: Dados Abertos da Prefeitura de Belo Horizonte
+    descricao: O Portal de Dados Abertos da Prefeitura de Belo Horizonte é a ferramenta disponibilizada pelo governo municipal para que todos possam encontrar e utilizar dados e informações públicas.
+    links:
+      - url: https://dados.pbh.gov.br/dataset/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-antt-agencia-nacional-de-transportes-terrestres
+    nome: Dados ANTT - Agência Nacional de Transportes Terrestres
+    descricao: O Portal de Dados Abertos da ANTT é a ferramenta disponibilizada pela ANTT para facilitar a localização e utilização dos dados públicos, com previsão de abertura nos Plano de Dados Abertos.
+    links:
+      - url: https://dados.antt.gov.br/dataset
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-sesgo-secretaria-estadual-de-saude-de-goias
+    nome: Dados SESGO - Secretaria Estadual de Saúde de Goiás
+    descricao: Página dedicada aos dados da Secretaria Estadual de Saúde de Goiás. Aqui, é disponibilizado uma vasta coleção de informações detalhadas e atualizadas sobre diversos aspectos da saúde pública no estado de Goiás.
+    links:
+      - url: https://dados.saude.go.gov.br/dataset/
+        uf: GO
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-sibbr-sistema-de-informacao-sobre-a-biodiversidade-brasileira
+    nome: Dados SiBBr - Sistema de Informação sobre a Biodiversidade Brasileira
+    descricao: Infraestrutura nacional de dados e informações em biodiversidade, é responsável pela organização, indexação, armazenamento e disponibilização de dados e informações sobre a biodiversidade e os ecossistemas brasileiros
+    links:
+      - url: https://collectory.sibbr.gov.br/collectory/datasets
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-cvm-portal-de-dados-abertos-da-comissao-de-valores-mobiliarios
+    nome: Dados CVM - Portal de Dados Abertos da Comissão de Valores Mobiliários
+    descricao: A CVM é a Autarquia do governo federal que atua para garantir a integridade, estimular a eficiência e promover o desenvolvimento do mercado de capitais brasileiro, promovendo o equilíbrio entre a iniciativa dos agentes e a efetiva proteção dos investidores.
+    links:
+      - url: https://dados.cvm.gov.br/dataset/
+      - url: https://dados.cvm.gov.br/dados/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-tcmgo-portal-oficial-do-tribunal-de-contas-dos-municipios-do-estado-de-goias
+    nome: Dados TCMGO - Portal oficial do Tribunal de Contas dos Municípios do Estado de Goiás
+    descricao: ''
+    links:
+      - url: https://www.tcm.go.gov.br/Reports/browse/
+        uf: GO
+    input: [municipio, numero_processo]
+    output: [dataset, processo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/servico-geologico-do-brasil
+    nome: Serviço Geológico do Brasil
+    descricao: ''
+    links:
+      - url: https://www.sgb.gov.br/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/querido-diario-diarios-oficiais
+    nome: Querido Diário - Diários oficiais
+    descricao: Projeto da Open Knowledge Brasil que reúne e disponibiliza em formato aberto os diários oficiais de centenas de prefeituras brasileiras.
+    links:
+      - url: https://queridodiario.ok.org.br
+    input: [nenhum]
+    output: [dataset, diario_oficial]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: datasets-dados-abertos/fogocruzado
+    nome: Fogocruzado
+    descricao: O maior banco de dados sobre violência armada da América Latina. Pesquisar ocorrências. É possivel pesquisar dados por estado, cidades, datas e tipo de ocorrência.
+    links:
+      - url: https://api.fogocruzado.org.br/search
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: datasets-dados-abertos/portal-brasileiro-de-dados-abertos-governo-federal
+    nome: Portal Brasileiro de Dados Abertos - Governo Federal
+    descricao: Portal central de dados abertos do governo federal brasileiro. Hub principal para descoberta de datasets de diversos órgãos.
+    links:
+      - url: https://dados.gov.br/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/pagina-dados-abertos-governo-digital
+    nome: Página Dados Abertos - Governo Digital
+    descricao: Contexto, normas e orientações sobre a política de dados abertos do Governo Federal.
+    links:
+      - url: https://www.gov.br/governodigital/pt-br/dados-abertos
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/portal-brasileiro-de-dados-cientificos
+    nome: Portal Brasileiro de Dados Científicos
+    descricao: Repositório de dados científicos brasileiros.
+    links:
+      - url: https://dadoscientificos.ufsc.br/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-abertos-da-camara-dos-deputados
+    nome: Dados Abertos da Câmara dos Deputados
+    descricao: Conjuntos de dados abertos da Câmara dos Deputados.
+    links:
+      - url: https://dadosabertos.camara.leg.br/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-abertos-do-senado-federal
+    nome: Dados Abertos do Senado Federal
+    descricao: Conjuntos de dados abertos do Senado Federal.
+    links:
+      - url: https://www12.senado.leg.br/dados-abertos
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: datasets-dados-abertos/dados-abertos-do-tcu
+    nome: Dados Abertos do TCU
+    descricao: Dados abertos do Tribunal de Contas da União.
+    links:
+      - url: https://portal.tcu.gov.br/dados-abertos/
+    input: [numero_processo]
+    output: [dataset, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/ipea-data
+    nome: IPEA Data
+    descricao: Base de dados macroeconômicos, sociais e regionais do Brasil.
+    links:
+      - url: http://www.ipeadata.gov.br/
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/consulta-de-cep-correios
+    nome: Consulta de CEP - Correios
+    descricao: Consulta de CEP e endereçamento postal.
+    links:
+      - url: https://www.correios.com.br/enviar-e-receber/ferramentas/consulta-cep
+    input: [cep]
+    output: [dataset, endereco]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/b3-empresas-listadas-e-dados-de-companhias-abertas
+    nome: B3 - Empresas Listadas e Dados de Companhias Abertas
+    descricao: Portal da B3 (Brasil, Bolsa, Balcão) com dados públicos de companhias listadas, como composição acionária, documentos periódicos e proventos.
+    links:
+      - url: https://www.b3.com.br/pt_br/
+    input: [cpf]
+    output: [beneficio, dataset, publicacao_academica]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/base-dos-dados-data-lake-publico-brasileiro
+    nome: Base dos Dados - Data Lake Público Brasileiro
+    descricao: Repositório que trata e padroniza centenas de bases públicas brasileiras (RAIS, CNPJ, TSE, IBGE) com busca e acesso via BigQuery, Python e R.
+    resumo: Links de pesquisa
+    links:
+      - url: https://basedosdados.org/search
+        label: Busca de conjuntos
+      - url: https://basedosdados.github.io/sdk/
+        label: Documentação do pacote (SDK)
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: datasets-dados-abertos/brasil-io-conjuntos-de-dados-especificos
+    nome: Brasil.IO - Conjuntos de Dados Específicos
+    descricao: Datasets libertados pelo Brasil.IO com busca direta no navegador, como sócios de empresas, gastos diretos do governo, candidatos e gênero de nomes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://brasil.io/dataset/socios-brasil/
+        label: Sócios de empresas
+      - url: https://brasil.io/dataset/gastos-diretos/
+        label: Gastos diretos do Governo Federal
+      - url: https://brasil.io/dataset/eleicoes-brasil/
+        label: Candidatos e eleições
+      - url: https://brasil.io/dataset/genero-nomes/
+        label: Gênero de nomes
+      - url: https://brasil.io/dataset/documentos-brasil/
+        label: Documentos brasileiros
+    input: [cnpj]
+    output: [dataset, socios]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/portais-estaduais-de-dados-abertos
+    nome: Portais Estaduais de Dados Abertos
+    descricao: Catálogos oficiais de dados abertos mantidos pelos governos estaduais, com bases de despesas, servidores, segurança, saúde e educação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dadosabertos.rj.gov.br/
+        label: RJ
+        uf: RJ
+      - url: https://dadosabertos.sp.gov.br/
+        label: SP
+        uf: SP
+      - url: https://dados.es.gov.br/
+        label: ES
+        uf: ES
+      - url: https://dados.rs.gov.br/
+        label: RS
+        uf: RS
+      - url: https://www.dados.pr.gov.br/
+        label: PR
+        uf: PR
+      - url: https://dados.go.gov.br/
+        label: GO
+        uf: GO
+      - url: https://dados.df.gov.br/
+        label: DF
+        uf: DF
+      - url: https://dados.mt.gov.br/
+        label: MT
+        uf: MT
+      - url: https://www.dados.ms.gov.br/
+        label: MS
+        uf: MS
+      - url: https://dados.ba.gov.br/
+        label: BA
+        uf: BA
+      - url: https://dados.rn.gov.br/
+        label: RN
+        uf: RN
+      - url: https://dados.pb.gov.br/
+        label: PB
+        uf: PB
+      - url: https://dados.ro.gov.br/
+        label: RO
+        uf: RO
+      - url: https://dados.ac.gov.br/
+        label: AC
+        uf: AC
+      - url: https://cearatransparente.ce.gov.br/portal-da-transparencia/dados-abertos
+        label: CE
+        uf: CE
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/portais-de-dados-abertos-das-capitais
+    nome: Portais de Dados Abertos das Capitais
+    descricao: Portais municipais de dados abertos com bases de licitações, servidores, mobilidade, saúde, obras e ocorrências urbanas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dados.recife.pe.gov.br/
+        label: Recife/PE
+        uf: PE
+      - url: https://dados.fortaleza.ce.gov.br/
+        label: Fortaleza/CE
+        uf: CE
+      - url: https://dadosabertos.poa.br/
+        label: Porto Alegre/RS
+      - url: https://dadosabertos.curitiba.pr.gov.br/
+        label: Curitiba/PR
+        uf: PR
+      - url: https://dados.salvador.ba.gov.br/
+        label: Salvador/BA
+        uf: BA
+    input: [cnpj]
+    output: [contrato_publico, dataset, licitacao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/agencias-reguladoras-e-orgaos-federais-portais-de-dados-abertos
+    nome: Agências Reguladoras e Órgãos Federais - Portais de Dados Abertos
+    descricao: Portais de dados abertos setoriais de agências e órgãos federais, com bases de operadoras, registros sanitários, energia, combustíveis, aviação e educação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dados.anvisa.gov.br/
+        label: Anvisa - Vigilância sanitária
+      - url: https://www.gov.br/fnde/pt-br/acesso-a-informacao/dados-abertos
+        label: FNDE - Educação
+      - url: https://dadosabertos.mec.gov.br/
+        label: MEC
+      - url: https://dados.cultura.gov.br/
+        label: MinC - Cultura
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/ministerio-da-saude-opendatasus
+    nome: Ministério da Saúde - OpenDataSUS
+    descricao: Portal de dados abertos do SUS com microdados de vacinação, internações, notificações, estabelecimentos e Síndrome Respiratória Aguda Grave.
+    resumo: Links de pesquisa
+    links:
+      - url: https://opendatasus.saude.gov.br/
+        label: OpenDataSUS
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/tcu-portal-de-dados-abertos-novo
+    nome: TCU - Portal de Dados Abertos (novo)
+    descricao: Novo portal de dados abertos do Tribunal de Contas da União, com acórdãos, responsáveis com contas irregulares, inidôneos e fiscalizações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sites.tcu.gov.br/dados-abertos/
+        label: Dados abertos TCU
+    input: [cnpj, numero_processo]
+    output: [dataset, processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/tribunais-de-contas-portais-de-dados-abertos
+    nome: Tribunais de Contas - Portais de Dados Abertos
+    descricao: Portais de dados dos Tribunais de Contas com despesas, licitações e folha de pagamento de órgãos estaduais e municipais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dados.tce.rs.gov.br/
+        label: TCE-RS
+        uf: RS
+      - url: https://dados-abertos.tce.pb.gov.br/
+        label: TCE-PB
+        uf: PB
+      - url: https://radar.tce.mt.gov.br/
+        label: TCE-MT - Radar
+        uf: MT
+      - url: https://transparencia.tce.sp.gov.br/
+        label: TCE-SP - Transparência Municipal
+        uf: SP
+      - url: https://painel.tce.sp.gov.br/
+        label: TCE-SP - Painéis
+        uf: SP
+    input: [cnpj, nome]
+    output: [contrato_publico, dataset, licitacao, remuneracao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: datasets-dados-abertos/tesouro-nacional-tesouro-transparente-e-siconfi
+    nome: Tesouro Nacional - Tesouro Transparente e Siconfi
+    descricao: 'Dados fiscais da União, estados e municípios: execução orçamentária, dívida, transferências e declarações contábeis (RREO, RGF, DCA).'
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.tesourotransparente.gov.br/ckan/dataset
+        label: Tesouro Transparente - Catálogo
+    input: [municipio]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/senado-federal-siga-brasil
+    nome: Senado Federal - SIGA Brasil
+    descricao: Sistema de informações sobre o orçamento federal, com execução de emendas parlamentares, despesas e transferências por beneficiário.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www9.senado.leg.br/QvAJAXZfc/opendoc.htm?document=senado%2Fsigabrasilpainelcidadao.qvw&host=QVS%40www9&anonymous=true
+        label: Painel Cidadão
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: datasets-dados-abertos/camara-dos-deputados-emendas-e-orcamento
+    nome: Câmara dos Deputados - Emendas e Orçamento
+    descricao: Consulta de emendas parlamentares ao orçamento e aos projetos de lei apresentadas pelos deputados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://emendas.camara.leg.br/
+        label: Emendas da Câmara
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: datasets-dados-abertos/assembleias-legislativas-e-camaras-municipais-dados-e-proposicoes
+    nome: Assembleias Legislativas e Câmaras Municipais - Dados e Proposições
+    descricao: Portais de dados abertos e consulta de proposições, votações e despesas de assembleias legislativas e câmaras municipais.
+    resumo: Links de pesquisa
+    links:
+      - url: http://dadosabertos.almg.gov.br/documentacao/index
+        label: ALMG - Dados abertos (MG)
+        uf: MG
+      - url: https://splegisconsulta.saopaulo.sp.leg.br/
+        label: Câmara Municipal de São Paulo - SPLegis
+        uf: SP
+      - url: https://sapl.fortaleza.ce.leg.br/
+        label: Câmara Municipal de Fortaleza - SAPL
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/institutos-estaduais-de-estatistica
+    nome: Institutos Estaduais de Estatística
+    descricao: Órgãos estaduais de estatística e planejamento com séries socioeconômicas, PIB municipal, emprego e anuários estatísticos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.seade.gov.br/
+        label: Fundação Seade (SP)
+        uf: SP
+      - url: https://repositorio.seade.gov.br/
+        label: Seade - Repositório de dados (SP)
+        uf: SP
+      - url: https://www.ipardes.pr.gov.br/
+        label: IPARDES (PR)
+        uf: PR
+      - url: https://www.ipece.ce.gov.br/
+        label: IPECE (CE)
+        uf: CE
+      - url: https://www.dee.rs.gov.br/inicial
+        label: DEE (RS)
+        uf: RS
+      - url: https://ijsn.es.gov.br/
+        label: IJSN (ES)
+        uf: ES
+      - url: https://www.ba.gov.br/sei/
+        label: SEI (BA)
+        uf: BA
+      - url: https://goias.gov.br/imb/
+        label: IMB (GO)
+        uf: GO
+      - url: https://www.codeplan.df.gov.br/
+        label: Codeplan/IPEDF (DF)
+        uf: DF
+    input: [nenhum]
+    output: [dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/atlas-do-desenvolvimento-humano-no-brasil
+    nome: Atlas do Desenvolvimento Humano no Brasil
+    descricao: Plataforma do PNUD, Ipea e FJP com IDHM e mais de 330 indicadores socioeconômicos por município, estado e região metropolitana.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.atlasbrasil.org.br/
+        label: Atlas Brasil
+    input: [municipio]
+    output: [dataset, estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: datasets-dados-abertos/ipea-geobr-e-acesso-a-oportunidades
+    nome: Ipea - geobr e Acesso a Oportunidades
+    descricao: Bases geográficas oficiais do Brasil prontas para análise (geobr) e indicadores de acesso a empregos, saúde e educação nas grandes cidades.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.ipea.gov.br/geobr/
+        label: geobr
+      - url: https://www.ipea.gov.br/acessooportunidades/
+        label: Acesso a Oportunidades
+    input: [nenhum]
+    output: [dataset, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/ibge-sidra-e-servidor-de-arquivos
+    nome: IBGE - SIDRA e Servidor de Arquivos
+    descricao: Sistema IBGE de Recuperação Automática para tabelas do Censo, PNAD e pesquisas econômicas, além do FTP com microdados e malhas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://ftp.ibge.gov.br/
+        label: Servidor de arquivos (FTP)
+    input: [municipio]
+    output: [dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: datasets-dados-abertos/universidades-federais-portais-de-dados-abertos
+    nome: Universidades Federais - Portais de Dados Abertos
+    descricao: Portais de dados abertos de universidades federais com servidores, discentes, contratos, projetos e bolsas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dados.ufrn.br/
+        label: UFRN
+      - url: https://dados.ufs.br/
+        label: UFS
+      - url: https://dados.ufpe.br/
+        label: UFPE
+      - url: https://dados.unb.br/
+        label: UnB
+    input: [cnpj, cpf]
+    output: [beneficio, contrato_publico, dataset]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: datasets-dados-abertos/receita-federal-receita-data
+    nome: Receita Federal - Receita Data
+    descricao: Portal de dados abertos da Receita Federal com arrecadação, benefícios tributários, comércio exterior e estudos estatísticos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata
+        label: Receita Data
+      - url: https://www.gov.br/receitafederal/dados
+        label: Dados abertos Receita
+    input: [cpf]
+    output: [beneficio, dataset]
+    tipo_fonte: federal
+    classificacao: heuristica

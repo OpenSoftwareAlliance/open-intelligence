@@ -1,0 +1,156 @@
+# Categoria: Energia e Infraestrutura
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: energia-e-infraestrutura/aneel-agencia-nacional-de-energia-eletrica
+    nome: ANEEL - Agência Nacional de Energia Elétrica
+    descricao: Consulta de usinas, distribuidoras e empreendimentos de geração de energia.
+    links:
+      - url: https://www.aneel.gov.br/
+      - url: https://www.aneel.gov.br/siga
+        label: Sistema de Informações de Geração
+    input: [cnpj, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/aneel-consulta-de-distribuidoras
+    nome: ANEEL - Consulta de Distribuidoras
+    descricao: Informações sobre concessionárias de distribuição de energia.
+    links:
+      - url: https://www.aneel.gov.br/area.cfm?idArea=550
+    input: [cnpj, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/aneel-consulta-de-usinas-e-geradoras
+    nome: ANEEL - Consulta de Usinas e Geradoras
+    descricao: Banco de dados de empreendimentos de geração de energia elétrica.
+    links:
+      - url: https://www2.aneel.gov.br/aplicacoes/capacidadebrasil/capacidadebrasil.cfm
+    input: [cnpj, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/ons-operador-nacional-do-sistema-eletrico
+    nome: ONS - Operador Nacional do Sistema Elétrico
+    descricao: Dados operacionais do sistema elétrico brasileiro em tempo real.
+    links:
+      - url: http://www.ons.org.br/
+      - url: http://www.ons.org.br/paginas/resultados-da-operacao/historico-da-operacao
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/epe-empresa-de-pesquisa-energetica
+    nome: EPE - Empresa de Pesquisa Energética
+    descricao: Dados e estatísticas do setor energético brasileiro.
+    links:
+      - url: https://www.epe.gov.br/pt
+      - url: https://www.epe.gov.br/pt/publicacoes-dados-abertos
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/mapa-de-linhas-de-transmissao
+    nome: Mapa de Linhas de Transmissão
+    descricao: Visualização de linhas de transmissão e subestações do Brasil.
+    links:
+      - url: http://sigel.aneel.gov.br/portal/home/
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/consulta-de-interrupcoes-de-energia
+    nome: Consulta de Interrupções de Energia
+    descricao: Sistema de registro e acompanhamento de apagões e interrupções.
+    links:
+      - url: https://www.aneel.gov.br/ranking-da-continuidade
+    input: [cnpj, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/tarifa-de-energia-simulador
+    nome: Tarifa de Energia - Simulador
+    descricao: Comparação de tarifas de energia elétrica por região.
+    links:
+      - url: https://www.aneel.gov.br/ranking-das-tarifas
+    input: [cnpj, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/anp-precos-de-combustiveis
+    nome: ANP - Preços de Combustíveis
+    descricao: Levantamento semanal de preços de combustíveis por município e posto e série histórica de preços em dados abertos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas
+        label: Levantamento semanal
+      - url: https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/serie-historica-de-precos-de-combustiveis
+        label: Série histórica
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/anp-paineis-dinamicos-e-autorizacoes
+    nome: ANP - Painéis Dinâmicos e Autorizações
+    descricao: Painéis da ANP sobre produção, vendas e mercado de combustíveis, e relatórios de agentes autorizados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/anp/pt-br/centrais-de-conteudo/paineis-dinamicos-da-anp
+        label: Painéis dinâmicos
+      - url: https://www.gov.br/anp/pt-br/assuntos/distribuicao-e-revenda/relatorios-de-autorizacoes
+        label: Relatórios de autorizações
+      - url: https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
+        label: Dados abertos
+    input: [cnpj, municipio]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/anp-geoanp
+    nome: ANP - GeoANP
+    descricao: Mapa da ANP com blocos exploratórios, campos de produção, poços, dutos e instalações de petróleo e gás.
+    links:
+      - url: https://geomaps.anp.gov.br/geoanp/
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/aneel-dados-abertos-e-relatorios
+    nome: ANEEL - Dados Abertos e Relatórios
+    descricao: Portal de dados abertos e relatórios da ANEEL sobre geração, distribuição, tarifas, geração distribuída e indicadores de qualidade.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dadosabertos.aneel.gov.br/
+        label: Dados abertos
+      - url: https://portalrelatorios.aneel.gov.br/
+        label: Portal de relatórios
+      - url: https://www.gov.br/aneel/pt-br/centrais-de-conteudos/relatorios-e-indicadores
+        label: Relatórios e indicadores
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/ons-dados-abertos-e-energia-agora
+    nome: ONS - Dados Abertos e Energia Agora
+    descricao: Dados abertos do Operador Nacional do Sistema com carga, geração por usina, intercâmbios e mapas do SIN.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dados.ons.org.br/
+        label: Dados abertos
+      - url: https://www.ons.org.br/paginas/energia-agora/carga-e-geracao
+        label: Carga e geração em tempo real
+      - url: https://www.ons.org.br/paginas/sobre-o-sin/mapas
+        label: Mapas do SIN
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, dataset, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: energia-e-infraestrutura/epe-webmap
+    nome: EPE - WebMap
+    descricao: Mapa interativo da EPE com usinas, linhas de transmissão, subestações, gasodutos e infraestrutura energética.
+    links:
+      - url: https://gisepeprd2.epe.gov.br/WebMapEPE/
+    input: [cnpj, municipio]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
