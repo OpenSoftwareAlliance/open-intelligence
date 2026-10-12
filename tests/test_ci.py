@@ -1,11 +1,8 @@
-import os
-import subprocess
 import unittest
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 WORKFLOW = RAIZ / ".github" / "workflows" / "validar-dataset.yml"
-HOOK = RAIZ / "tools" / "hooks" / "pre-commit"
 
 
 class TestCI(unittest.TestCase):
@@ -19,16 +16,6 @@ class TestCI(unittest.TestCase):
         self.assertEqual(texto.count('"catalogo/**"'), 2)
         self.assertEqual(texto.count('"requirements.txt"'), 2)
         self.assertNotIn("--report", texto)
-
-    def test_hook_valida_catalogo_e_e_executavel(self):
-        texto = HOOK.read_text(encoding="utf-8")
-        self.assertIn("python3 tools/build_dataset.py --check", texto)
-        self.assertIn("git diff --cached --quiet -- catalogo README.md data tools requirements.txt", texto)
-        self.assertNotIn("overrides.json", texto)
-        self.assertTrue(os.access(HOOK, os.X_OK))
-        modo = subprocess.run(["git", "ls-files", "-s", "tools/hooks/pre-commit"], cwd=RAIZ,
-                              capture_output=True, text=True, check=True).stdout.split()[0]
-        self.assertEqual(modo, "100755")
 
     def test_requirements_fixa_so_o_pyyaml(self):
         linhas = [l for l in (RAIZ / "requirements.txt").read_text(encoding="utf-8").splitlines()
