@@ -1,5 +1,7 @@
 # Tarefas da spec 001: fonte de verdade estruturada
 
+> Roteiro histórico da implementação (PR #2). O código vigente está em `tools/` e `tests/`; em divergência, vale o código. Pendências novas vão para issues.
+
 Plano: [`plan.md`](plan.md). Spec: [`spec.md`](spec.md). ADR: [`0001`](../../adr/0001-yaml-por-categoria-como-fonte-de-verdade.md).
 
 Todos os comandos rodam na raiz do repositório, com o ambiente virtual da preparação ativo (`. .venv/bin/activate`). Cada tarefa termina com um commit assinado (a assinatura GPG vem do `~/.gitconfig`; nunca usar `--no-gpg-sign`). Os números de `Ran N tests` são cumulativos: a suíte inteira cresce a cada tarefa.

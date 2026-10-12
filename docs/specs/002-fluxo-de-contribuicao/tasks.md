@@ -1,5 +1,7 @@
 # Tarefas da spec 002: fluxo de contribuição
 
+> Roteiro histórico da implementação (PR #6). O código vigente está em `tools/` e `tests/`; em divergência, vale o código. Pendências novas vão para issues.
+
 Plano: [`plan.md`](plan.md). Spec: [`spec.md`](spec.md). ADR: [`0002`](../../adr/0002-arquivos-gerados-regenerados-no-main.md).
 
 Todos os comandos rodam na raiz do repositório, com o ambiente virtual da preparação ativo (`. .venv/bin/activate`). Cada tarefa termina com um commit assinado (a assinatura GPG vem do `~/.gitconfig`; nunca usar `--no-gpg-sign`). Os números de `Ran N tests` são cumulativos: a suíte inteira cresce a cada tarefa. Passos "Em `arquivo`, trocar" substituem o primeiro bloco pelo segundo, exatamente uma vez.
