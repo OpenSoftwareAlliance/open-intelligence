@@ -52,19 +52,6 @@ class TestCompara(unittest.TestCase):
         self.assertEqual(erros, [])
         self.assertIn("CA3 fontes: 3 | links: 3 | heuristica: 2 | override: 1 | ids iguais: True", resumo)
 
-    def test_descricao_reduzida_ao_inicio_passa_mas_texto_diferente_falha(self):
-        antes_fontes = copy.deepcopy(FONTES)
-        antes_fontes[0]["descricao"] = "Preencha assim: 1. um; 2. dois"
-        depois_fontes = copy.deepcopy([FONTES[0], FONTES[2], FONTES[1]])
-        depois_fontes[0]["descricao"] = "Preencha assim:"
-        depois_links = [LINKS[0], LINKS[2], LINKS[1]]
-        antes = estado(antes_fontes, LINKS, README_ANTES)
-        erros, _ = compara(antes, estado(depois_fontes, depois_links, README_DEPOIS), ["outras", "beta"])
-        self.assertEqual(erros, [])
-        depois_fontes[0]["descricao"] = "Outro texto"
-        erros, _ = compara(antes, estado(depois_fontes, depois_links, README_DEPOIS), ["outras", "beta"])
-        self.assertTrue(any("CA2" in e for e in erros))
-
     def test_link_alterado_falha_ca2_e_ca4(self):
         depois = copy.deepcopy(DEPOIS_OK)
         depois["README.md"] = depois["README.md"].replace("o2.gov.br", "o3.gov.br")

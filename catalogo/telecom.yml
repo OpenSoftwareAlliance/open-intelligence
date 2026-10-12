@@ -240,24 +240,13 @@ fontes:
     classificacao: heuristica
   - id: telecom/consultar-e-identificar-frequencias-de-radios-sistema-de-servicos-de-telecomunicacoes-stel
     nome: Consultar e identificar Frequências de Rádios / SISTEMA DE SERVIÇOS DE TELECOMUNICAÇÕES (STEL)
-    descricao: 'Abrirá uma página para preenchimento, preencha da seguinte forma:'
+    descricao: 'Abrirá uma página para preenchimento, preencha da seguinte forma: 1.  Em recuperação de dados: marque UF; 2.  Em apresentar dados por: marque a letra J (frequência e entidade) em faixa de frequência: coloque a frequência que deseja scanear, ex.: inicial: 450,000 final: 460,000 (NÃO ESQUEÇA DA VÍRGULA) OBS: não de um espaço de frequencia muito largo,as vezes dá erro na pesquisa; 3.  Em unidade coloque MHZ nos dois; 4.  Em sigla da UF: coloque a sigla do seu estado 5.  m serviço inicial e serviço final nao coloque nada, deixe do jeito que está em grupo de estações: marque todos (consolidado); 6.  Agora clique abaixo em exportar excel e salve o arquivo em seu micro;'
     links:
       - url: https://sistemas.anatel.gov.br/stel/Consultas/RecuperacaoFrequencias/tela.asp?SISQSmodulo=9896
-        em_markdown: true
     input: [telefone]
     output: [operadora, radiofrequencia]
     tipo_fonte: federal
     classificacao: heuristica
-    markdown: |-
-      1.  Em recuperação de dados: marque UF;
-      2.  Em apresentar dados por: marque a letra J (frequência e entidade) em faixa de frequência: coloque a frequência que deseja scanear, ex.: inicial: 450,000 final: 460,000 (NÃO ESQUEÇA DA VÍRGULA) OBS: não de um espaço de frequencia muito largo,as vezes dá erro na pesquisa;
-      3.  Em unidade coloque MHZ nos dois;
-      4.  Em sigla da UF: coloque a sigla do seu estado
-      5.  m serviço inicial e serviço final nao coloque nada, deixe do jeito que está em grupo de estações: marque todos (consolidado);
-      6.  Agora clique abaixo em exportar excel e salve o arquivo em seu micro;
-
-      - https://sistemas.anatel.gov.br/stel/Consultas/RecuperacaoFrequencias/tela.asp?SISQSmodulo=9896
-
   - id: telecom/consultar-responsavel-por-um-indicativo
     nome: Consultar responsável por um indicativo
     descricao: Digite o Indicativo da Estação sem pontos e sem traços.

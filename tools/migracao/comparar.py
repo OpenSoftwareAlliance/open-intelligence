@@ -7,9 +7,8 @@ referência é o pai do commit que criou catalogo/_categorias.yml.
 
 Verifica:
     CA1  catalogo/ tem um arquivo por categoria_id anterior, mais o manifesto
-    CA2  sources.json e index.json iguais, exceto '_sobre', 'fonte', a ordem
-         das fontes de categorias que tinham duas seções (R13) e descrição
-         reduzida ao seu início quando o resto foi para o campo markdown
+    CA2  sources.json e index.json iguais, exceto '_sobre', 'fonte' e a ordem
+         das fontes de categorias que tinham duas seções (R13)
     CA3  totais de fontes, links e classificação; mesmos ids
     CA4  mesmo conjunto de URLs no README.md
     CA5  toda âncora <a name> anterior existe; links README.md#x dos demais
@@ -57,18 +56,8 @@ def ordem_esperada(registros, chave):
     return sorted(registros, key=lambda r: posicao[r[chave]])
 
 
-def aceita_descricao_movida(antes, depois, lista):
-    """Descrição que passou a ser só o início da anterior (o resto foi para o campo markdown)."""
-    por_chave = {(r.get("id"), r.get("url")): r for r in depois[lista]}
-    for r in antes[lista]:
-        novo = por_chave.get((r.get("id"), r.get("url")))
-        if novo and r.get("descricao") and novo.get("descricao") != r["descricao"] and r["descricao"].startswith(novo["descricao"] + " "):
-            r["descricao"] = novo["descricao"]
-
-
 def compara_json(antes, depois, lista):
     erros = []
-    aceita_descricao_movida(antes, depois, lista)
     for doc in (antes, depois):
         doc.pop("_sobre", None)
         doc.pop("fonte", None)
