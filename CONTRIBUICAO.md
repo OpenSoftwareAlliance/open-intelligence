@@ -47,7 +47,7 @@ Se você encontrou um link que não está funcionando:
 Quer adicionar uma nova fonte de informação pública?
 
 **Antes de submeter:**
-1. ✅ Verifique se a fonte já não existe no README
+1. ✅ Verifique se a fonte já não existe em `catalogo/`
 2. ✅ Teste o link para garantir que está funcionando
 3. ✅ Confirme que a fonte é **pública** e **legal**
 4. ✅ Verifique se está no contexto brasileiro
@@ -134,7 +134,7 @@ Contribuições técnicas também são valiosas:
    - Siga os padrões de formatação (veja abaixo)
    - Teste todas as URLs adicionadas
 
-5. **Regenere o Dataset** (se mexeu em fontes ou URLs do README)
+5. **Regenere o Dataset** (se mexeu em arquivos de `catalogo/`)
    ```bash
    python3 tools/build_dataset.py
    ```
@@ -206,30 +206,26 @@ Requer Python 3 e PyYAML, com versão fixada em `requirements.txt`: `python3 -m 
 | `data/sources.json` | **Gerado.** Uma entrada por fonte, com os links aninhados. Identificada pelo `id`, não por linha do README. |
 | `data/index.json` | **Gerado.** Um registro por link, achatado para busca. |
 | `data/taxonomy.json` | Manual. Vocabulário permitido de `input`, `output` e `tipo_fonte`. |
-| `data/overrides.json` | Manual. Correções de classificação, por fonte. |
+| `catalogo/<categoria>.yml` | **Fonte de verdade, editada à mão.** Um arquivo por categoria, com as fontes, links e classificação. |
 
 > [!CAUTION]
 > Nunca edite `sources.json` ou `index.json` à mão. Eles são sobrescritos no próximo build e seu trabalho é perdido.
 
 ### Corrigindo a classificação de uma fonte
 
-Os campos `input` (o que a fonte aceita) e `output` (o que ela devolve) não existem no texto do README: são inferidos automaticamente por categoria e palavra-chave. Quando a inferência erra, corrija em `data/overrides.json`:
+Os campos `input` (o que a fonte aceita), `output` (o que ela devolve), `tipo_fonte` e `classificacao` são declarados na própria fonte, no arquivo da categoria em `catalogo/`. Para corrigir uma classificação, edite esse arquivo e rode `python3 tools/build_dataset.py`. Trecho de exemplo de `catalogo/apis-publicas-brasileiras.yml`:
 
-```json
-{
-  "overrides": {
-    "apis-publicas-brasileiras/receitaws-api-cnpj": {
-      "input": ["cnpj"],
-      "output": ["api_json", "dados_cadastrais", "socios"],
-      "observacao": "Rate limit de 3 requisições por minuto."
-    }
-  }
-}
+```yaml
+  - id: apis-publicas-brasileiras/receitaws-api-cnpj
+    nome: ReceitaWS - API CNPJ
+    input: [cnpj]
+    output: [api_json, cnae, dados_cadastrais, endereco, situacao_cadastral, socios]
+    tipo_fonte: privado
+    classificacao: override
+    observacao: Sem autenticação. Rate limit de 3 requisições por minuto.
 ```
 
-A chave é o `id` da fonte, visível em `sources.json`. Campos aceitos: `input`, `output`, `tipo_fonte`, `descricao`, `observacao`.
-
-Todo termo é validado contra `taxonomy.json`. Para usar um termo novo, adicione-o lá antes, senão o build falha. Rode `--report` para ver a lista de fontes ainda sem classificação: são as que mais precisam de curadoria.
+O `id` (`categoria/nome`) identifica a fonte e não muda quando o nome muda. O campo `classificacao` aceita `heuristica` ou `override`. Todo termo de `input`, `output` e `tipo_fonte` é validado contra `data/taxonomy.json`. Para usar um termo novo, adicione-o lá antes, senão o build falha.
 
 ### Validação automática
 
@@ -354,7 +350,7 @@ Antes de enviar seu Pull Request, verifique:
 
 - [ ] **Contexto brasileiro** - É relevante para o Brasil?
 - [ ] **Testei todos os links** - Todos funcionam?
-- [ ] **Não há duplicatas** - Já existe no README?
+- [ ] **Não há duplicatas** - Já existe em `catalogo/`?
 - [ ] **Formatação correta** - Segue os padrões?
 - [ ] **Descrição clara** - É fácil entender?
 - [ ] **Categoria apropriada** - Está na seção certa?

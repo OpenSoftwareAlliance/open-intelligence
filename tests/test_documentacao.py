@@ -16,6 +16,10 @@ class TestDocumentacao(unittest.TestCase):
         self.assertIn("são gerados a partir desses arquivos: não os edite à mão", texto)
         self.assertNotIn("O README é a fonte de verdade do catálogo", texto)
         self.assertNotIn("sem dependências", texto)
+        self.assertNotIn('"overrides": {', texto)
+        self.assertNotIn("corrija em `data/overrides.json`", texto)
+        self.assertNotIn("Verifique se a fonte já não existe no README", texto)
+        self.assertNotIn("se mexeu em fontes ou URLs do README", texto)
 
     def test_readme_gerado_aponta_catalogo_como_fonte(self):
         readme = le("README.md")
