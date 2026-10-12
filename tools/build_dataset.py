@@ -35,6 +35,11 @@ from dataset import gera_saidas
 RAIZ = Path(__file__).resolve().parent.parent
 
 
+def grava(caminho, conteudo):
+    """Grava em UTF-8 com fim de linha LF em qualquer sistema (no Windows o modo texto usaria CRLF)."""
+    Path(caminho).write_bytes(conteudo.encode("utf-8"))
+
+
 def primeira_diferenca(atual, gerado):
     """Número (a partir de 1) da primeira linha em que os textos divergem."""
     a, g = atual.splitlines(), gerado.splitlines()
@@ -92,7 +97,7 @@ def main(argv=None, raiz=RAIZ):
 
     if not args.report:
         for relativo, conteudo in saidas.items():
-            (raiz / relativo).write_text(conteudo, encoding="utf-8")
+            grava(raiz / relativo, conteudo)
             print(f"escrito {relativo}")
     return 0
 

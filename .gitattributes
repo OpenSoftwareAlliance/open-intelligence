@@ -1,0 +1,8 @@
+# Fim de linha LF em todo arquivo de texto versionado, também no Windows (spec 002).
+* text=auto eol=lf
+
+# Gerados por tools/build_dataset.py a partir de catalogo/; nunca editar à mão.
+# O GitHub recolhe o diff deles nos PRs e os deixa fora das estatísticas.
+README.md linguist-generated=true
+data/sources.json linguist-generated=true
+data/index.json linguist-generated=true
