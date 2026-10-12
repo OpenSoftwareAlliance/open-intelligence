@@ -11,54 +11,50 @@
   <a href="tools/"><img alt="Ferramentas" src="https://img.shields.io/badge/%F0%9F%9B%A0%EF%B8%8F%20Ferramentas-546E7A?style=flat-square"></a>
 </p>
 
-Obrigado por considerar contribuir com o projeto OSINT Brazuca! Este documento fornece diretrizes para diferentes tipos de contribuições.
+Obrigado por considerar contribuir com o OSINT Brazuca! Há três jeitos de ajudar, do mais simples ao mais completo:
+
+1. **[Abrir uma issue](#abrir-issue)** com um formulário: sem git e sem editar arquivo.
+2. **[Editar o catálogo pelo navegador](#editar-navegador)**: altere um arquivo de `catalogo/` no GitHub e abra um pull request.
+3. **[Trabalhar localmente](#trabalhar-localmente)**: clone o repositório, rode as verificações e mande o pull request.
+
+> [!IMPORTANT]
+> As fontes do catálogo ficam em `catalogo/<categoria>.yml`. O `README.md`, o `data/sources.json` e o `data/index.json` são gerados a partir desses arquivos: não os edite à mão e não os inclua no pull request. Depois do merge, o mantenedor os regenera no `main`.
 
 ---
 
-## 📋 Tipos de Contribuição
+## 📝 Abrir uma issue <a name="abrir-issue"></a>
 
-### 1. 🔗 Reportar Links Quebrados
+Escolha o formulário em [Issues > New issue](https://github.com/webminas/osint-brazuca/issues/new/choose):
 
-Se você encontrou um link que não está funcionando:
+| Formulário | Quando usar |
+|---|---|
+| [Sugerir nova fonte](https://github.com/webminas/osint-brazuca/issues/new?template=nova-fonte.yml) | Uma fonte pública brasileira que ainda não está no catálogo. |
+| [Reportar link quebrado](https://github.com/webminas/osint-brazuca/issues/new?template=link-quebrado.yml) | Um link não abre, mudou de endereço ou leva a outra página. |
+| [Corrigir uma fonte](https://github.com/webminas/osint-brazuca/issues/new?template=correcao.yml) | Nome, descrição, classificação, categoria ou UF errados, ou fonte repetida. |
 
-**Crie uma Issue com as seguintes informações:**
-- **Título**: `[LINK QUEBRADO] Nome da fonte`
-- **Descrição**: 
-  - URL completo do link quebrado
-  - Data em que testou
-  - Tipo de erro (404, timeout, redirecionamento, etc.)
-  - Se possível, sugira uma alternativa
-
-**Exemplo:**
-```markdown
-**Título:** [LINK QUEBRADO] Consulta CNPJ Receita Federal
-
-**Descrição:**
-- URL: http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/
-- Data do teste: 02/02/2026
-- Erro: 404 - Página não encontrada
-- Alternativa sugerida: https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/
-```
+> [!TIP]
+> Sites `.gov.br` costumam bloquear robôs. Antes de reportar um link quebrado, confira no navegador.
 
 ---
 
-### 2. ➕ Adicionar Novas Fontes
+## 🌐 Editar o catálogo pelo navegador <a name="editar-navegador"></a>
 
-Quer adicionar uma nova fonte de informação pública?
+Não precisa instalar nada nem rodar nenhum comando.
 
-**Antes de submeter:**
-1. ✅ Verifique se a fonte já não existe em `catalogo/`
-2. ✅ Teste o link para garantir que está funcionando
-3. ✅ Confirme que a fonte é **pública** e **legal**
-4. ✅ Verifique se está no contexto brasileiro
+1. Abra a pasta [`catalogo/`](catalogo/) e o arquivo da categoria. O nome do arquivo é o id da categoria; o manifesto [`catalogo/_categorias.yml`](catalogo/_categorias.yml) lista todas, na ordem do README.
+2. Clique no lápis (**Edit this file**). O GitHub cria um fork seu se for preciso.
+3. Acrescente ou corrija a fonte seguindo o [formato de uma fonte](#formato-fonte). Uma fonte nova entra no ponto da lista onde deve aparecer no README.
+4. Clique em **Commit changes...** e depois em **Propose changes**.
+5. Preencha o modelo do pull request. O CI valida o catálogo em cerca de um minuto; se algo falhar, abra o detalhe da verificação e leia a mensagem, que aponta arquivo e linha (veja [Erros comuns](#erros-comuns)).
 
-**Informações a fornecer:**
-- Nome da fonte
-- Descrição clara e objetiva (diga aqui se é gratuita ou paga e se exige cadastro)
-- URL (testado e funcionando)
-- Categoria apropriada
+Você não precisa regenerar o `README.md` nem o dataset: os arquivos gerados são regenerados no `main` depois do merge.
 
-**Exemplo de entrada** em `catalogo/<categoria>.yml` (campos definidos em `data/schemas/catalogo.schema.json`; `input`, `output` e `tipo_fonte` usam os termos de `data/taxonomy.json`):
+---
+
+## 🧩 Formato de uma fonte <a name="formato-fonte"></a>
+
+Cada fonte é um item da lista `fontes:` do arquivo da categoria. Exemplo de uma fonte em `catalogo/consulta-de-processos.yml`:
+
 ```yaml
   - id: consulta-de-processos/exemplo-consulta-publica
     nome: Exemplo - Consulta Pública de Processos
@@ -74,153 +70,140 @@ Quer adicionar uma nova fonte de informação pública?
     tipo_fonte: judiciario
     classificacao: override
 ```
-Para recolher os links num `<details>`, acrescente `resumo: Links de pesquisa`; para um subtítulo de grupo antes de um link, use `grupo: '**Região Sul:**'`. Ao dar `build_dataset.py`, o README é gerado e a entrada é validada.
 
-> [!NOTE]
-> Coloque o texto entre aspas quando ele contiver `: ` ou começar com `[`, `*`, `@`, `!` ou crase. Sem isso, o YAML é inválido.
+A indentação conta: o hífen de cada fonte fica a 2 espaços da margem e os campos dela a 4, sempre com espaços (nunca tabulação). O formato completo está em [`data/schemas/catalogo.schema.json`](data/schemas/catalogo.schema.json).
+
+| Campo | Obrigatório | O que é |
+|---|---|---|
+| `id` | sim | `categoria/nome-da-fonte`, em minúsculas, sem acento, com hífens. O prefixo é o nome do arquivo da categoria. Não muda quando o nome da fonte muda. |
+| `nome` | sim | Título exibido no README. Separe órgão e serviço com hífen simples. |
+| `descricao` | sim | O que a fonte permite consultar; diga se é gratuita e se exige cadastro. Pode ser `''`. |
+| `links` | sim | Lista com ao menos um link. Cada link tem `url` (começa com `http://` ou `https://`) e, se quiser, `label` (rótulo) e `uf` (sigla do estado). |
+| `input` | sim | O que a consulta pede, com termos de [`data/taxonomy.json`](data/taxonomy.json). Use `[nenhum]` quando a fonte é navegada ou baixada por inteiro. |
+| `output` | sim | O que a fonte devolve, com termos de `data/taxonomy.json`. |
+| `tipo_fonte` | sim | Quem mantém a fonte (`federal`, `estadual`, `municipal`, `judiciario`, `privado`...). |
+| `classificacao` | sim | `override` em toda fonte nova. `heuristica` só existe em fontes herdadas da migração e ainda não revisadas; ao revisar a classificação de uma delas, troque para `override`. |
+| `observacao` | não | Nota da curadoria (limites de uso, autenticação). |
+| `resumo` | não | Recolhe os links num `<details>` com este título, como em `resumo: Links de pesquisa`. |
+| `subsecao` | não | Abre um subtítulo `####` da categoria antes desta fonte. |
+| `markdown` | não | Texto livre (exemplos de código, tabelas) exibido depois dos links. Os links citados nele levam `em_markdown: true` na lista `links`. |
+
+Regras que o CI confere:
+
+- Fonte com `classificacao: override` declara ao menos um termo em `input` e em `output`.
+- Todo termo de `input`, `output` e `tipo_fonte` existe em `data/taxonomy.json`. Para criar um termo novo, acrescente-o lá, com a descrição, e no formulário `.github/ISSUE_TEMPLATE/nova-fonte.yml`, no mesmo pull request.
+- Toda URL fica em `links`; URL solta em `descricao`, `resumo`, `observacao` ou `grupo` é erro.
+- O `id` é único no catálogo inteiro.
+
+### Quando usar aspas
+
+Coloque o texto entre aspas simples quando ele contiver `: ` (dois-pontos seguido de espaço) ou começar com `[`, `{`, `*`, `&`, `!`, `@`, `%` ou crase. Para um apóstrofo dentro de aspas simples, escreva duas aspas:
+
+```text
+descricao: 'Consulta: CPF e CNPJ'
+descricao: '[Beta] consulta gratuita'
+descricao: 'Arquivo d''Ajuda do portal'
+```
+
+Um ` #` no meio de um texto sem aspas vira comentário e corta o resto da linha; use aspas nesse caso também.
+
+### Erros comuns <a name="erros-comuns"></a>
+
+Cada erro do CI começa com `arquivo:linha:` e, quando se refere a um campo, com o caminho dele (`fontes[3].links[0].url` é a URL do primeiro link da quarta fonte do arquivo). O CI mostra todos os erros de uma vez.
+
+| Mensagem (trecho) | O que fazer |
+|---|---|
+| `YAML inválido: mapping values are not allowed ... Dica: texto com ': ' precisa ficar entre aspas simples` | Ponha o texto entre aspas simples ou corrija a indentação da linha. |
+| `YAML inválido: did not find expected key ... alinhe a linha com os campos vizinhos` | A linha está mais ou menos indentada que as vizinhas, ou o texto começa com `[`. |
+| `input 'cpff' fora da taxonomia (data/taxonomy.json); você quis dizer 'cpf'?` | Use o termo sugerido ou um termo da lista indicada. |
+| `campo obrigatório 'nome' ausente` | Falta o campo na fonte apontada. |
+| `a URL precisa começar com http:// ou https:// e não pode ter espaços` | Corrija a `url` do link. |
+| `o id precisa começar com 'saude/', o nome do arquivo da categoria` | Ajuste o prefixo do `id` ao arquivo em que a fonte está. |
+| `lista vazia em fonte com classificacao override` | Declare ao menos um termo em `input` ou `output`. |
+| `README.md:120: difere do gerado a partir de catalogo/` | O pull request editou um arquivo gerado. Desfaça essa mudança e edite só `catalogo/`. |
 
 ---
 
-### 3. 📝 Melhorar Documentação
+## 💻 Trabalhar localmente <a name="trabalhar-localmente"></a>
 
-Contribuições para melhorar a documentação são sempre bem-vindas:
-
-- Corrigir erros ortográficos ou gramaticais
-- Melhorar explicações existentes
-- Adicionar exemplos práticos
-- Traduzir termos técnicos
-- Melhorar a formatação
-
----
-
-### 4. 🔧 Desenvolver Ferramentas
-
-Contribuições técnicas também são valiosas:
-
-- Scripts de automação para consultas
-- Integrações com APIs públicas
-- Parsers de dados
-- Ferramentas de validação de links
-- Conversores de formato
-
-**Requisitos:**
-- Código bem documentado
-- Instruções claras de uso
-- Respeitar as limitações das APIs
-- Incluir avisos sobre LGPD
-
----
-
-## 🔄 Processo de Pull Request
-
-### Passo a Passo
-
-1. **Fork o Repositório**
-   - Clique em "Fork" no canto superior direito
-
-2. **Clone seu Fork**
+1. Faça um fork, clone e crie uma branch:
    ```bash
    git clone https://github.com/SEU-USUARIO/osint-brazuca.git
    cd osint-brazuca
+   git checkout -b adicionar-fonte-x
    ```
-
-3. **Crie uma Branch**
+2. Instale a única dependência, com versão fixada, e ative o hook que roda as verificações antes de cada commit:
    ```bash
-   git checkout -b minha-contribuicao
+   python3 -m pip install -r requirements.txt
+   git config core.hooksPath tools/hooks
    ```
-   
-   **Convenção de nomes:**
-   - `adicionar-fonte-X` - para novas fontes
-   - `corrigir-link-Y` - para correções de links
-   - `melhorar-docs-Z` - para melhorias na documentação
-
-4. **Faça suas Alterações**
-   - Edite os arquivos necessários
-   - Siga os padrões de formatação (veja abaixo)
-   - Teste todas as URLs adicionadas
-
-5. **Regenere o Dataset** (se mexeu em arquivos de `catalogo/`)
+3. Edite `catalogo/<categoria>.yml` e confira:
    ```bash
-   python3 tools/build_dataset.py
+   python3 tools/build_dataset.py --check   # valida o catálogo e mostra todos os erros
+   python3 tools/build_dataset.py           # opcional: regenera README.md e data/*.json para ver o resultado
    ```
-   Isso atualiza `README.md`, `data/sources.json` e `data/index.json`. Inclua esses arquivos no commit.
-   Veja a seção [Dataset JSON](#dataset-json) abaixo.
-
-6. **Commit suas Mudanças**
+4. Faça o commit só dos arquivos que você editou (`git add catalogo/`). Se regenerou os arquivos gerados para conferir, não precisa incluí-los; se incluir, eles precisam estar idênticos ao que o build gera.
+5. Envie a branch e abra o pull request:
    ```bash
-   git add .
-   git commit -m "Adiciona fonte de consulta X"
-   ```
-   
-   **Boas práticas para mensagens de commit:**
-   - Use verbos no imperativo ("Adiciona", "Corrige", "Atualiza")
-   - Seja específico e conciso
-   - Explique o "por quê" se necessário
-
-7. **Push para seu Fork**
-   ```bash
-   git push origin minha-contribuicao
+   git push origin adicionar-fonte-x
    ```
 
-8. **Abra um Pull Request**
-   - Acesse o repositório original no GitHub
-   - Clique em "New Pull Request"
-   - Selecione sua branch
-   - Preencha a descrição detalhadamente
+O hook confere o que está no índice do git (o que vai entrar no commit), não a pasta de trabalho. Mensagens de commit no imperativo: "Adiciona fonte X", "Corrige link de Y".
 
-**Template para Pull Request:**
-```markdown
-## Tipo de Mudança
-- [ ] Nova fonte
-- [ ] Correção de link
-- [ ] Melhoria de documentação
-- [ ] Outra (especifique)
+Para mudar ferramentas (`tools/`), rode também os testes:
 
-## Descrição
-Descreva claramente as mudanças realizadas.
-
-## Checklist
-- [ ] Testei todos os links adicionados
-- [ ] Segui o padrão de formatação do projeto
-- [ ] Verifiquei que não há duplicatas
-- [ ] Rodei `python3 tools/build_dataset.py` e incluí os arquivos gerados (`README.md` e JSON)
-- [ ] Li as diretrizes de contribuição
-- [ ] Minhas mudanças respeitam a LGPD
-
-## Informações Adicionais
-Qualquer contexto adicional sobre as mudanças.
+```bash
+python3 -m unittest discover -s tests
+python3 tools/validar_docs.py
 ```
+
+---
+
+## 🔁 O que acontece depois do merge <a name="depois-do-merge"></a>
+
+No pull request, a verificação "Catálogo válido e nenhum arquivo gerado editado à mão" pode avisar que os gerados estão desatualizados: é esperado e não bloqueia o merge.
+
+Depois do merge, o workflow [`.github/workflows/validar-dataset.yml`](.github/workflows/validar-dataset.yml) valida o catálogo no `main`, e o job "Arquivos gerados em dia no main" fica vermelho enquanto `README.md`, `data/sources.json` e `data/index.json` não forem regenerados. Quem regenera é o mantenedor, como descrito a seguir.
+
+### Para mantenedores <a name="mantenedores"></a>
+
+Depois de mesclar um pull request que mude `catalogo/`, `data/taxonomy.json` ou `tools/readme/`, regenere os arquivos gerados num commit seu, assinado:
+
+```bash
+git switch main && git pull
+python3 tools/build_dataset.py
+git add README.md data/sources.json data/index.json
+git commit -m "Regenera README.md e dataset a partir de catalogo/"
+git push
+```
+
+Vários merges seguidos podem ser regenerados de uma vez. O job "Arquivos gerados em dia no main" volta a ficar verde no push desse commit.
 
 ---
 
 ## 🗂️ Dataset JSON <a name="dataset-json"></a>
 
-> [!IMPORTANT]
-> As fontes do catálogo ficam em `catalogo/<categoria>.yml`, um arquivo YAML por categoria, com a classificação (`input`, `output`, `tipo_fonte`) declarada em cada fonte. O `README.md`, o `data/sources.json` e o `data/index.json` são gerados a partir desses arquivos: não os edite à mão. O `data/overrides.json` e a classificação automática por palavra-chave não são mais usados pelo build.
-
-```bash
-python3 tools/build_dataset.py            # valida catalogo/ e regenera README.md e o dataset
-python3 tools/build_dataset.py --report   # mostra estatísticas do catálogo
-python3 tools/build_dataset.py --check    # só verifica se está atualizado
-```
-
-Requer Python 3 e PyYAML, com versão fixada em `requirements.txt`: `python3 -m pip install -r requirements.txt`.
+As fontes do catálogo ficam em `catalogo/<categoria>.yml`, um arquivo YAML por categoria, com a classificação (`input`, `output`, `tipo_fonte`) declarada em cada fonte. O `README.md`, o `data/sources.json` e o `data/index.json` são gerados a partir desses arquivos: não os edite à mão.
 
 | Arquivo | O que é |
 |---|---|
-| `data/sources.json` | **Gerado.** Uma entrada por fonte, com os links aninhados. Identificada pelo `id`, não por linha do README. |
-| `data/index.json` | **Gerado.** Um registro por link, achatado para busca. |
-| `data/taxonomy.json` | Manual. Vocabulário permitido de `input`, `output` e `tipo_fonte`. |
 | `catalogo/<categoria>.yml` | **Fonte de verdade, editada à mão.** Um arquivo por categoria, com as fontes, links e classificação. |
+| `catalogo/_categorias.yml` | Manual. Ordem, título, emoji e âncora de cada categoria no README. |
+| `data/taxonomy.json` | Manual. Termos permitidos de `input`, `output`, `tipo_fonte` e `classificacao`, com a descrição de cada um. |
+| `data/sources.json` | **Gerado.** Uma entrada por fonte, com os links aninhados, identificada pelo `id`. |
+| `data/index.json` | **Gerado.** Um registro por link, achatado para busca. |
 
-> [!CAUTION]
-> Nunca edite `sources.json` ou `index.json` à mão. Eles são sobrescritos no próximo build e seu trabalho é perdido.
+```bash
+python3 tools/build_dataset.py            # valida catalogo/ e regenera README.md e o dataset
+python3 tools/build_dataset.py --check    # só verifica, sem gravar
+python3 tools/build_dataset.py --report   # mostra estatísticas do catálogo
+```
 
 ### Corrigindo a classificação de uma fonte
 
-Os campos `input` (o que a fonte aceita), `output` (o que ela devolve), `tipo_fonte` e `classificacao` são declarados na própria fonte, no arquivo da categoria em `catalogo/`. Para corrigir uma classificação, edite esse arquivo e rode `python3 tools/build_dataset.py`. Trecho de exemplo de `catalogo/apis-publicas-brasileiras.yml`:
+Edite `input`, `output` ou `tipo_fonte` na própria fonte, no arquivo da categoria, e marque `classificacao: override`. Trecho de `catalogo/apis-publicas-brasileiras.yml`:
 
-```yaml
+```text
   - id: apis-publicas-brasileiras/receitaws-api-cnpj
     nome: ReceitaWS - API CNPJ
     input: [cnpj]
@@ -230,31 +213,15 @@ Os campos `input` (o que a fonte aceita), `output` (o que ela devolve), `tipo_fo
     observacao: Sem autenticação. Rate limit de 3 requisições por minuto.
 ```
 
-O `id` (`categoria/nome`) identifica a fonte e não muda quando o nome muda. O campo `classificacao` aceita `heuristica` ou `override`. Todo termo de `input`, `output` e `tipo_fonte` é validado contra `data/taxonomy.json`. Para usar um termo novo, adicione-o lá antes, senão o build falha.
-
-### Validação automática
-
-Todo pull request passa pelo workflow `.github/workflows/validar-dataset.yml`, que falha se:
-
-- `README.md`, `sources.json` ou `index.json` estiverem desatualizados (`build_dataset.py --check`)
-- o catálogo violar o esquema (`build_dataset.py --check`): links obrigatórios, classificação, termos fora da taxonomia, ids repetidos e URLs de texto livre fora de `links`
-- houver travessão (`—`) fora de crases, menu de navegação diferente entre os documentos ou link interno sem âncora (`tools/validar_docs.py`)
-
-Para rodar as mesmas verificações antes de cada commit, ative o hook do repositório uma única vez:
-
-```bash
-git config core.hooksPath tools/hooks
-```
-
 ### Ferramentas de curadoria (só local)
 
 ```bash
-python3 tools/validar_docs.py --avisos   # lista URLs repetidas em mais de uma fonte e URLs em http://
+python3 tools/validar_docs.py --avisos   # URLs repetidas em mais de uma fonte e URLs em http://
 python3 tools/checar_links.py            # testa todas as URLs do catálogo e resume ok/redirect/bloqueio/offline
 python3 tools/checar_links.py --filtro detran --csv links.csv
 ```
 
-Esses avisos não bloqueiam o commit: URL repetida pode ser legítima (a mesma consulta em duas categorias) e muitos sites só existem em `http://`. Sites `.gov.br` costumam bloquear robôs (`bloqueio` = 401/403/405/429/503), então confira no navegador antes de reportar um link como quebrado.
+Esses avisos não bloqueiam o commit: URL repetida pode ser legítima (a mesma consulta em duas categorias) e muitos sites só existem em `http://`. Em `checar_links.py`, `bloqueio` (401, 403, 405, 429 ou 503) costuma ser proteção contra robôs; confira no navegador antes de reportar.
 
 ---
 
@@ -262,45 +229,38 @@ Esses avisos não bloqueiam o commit: URL repetida pode ser legítima (a mesma c
 
 ### Pontuação
 
-Não use travessão (`—`) em nenhum texto do projeto. Prefira vírgula, dois-pontos, ponto final ou parênteses. Em títulos de fonte, separe com hífen simples:
-
-```markdown
-### IBAMA - Consulta de Autuações Ambientais
-```
+Não use travessão em nenhum texto do projeto, nem nos arquivos de `catalogo/`. Prefira vírgula, dois-pontos, ponto final ou parênteses. Em nomes de fonte, separe com hífen simples: `IBAMA - Consulta de Autuações Ambientais`.
 
 ### Alertas
 
-Para destaques, use os alertas nativos do GitHub em vez de negrito com emoji. Os cinco tipos válidos são `NOTE`, `TIP`, `IMPORTANT`, `WARNING` e `CAUTION`:
+Para destaques nos documentos, use os alertas nativos do GitHub em vez de negrito com emoji. Os cinco tipos válidos são `NOTE`, `TIP`, `IMPORTANT`, `WARNING` e `CAUTION`:
 
 ```markdown
 > [!WARNING]
 > Respeite os limites de requisição das APIs públicas.
 ```
 
-O marcador fica sozinho na primeira linha e todo o conteúdo seguinte é prefixado com `>`. Use com parcimônia: alerta em excesso perde o efeito. O menu de navegação no topo de cada documento é um bloco de badges centralizado (`<p align="center">` com badges do shields.io), idêntico em todos os arquivos: ao alterar um item do menu, replique a mudança em todos os documentos.
+O marcador fica sozinho na primeira linha e todo o conteúdo seguinte é prefixado com `>`. Use com parcimônia.
 
-### Fontes no Catálogo
+### Menu de navegação
 
-Cada fonte é uma entrada YAML em `catalogo/<categoria>.yml`, como no exemplo de [Adicionar Novas Fontes](#2--adicionar-novas-fontes). O README é gerado a partir delas. Orientações:
+O menu no topo de cada documento é um bloco de badges centralizado, idêntico em todos os arquivos. Ao alterar um item, replique a mudança em todos os documentos; `tools/validar_docs.py` confere.
 
-- Texto livre (descrição de API, requisitos, exemplos de código, tabelas) vai no campo `markdown` da fonte. Os links desse texto são marcados com `em_markdown: true` na lista `links`.
-- Fontes estaduais levam `uf` em cada link, e o `resumo` recolhe a lista num `<details>`.
-- Todo link fica em `links`; não escreva URLs soltas fora de `markdown`.
+### Documentação e ferramentas
+
+Correções de texto, exemplos práticos e ferramentas (scripts de consulta, validação de links) também são bem-vindos. Código precisa de instruções de uso, respeitar os limites das APIs e trazer avisos sobre a LGPD. As ferramentas do repositório usam só a biblioteca padrão do Python e o PyYAML.
 
 ---
 
 ## ✅ Checklist Antes de Submeter
 
-Antes de enviar seu Pull Request, verifique:
-
-- [ ] **Contexto brasileiro** - É relevante para o Brasil?
-- [ ] **Testei todos os links** - Todos funcionam?
-- [ ] **Não há duplicatas** - Já existe em `catalogo/`?
-- [ ] **Formatação correta** - Segue os padrões?
-- [ ] **Descrição clara** - É fácil entender?
-- [ ] **Categoria apropriada** - Está na seção certa?
-- [ ] **Fonte pública** - É de acesso público?
-
+- [ ] **Contexto brasileiro:** é relevante para o Brasil?
+- [ ] **Links testados:** todos abrem no navegador?
+- [ ] **Sem duplicata:** procurei a URL em `catalogo/`?
+- [ ] **Categoria certa:** a fonte está no arquivo da seção certa e o `id` começa com o nome desse arquivo?
+- [ ] **Classificação:** fonte nova com `classificacao: override` e termos da taxonomia?
+- [ ] **Só o catálogo:** não editei `README.md` nem `data/*.json`?
+- [ ] **Fonte pública:** é de acesso público e legal?
 
 ---
 
@@ -311,7 +271,8 @@ Antes de enviar seu Pull Request, verifique:
 
 - ❌ Links fora do contexto brasileiro
 - ❌ Links fora do contexto proposto
-- ❌ Links para foruns de fraud / exploits
+- ❌ Links para fóruns de fraude ou exploits
+- ❌ Bases vazadas ou dados pessoais expostos
 - ❌ Conteúdo discriminatório
 - ❌ Links afiliados ou spam
 - ❌ Ferramentas pagas sem versão gratuita (exceto se oficial)
@@ -320,21 +281,15 @@ Antes de enviar seu Pull Request, verifique:
 
 ## 🏆 Reconhecimento
 
-Todos os contribuidores serão:
-- Listados na seção de **Contribuições** do README
-- Creditados no histórico do Git
-- Mencionados nas releases quando aplicável
+Todos os contribuidores ficam creditados no histórico do Git e na lista de contribuidores do GitHub, exibida na seção de **Contribuições** do README.
 
 ---
 
 ## 📞 Dúvidas?
 
-Se tiver dúvidas sobre como contribuir:
-
-1. **Leia a documentação:** README.md, GUIA_RAPIDO.md
-2. **Consulte Issues existentes:** Alguém já teve a mesma dúvida?
-3. **Abra uma Discussion:** Para perguntas gerais
-4. **Abra uma Issue:** Para problemas específicos
+1. **Leia a documentação:** README.md e GUIA_RAPIDO.md.
+2. **Consulte as issues existentes:** alguém já teve a mesma dúvida?
+3. **Abra uma issue:** escolha o formulário mais próximo do seu caso.
 
 ---
 
@@ -352,18 +307,14 @@ Ao contribuir, você concorda em:
 
 ## 🎓 Primeiras Contribuições
 
-Novo em contribuições open source? Sem problema!
+Novo em contribuições open source? Bons primeiros passos:
 
-**Boas primeiras contribuições:**
+- Reportar ou corrigir um link quebrado
+- Melhorar a descrição de uma fonte
+- Revisar a classificação de uma fonte `heuristica` e marcá-la como `override`
 - Corrigir erros de digitação
-- Atualizar links quebrados
-- Melhorar descrições existentes
-- Adicionar exemplos práticos
 
-**Issues marcadas com:**
-- `good first issue` - Boas para iniciantes
-- `help wanted` - Precisam de ajuda
-- `documentation` - Relacionadas a documentação
+Issues marcadas com `good first issue` são boas para começar.
 
 ---
 
