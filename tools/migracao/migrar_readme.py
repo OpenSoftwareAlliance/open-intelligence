@@ -32,7 +32,7 @@ sys.path.insert(0, str(AQUI.parent))
 import readme_legado as L  # noqa: E402
 from catalogo_io import carrega_catalogo  # noqa: E402
 from dataset import CABECALHO, RODAPE, monta_fontes  # noqa: E402
-from readme_gerado import VOLTAR, renderiza_fonte  # noqa: E402
+from readme_gerado import AVISO, VOLTAR, renderiza_fonte  # noqa: E402
 
 RAIZ = AQUI.parent.parent
 
@@ -440,9 +440,18 @@ def confere(raiz, fontes_legado):
 
 def main(argv=None, raiz=RAIZ):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.parse_args(argv)
+    ap.add_argument("--forcar", action="store_true",
+                    help="refaz a migração mesmo com catalogo/ já existente (descarta edições do catálogo)")
+    args = ap.parse_args(argv)
     raiz = Path(raiz)
     texto = (raiz / "README.md").read_text(encoding="utf-8")
+    if texto.startswith(AVISO):
+        print("ERRO: README.md já é gerado a partir de catalogo/; não há o que migrar", file=sys.stderr)
+        return 1
+    if (raiz / "catalogo" / "_categorias.yml").exists() and not args.forcar:
+        print("ERRO: catalogo/_categorias.yml já existe; a migração é de uso único "
+              "(use --forcar para refazer e descartar as edições do catálogo)", file=sys.stderr)
+        return 1
     overrides = L.carrega_json(raiz / "data" / "overrides.json").get("overrides", {})
     taxonomia = L.carrega_json(raiz / "data" / "taxonomy.json")
     try:

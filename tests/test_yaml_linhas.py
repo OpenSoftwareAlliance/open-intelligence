@@ -43,6 +43,16 @@ class TestLeYaml(unittest.TestCase):
         _, _, erros = le_yaml("fontes:\n  - id: a/b\n    id: a/c\n", "catalogo/a.yml")
         self.assertEqual(erros, ["catalogo/a.yml:3: chave 'id' repetida"])
 
+    def test_tag_yaml_no_valor_vira_erro_com_linha(self):
+        dados, _, erros = le_yaml("fontes:\n  - id: a/b\n    descricao: !Novo portal\n", "catalogo/a.yml")
+        self.assertEqual(len(erros), 1)
+        self.assertTrue(erros[0].startswith("catalogo/a.yml:3: YAML inválido:"), erros[0])
+
+    def test_chave_nao_escalar_vira_erro_com_linha(self):
+        _, _, erros = le_yaml("fontes:\n  ? [a, b]\n  : 1\n", "catalogo/a.yml")
+        self.assertEqual(len(erros), 1)
+        self.assertTrue(erros[0].startswith("catalogo/a.yml:2: "), erros[0])
+
     def test_arquivo_vazio(self):
         self.assertEqual(le_yaml("", "catalogo/a.yml")[2], ["catalogo/a.yml:1: arquivo vazio"])
 

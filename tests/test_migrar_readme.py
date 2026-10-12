@@ -14,7 +14,7 @@ sys.path.insert(0, str(RAIZ / "tools"))
 sys.path.insert(0, str(RAIZ / "tools" / "migracao"))
 
 from migrar_readme import main  # noqa: E402
-from readme_gerado import VOLTAR  # noqa: E402
+from readme_gerado import AVISO, VOLTAR  # noqa: E402
 
 README = f"""<h1>Teste</h1>
 
@@ -209,6 +209,29 @@ class TestMigracao(unittest.TestCase):
             shutil.rmtree(raiz)
         self.assertEqual(codigo, 1)
         self.assertIn("README.md:11: categoria sem <a name>", erro)
+
+    def test_segunda_execucao_recusa_e_nao_escreve(self):
+        raiz = cria(README)
+        try:
+            self.assertEqual(roda(raiz)[0], 0)
+            antes = {c: c.read_bytes() for c in raiz.rglob("*") if c.is_file()}
+            codigo, _, erro = roda(raiz)
+            depois = {c: c.read_bytes() for c in raiz.rglob("*") if c.is_file()}
+            self.assertEqual(codigo, 1)
+            self.assertIn("ERRO: catalogo/_categorias.yml já existe", erro)
+            self.assertIn("--forcar", erro)
+            self.assertEqual(antes, depois)
+        finally:
+            shutil.rmtree(raiz)
+
+    def test_readme_gerado_e_recusado(self):
+        raiz = cria(AVISO + "\n" + README)
+        try:
+            codigo, _, erro = roda(raiz)
+        finally:
+            shutil.rmtree(raiz)
+        self.assertEqual(codigo, 1)
+        self.assertIn("README.md já é gerado", erro)
 
 
 if __name__ == "__main__":

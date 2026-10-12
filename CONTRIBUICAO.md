@@ -138,7 +138,7 @@ Contribuições técnicas também são valiosas:
    ```bash
    python3 tools/build_dataset.py
    ```
-   Isso atualiza `data/sources.json` e `data/index.json`. Inclua esses arquivos no commit.
+   Isso atualiza `README.md`, `data/sources.json` e `data/index.json`. Inclua esses arquivos no commit.
    Veja a seção [Dataset JSON](#dataset-json) abaixo.
 
 6. **Commit suas Mudanças**
@@ -178,7 +178,7 @@ Descreva claramente as mudanças realizadas.
 - [ ] Testei todos os links adicionados
 - [ ] Segui o padrão de formatação do projeto
 - [ ] Verifiquei que não há duplicatas
-- [ ] Rodei `python3 tools/build_dataset.py` e incluí os JSON atualizados
+- [ ] Rodei `python3 tools/build_dataset.py` e incluí os arquivos gerados (`README.md` e JSON)
 - [ ] Li as diretrizes de contribuição
 - [ ] Minhas mudanças respeitam a LGPD
 
@@ -231,8 +231,8 @@ O `id` (`categoria/nome`) identifica a fonte e não muda quando o nome muda. O c
 
 Todo pull request passa pelo workflow `.github/workflows/validar-dataset.yml`, que falha se:
 
-- `sources.json` ou `index.json` estiverem desatualizados (`build_dataset.py --check`)
-- houver fonte sem nenhum link ou sem classificação (`--report`)
+- `README.md`, `sources.json` ou `index.json` estiverem desatualizados (`build_dataset.py --check`)
+- o catálogo violar o esquema (`build_dataset.py --check`): links obrigatórios, classificação, termos fora da taxonomia, ids repetidos e URLs de texto livre fora de `links`
 - houver travessão (`—`) fora de crases, menu de navegação diferente entre os documentos ou link interno sem âncora (`tools/validar_docs.py`)
 
 Para rodar as mesmas verificações antes de cada commit, ative o hook do repositório uma única vez:

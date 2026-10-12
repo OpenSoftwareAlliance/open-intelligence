@@ -42,6 +42,18 @@ def urls_do_markdown(texto):
     return urls - {""}
 
 
+def _urls_soltas(rotulo, linhas, fonte, base, urls_links):
+    """Erros para URL em campo de texto que só aparece no README, não no dataset."""
+    campos = [(base + (campo,), fonte.get(campo, "")) for campo in ("descricao", "resumo", "subsecao", "observacao")]
+    campos += [(base + ("links", k, "grupo"), link.get("grupo", "")) for k, link in enumerate(fonte["links"])]
+    erros = []
+    for caminho, texto in campos:
+        for url in sorted(urls_do_markdown(texto) - urls_links):
+            erros.append(erro_em(rotulo, linhas, caminho,
+                                 f"URL {url} no campo {caminho[-1]} sem link correspondente; coloque a URL em links"))
+    return erros
+
+
 def carrega_catalogo(raiz=RAIZ):
     """Lê e valida catalogo/. Retorna (catalogo, erros).
 
@@ -78,9 +90,14 @@ def carrega_catalogo(raiz=RAIZ):
             else:
                 vistos[chave] = linha_de(linhas_manifesto, ("categorias", i, campo))
 
+    for i, categoria in enumerate(categorias):
+        for url in sorted(urls_do_markdown(categoria.get("introducao", ""))):
+            erros.append(erro_em(rotulo_manifesto, linhas_manifesto, ("categorias", i, "introducao"),
+                                 f"URL {url} no campo introducao; coloque a URL em links de uma fonte"))
+
     ids_manifesto = {c["id"] for c in categorias}
     for arquivo in sorted(pasta.iterdir()):
-        if arquivo.name == MANIFESTO:
+        if arquivo.name == MANIFESTO or arquivo.name.startswith(".") or arquivo.name.endswith("~"):
             continue
         if arquivo.suffix != ".yml":
             erros.append(f"catalogo/{arquivo.name}:1: arquivo inesperado; o catálogo só aceita arquivos .yml")
@@ -120,9 +137,11 @@ def carrega_catalogo(raiz=RAIZ):
                 if link.get("em_markdown") and link["url"] not in urls_md:
                     erros.append(erro_em(rotulo, linhas, base + ("links", k, "em_markdown"),
                                          f"link {link['url']} marcado em_markdown, mas a URL não aparece no campo markdown"))
-            for url in sorted(urls_md - {link["url"] for link in fonte["links"]}):
+            urls_links = {link["url"] for link in fonte["links"]}
+            for url in sorted(urls_md - urls_links):
                 erros.append(erro_em(rotulo, linhas, base + ("markdown",),
                                      f"URL {url} no campo markdown sem link correspondente em links"))
+            erros.extend(_urls_soltas(rotulo, linhas, fonte, base, urls_links))
             local = f"{rotulo}:{linha_de(linhas, base + ('id',))}"
             if fonte["id"] in ids_vistos:
                 erros.append(erro_em(rotulo, linhas, base + ("id",),

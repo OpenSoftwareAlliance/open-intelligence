@@ -76,6 +76,35 @@ class TestCarregaCatalogo(unittest.TestCase):
         self.assertEqual(erros, ["catalogo/alfa.yml:28: fontes[1].markdown: URL https://outra.gov.br/ no campo markdown "
                                  "sem link correspondente em links"])
 
+    def test_url_fora_de_links_em_outros_campos_e_rejeitada(self):
+        for campo, texto in (("descricao", "    descricao: Veja https://outra.gov.br/\n"),
+                             ("resumo", "    resumo: Veja https://outra.gov.br/\n"),
+                             ("subsecao", "    subsecao: Veja https://outra.gov.br/\n"),
+                             ("observacao", "    observacao: Veja https://outra.gov.br/\n")):
+            with self.subTest(campo=campo):
+                base = ALFA.replace("    links:\n", texto + "    links:\n", 1)
+                if campo == "descricao":
+                    base = ALFA.replace("    descricao: Descrição da primeira.\n", texto, 1)
+                _, erros = self.carrega({"catalogo/alfa.yml": base})
+                self.assertEqual(len(erros), 1, erros)
+                self.assertRegex(erros[0], rf"^catalogo/alfa\.yml:\d+: fontes\[0\]\.{campo}: URL https://outra\.gov\.br/ .*links")
+
+    def test_url_no_grupo_do_link_e_na_introducao_e_rejeitada(self):
+        _, erros = self.carrega({"catalogo/alfa.yml": ALFA.replace("      - url: https://primeira.gov.br/\n", "      - url: https://primeira.gov.br/\n        grupo: Veja https://outra.gov.br/\n", 1)})
+        self.assertEqual(len(erros), 1, erros)
+        self.assertIn("fontes[0].links[0].grupo: URL https://outra.gov.br/", erros[0])
+        _, erros = self.carrega({"catalogo/_categorias.yml": MANIFESTO.replace("Introdução da categoria alfa.", "Veja https://outra.gov.br/")})
+        self.assertEqual(len(erros), 1, erros)
+        self.assertRegex(erros[0], r"^catalogo/_categorias\.yml:\d+: categorias\[0\]\.introducao: URL https://outra\.gov\.br/")
+
+    def test_url_da_descricao_que_esta_em_links_e_aceita(self):
+        _, erros = self.carrega({"catalogo/alfa.yml": ALFA.replace("Descrição da primeira.", "Veja https://primeira.gov.br/")})
+        self.assertEqual(erros, [])
+
+    def test_dotfiles_e_backups_de_editor_sao_ignorados(self):
+        _, erros = self.carrega({"catalogo/.DS_Store": "x", "catalogo/alfa.yml~": "x", "catalogo/.alfa.yml.swp": "x"})
+        self.assertEqual(erros, [])
+
     def test_yaml_quebrado_aponta_linha(self):
         _, erros = self.carrega({"catalogo/beta.yml": BETA.replace("    nome: Terceira", "   nome: Terceira")})
         self.assertEqual(len(erros), 1)

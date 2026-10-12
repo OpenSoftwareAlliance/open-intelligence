@@ -28,8 +28,25 @@ def le_yaml(texto, rotulo):
         return None, {}, [f"{rotulo}:1: arquivo vazio"]
     linhas, erros = {}, []
     construtor = yaml.constructor.SafeConstructor()
-    dados = _converte(raiz, (), linhas, erros, rotulo, construtor)
+    try:
+        dados = _converte(raiz, (), linhas, erros, rotulo, construtor)
+    except _ErroNo as erro:
+        return None, {}, erros + [erro.args[0]]
     return dados, linhas, erros
+
+
+class _ErroNo(Exception):
+    pass
+
+
+def _constroi(no, construtor, rotulo):
+    try:
+        return construtor.construct_object(no, deep=True)
+    except yaml.YAMLError as erro:
+        problema = getattr(erro, "problem", None) or str(erro)
+        raise _ErroNo(f"{rotulo}:{no.start_mark.line + 1}: YAML inválido: {problema}") from None
+    except TypeError:
+        raise _ErroNo(f"{rotulo}:{no.start_mark.line + 1}: YAML inválido: chave não pode ser lista ou mapa") from None
 
 
 def _converte(no, caminho, linhas, erros, rotulo, construtor):
@@ -37,8 +54,13 @@ def _converte(no, caminho, linhas, erros, rotulo, construtor):
     if isinstance(no, yaml.MappingNode):
         resultado = {}
         for no_chave, no_valor in no.value:
-            chave = construtor.construct_object(no_chave, deep=True)
-            if chave in resultado:
+            chave = _constroi(no_chave, construtor, rotulo)
+            try:
+                repetida = chave in resultado
+            except TypeError:
+                raise _ErroNo(f"{rotulo}:{no_chave.start_mark.line + 1}: YAML inválido: "
+                              "chave não pode ser lista ou mapa") from None
+            if repetida:
                 erros.append(f"{rotulo}:{no_chave.start_mark.line + 1}: chave '{chave}' repetida")
                 continue
             resultado[chave] = _converte(no_valor, caminho + (chave,), linhas, erros, rotulo, construtor)
@@ -48,7 +70,7 @@ def _converte(no, caminho, linhas, erros, rotulo, construtor):
             _converte(item, caminho + (i,), linhas, erros, rotulo, construtor)
             for i, item in enumerate(no.value)
         ]
-    return construtor.construct_object(no, deep=True)
+    return _constroi(no, construtor, rotulo)
 
 
 def linha_de(linhas, caminho):

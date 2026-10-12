@@ -21,6 +21,15 @@ class TestDocumentacao(unittest.TestCase):
         self.assertNotIn("Verifique se a fonte já não existe no README", texto)
         self.assertNotIn("se mexeu em fontes ou URLs do README", texto)
 
+    def test_contribuicao_lista_o_readme_entre_os_gerados_e_a_validacao_real(self):
+        texto = le("CONTRIBUICAO.md")
+        self.assertIn("Isso atualiza `README.md`, `data/sources.json` e `data/index.json`. Inclua esses arquivos no commit.", texto)
+        self.assertIn("e incluí os arquivos gerados (`README.md` e JSON)", texto)
+        self.assertNotIn("(`--report`)", texto)
+        self.assertNotIn("incluí os JSON atualizados", texto)
+        self.assertIn("(`build_dataset.py --check`)", texto)
+        self.assertIn("links obrigatórios", texto)
+
     def test_readme_gerado_aponta_catalogo_como_fonte(self):
         readme = le("README.md")
         self.assertTrue(readme.startswith("<!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/."))
