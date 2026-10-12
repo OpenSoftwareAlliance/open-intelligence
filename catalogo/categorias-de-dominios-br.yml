@@ -1,0 +1,30 @@
+# Categoria: Categorias de Domínios .br
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: categorias-de-dominios-br/asn-disponiveis-do-whois-publico-do-registro-nir-nic-br
+    nome: ASN disponíveis do Whois público do registro NIR Nic.br
+    descricao: Compilação de informações de origem do prefixo ASN disponíveis do Whois público do registro NIR Nic.br. Campos separados por pipe.da
+    links:
+      - url: https://ftp.registro.br/pub/numeracao/origin/00README
+        label: ASN|OrgName|OrgID|prefixos... (Tradução da própria descrição fornecida pelo RegistroBR
+      - url: https://ftp.registro.br/pub/numeracao/origin/
+        label: Diretório com histórico de arquivos
+      - url: https://ftp.registro.br/pub/numeracao/origin/nicbr-asn-blk-latest.txt
+        label: Lista atualizada
+    input: [asn, dominio]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: categorias-de-dominios-br/dominios-gov-br-lista-oficial-de-dominios-governamentais
+    nome: Domínios gov.br - Lista oficial de domínios governamentais
+    descricao: Lista oficial dos domínios sob `.gov.br`, publicada como dados abertos pela Secretaria de Governo Digital (MGI). Cada registro traz o domínio, o CNPJ do órgão responsável, o nome do órgão, o contato responsável e as datas de cadastro e de atualização. Atualizada diariamente.
+    links:
+      - url: https://dados.gov.br/dados/conjuntos-dados/dominios-govbr
+        label: Página do dataset no Portal Brasileiro de Dados Abertos
+      - url: https://dominiosgovbr.sisp.gov.br/dados/dominios_gov_br.csv
+        label: Arquivo CSV
+    input: [cnpj, dominio]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: federal
+    classificacao: heuristica

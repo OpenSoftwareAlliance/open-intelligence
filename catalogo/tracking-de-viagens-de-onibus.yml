@@ -1,0 +1,71 @@
+# Categoria: Tracking de Viagens de Ônibus
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: tracking-de-viagens-de-onibus/onibus-info
+    nome: Onibus.info
+    descricao: Acompanhe ônibus de Joinville em tempo real
+    links:
+      - url: https://onibus.info
+    input: [nenhum]
+    output: [mapa, video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: tracking-de-viagens-de-onibus/sptrans-olho-vivo
+    nome: SPTrans Olho Vivo
+    descricao: Localização dos ônibus, ao longo do trajeto, em quanto tempo e quais linhas de ônibus se aproximam, corredores, velocidade média e tempo de percurso.
+    links:
+      - url: https://olhovivo.sptrans.com.br
+    input: [nenhum]
+    output: [mapa]
+    tipo_fonte: municipal
+    classificacao: override
+  - id: tracking-de-viagens-de-onibus/urbanizacao-de-curitiba-s-a-urbs-monitoramento-de-onibus
+    nome: Urbanização de Curitiba S/A (URBS) / Monitoramento de Ônibus
+    descricao: Rastreamento de informações sobre transporte na cidade de Curitiba. É possivel filtrar por linhas, rotas de ônibus, posição de pontos, veículos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.urbs.curitiba.pr.gov.br/mobile/itibus
+        label: Linhas, rotas de ônibus, posição de pontos e veículos
+        uf: PR
+      - url: https://www.urbs.curitiba.pr.gov.br/mobile/itibus6
+        uf: PR
+      - url: https://urbs.curitiba.pr.gov.br/horario-de-onibus
+        uf: PR
+      - url: https://www.urbs.curitiba.pr.gov.br/mobile/boletim
+        label: Boletim informacional relacionado ao transporte coletivo de Curitiba
+        uf: PR
+      - url: https://www.urbs.curitiba.pr.gov.br/mobile/cartao
+        label: Extrato do cartão transporte Avulso
+        uf: PR
+    input: [nenhum]
+    output: [mapa]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: tracking-de-viagens-de-onibus/viacao-ouro-e-prata-s-a-unesul-e-ttl
+    nome: Viação Ouro e Prata S/A, UneSul e TTL
+    descricao: É possivel acompanhar uma viagem de ônibus usando parâmetros como Empresa, Data, número de reserva ou número de serviço.
+    links:
+      - url: https://rastreamento.viacaoouroeprata.com.br/
+    input: [nenhum]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: tracking-de-viagens-de-onibus/viacao-aguia-branca-s-a
+    nome: Viação Águia Branca S.A.
+    descricao: É possivel acompanhar uma viagem de ônibus usando parâmetro o número de serviço.
+    links:
+      - url: https://acompanheaviagem.aguiabranca.com.br
+    input: [nenhum]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: tracking-de-viagens-de-onibus/flixbus-transporte-e-tecnologia-do-brasil-ltda
+    nome: FlixBus Transporte e Tecnologia do Brasil Ltda.
+    descricao: É possivel acompanhar uma viagem de ônibus da empresa FlixBus usando parâmetros como saída, chegada e número de reserva.
+    links:
+      - url: https://www.flixbus.com.br/track/
+    input: [nenhum]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica

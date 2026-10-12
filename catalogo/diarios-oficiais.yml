@@ -1,0 +1,216 @@
+# Categoria: Diários Oficiais
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: diarios-oficiais/diario-oficial-da-uniao-dou
+    nome: Diário Oficial da União (DOU)
+    descricao: Publicações oficiais do Governo Federal.
+    links:
+      - url: https://www.in.gov.br/
+    input: [cnpj, nome]
+    output: [diario_oficial]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: diarios-oficiais/imprensa-nacional-consulta-de-materias
+    nome: Imprensa Nacional - Consulta de Matérias
+    descricao: Busca avançada de matérias publicadas no Diário Oficial da União com filtros por período, seção, órgão e palavras-chave.
+    links:
+      - url: https://www.in.gov.br/materia
+    input: [cnpj, nome]
+    output: [diario_oficial]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: diarios-oficiais/querido-diario
+    nome: Querido Diário
+    descricao: Projeto da Open Knowledge Brasil que reúne e disponibiliza em formato aberto os diários oficiais de centenas de prefeituras brasileiras.
+    links:
+      - url: https://queridodiario.ok.org.br/
+    input: [cnpj, nome]
+    output: [diario_oficial]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: diarios-oficiais/diarios-oficiais-estaduais
+    nome: Diários Oficiais Estaduais
+    descricao: ''
+    resumo: Links de pesquisa
+    links:
+      - grupo: '**Região Norte**'
+        url: https://diario.ac.gov.br/
+        label: Acre (AC)
+        uf: AC
+      - url: https://doe.am.gov.br/
+        label: Amazonas (AM)
+        uf: AM
+      - url: https://www.diariooficial.ap.gov.br/
+        label: Amapá (AP)
+        uf: AP
+      - url: https://www.ioepa.com.br/
+        label: Pará (PA)
+        uf: PA
+      - url: https://diariooficial.ro.gov.br/
+        label: Rondônia (RO)
+        uf: RO
+      - url: https://imprensaoficial.rr.gov.br/
+        label: Roraima (RR)
+        uf: RR
+      - url: https://diariooficial.to.gov.br/
+        label: Tocantins (TO)
+        uf: TO
+      - grupo: '**Região Nordeste**'
+        url: https://www.imprensaoficialal.com.br/
+        label: Alagoas (AL)
+        uf: AL
+      - url: https://dool.egba.ba.gov.br/
+        label: Bahia (BA)
+        uf: BA
+      - url: https://www.diariooficial.ce.gov.br/
+        label: Ceará (CE)
+        uf: CE
+      - url: https://diariooficial.ma.gov.br/
+        label: Maranhão (MA)
+        uf: MA
+      - url: https://auniao.pb.gov.br/servicos/diario-oficial
+        label: Paraíba (PB)
+        uf: PB
+      - url: https://www.cepe.com.br/diario-oficial
+        label: Pernambuco (PE)
+        uf: PE
+      - url: https://www.diariooficial.pi.gov.br/
+        label: Piauí (PI)
+        uf: PI
+      - url: https://www.diariooficial.rn.gov.br/
+        label: Rio Grande do Norte (RN)
+        uf: RN
+      - url: https://doe.se.gov.br/
+        label: Sergipe (SE)
+        uf: SE
+      - grupo: '**Região Centro-Oeste**'
+        url: https://dodf.df.gov.br/
+        label: Distrito Federal (DF)
+        uf: DF
+      - url: https://diariooficial.go.gov.br/
+        label: Goiás (GO)
+        uf: GO
+      - url: https://www.iomat.mt.gov.br/
+        label: Mato Grosso (MT)
+        uf: MT
+      - url: https://www.imprensaoficial.ms.gov.br/
+        label: Mato Grosso do Sul (MS)
+        uf: MS
+      - grupo: '**Região Sudeste**'
+        url: https://ioes.dio.es.gov.br/
+        label: Espírito Santo (ES)
+        uf: ES
+      - url: https://www.jornalminasgerais.mg.gov.br/
+        label: Minas Gerais (MG)
+        uf: MG
+      - url: https://portal.ioerj.com.br/diario-oficial/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://doe.sp.gov.br/
+        label: São Paulo (SP)
+        uf: SP
+      - grupo: '**Região Sul**'
+        url: https://www.documentos.dioe.pr.gov.br/
+        label: Paraná (PR)
+        uf: PR
+      - url: https://diariooficial.rs.gov.br/
+        label: Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://doe.sc.gov.br/
+        label: Santa Catarina (SC)
+        uf: SC
+    input: [cnpj, nome]
+    output: [diario_oficial]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: diarios-oficiais/diarios-oficiais-das-capitais
+    nome: Diários Oficiais das capitais
+    descricao: Diários oficiais eletrônicos das prefeituras de capitais, com nomeações, contratos, licitações e atos administrativos municipais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://diariooficial.prefeitura.sp.gov.br/
+        label: São Paulo (SP)
+        uf: SP
+      - url: https://doweb.rio.rj.gov.br/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://dom-web.pbh.gov.br/
+        label: Belo Horizonte (MG)
+        uf: MG
+      - url: https://dopa.portoalegre.rs.gov.br/
+        label: Porto Alegre (RS)
+        uf: RS
+      - url: https://diariooficial.fortaleza.ce.gov.br/
+        label: Fortaleza (CE)
+        uf: CE
+      - url: https://dome.recife.pe.gov.br/dome/
+        label: Recife (PE)
+        uf: PE
+      - url: https://dom.manaus.am.gov.br/
+        label: Manaus (AM)
+        uf: AM
+      - url: https://legisladocexterno.curitiba.pr.gov.br/DiarioConsultaExterna_Pesquisa.aspx
+        label: Curitiba (PR)
+        uf: PR
+    input: [cnpj, nome]
+    output: [contrato_publico, diario_oficial, licitacao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: diarios-oficiais/diarios-oficiais-dos-municipios-associacoes-municipalistas
+    nome: Diários Oficiais dos Municípios - associações municipalistas
+    descricao: Diários oficiais consolidados mantidos por associações de municípios, que publicam atos de centenas de prefeituras do interior em um só lugar, com busca por texto.
+    resumo: Links de pesquisa
+    links:
+      - url: https://diariomunicipal.sc.gov.br/
+        label: DOM/SC - FECAM (SC)
+        uf: SC
+      - url: https://www.diariomunicipal.com.br/amm-mg/
+        label: AMM (MG)
+        uf: MG
+      - url: https://www.diariomunicipal.com.br/amupe/
+        label: AMUPE (PE)
+        uf: PE
+      - url: https://www.diariomunicipal.com.br/famup/
+        label: FAMUP (PB)
+        uf: PB
+      - url: https://www.diariomunicipal.com.br/aprece/
+        label: APRECE (CE)
+        uf: CE
+      - url: https://www.diariomunicipal.com.br/femurn/
+        label: FEMURN (RN)
+        uf: RN
+      - url: https://www.diariomunicipal.com.br/ama/
+        label: AMA (AL)
+        uf: AL
+      - url: https://www.diariomunicipal.com.br/arom/
+        label: AROM (RO)
+        uf: RO
+      - url: https://www.diariomunicipal.com.br/amm-mt/
+        label: AMM (MT)
+        uf: MT
+      - url: https://www.diariomunicipal.com.br/famurs/
+        label: FAMURS (RS)
+        uf: RS
+      - url: https://www.diariomunicipal.com.br/amp/
+        label: AMP (PR)
+        uf: PR
+      - url: https://www.diariomunicipal.com.br/agm/
+        label: AGM (GO)
+        uf: GO
+      - url: https://www.diariomunicipal.com.br/appm/
+        label: APPM (PI)
+        uf: PI
+      - url: https://www.diariomunicipal.com.br/aam/
+        label: AAM (AM)
+        uf: AM
+      - url: https://www.diariomunicipal.com.br/fgm/
+        label: FGM (GO)
+        uf: GO
+      - url: https://www.diariomunicipal.com.br/famep/
+        label: FAMEP (PA)
+        uf: PA
+    input: [cnpj, municipio, nome]
+    output: [diario_oficial]
+    tipo_fonte: estadual
+    classificacao: heuristica

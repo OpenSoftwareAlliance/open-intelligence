@@ -1,0 +1,515 @@
+# Categoria: Câmeras Online
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: cameras-online/projeto-city-cameras
+    nome: Projeto City Câmeras
+    descricao: O Projeto City Câmeras é um programa público, de iniciativa exclusiva da Prefeitura Municipal de São Paulo, que visa constituir uma ampla rede de videomonitoramento por meio de câmeras públicas e privadas instaladas pela cidade.
+    links:
+      - url: https://www.citycameras.prefeitura.sp.gov.br/home
+        uf: SP
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: municipal
+    classificacao: override
+  - id: cameras-online/cameras-cia-de-engenharia-de-trafego-cet
+    nome: Câmeras Cia. de Engenharia de Tráfego (CET)
+    descricao: ''
+    links:
+      - url: http://cameras.cetsp.com.br/
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-der-departamento-de-estradas-de-rodagem-der
+    nome: Câmeras DER - Departamento de Estradas de Rodagem (DER)
+    descricao: ''
+    links:
+      - url: http://www.der.sp.gov.br/WebSite/Servicos/ServicosOnline/CamerasOnlineMapa.aspx
+        uf: SP
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: cameras-online/windy-servico-de-cameras-e-radar-meteorologico
+    nome: Windy - Serviço de Cãmeras e Radar meteorológico
+    descricao: ''
+    links:
+      - url: https://www.windy.com/pt/-Webcams/webcams?-16.994
+        em_markdown: true
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: '- https://www.windy.com/pt/-Webcams/webcams?-16.994,-54.316,5'
+  - id: cameras-online/cameras-rodovias-online
+    nome: Câmeras Rodovias Online
+    descricao: O site Rodovias Online é um serviço de Utilidade Pública, onde procuramos reunir de forma fácil e eficaz visualizações de câmeras on-line.
+    resumo: rodoviasonline.com.br
+    links:
+      - url: http://www.rodoviasonline.com.br/rodovias-der-sp/
+      - url: http://www.rodoviasonline.com.br/cameras-ao-vivo-das-rodovias-do-estado-do-parana/
+      - url: https://www.rodoviasonline.com.br/cameras-ao-vivo-nas-rodovias-do-rio-grande-de-sul-daer-rs/
+      - url: https://www.rodoviasonline.com.br/rodovia-governador-ney-braga-br-277/
+      - url: https://www.rodoviasonline.com.br/cameras-ao-vivo-viapar-parana/
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-concessionaria-tamoios
+    nome: Câmeras Concessionária Tamoios
+    descricao: ''
+    resumo: concessionariatamoios.com.br
+    links:
+      - url: https://concessionariatamoios.com.br/cameras/ver/12
+      - url: https://concessionariatamoios.com.br/cameras/ver/14
+      - url: https://concessionariatamoios.com.br/cameras/ver/10
+      - url: https://concessionariatamoios.com.br/cameras/ver/9
+      - url: https://concessionariatamoios.com.br/cameras/ver/8
+      - url: https://concessionariatamoios.com.br/cameras/ver/13
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-concessionaria-ecorodovias
+    nome: Câmeras Concessionária EcoRodovias
+    descricao: ''
+    resumo: ecovias.com.br
+    links:
+      - url: https://www.ecovias.com.br/condicoes-da-via#condition-camera
+      - url: https://www.ecovias.com.br/boletim/camera/2
+        label: BALANCA IMIGRANTES PLANALTO
+      - url: http://site.ecovias.com.br/cameras/vpon/0kamera1.jpg
+        label: ENTRADA IMIGRANTES PLANALTO
+      - url: https://www.ecovias.com.br/boletim/camera/4
+        label: PEDAGIO IMIGRANTES
+      - url: http://site.ecovias.com.br/cameras/vpon/0kamera6.jpg
+        label: PLANALTO IMIGRANTES
+      - url: https://www.ecovias.com.br/boletim/camera/6
+        label: TRECHO SERRA IMIGRANTES
+      - url: https://www.ecovias.com.br/boletim/camera/7
+        label: BALANCA IMIGRANTES BAIXADA
+      - url: https://www.ecovias.com.br/boletim/camera/8
+        label: ACESSO IMIGRANTES BAIXADA
+      - url: https://www.ecovias.com.br/boletim/camera/15
+        label: INTERLIGACAO PLANALTO
+      - url: https://www.ecovias.com.br/boletim/camera/1
+        label: TREVO CUBATAO
+      - url: https://www.ecovias.com.br/boletim/camera/11
+        label: ANCHIETA RIBEIRAO DOS COUROS
+      - url: https://www.ecovias.com.br/boletim/camera/12
+        label: SERRA ANCHIETA
+      - url: https://www.ecovias.com.br/boletim/camera/13
+        label: ANCHIETA TREVO DA VOLKSWAGEM
+      - url: https://www.ecovias.com.br/boletim/camera/14
+        label: PEDAGIO ANCHIETA
+      - url: https://www.ecovias.com.br/boletim/camera/16
+        label: ENTRADA SANTOS
+      - url: https://www.ecovias.com.br/boletim/camera/9
+        label: PEDAGIO GUARUJA
+      - url: https://www.ecovias.com.br/boletim/camera/10
+        label: PEDAGIO SAO VICENTE
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-daer-rio-grande-do-sul
+    nome: Câmeras DAER - Rio Grande do Sul
+    descricao: ''
+    links:
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Santa_Maria
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-governo-de-santa-catarina
+    nome: Câmeras Governo de Santa Catarina
+    descricao: ''
+    resumo: ssp.sc.gov.br
+    links:
+      - url: https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online
+        uf: SC
+      - url: https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-florianopolis
+        uf: SC
+      - url: https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-florianopolis-trindade
+        uf: SC
+      - url: https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-florianopolis-2
+        uf: SC
+      - url: https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-sao-jose
+        uf: SC
+      - url: https://www.ssp.sc.gov.br/dtic/index.php/cameras/cameras-online-biguacu
+        uf: SC
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: cameras-online/cameras-por-estado
+    nome: Câmeras por Estado
+    descricao: Câmeras de monitoramento de rodovias, segurança pública e clima por estado.
+    resumo: Câmeras por Estado
+    links:
+      - grupo: '**Maranhão (MA)**'
+        url: https://www.climaaovivo.com.br/ma/sao-luis-hotel-abbeville
+        label: São Luis
+        uf: MA
+      - url: https://www.climaaovivo.com.br/ma/acailandia/acailandia
+        label: Açailândia
+        uf: MA
+      - url: https://www.climaaovivo.com.br/ma/imperatriz/centro-empresarial-oeste
+        label: Imperatriz
+        uf: MA
+      - url: https://www.climaaovivo.com.br/ma/imperatriz/centro-empresarial-leste
+        label: Imperatriz
+        uf: MA
+      - grupo: '**Rio Grande do Sul (RS)**'
+        url: https://www.achados-e-perdidos-rs.com.br/
+        label: Localizar pessoas desaparecidas nas enchentes do RS
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6716
+        label: 'Osório: RS-389 KM 14'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6714
+        label: 'Osório: ERS-030 KM 89,9'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6713
+        label: 'Osório: ERS-030, 1916 KM 85,3'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Restinga_Seca
+        label: 'Restinga Seca: ERS-149 KM 100'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Ijui
+        label: 'Ijuí: ERS-155 KM 2,3'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Santa_Maria
+        label: 'Santa Maria: ERS-509 KM 4,1'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Venancio_Aires
+        label: 'Venâncio Aires: RSC-453 KM 4,1'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Montenegro01
+        label: 'Montenegro: ERS-124 KM 29,6'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Montenegro02
+        label: 'Montenegro: RSC-287 KM 3,4'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6208.jpg
+        label: 'Montenegro: RSC-287 KM 8'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Portao
+        label: 'Portão: ERS-240 KM 9,9'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Sao_Jeronimo
+        label: 'São Jerônimo: ERS-401 KM 10,3'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Farroupilha
+        label: 'Farroupilha: RSC-453 KM 121,3'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6212.jpg
+        label: 'Farroupilha: RSC-453 KM 109'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6213.jpg
+        label: 'Farroupilha: ERS-122 KM 47'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Caxias_do_Sul
+        label: 'Caxias do Sul: RSC-453 KM 143'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6743
+        label: 'Caxias do Sul: ERS-122 KM 66,56'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6744
+        label: 'Caxias do Sul: RSC-453 KM 168,36'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Glorinha
+        label: 'Glorinha: ERS-030 KM 24,2'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Igrejinha
+        label: 'Igrejinha: ERS-115 KM 115'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Gramado01
+        label: 'Gramado: ERS-235 KM 36,6'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Gramado02
+        label: 'Gramado: ERS-235 KM 36,6'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Itati
+        label: 'Itati: ERS-486 KM 29,7'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6210.jpg
+        label: 'Candelária: RSC-287 KM 135'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6214.jpg
+        label: 'Boa Vista do Cadeado: ERS-342 KM 137'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6215.jpg
+        label: 'Vera Cruz: RSC-287 KM 113'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6216.jpg
+        label: 'Passo Fundo: ERS-324 KM 195'
+        uf: RS
+      - url: http://186.227.239.150:2150/ftp/imagem.php?id=Passo_Fundo
+        label: 'Passo Fundo: ERS-324 KM 182,4'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6211.jpg
+        label: 'Novos Cabrais: RSC-287 KM 166'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6718
+        label: 'Capão da Canoa: ERS-389 KM 36,9'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/live/media/PK5916/DeviceIpint.6/SourceEndpoint.video:0:0
+        label: 'Torres: ERS-389 KM 86,1'
+        uf: RS
+      - url: https://191.253.194.194:60000/live/media/PK5916/DeviceIpint.7/SourceEndpoint.video:0:0
+        label: 'Parobé: ERS-239 KM 42,3'
+        uf: RS
+      - url: https://191.253.194.194:60000/live/media/PK5916/DeviceIpint.8/SourceEndpoint.video:0:0
+        label: 'Sapiranga: ERS-239 KM 32'
+        uf: RS
+      - url: https://191.253.194.194:60000/live/media/PK5916/DeviceIpint.9/SourceEndpoint.video:0:0
+        label: 'São Leopoldo: ERS-240 KM 2'
+        uf: RS
+      - url: https://191.253.194.194:60000/live/media/PK5916/DeviceIpint.10/SourceEndpoint.video:0:0
+        label: 'Capela de Santana: ERS-240 KM 22,1'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6734
+        label: 'São Sebastião do Caí: ERS-122 KM 6,5'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6737
+        label: 'São Sebastião do Caí: ERS-122 KM 15,9'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6739
+        label: 'Bom Princípio: ERS-122 KM 29,45'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6748
+        label: 'Teutônia: RSC-453 KM 55,8'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Serafina_Correa
+        label: 'Serafina Côrrea: ERS-129 KM 147,2'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Nova_Bassano
+        label: 'Nova Bassano: ERS- 324 KM 282,7'
+        uf: RS
+      - url: https://daer.kopp.com.br/ftp/imagem.php?id=Sananduva
+        label: 'Sananduva: ERS-126 KM 110'
+        uf: RS
+      - url: https://daer2.fiscaltech.com.br:8843/panoramicas/6204.jpg
+        label: 'Estação: ERS-135 KM 48,4'
+        uf: RS
+      - url: https://camerasdaer.perkons.com:60000/DAER-6712
+        label: 'Viamão: ERS-040 KM 14'
+        uf: RS
+      - grupo: '**Santa Catarina (SC)**'
+        url: https://bemtevi.segurancapublica.sc.gov.br:10346/Interface/Cameras/GetJPEGStream?Camera=FNS_CEN_159&width=1920&height=1080
+        label: 'Ponte Hercílio Luz 01: Santa Catarina'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10346/Interface/Cameras/GetJPEGStream?Camera=FNS_CEN_160&width=1920&height=1080
+        label: 'Ponte Hercílio Luz 02: Santa Catarina'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10346/Interface/Cameras/GetJPEGStream?Camera=FNS_CEN_162&width=1920&height=1080
+        label: 'Ponte Hercílio Luz 03: Santa Catarina'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10346/Interface/Cameras/GetJPEGStream?Camera=FNS_CEN_162&width=1920&height=1080
+        label: 'Ponte Hercílio Luz 04: Santa Catarina'
+        uf: SC
+      - url: http://bemtevi.segurancapublica.sc.gov.br:10351/Interface/Cameras/GetJPEGStream?Camera=FNS_STM_051&width=1920&height=1080
+        label: 'Lauro Linhares/Álvaro Ramos: Trindade'
+        uf: SC
+      - url: http://bemtevi.segurancapublica.sc.gov.br:10351/Interface/Cameras/GetJPEGStream?Camera=FNS_STM_052&width=1920&height=1080
+        label: 'Lauro Linhares/Álvaro Ramos 02: Trindade'
+        uf: SC
+      - url: http://bemtevi.segurancapublica.sc.gov.br:10351/Interface/Cameras/GetJPEGStream?Camera=FNS_STM_061&width=1920&height=1080
+        label: 'Lauro Linhares/Travessa São Lourenço 01: Trindade'
+        uf: SC
+      - url: http://bemtevi.segurancapublica.sc.gov.br:10351/Interface/Cameras/GetJPEGStream?Camera=FNS_STM_062&width=1920&height=1080
+        label: 'Lauro Linhares/Travessa São Lourenço 02: Trindade'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10311/Interface/Cameras/GetJPEGStream?Camera=BGC_CEN_012&width=1920&height=1080
+        label: 'Rua 13 de Maio/Sebastião Lara: Biguaçú'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10311/Interface/Cameras/GetJPEGStream?Camera=BGC_CEN_020&width=1920&height=1080
+        label: 'Rua Júlio T. Martins/Homero de Miranda Gome: Biguaçú'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10311/Interface/Cameras/GetJPEGStream?Camera=BGC_CEN_032&width=1920&height=1080
+        label: 'Marginal BR101/Rua Acácio Reitz: Biguaçú'
+        uf: SC
+      - url: https://bemtevi.segurancapublica.sc.gov.br:10311/Interface/Cameras/GetJPEGStream?Camera=BGC_VDV_040&width=1920&height=1080
+        label: 'Major Livramento/Rua João José Rodrigues: Biguaçú'
+        uf: SC
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-da-prefeitura-de-joao-pessoa-pb-semob
+    nome: Câmeras da Prefeitura de João Pessoa - PB (SEMOB)
+    descricao: ''
+    links:
+      - url: http://transito.gtrans.com.br/semobjp/index.php
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-da-prefeitura-de-recife-pe-cttu
+    nome: Câmeras da Prefeitura de Recife - PE (CTTU)
+    descricao: ''
+    links:
+      - url: http://transito.gtrans.com.br/cttupe/index.php/mapa
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cameras-do-centro-integrado-de-operacoes-de-belem-do-para-segup-no-transito
+    nome: Câmeras do Centro Integrado de Operações de Belém do Pará (Segup no Trânsito)
+    descricao: ''
+    links:
+      - url: https://www.ciop.pa.gov.br/aovivo/index.html
+        uf: PA
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: cameras-online/cameras-da-bhtrans-em-beta-ainda
+    nome: Câmeras da BHTRANS (Em beta ainda)
+    descricao: ''
+    links:
+      - url: http://infotrafego.pbh.gov.br/info_trafego_cameras.html
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cameras-online/cameras-do-aeroporto-internacional-de-sao-paulo-guarulhos-sgbr
+    nome: Câmeras do Aeroporto Internacional de São Paulo/Guarulhos - SGBR
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@SBGRLIVE
+      - url: https://www.youtube.com/@GolfOscarRomeo
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-de-congonhas-sao-paulo-sbsp-full-atc
+    nome: Câmera do Aeroporto de Congonhas São Paulo - SBSP FULL ATC
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@GolfOscarRomeo
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-santos-dumont-rio-de-janeiro-sbrj-full-atc
+    nome: Câmera do Aeroporto Santos Dumont - Rio de Janeiro - SBRJ FULL ATC
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@avtv
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-galeao-rio-de-janeiro-sbgl
+    nome: Câmera do Aeroporto Galeão - Rio de Janeiro - SBGL
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@avtv
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-pinto-martins-fortaleza-sbfz
+    nome: Câmera do Aeroporto Pinto Martins - Fortaleza - SBFZ
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@mundo_aviao
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-internacional-de-florianopolis-sbfl-com-fonia
+    nome: Câmera do Aeroporto Internacional de Florianópolis - SBFL Com Fonia
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@maaxcamaovivo
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-guararapes-recife-sbrf
+    nome: Câmera do Aeroporto Guararapes - Recife - SBRF
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@papacharliegolfTV
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/camera-do-aeroporto-viracopos-campinas-vcp
+    nome: Câmera do Aeroporto Viracopos - Campinas - VCP
+    descricao: ''
+    links:
+      - url: https://www.youtube.com/@ViracoposFullHD
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: cameras-online/cameras-de-obras-em-andamento-de-mato-grosso-sinfra
+    nome: Câmeras de Obras em Andamento de Mato Grosso (SINFRA)
+    descricao: ''
+    links:
+      - url: https://mapas.sinfra.mt.gov.br/portal/apps/sites/#/central-infra-20-2-1/pages/monitoramento-de-obras
+        uf: MT
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: cameras-online/cet-sp-transito-nas-principais-vias
+    nome: CET-SP - Trânsito nas Principais Vias
+    descricao: Situação do trânsito em tempo real nas principais vias de São Paulo, com lentidão por corredor e região.
+    links:
+      - url: https://www.cetsp.com.br/transito-agora/transito-nas-principais-vias.aspx
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: cameras-online/cor-rio-centro-de-operacoes-rio
+    nome: COR Rio - Centro de Operações Rio
+    descricao: Centro de Operações da Prefeitura do Rio com informes em tempo real de trânsito, chuvas, eventos e ocorrências na cidade.
+    links:
+      - url: https://cor.rio/
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: municipal
+    classificacao: heuristica
+  - id: cameras-online/artesp-cameras-das-rodovias-paulistas
+    nome: ARTESP - Câmeras das Rodovias Paulistas
+    descricao: Imagens ao vivo das câmeras das rodovias concedidas do estado de São Paulo.
+    links:
+      - url: https://www.artesp.sp.gov.br/cameras
+        uf: SP
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: cameras-online/concessionarias-de-rodovias-condicoes-de-trafego-e-cameras
+    nome: Concessionárias de Rodovias - Condições de Tráfego e Câmeras
+    descricao: Portais das concessionárias com condições de tráfego, ocorrências e câmeras nas rodovias administradas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://rodovias.motiva.com.br/
+        label: Motiva (ex-CCR) - todas as rodovias
+      - url: https://rodovias.motiva.com.br/riosp/
+        label: Motiva RioSP (Via Dutra e Rio-Santos)
+      - url: https://rodovias.motiva.com.br/autoban/
+        label: Motiva AutoBAn (SP)
+        uf: SP
+      - url: https://rodovias.motiva.com.br/viaoeste/
+        label: Motiva ViaOeste (SP)
+        uf: SP
+      - url: https://www.arteris.com.br/
+        label: Arteris
+      - url: https://www.rodoviasdotiete.com.br/
+        label: Rodovias do Tietê (SP)
+        uf: SP
+      - url: https://www.concer.com.br/
+        label: Concer - BR-040 (RJ)
+        uf: RJ
+    input: [nenhum]
+    output: [video_ao_vivo]
+    tipo_fonte: privado
+    classificacao: heuristica

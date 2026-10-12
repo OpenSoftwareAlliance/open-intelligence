@@ -1,0 +1,431 @@
+# Categoria: APIs Públicas Brasileiras
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: apis-publicas-brasileiras/brasilapi-apis-de-utilidades
+    nome: BrasilAPI - APIs de Utilidades
+    descricao: Conjunto de APIs públicas e gratuitas com informações sobre CEP, CNPJ, bancos, feriados, ISBN, e outros dados brasileiros.
+    links:
+      - url: https://brasilapi.com.br/
+      - url: https://brasilapi.com.br/docs
+        label: Documentação
+    input: [cep, cnpj]
+    output: [api_json, dados_cadastrais, endereco]
+    tipo_fonte: privado
+    classificacao: heuristica
+    markdown: |-
+      **Recursos disponíveis:**
+      - Consulta de CEP
+      - Informações de bancos
+      - Códigos de cidades (IBGE)
+      - Feriados nacionais
+      - Tabela FIPE
+      - ISBN
+      - Taxas de câmbio
+  - id: apis-publicas-brasileiras/cnj-api-publica-datajud
+    nome: CNJ - API Pública DataJud
+    descricao: API pública do Conselho Nacional de Justiça para consulta de metadados e movimentações de processos de todos os tribunais, com documentação, exemplos e modelo de dados na wiki.
+    links:
+      - url: https://datajud-wiki.cnj.jus.br/api-publica/
+    input: [numero_processo]
+    output: [api_json, movimentacao, processo]
+    tipo_fonte: judiciario
+    classificacao: override
+    observacao: Chave pública de acesso publicada na própria wiki.
+  - id: apis-publicas-brasileiras/receitaws-api-cnpj
+    nome: ReceitaWS - API CNPJ
+    descricao: API gratuita para consulta de informações cadastrais de empresas brasileiras.
+    links:
+      - url: https://receitaws.com.br/v1/cnpj/
+        label: URL Base
+        em_markdown: true
+    input: [cnpj]
+    output: [api_json, cnae, dados_cadastrais, endereco, situacao_cadastral, socios]
+    tipo_fonte: privado
+    classificacao: override
+    observacao: Sem autenticação. Rate limit de 3 requisições por minuto.
+    markdown: |-
+      <details>
+      <summary>Informações da API</summary>
+
+      - **URL Base:** https://receitaws.com.br/v1/cnpj/
+      - **Autenticação:** Não requer
+      - **Rate Limit:** 3 requisições por minuto
+      - **Formato:** JSON
+
+      **Exemplo de uso:**
+      ```bash
+      curl https://receitaws.com.br/v1/cnpj/00000000000191
+      ```
+
+      **Retorna:**
+      - Razão social
+      - Nome fantasia
+      - CNAE
+      - Endereço completo
+      - Situação cadastral
+      - Lista de sócios
+      - Capital social
+
+      </details>
+  - id: apis-publicas-brasileiras/viacep-api-de-consulta-de-cep
+    nome: ViaCEP - API de Consulta de CEP
+    descricao: API gratuita para consulta de endereços por CEP.
+    links:
+      - url: https://viacep.com.br/ws/
+        label: URL Base
+        em_markdown: true
+    input: [cep, endereco, municipio, uf]
+    output: [api_json, endereco]
+    tipo_fonte: privado
+    classificacao: override
+    observacao: Sem autenticação e sem limite oficial. Aceita JSON, XML e JSONP.
+    markdown: |-
+      <details>
+      <summary>Informações da API</summary>
+
+      - **URL Base:** https://viacep.com.br/ws/
+      - **Autenticação:** Não requer
+      - **Formatos:** JSON, XML, JSONP
+      - **Limite:** Sem limite oficial
+
+      **Exemplo de uso:**
+      ```bash
+      curl https://viacep.com.br/ws/01310100/json/
+      ```
+
+      **Recursos:**
+      - Consulta por CEP
+      - Busca por endereço (UF, cidade, logradouro)
+
+      </details>
+  - id: apis-publicas-brasileiras/registro-br-api-rdap
+    nome: Registro.br - API RDAP
+    descricao: Protocolo RDAP para consulta de informações sobre domínios .br.
+    links:
+      - url: https://rdap.registro.br/
+        label: URL Base
+        em_markdown: true
+      - url: https://registro.br/tecnologia/ferramentas/rdap/
+        label: Documentação
+        em_markdown: true
+    input: [dominio]
+    output: [api_json, dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: override
+    observacao: RDAP para domínios .br.
+    markdown: |-
+      <details>
+      <summary>Informações da API</summary>
+
+      - **URL Base:** https://rdap.registro.br/
+      - **Documentação:** https://registro.br/tecnologia/ferramentas/rdap/
+      - **Formato:** JSON
+
+      **Exemplo de uso:**
+      ```bash
+      curl https://rdap.registro.br/domain/registro.br
+      ```
+
+      **Retorna:**
+      - Titular do domínio
+      - Data de criação
+      - Data de expiração
+      - Nameservers
+      - Status do domínio
+
+      </details>
+  - id: apis-publicas-brasileiras/ibge-api-de-servicos
+    nome: IBGE - API de Serviços
+    descricao: APIs do IBGE para consulta de informações geográficas, estatísticas e de localidades.
+    links:
+      - url: https://servicodados.ibge.gov.br/api/docs
+        label: Documentação
+        em_markdown: true
+    input: [cep, cnpj, municipio]
+    output: [api_json, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: |-
+      <details>
+      <summary>Informações da API</summary>
+
+      - **Documentação:** https://servicodados.ibge.gov.br/api/docs
+      - **Autenticação:** Não requer
+      - **Formato:** JSON, XML
+
+      **Recursos principais:**
+      - Localidades (estados, municípios, distritos)
+      - Malhas geográficas
+      - Agregados do SIDRA
+      - Notícias e releases
+
+      **Exemplo - Listar estados:**
+      ```bash
+      curl https://servicodados.ibge.gov.br/api/v1/localidades/estados
+      ```
+
+      </details>
+  - id: apis-publicas-brasileiras/painel-de-compras-api
+    nome: Painel de Compras - API
+    descricao: Dados sobre licitações e compras governamentais do governo federal.
+    links:
+      - url: https://paineldecompras.economia.gov.br/
+    input: [cep, cnpj]
+    output: [api_json, contrato_publico, estatistica, licitacao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/querido-diario-api
+    nome: Querido Diário - API
+    descricao: API para busca em diários oficiais municipais.
+    links:
+      - url: https://queridodiario.ok.org.br/api/docs
+        label: Documentação
+        em_markdown: true
+      - url: https://queridodiario.ok.org.br/api/
+        label: URL Base
+        em_markdown: true
+    input: [cep, cnpj]
+    output: [api_json, diario_oficial]
+    tipo_fonte: ong
+    classificacao: heuristica
+    markdown: |-
+      <details>
+      <summary>Informações da API</summary>
+
+      - **Documentação:** https://queridodiario.ok.org.br/api/docs
+      - **URL Base:** https://queridodiario.ok.org.br/api/
+      - **Formato:** JSON
+
+      **Exemplo de uso:**
+      ```bash
+      curl 'https://queridodiario.ok.org.br/api/gazettes?territory_id=3550308&since=2024-01-01'
+      ```
+
+      </details>
+  - id: apis-publicas-brasileiras/brasilapi-endpoints-uteis-para-investigacao
+    nome: BrasilAPI - Endpoints Úteis para Investigação
+    descricao: Endpoints gratuitos da BrasilAPI para CNPJ, CEP v2, bancos, DDD, domínios .br, participantes do Pix, ISBN, NCM, FIPE, feriados e taxas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://brasilapi.com.br/api/cnpj/v1/00000000000191
+        label: CNPJ
+      - url: https://brasilapi.com.br/api/cep/v2/01001000
+        label: CEP v2 com coordenadas
+      - url: https://brasilapi.com.br/api/banks/v1
+        label: Bancos
+      - url: https://brasilapi.com.br/api/ddd/v1/11
+        label: DDD
+      - url: https://brasilapi.com.br/api/registrobr/v1/google.com.br
+        label: Domínios .br
+      - url: https://brasilapi.com.br/api/pix/v1/participants
+        label: Participantes do Pix
+      - url: https://brasilapi.com.br/api/isbn/v1/9788545702870
+        label: ISBN
+      - url: https://brasilapi.com.br/api/ncm/v1
+        label: NCM
+      - url: https://brasilapi.com.br/api/fipe/marcas/v1/carros
+        label: FIPE
+      - url: https://brasilapi.com.br/api/feriados/v1/2026
+        label: Feriados
+      - url: https://brasilapi.com.br/api/taxas/v1
+        label: Taxas (Selic, CDI, IPCA)
+      - url: https://github.com/BrasilAPI/BrasilAPI
+        label: Código no GitHub
+    input: [cep, cnpj, dominio, telefone]
+    output: [api_json, dados_cadastrais, endereco, operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/minha-receita-api-de-cnpj
+    nome: Minha Receita - API de CNPJ
+    descricao: API aberta e de código livre que serve os dados públicos de CNPJ da Receita Federal, incluindo quadro societário.
+    resumo: Links de pesquisa
+    links:
+      - url: https://docs.minhareceita.org/
+        label: Documentação
+      - url: https://minhareceita.org/00000000000191
+        label: Exemplo de consulta
+      - url: https://github.com/cuducos/minha-receita
+        label: Código no GitHub
+    input: [cep, cnpj]
+    output: [api_json, dados_cadastrais, socios]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/banco-central-api-sgs-e-olinda-ptax-pix-tarifas
+    nome: Banco Central - API SGS e Olinda (PTAX, Pix, Tarifas)
+    descricao: APIs públicas do Banco Central para séries temporais do SGS, cotações PTAX, estatísticas do Pix, tarifas bancárias e expectativas de mercado.
+    resumo: Links de pesquisa
+    links:
+      - url: https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json&dataInicial=01/01/2025&dataFinal=31/01/2025
+        label: SGS - Exemplo série IPCA
+      - url: https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao
+        label: PTAX - Cotações de câmbio
+      - url: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/aplicacao
+        label: Pix - Dados abertos
+      - url: https://olinda.bcb.gov.br/olinda/servico/Informes_ListaTarifas/versao/v1/aplicacao
+        label: Tarifas bancárias
+      - url: https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao
+        label: Expectativas de mercado (Focus)
+    input: [cep, cnpj]
+    output: [api_json, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/ibge-api-de-nomes-e-localidades
+    nome: IBGE - API de Nomes e Localidades
+    descricao: Endpoints do IBGE com frequência de nomes por década e UF (Censo) e lista oficial de estados, municípios e distritos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://servicodados.ibge.gov.br/api/v2/censos/nomes/maria
+        label: Nomes - Exemplo
+      - url: https://servicodados.ibge.gov.br/api/docs/localidades
+        label: Localidades - Documentação
+    input: [cep, cnpj, municipio]
+    output: [api_json, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/ibge-api-sidra
+    nome: IBGE - API SIDRA
+    descricao: API de agregados do SIDRA para extrair tabelas do Censo, PNAD e pesquisas econômicas em JSON.
+    resumo: Links de pesquisa
+    links:
+      - url: https://apisidra.ibge.gov.br/
+        label: API SIDRA
+    input: [cep, cnpj, municipio]
+    output: [api_json, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/camara-e-senado-endpoints-rest
+    nome: Câmara e Senado - Endpoints REST
+    descricao: 'Exemplos de endpoints das APIs legislativas: deputados por UF na Câmara e senadores em exercício no Senado.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://dadosabertos.camara.leg.br/api/v2/deputados?siglaUf=SP&itens=5
+        label: Câmara - Deputados por UF
+      - url: https://dadosabertos.camara.leg.br/swagger/api.html
+        label: Câmara - Swagger
+      - url: https://legis.senado.leg.br/dadosabertos/senador/lista/atual
+        label: Senado - Senadores em exercício
+      - url: https://legis.senado.leg.br/dadosabertos/api-docs/swagger-ui/index.html
+        label: Senado - Swagger
+    input: [cep, cnpj]
+    output: [api_json]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/portal-da-transparencia-swagger-da-api
+    nome: Portal da Transparência - Swagger da API
+    descricao: Documentação interativa da API do Portal da Transparência com endpoints de servidores, sanções, contratos, convênios e benefícios.
+    resumo: Links de pesquisa
+    links:
+      - url: https://api.portaldatransparencia.gov.br/swagger-ui/index.html
+        label: Swagger
+    input: [cep, cnpj, cpf]
+    output: [api_json, beneficio, contrato_publico, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/pncp-api-de-consulta
+    nome: PNCP - API de Consulta
+    descricao: API pública do Portal Nacional de Contratações Públicas para consultar editais, atas e contratos de todos os entes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://pncp.gov.br/api/consulta/swagger-ui/index.html
+        label: Swagger PNCP
+    input: [cep, cnpj]
+    output: [api_json, contrato_publico, licitacao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/compras-gov-br-api-de-dados-abertos
+    nome: Compras.gov.br - API de Dados Abertos
+    descricao: API de dados abertos de compras do Governo Federal com licitações, contratos, fornecedores e preços praticados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dadosabertos.compras.gov.br/swagger-ui/index.html
+        label: Swagger Compras
+    input: [cep, cnpj]
+    output: [api_json, contrato_publico, dataset, licitacao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/dados-gov-br-api-do-catalogo
+    nome: dados.gov.br - API do Catálogo
+    descricao: API do Portal Brasileiro de Dados Abertos para buscar conjuntos, organizações e recursos de forma automatizada.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dados.gov.br/swagger-ui/index.html
+        label: Swagger dados.gov.br
+    input: [cep, cnpj]
+    output: [api_json, dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/conecta-gov-br-catalogo-de-apis
+    nome: Conecta gov.br - Catálogo de APIs
+    descricao: Catálogo oficial de APIs do Governo Federal, com descrição de serviços abertos e de interoperabilidade entre órgãos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/conecta/catalogo/apis
+        label: Catálogo de APIs
+    input: [cep, cnpj]
+    output: [api_json]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/tesouro-nacional-api-siconfi
+    nome: Tesouro Nacional - API Siconfi
+    descricao: API do Siconfi para extrair relatórios fiscais (RREO, RGF, DCA) de estados e municípios.
+    resumo: Links de pesquisa
+    links:
+      - url: https://apidatalake.tesouro.gov.br/docs/siconfi/
+        label: Documentação
+    input: [cep, cnpj, municipio]
+    output: [api_json]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/mdic-api-comex-stat
+    nome: MDIC - API Comex Stat
+    descricao: API oficial de estatísticas de exportação e importação por produto, país, UF e município.
+    resumo: Links de pesquisa
+    links:
+      - url: https://api-comexstat.mdic.gov.br/docs
+        label: Documentação
+    input: [cep, cnpj, municipio]
+    output: [api_json, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/apis-de-cep-alternativas
+    nome: APIs de CEP Alternativas
+    descricao: Serviços gratuitos de consulta de CEP com coordenadas geográficas, úteis como redundância ao ViaCEP.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.cepaberto.com/
+        label: CEP Aberto
+      - url: https://opencep.com/
+        label: OpenCEP
+      - url: https://buscacepinter.correios.com.br/app/endereco/index.php
+        label: Correios - Busca por endereço
+    input: [cep, cnpj]
+    output: [api_json, endereco, mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/awesomeapi-cotacoes
+    nome: AwesomeAPI - Cotações
+    descricao: API gratuita de cotações de moedas e criptomoedas em reais, atualizada em tempo quase real.
+    resumo: Links de pesquisa
+    links:
+      - url: https://docs.awesomeapi.com.br/
+        label: Documentação
+      - url: https://economia.awesomeapi.com.br/json/last/USD-BRL
+        label: Exemplo USD-BRL
+    input: [cep, cnpj]
+    output: [api_json]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: apis-publicas-brasileiras/api-fipe-parallelum
+    nome: API FIPE (Parallelum)
+    descricao: API não oficial e gratuita que expõe a tabela FIPE de veículos por marca, modelo e ano.
+    resumo: Links de pesquisa
+    links:
+      - url: https://deividfortuna.github.io/fipe/
+        label: Documentação
+      - url: https://parallelum.com.br/fipe/api/v1/carros/marcas
+        label: Exemplo de marcas
+    input: [cep, cnpj, razao_social]
+    output: [api_json, dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica

@@ -1,0 +1,78 @@
+# Categoria: Blockchain e Criptomoedas
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: blockchain-e-criptomoedas/cvm-consulta-de-processos-envolvendo-criptomoedas
+    nome: CVM - Consulta de Processos Envolvendo Criptomoedas
+    descricao: Processos administrativos e sanções relacionadas a criptoativos.
+    links:
+      - url: https://www.gov.br/cvm/pt-br
+    input: [cnpj, nome, numero_processo]
+    output: [processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: blockchain-e-criptomoedas/cvm-alertas-sobre-fraudes-com-criptomoedas
+    nome: CVM - Alertas sobre Fraudes com Criptomoedas
+    descricao: Comunicados oficiais sobre esquemas fraudulentos.
+    links:
+      - url: https://www.gov.br/cvm/pt-br/assuntos/noticias
+    input: [cnpj, nome]
+    output: [sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: blockchain-e-criptomoedas/banco-central-ativos-virtuais-e-criptoativos
+    nome: Banco Central - Ativos Virtuais e Criptoativos
+    descricao: Regulação dos prestadores de serviços de ativos virtuais (VASP) pelo Banco Central e orientações sobre criptoativos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/ativosvirtuais
+        label: Ativos virtuais
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/criptoativos
+        label: Criptoativos
+    input: [cnpj, nome]
+    output: [sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: blockchain-e-criptomoedas/receita-federal-criptoativos-e-in-1888
+    nome: Receita Federal - Criptoativos e IN 1888
+    descricao: Obrigação de declaração de operações com criptoativos à Receita Federal e texto da Instrução Normativa RFB 1888/2019.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/declaracoes-e-demonstrativos/criptoativos
+        label: Criptoativos
+      - url: https://normas.receita.fazenda.gov.br/sijut2consulta/link.action?idAto=100592
+        label: IN RFB 1888/2019
+    input: [cnpj, nome]
+    output: [sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: blockchain-e-criptomoedas/cvm-alertas-ao-mercado
+    nome: CVM - Alertas ao Mercado
+    descricao: Lista de alertas e stop orders da CVM contra pessoas e empresas que oferecem investimentos irregulares, incluindo pirâmides com criptoativos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/cvm/pt-br/assuntos/protecao/alertas
+        label: Alertas CVM
+      - url: https://www.gov.br/investidor/pt-br
+        label: Portal do Investidor
+    input: [cnpj, nome]
+    output: [sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: blockchain-e-criptomoedas/exploradores-de-blockchain
+    nome: Exploradores de Blockchain
+    descricao: Exploradores públicos para rastrear transações e endereços em Bitcoin e outras redes, com denúncias de golpes associadas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://mempool.space/
+        label: Mempool (Bitcoin)
+      - url: https://www.oklink.com/
+        label: OKLink (multichain)
+      - url: https://www.walletexplorer.com/
+        label: WalletExplorer (agrupamento de carteiras)
+      - url: https://chainabuse.com/
+        label: Chainabuse (denúncias de golpes)
+    input: [cnpj, nome]
+    output: [sancao]
+    tipo_fonte: privado
+    classificacao: heuristica

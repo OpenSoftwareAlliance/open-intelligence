@@ -1,0 +1,158 @@
+# Categoria: Consulta de Transporte Aéreo
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: consulta-de-transporte-aereo/consulta-de-voos-via-infraero
+    nome: Consulta de Vôos via Infraero
+    descricao: As informações aqui fornecidas são obtidas diretamente das companhias aéreas. Não nos responsabilizamos por consequências resultantes de possíveis erros ou omissões.
+    links:
+      - url: http://voos.infraero.gov.br/voos/index.aspx
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/consulta-de-voos-de-autoridades-brasileiras
+    nome: Consulta de Vôos de autoridades Brasileiras
+    descricao: Os dados incluem a autoridade solicitante, trajeto, data, horário de decolagem e de pouso, o motivo da solicitação, além da previsão do número de passageiros;
+    links:
+      - url: https://www.fab.mil.br/voos
+    input: [cnpj, prefixo_aeronave]
+    output: [contrato_publico, dados_cadastrais, licitacao]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/consulta-de-empresas-e-de-aeronaves-de-taxi-aereo
+    nome: Consulta de Empresas e de Aeronaves de Táxi-Aéreo
+    descricao: A ANAC disponibiliza uma consulta de empresas ou aeronaves de táxi-aéreo a todos os cidadãos interessados.
+    links:
+      - url: https://sistemas.anac.gov.br/voeseguro/
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/consulta-de-nada-consta-de-multas-do-cbaer
+    nome: Consulta de Nada Consta de Multas do CBAER
+    descricao: ''
+    links:
+      - url: https://sistemas.anac.gov.br/nadaconsta/
+    input: [placa, prefixo_aeronave]
+    output: [dados_cadastrais, multa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/consultas-ao-registro-aeronautico-brasileiro-rab
+    nome: Consultas ao Registro Aeronáutico Brasileiro (RAB)
+    descricao: Todas as aeronaves civis brasileiras devem ser registradas na ANAC. O Registro Aeronáutico Brasileiro (RAB) – regulamentado por meio da Resolução ANAC nº 293/2013
+    resumo: Consultas RAB/ANAC
+    links:
+      - url: https://sistemas.anac.gov.br/aeronaves/cons_rab.asp
+      - url: https://ais.cavok.in/rab/
+      - url: https://aeronaves.anac.gov.br/aeronaves/
+        label: Portal Principal de Aeronaves
+      - url: https://aeronaves.anac.gov.br/aeronaves/#matricula
+        label: Consulta por Matrícula
+      - url: https://aeronaves.anac.gov.br/aeronaves/#habilitacao
+        label: Consulta por Habilitação
+      - url: https://aeronaves.anac.gov.br/aeronaves/#icao
+        label: Consulta por Código ICAO
+      - url: https://aeronaves.anac.gov.br/aeronaves/#modelo
+        label: Consulta por Modelo
+      - url: https://aeronaves.anac.gov.br/aeronaves/#fabricante
+        label: Consulta por Fabricante
+      - url: https://aeronaves.anac.gov.br/aeronaves/#nserie
+        label: Consulta por Número de Série
+      - url: https://aeronaves.anac.gov.br/aeronaves/cons_rab_resposta2.asp?
+        label: Consulta RAB - Resposta
+      - url: https://sistemas.anac.gov.br/aeronaves/cons_rab.asp
+        label: Sistema Antigo
+      - url: https://ais.cavok.in/rab/
+        label: Cavok RAB
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/decea-aisweb-informacoes-aeronauticas
+    nome: DECEA - AISWEB (Informações Aeronáuticas)
+    descricao: 'Portal oficial de informações aeronáuticas do Brasil: dados de aeródromos, cartas, NOTAM, ROTAER e publicações AIP.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://aisweb.decea.mil.br/
+        label: AISWEB
+      - url: https://aisweb.decea.mil.br/?i=aerodromos
+        label: Aeródromos (ROTAER)
+      - url: https://aisweb.decea.mil.br/?i=notam
+        label: NOTAM
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/decea-sarpas-drones
+    nome: DECEA - SARPAS (Drones)
+    descricao: Sistema de solicitação de acesso ao espaço aéreo por aeronaves não tripuladas, com consulta de áreas e solicitações.
+    links:
+      - url: https://servicos.decea.mil.br/sarpas/
+    input: [cnpj, prefixo_aeronave]
+    output: [contrato_publico, dados_cadastrais, licitacao]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/anac-cadastro-de-aerodromos
+    nome: ANAC - Cadastro de Aeródromos
+    descricao: Dados abertos com a lista de aeródromos civis públicos e privados cadastrados, com códigos, coordenadas e operadores.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos/areas-de-atuacao/aerodromos
+        label: Dados abertos de aeródromos
+      - url: https://www.gov.br/anac/pt-br/assuntos/regulados/aeroportos-e-aerodromos
+        label: Aeroportos e aeródromos
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/anac-siros-registro-de-operacoes-e-voos
+    nome: ANAC - SIROS (Registro de Operações e Voos)
+    descricao: Consulta de voos regulares autorizados por empresa, aeroporto e período, com dados do registro de serviços aéreos.
+    links:
+      - url: https://siros.anac.gov.br/SIROS/view/registro/frmConsultaVoos
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/anac-dados-e-estatisticas-do-transporte-aereo
+    nome: ANAC - Dados e Estatísticas do Transporte Aéreo
+    descricao: 'Bases estatísticas da ANAC: histórico de voos (VRA), passageiros, carga, empresas e dados abertos do setor.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas
+        label: Dados e estatísticas
+      - url: https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas/historico-de-voos
+        label: Histórico de voos (VRA)
+      - url: https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas/dados-estatisticos
+        label: Dados estatísticos
+      - url: https://www.gov.br/anac/pt-br/assuntos/dados-e-estatisticas/passageiros
+        label: Passageiros
+      - url: https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos
+        label: Dados abertos
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, dataset, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/anac-empresas-aereas
+    nome: ANAC - Empresas Aéreas
+    descricao: Relação de empresas de transporte aéreo regular e não regular autorizadas a operar no Brasil.
+    links:
+      - url: https://www.gov.br/anac/pt-br/assuntos/regulados/empresas-aereas
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-aereo/cenipa-ocorrencias-aeronauticas
+    nome: CENIPA - Ocorrências Aeronáuticas
+    descricao: Painel e dados abertos de acidentes e incidentes aeronáuticos da aviação civil brasileira investigados pelo CENIPA.
+    resumo: Links de pesquisa
+    links:
+      - url: https://painelsipaer.cenipa.fab.mil.br/
+        label: Painel SIPAER
+      - url: https://dados.gov.br/dados/conjuntos-dados/ocorrencias-aeronauticas-da-aviacao-civil-brasileira
+        label: Dados abertos
+    input: [prefixo_aeronave]
+    output: [dados_cadastrais, dataset, estatistica]
+    tipo_fonte: privado
+    classificacao: heuristica

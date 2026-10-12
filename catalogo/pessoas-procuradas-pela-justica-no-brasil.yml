@@ -1,0 +1,65 @@
+# Categoria: Pessoas Procuradas pela Justiça no Brasil
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: pessoas-procuradas-pela-justica-no-brasil/brasil-programa-captura-mjsp
+    nome: Brasil - Programa Captura (MJSP)
+    descricao: Lista nacional de criminosos mais procurados, organizada por estado, com mandados de prisão prioritários.
+    links:
+      - url: https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/operacoes-integradas/projeto-captura
+    input: [nome]
+    output: [mandado_prisao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: pessoas-procuradas-pela-justica-no-brasil/maranhao-ma-ssp-ma-disque-denuncia-procurados
+    nome: Maranhão (MA) - SSP/MA | Disque-Denúncia – Procurados
+    descricao: Lista pública de pessoas procuradas pela Justiça no Maranhão, com fotos e dados básicos.
+    links:
+      - url: https://www.ssp.ma.gov.br/disque-denuncia/procurados/
+        uf: MA
+    input: [nome]
+    output: [mandado_prisao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: pessoas-procuradas-pela-justica-no-brasil/ceara-ce-sspds-ce-procurados
+    nome: Ceará (CE) - SSPDS/CE | Procurados
+    descricao: Portal oficial com relação de foragidos e procurados pela Justiça no Estado do Ceará.
+    links:
+      - url: https://procurados.sspds.ce.gov.br/index
+        uf: CE
+    input: [nome]
+    output: [mandado_prisao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: pessoas-procuradas-pela-justica-no-brasil/bahia-ba-ssp-ba-baralho-do-crime-espadas
+    nome: Bahia (BA) - SSP/BA | Baralho do Crime (Espadas)
+    descricao: Lista oficial dos criminosos mais procurados da Bahia, organizada por categorias.
+    links:
+      - url: https://disquedenuncia.ssp.ba.gov.br/baralho-do-crime/espadas/
+        uf: BA
+    input: [nome]
+    output: [mandado_prisao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: pessoas-procuradas-pela-justica-no-brasil/interpol-pessoas-procuradas-internacionalmente
+    nome: INTERPOL - Pessoas Procuradas Internacionalmente
+    descricao: Lista pública de fugitivos procurados internacionalmente, incluindo brasileiros com mandados internacionais.
+    links:
+      - url: https://www.interpol.int/Contacts/Fugitives-wanted-persons
+    input: [nome]
+    output: [mandado_prisao]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: pessoas-procuradas-pela-justica-no-brasil/brasil-sinesp-cidadao-consulta-de-procurados
+    nome: Brasil - Sinesp Cidadão (Consulta de Procurados)
+    descricao: Consulta oficial de procurados pela Justiça no Brasil via aplicativo do governo federal.
+    links:
+      - url: https://www.gov.br/pt-br/servicos/consultar-os-criminosos-mais-procurados-do-brasil
+      - url: https://play.google.com/store/apps/details?id=br.gov.sinesp.cidadao.android
+        label: Android
+      - url: https://apps.apple.com/br/app/sinesp-cidad%C3%A3o/id768157962
+        label: iOS
+    input: [nome]
+    output: [mandado_prisao]
+    tipo_fonte: federal
+    classificacao: heuristica

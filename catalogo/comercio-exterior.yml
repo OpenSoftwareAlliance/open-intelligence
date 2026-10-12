@@ -1,0 +1,103 @@
+# Categoria: Comércio Exterior
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: comercio-exterior/comexstat-estatisticas-de-comercio-exterior
+    nome: Comexstat - Estatísticas de Comércio Exterior
+    descricao: Estatísticas de comércio exterior brasileiro.
+    links:
+      - url: http://comexstat.mdic.gov.br/pt/home
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/siscomex-sistema-integrado-de-comercio-exterior
+    nome: Siscomex - Sistema Integrado de Comércio Exterior
+    descricao: Consulta pública do Sistema Integrado de Comércio Exterior.
+    links:
+      - url: https://portalunico.siscomex.gov.br/
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/aliceweb-analise-das-informacoes-de-comercio-exterior
+    nome: AliceWeb - Análise das Informações de Comércio Exterior
+    descricao: Sistema de análise das informações de comércio exterior brasileiro.
+    links:
+      - url: http://aliceweb.desenvolvimento.gov.br/
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/radar-siscomex
+    nome: Radar Siscomex
+    descricao: Consulta de habilitação de empresas no Siscomex.
+    links:
+      - url: https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/radar
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/mdic-comex-vis-e-base-de-dados-bruta
+    nome: MDIC - Comex Vis e Base de Dados Bruta
+    descricao: Visualizações de comércio exterior por país, UF e produto e download dos arquivos brutos de exportação e importação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://comexstat.mdic.gov.br/pt/comex-vis
+        label: Comex Vis
+      - url: https://comexstat.mdic.gov.br/pt/geral
+        label: Comex Stat - Consulta geral
+      - url: https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta
+        label: Base de dados bruta
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/siscomex-classif-e-tratamento-administrativo
+    nome: Siscomex - Classif e Tratamento Administrativo
+    descricao: Consulta da classificação fiscal de mercadorias (NCM) e dos tratamentos administrativos exigidos na importação e exportação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://portalunico.siscomex.gov.br/classif/
+        label: Classif - NCM
+      - url: https://portalunico.siscomex.gov.br/talpco/x/
+        label: Tratamento administrativo (TA)
+      - url: https://www.gov.br/siscomex/pt-br
+        label: Portal Siscomex
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/mapa-agrostat
+    nome: MAPA - Agrostat
+    descricao: Estatísticas de comércio exterior do agronegócio brasileiro por produto, país e período.
+    resumo: Links de pesquisa
+    links:
+      - url: https://indicadores.agro.gov.br/
+        label: Agrostat
+    input: [cnpj]
+    output: [estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/camex-camara-de-comercio-exterior
+    nome: CAMEX - Câmara de Comércio Exterior
+    descricao: Resoluções sobre tarifas, antidumping e medidas de defesa comercial adotadas pelo Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/mdic/pt-br/assuntos/camex
+        label: CAMEX
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: comercio-exterior/bases-internacionais-de-comercio-com-perfil-do-brasil
+    nome: Bases Internacionais de Comércio com Perfil do Brasil
+    descricao: Bases de comércio internacional para conferir fluxos do Brasil por parceiro e produto a partir de fontes espelho.
+    resumo: Links de pesquisa
+    links:
+      - url: https://wits.worldbank.org/CountryProfile/en/BRA
+        label: WITS - Banco Mundial
+    input: [cnpj]
+    output: [estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica

@@ -1,0 +1,217 @@
+# Categoria: Serviços Públicos Estaduais e Conselhos Profissionais
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/conselhos-profissionais-nacionais
+    nome: Conselhos Profissionais Nacionais
+    descricao: Consultas de registro profissional e certidões em conselhos federais e regionais.
+    resumo: Links de pesquisa
+    links:
+      - grupo: |-
+          **Conselhos de Medicina (CRM)**
+          **CFM - Conselho Federal de Medicina**
+        url: https://portal.cfm.org.br/busca-medicos/
+        label: Busca por médicos
+      - grupo: '**CREMESP - Conselho Regional de Medicina do Estado de São Paulo**'
+        url: https://www.cremesp.org.br/
+        label: Portal
+      - grupo: '**CRM-PR - Conselho Regional de Medicina do Paraná**'
+        url: https://www.crmpr.org.br/
+        label: Portal
+      - grupo: '**CREMEB - Conselho Regional de Medicina da Bahia**'
+        url: https://www.cremeb.org.br/
+        label: Portal
+      - grupo: |-
+          **Conselhos de Enfermagem (COREN)**
+          **COFEN - Conselho Federal de Enfermagem**
+        url: https://www.cofen.gov.br/
+        label: Portal
+      - grupo: '**COREN-RJ - Conselho Regional de Enfermagem do Rio de Janeiro**'
+        url: https://www.coren-rj.org.br/
+        label: Portal
+      - grupo: |-
+          **Outros Conselhos Profissionais**
+          **CFP - Conselho Federal de Psicologia**
+        url: https://site.cfp.org.br/
+        label: Portal
+      - grupo: '**COFFITO - Conselho Federal de Fisioterapia e Terapia Ocupacional**'
+        url: https://www.coffito.gov.br/nsite/
+        label: Portal
+    input: [nome, registro_profissional]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/servicos-publicos-por-estado
+    nome: Serviços Públicos por Estado
+    descricao: Portais de serviços públicos, conselhos profissionais e outras instituições estaduais.
+    resumo: Consultas por Estado
+    links:
+      - grupo: '**Espírito Santo (ES)**'
+        url: https://acessocidadao.es.gov.br/
+        label: Acesso Cidadão - Portal de serviços digitais estaduais (processos, notas fiscais, agendamentos)
+        uf: ES
+      - url: https://ide.geobases.es.gov.br/?limit=5&offset=0
+        label: IDE Geobases - Infraestrutura de Dados Espaciais
+        uf: ES
+      - grupo: '**Maranhão (MA)**'
+        url: https://www.tre-ma.jus.br/institucional/servicos-disponiveis
+        label: Serviços disponíveis TRE | Maranhão
+        uf: MA
+      - url: https://www.trt16.jus.br/servicos/para-o-cidadao-e-advogado
+        label: Serviços disponíveis TRT | Maranhão
+        uf: MA
+      - url: https://www.mpma.mp.br/servicos/
+        label: Serviços disponíveis MP | Maranhão
+        uf: MA
+      - url: https://www.tjma.jus.br/portal
+        label: Serviços disponíveis TJ | Maranhão
+        uf: MA
+      - url: https://www.detran.ma.gov.br/inicio/paginas/Home.xhtml
+        label: Serviços disponíveis DETRAN | Maranhão
+        uf: MA
+      - url: https://www.al.ma.leg.br/sitealema/
+        label: Serviços disponíveis Assembleia legislativa | Maranhão
+        uf: MA
+      - url: https://www.fiema.org.br/home
+        label: Sistema S | Maranhão
+        uf: MA
+      - url: https://www.oabma.org.br/
+        label: OAB | Maranhão
+        uf: MA
+      - url: https://famem.org.br/
+        label: FAM | Maranhão
+        uf: MA
+      - url: https://www.ma.gov.br/servicos/
+        label: Serviços disponíveis GOV | Maranhão
+        uf: MA
+      - url: https://www.ma.gov.br/contatos
+        label: Contatos do GOV | Maranhão
+        uf: MA
+      - url: https://www.diariooficial.ma.gov.br/
+        label: Diário Oficial GOV | Maranhão
+        uf: MA
+      - grupo: '**Maranhão (MA) - São Luís**'
+        url: https://saoluis.ma.gov.br/servicos
+        label: Serviços disponíveis Prefeitura | São Luís
+        uf: MA
+      - url: https://saoluis.ma.gov.br/secretarias
+        label: Informações de Secretarias e Órgãos da prefeitura | São Luís
+        uf: MA
+      - grupo: '**Maranhão (MA) - São José de Ribamar**'
+        url: https://www.saojosederibamar.ma.gov.br/servicos
+        label: Serviços disponíveis Prefeitura | São José de Ribamar
+        uf: MA
+      - url: https://www.saojosederibamar.ma.gov.br/detalhe-da-materia/info/secretarias/16510
+        label: Informações de Secretarias e Órgãos da prefeitura | São José de Ribamar
+        uf: MA
+      - grupo: '**Piauí (PI)**'
+        url: http://www.bombeiros.pi.gov.br/distec/index2.php
+        label: Sistema Intranet Corpo de Bombeiros Militar do Piauí
+        uf: PI
+      - grupo: '**São Paulo (SP)**'
+        url: https://www.policiacivil.sp.gov.br/portal/faces/pages_home/servicos/consultaSituacaoRG
+        label: Consulta Situação RG
+        uf: SP
+      - url: https://concluintes.educacao.sp.gov.br/publica/consultapublica/Search
+        label: Consulta de concluintes em unidades escolares do Estado
+        uf: SP
+    input: [nome, registro_profissional]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/conselhos-profissionais-do-maranhao
+    nome: Conselhos Profissionais do Maranhão
+    descricao: Consultas de registro e certidões em conselhos profissionais do Maranhão.
+    resumo: Conselhos Maranhão
+    links:
+      - url: https://crmma.org.br/servicos-para-medicos/certidoes-declaracoes/certidao-negativa-nada-consta
+        label: CRMMA (Medicina)
+      - url: https://crfma.org.br/
+        label: CRFMA (Farmácia)
+      - url: https://www.creama.org.br/
+        label: CREAMA (Engenharia e Agronomia)
+      - url: https://crpma.org.br/
+        label: CRPMA (Psicologia)
+      - url: https://cref21.org.br/
+        label: CREFMA (Educação Física)
+      - url: https://cra-ma.org.br/
+        label: CRAMA (Administração)
+      - url: https://www.coremaranhao.org.br/
+        label: COREMA (Representantes Comerciais)
+      - url: https://corenma.gov.br/site2/
+        label: CORENMA (Enfermagem)
+      - url: https://conselhodeeducacao.ma.gov.br/
+        label: CEEM (Educação)
+        uf: MA
+      - url: https://crcma.org.br/
+        label: CRCMA (Contabilidade)
+      - url: https://www.crt02.gov.br/maranhao/
+        label: CRTMA (Técnicos Industriais)
+      - url: https://crq11.org.br/
+        label: CRQMA (Química)
+      - url: https://www.cressma.org.br/
+        label: CRESSMA (Serviço Social)
+      - url: https://www.croma.org.br/
+        label: CROMA (Museologia)
+      - url: https://cfc.org.br/conselhos/conselho-regional-de-contabilidade-do-maranhao/
+        label: CFCMA (Contabilidade)
+      - url: https://www.crmvma.org.br/
+        label: CRMVMA (Medicina Veterinária)
+      - url: https://crtr17.gov.br/
+        label: CRTRMA (Técnicos em Radiologia)
+      - url: https://corecon-ma.org.br/
+        label: CORECON (Economia)
+      - url: https://crbm2.gov.br/
+        label: CRBMMA (Biomedicina)
+      - url: https://crbm2.gov.br/
+        label: CRNMA (Nutrição)
+    input: [nome, registro_profissional]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/empresas-de-servicos-publicos-do-maranhao
+    nome: Empresas de Serviços Públicos do Maranhão
+    descricao: Consultas de serviços essenciais do Maranhão.
+    resumo: Serviços Maranhão
+    links:
+      - url: https://www.caema.ma.gov.br/
+        label: CAEMA (Água)
+        uf: MA
+      - url: https://ma.equatorialenergia.com.br/
+        label: EQUATORIAL (Energia)
+      - url: https://minhabrk.com.br/home
+        label: BRK (Saneamento)
+    input: [nome, registro_profissional]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/consulta-de-empresa-junta-comercial-para-jucepa
+    nome: Consulta de Empresa - Junta Comercial Pará (JUCEPA)
+    descricao: Consulta pública de empresas registradas na JUCEPA.
+    links:
+      - url: https://integrador.jucepa.pa.gov.br/projetos/usuario/consulta_empresa_site
+        uf: PA
+    input: [cnpj, inscricao_estadual, nome, registro_profissional]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/consulta-de-processo-administrativo-eletronico-para
+    nome: Consulta de Processo Administrativo Eletrônico - Pará
+    descricao: Sistema de consulta pública de processos administrativos eletrônicos do estado do Pará.
+    links:
+      - url: https://pae-consulta-publica.sistemas.pa.gov.br/
+        uf: PA
+    input: [nome, numero_processo, registro_profissional]
+    output: [dados_cadastrais, processo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: servicos-publicos-estaduais-e-conselhos-profissionais/boletim-geral-de-bombeiros-para
+    nome: Boletim Geral de Bombeiros - Pará
+    descricao: Consulta pública de boletins do Corpo de Bombeiros do Pará.
+    links:
+      - url: https://siga.bombeiros.pa.gov.br/boletins.php
+        uf: PA
+    input: [nome, registro_profissional]
+    output: [dados_cadastrais]
+    tipo_fonte: estadual
+    classificacao: heuristica

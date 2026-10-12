@@ -1,0 +1,1553 @@
+# Categoria: Fontes Internacionais com Cobertura do Brasil
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: fontes-internacionais-com-cobertura-do-brasil/opencorporates-empresas-do-brasil-e-diretores
+    nome: OpenCorporates - Empresas do Brasil e Diretores
+    descricao: Maior base aberta de empresas do mundo, com a jurisdição br espelhando dados da Receita e milhões de diretores indexados. Permite achar empresas ligadas a um mesmo nome ou endereço dentro e fora do Brasil.
+    subsecao: 🏢 Empresas, Offshore e Beneficiário Final
+    resumo: Links de pesquisa
+    links:
+      - url: https://opencorporates.com/companies/br
+        label: Empresas com jurisdição Brasil
+      - url: https://opencorporates.com/
+        label: Busca geral de empresas
+      - url: https://www.opencorporates.com/officers
+        label: Busca de diretores e administradores
+      - url: https://api.opencorporates.com/
+        label: API (chave gratuita para uso público)
+        uf: PA
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/opencorporates-jurisdicoes-offshore-e-de-interesse
+    nome: OpenCorporates - Jurisdições Offshore e de Interesse
+    descricao: Atalhos para registros de Delaware, Ilhas Virgens Britânicas, Panamá, Ilhas Cayman, Uruguai, Paraguai e Portugal, destinos frequentes de estruturas societárias de brasileiros. Útil para cruzar nomes de sócios brasileiros com empresas no exterior.
+    resumo: Links de pesquisa
+    links:
+      - url: https://opencorporates.com/companies/us_de
+        label: Delaware (EUA)
+      - url: https://opencorporates.com/companies/vg
+        label: Ilhas Virgens Britânicas
+      - url: https://opencorporates.com/companies/pa
+        label: Panamá
+      - url: https://opencorporates.com/companies/ky
+        label: Ilhas Cayman
+      - url: https://opencorporates.com/companies/uy
+        label: Uruguai
+      - url: https://opencorporates.com/companies/py
+        label: Paraguai
+      - url: https://opencorporates.com/companies/pt
+        label: Portugal
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/icij-offshore-leaks-database
+    nome: ICIJ - Offshore Leaks Database
+    descricao: Base do Consórcio Internacional de Jornalistas Investigativos com entidades, intermediários e beneficiários de Panama Papers, Paradise Papers, Pandora Papers e outros vazamentos já publicados jornalisticamente. Permite filtrar por país e encontrar milhares de pessoas e empresas ligadas ao Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://offshoreleaks.icij.org/
+        label: Busca na base Offshore Leaks
+      - url: https://www.icij.org/investigations/
+        label: Investigações do ICIJ
+      - url: https://www.icij.org/investigations/panama-papers/
+        label: Panama Papers
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/occrp-aleph-arquivo-de-dados-investigativos
+    nome: OCCRP Aleph - Arquivo de Dados Investigativos
+    descricao: Plataforma do OCCRP que reúne centenas de datasets de registros empresariais, sanções, licitações e documentos de investigações. Busca de nomes cruza registros de vários países, incluindo bases brasileiras e latino-americanas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://aleph.occrp.org/
+        label: Busca no Aleph
+      - url: https://aleph.occrp.org/datasets
+        label: Lista de datasets
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/gleif-identificador-de-entidade-legal-lei
+    nome: GLEIF - Identificador de Entidade Legal (LEI)
+    descricao: Registro global de códigos LEI com nome, endereço, matriz e controladoras de entidades que operam no mercado financeiro. Mostra a cadeia de controle de empresas brasileiras com LEI e de seus veículos no exterior.
+    resumo: Links de pesquisa
+    links:
+      - url: https://search.gleif.org/
+        label: Busca de LEI
+      - url: https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalAddress.country%5D=BR&page%5Bsize%5D=1
+        label: API com filtro de país Brasil
+      - url: https://www.gleif.org/en/lei-data/gleif-golden-copy
+        label: Golden Copy (download completo)
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/open-ownership-beneficiarios-finais
+    nome: Open Ownership - Beneficiários Finais
+    descricao: Mapa global da situação dos registros de beneficiário final por país e dados no padrão BODS para download. Ajuda a saber onde é possível descobrir quem controla uma empresa estrangeira ligada a um brasileiro.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.openownership.org/en/map/
+        label: Mapa de registros de beneficiário final
+      - url: https://bods-data.openownership.org/
+        label: Dados BODS para download
+        uf: PA
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/sec-edgar-empresas-listadas-nos-eua
+    nome: SEC EDGAR - Empresas Listadas nos EUA
+    descricao: Documentos arquivados na SEC por empresas brasileiras com ADRs ou dívida nos EUA, como Petrobras, Vale e Itaú (formulários 20-F, 6-K). Traz administradores, partes relacionadas, litígios e fatores de risco em detalhe.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.sec.gov/edgar/search/
+        label: Busca textual completa
+      - url: https://www.sec.gov/edgar/searchedgar/companysearch
+        label: Busca de empresas
+      - url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&State=D5&type=&dateb=&owner=include&count=40
+        label: Empresas com sede no Brasil (código D5)
+      - url: https://efts.sec.gov/LATEST/search-index?q=%22Brazil%22
+        label: API de busca textual (JSON)
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/delaware-division-of-corporations
+    nome: Delaware - Division of Corporations
+    descricao: Busca oficial de entidades registradas em Delaware, estado preferido para holdings e veículos de investimento. Retorna número de arquivo, data de constituição e agente registrado.
+    resumo: Links de pesquisa
+    links:
+      - url: https://icis.corp.delaware.gov/ecorp/entitysearch/namesearch.aspx
+        label: Busca de entidades
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/registros-estaduais-dos-eua-florida-wyoming-nevada-california
+    nome: Registros Estaduais dos EUA (Flórida, Wyoming, Nevada, Califórnia)
+    descricao: Buscas oficiais de empresas em estados com grande presença de brasileiros (Flórida) ou populares para empresas de fachada (Wyoming, Nevada). Mostram administradores, endereço e histórico de arquivamentos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://search.sunbiz.org/Inquiry/CorporationSearch/ByName
+        label: Flórida - Sunbiz
+      - url: https://wyobiz.wyo.gov/Business/FilingSearch.aspx
+        label: Wyoming - Filing Search
+      - url: https://esos.nv.gov/EntitySearch/OnlineEntitySearch
+        label: Nevada - SilverFlume
+      - url: https://bizfileonline.sos.ca.gov/search/business
+        label: Califórnia - bizfile
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/panama-registro-publico-e-panadata
+    nome: Panamá - Registro Público e Panadata
+    descricao: Registro Público do Panamá e o buscador Panadata, que indexa sociedades anônimas, fundações de interesse privado, diretores e agentes residentes panamenhos. Útil para rastrear offshores citadas em investigações envolvendo brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.registro-publico.gob.pa/
+        label: Registro Público de Panamá
+      - url: https://www.panadata.net/
+        label: Panadata
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/ilhas-virgens-britanicas-e-ilhas-cayman-reguladores
+    nome: Ilhas Virgens Britânicas e Ilhas Cayman - Reguladores
+    descricao: Listas públicas de entidades reguladas (fundos, bancos, administradoras e prestadores de serviços corporativos) da BVI FSC e da CIMA de Cayman. Confirmam se um fundo ou gestora citada por um brasileiro é de fato autorizada.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.bvifsc.vg/regulated-entities
+        label: BVI FSC - Entidades reguladas
+      - url: https://www.cima.ky/search-entities-cima
+        label: CIMA (Cayman) - Busca de entidades
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/dependencias-da-coroa-britanica-jersey-guernsey-ilha-de-man
+    nome: Dependências da Coroa Britânica (Jersey, Guernsey, Ilha de Man)
+    descricao: Registros de empresas de jurisdições offshore tradicionais, com busca por nome e situação. Complementam o rastreamento de estruturas usadas por grupos brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.jerseyfsc.org/registry/registry-entities/
+        label: Jersey - Registry
+      - url: https://www.guernseyregistry.com/
+        label: Guernsey - Registry
+      - url: https://services.gov.im/ded/services/companiesregistry/companysearch.iom
+        label: Ilha de Man - Companies Registry
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/reino-unido-companies-house
+    nome: Reino Unido - Companies House
+    descricao: Registro britânico gratuito com diretores, sócios com controle significativo (PSC) e balanços. Permite buscar diretores por nome e achar brasileiros à frente de empresas no Reino Unido.
+    resumo: Links de pesquisa
+    links:
+      - url: https://find-and-update.company-information.service.gov.uk/
+        label: Busca de empresas e diretores
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/portugal-atos-societarios-e-empresas
+    nome: Portugal - Atos Societários e Empresas
+    descricao: Publicações oficiais de atos societários e bases de empresas portuguesas, país com muitas empresas abertas por brasileiros. Mostram constituição, sócios, gerentes e alterações contratuais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://publicacoes.mj.pt/
+        label: Publicações de atos societários (MJ)
+      - url: https://www.racius.com/
+        label: Racius - Empresas portuguesas
+      - url: https://www.citius.mj.pt/
+        label: Citius - Publicações judiciais
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/registros-comerciais-europeus
+    nome: Registros Comerciais Europeus
+    descricao: Registros oficiais de empresas de Holanda, Suíça, Luxemburgo, Alemanha, França e Espanha, países usados por holdings de grupos brasileiros. Retornam situação, sede, administradores e, em alguns casos, documentos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.kvk.nl/zoeken/
+        label: Holanda - KvK
+      - url: https://www.zefix.ch/
+        label: Suíça - Zefix
+      - url: https://www.lbr.lu/
+        label: Luxemburgo - LBR
+      - url: https://www.unternehmensregister.de/
+        label: Alemanha - Unternehmensregister
+      - url: https://annuaire-entreprises.data.gouv.fr/
+        label: França - Annuaire des Entreprises
+      - url: https://www.registradores.org/
+        label: Espanha - Registradores
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/north-data-rede-de-empresas-europeias
+    nome: North Data - Rede de Empresas Europeias
+    descricao: Agrega registros comerciais europeus e mostra redes de pessoas e empresas em grafo. Ajuda a mapear a atuação de executivos brasileiros na Europa.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.northdata.com/
+        label: North Data
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/littlesis-mapa-de-relacoes-de-poder
+    nome: LittleSis - Mapa de Relações de Poder
+    descricao: Base colaborativa de conexões entre executivos, empresas, doadores e políticos, com foco nos EUA. Útil para ver vínculos de multinacionais e investidores com negócios no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://littlesis.org/
+        label: LittleSis
+      - url: https://littlesis.org/search?q=brazil
+        label: Busca por Brazil
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/eua-lobby-e-agentes-estrangeiros-fara-e-gastos-federais
+    nome: EUA - Lobby e Agentes Estrangeiros (FARA) e Gastos Federais
+    descricao: Registros FARA de agentes que representam governos e empresas estrangeiras nos EUA, incluindo contratos ligados ao Brasil, e base de contratos e repasses federais americanos. Mostra lobby e pagamentos envolvendo entidades brasileiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://efile.fara.gov/ords/fara/f?p=1381:1
+        label: FARA - Busca de registros
+      - url: https://www.usaspending.gov/
+        label: USAspending
+      - url: https://www.lobbyfacts.eu/
+        label: LobbyFacts (lobby na União Europeia)
+    input: [nome, razao_social]
+    output: [dados_cadastrais, socios]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/opensanctions-sancoes-e-peps
+    nome: OpenSanctions - Sanções e PEPs
+    descricao: Agrega centenas de listas de sanções, PEPs e entidades de interesse criminal, incluindo bases brasileiras como CEIS. Permite filtrar por Brasil e conferir se uma pessoa ou empresa aparece em listas internacionais.
+    subsecao: 🚫 Sanções, PEP e Procurados
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.opensanctions.org/
+        label: Busca
+      - url: https://www.opensanctions.org/search/?countries=br
+        label: Pesquisa filtrada por Brasil
+      - url: https://www.opensanctions.org/datasets/
+        label: Catálogo de datasets
+      - url: https://www.opensanctions.org/datasets/br_ceis/
+        label: Dataset CEIS (Brasil)
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/ofac-lista-sdn-tesouro-dos-eua
+    nome: OFAC - Lista SDN (Tesouro dos EUA)
+    descricao: Lista de pessoas e empresas bloqueadas pelo Tesouro americano, com busca por nome, país e programa. Inclui alvos brasileiros sancionados por narcotráfico, corrupção e Magnitsky.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sanctionssearch.ofac.treas.gov/
+        label: Sanctions List Search
+      - url: https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists
+        label: Lista SDN para download
+        uf: PA
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/onu-lista-consolidada-do-conselho-de-seguranca
+    nome: ONU - Lista Consolidada do Conselho de Segurança
+    descricao: Lista de pessoas e entidades sujeitas a sanções do Conselho de Segurança, que o Brasil é obrigado a cumprir pela Lei 13.810/2019. Base para checar terrorismo e proliferação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list
+        label: Lista consolidada
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/uniao-europeia-sancoes
+    nome: União Europeia - Sanções
+    descricao: Mapa interativo dos regimes de sanções da UE e lista consolidada oficial para download. Confere se um alvo ligado ao Brasil foi sancionado pela UE.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.sanctionsmap.eu/
+        label: EU Sanctions Map
+      - url: https://data.europa.eu/data/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions
+        label: Lista consolidada (data.europa.eu)
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/reino-unido-uk-sanctions-list
+    nome: Reino Unido - UK Sanctions List
+    descricao: Busca e download da lista oficial de sanções britânicas. Complementa a checagem de pessoas e empresas brasileiras com negócios na Europa.
+    resumo: Links de pesquisa
+    links:
+      - url: https://search-uk-sanctions-list.service.gov.uk/
+        label: Busca na lista
+      - url: https://www.gov.uk/government/publications/the-uk-sanctions-list
+        label: Publicação oficial
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/banco-mundial-e-bid-empresas-impedidas-debarred
+    nome: Banco Mundial e BID - Empresas Impedidas (Debarred)
+    descricao: Listas de empresas e pessoas proibidas de participar de contratos financiados pelo Banco Mundial e pelo BID por fraude ou corrupção. Inclui várias empreiteiras e consultorias brasileiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.worldbank.org/en/projects-operations/procurement/debarred-firms
+        label: Banco Mundial - Debarred Firms
+      - url: https://www.worldbank.org/en/about/unit/sanctions-system/osd
+        label: Banco Mundial - Sistema de sanções
+      - url: https://www.iadb.org/en/transparency/sanctioned-firms-and-individuals
+        label: BID - Empresas e indivíduos sancionados
+      - url: https://data.iadb.org/dataset/dataset-of-sanctioned-firms-and-individuals
+        label: BID - Dataset aberto de sancionados
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/interpol-difusoes-vermelhas-e-amarelas
+    nome: INTERPOL - Difusões Vermelhas e Amarelas
+    descricao: Busca pública das difusões vermelhas (procurados para extradição) e amarelas (desaparecidos), com filtro por nacionalidade. Permite listar brasileiros procurados ou desaparecidos no exterior.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.interpol.int/How-we-work/Notices/Red-Notices/View-Red-Notices
+        label: Difusões vermelhas
+      - url: https://www.interpol.int/How-we-work/Notices/Yellow-Notices/View-Yellow-Notices
+        label: Difusões amarelas (desaparecidos)
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/eua-procurados-federais-fbi-ice-dea
+    nome: EUA - Procurados Federais (FBI, ICE, DEA)
+    descricao: Listas públicas de foragidos das agências federais americanas, com fotos e descrição. Incluem brasileiros procurados por tráfico, fraude e crimes violentos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.fbi.gov/wanted
+        label: FBI Most Wanted
+      - url: https://www.ice.gov/most-wanted
+        label: ICE Most Wanted
+      - url: https://www.dea.gov/fugitives
+        label: DEA Fugitives
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/europol-eu-most-wanted
+    nome: Europol - EU Most Wanted
+    descricao: Lista dos foragidos mais procurados da Europa, com filtro por nacionalidade e crime. Útil para brasileiros procurados em países europeus.
+    resumo: Links de pesquisa
+    links:
+      - url: https://eumostwanted.eu/
+        label: EU Most Wanted
+      - url: https://www.europol.europa.eu/
+        label: Europol
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/gafi-fatf-listas-negra-e-cinza
+    nome: GAFI/FATF - Listas Negra e Cinza
+    descricao: Jurisdições de alto risco e sob monitoramento reforçado em lavagem de dinheiro. Ajuda a avaliar o risco de contrapartes e destinos de recursos saídos do Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.fatf-gafi.org/en/countries/black-and-grey-lists.html
+        label: Listas de jurisdições
+    input: [nome, razao_social]
+    output: [sancao]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/ads-b-exchange-e-rastreadores-sem-filtro
+    nome: ADS-B Exchange e Rastreadores sem Filtro
+    descricao: Mapas de voos ao vivo e histórico a partir de receptores comunitários, sem ocultar aeronaves por pedido do dono. Úteis para acompanhar jatos executivos, táxis aéreos e aeronaves suspeitas no Brasil.
+    subsecao: 🚢 Transporte, Logística e Comércio
+    resumo: Links de pesquisa
+    links:
+      - url: https://globe.adsbexchange.com/
+        label: ADS-B Exchange
+      - url: https://www.adsb.lol/
+        label: adsb.lol
+      - url: https://globe.airplanes.live/
+        label: airplanes.live
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/opensky-network
+    nome: OpenSky Network
+    descricao: Rede aberta de dados ADS-B com mapa ao vivo e acesso a dados históricos para pesquisa. Permite reconstruir trajetos de aeronaves sobre o Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://opensky-network.org/
+        label: OpenSky Network
+      - url: https://map.opensky-network.org/
+        label: Mapa ao vivo
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/flightaware
+    nome: FlightAware
+    descricao: Rastreamento de voos com histórico por matrícula e aeroporto. Ajuda a ver deslocamentos recentes de aeronaves de prefixo PP, PR, PS e PT.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.flightaware.com/
+        label: FlightAware
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/registro-e-fotos-de-aeronaves
+    nome: Registro e Fotos de Aeronaves
+    descricao: Bases de matrícula, histórico de proprietários e fotos de aeronaves. Permitem identificar aviões vendidos do Brasil para o exterior e vice-versa, e confirmar a aparência de uma aeronave em imagens.
+    resumo: Links de pesquisa
+    links:
+      - url: https://registry.faa.gov/aircraftinquiry/
+        label: FAA Registry (EUA)
+      - url: https://www.airframes.org/
+        label: Airframes.org
+      - url: https://www.planespotters.net/
+        label: Planespotters
+      - url: https://www.jetphotos.com/
+        label: JetPhotos
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/global-fishing-watch
+    nome: Global Fishing Watch
+    descricao: Mapa de atividade pesqueira e de navios a partir de AIS e satélite, incluindo transbordos e embarcações sem AIS. Útil para pesca ilegal na costa brasileira e rastreamento de navios.
+    resumo: Links de pesquisa
+    links:
+      - url: https://globalfishingwatch.org/map
+        label: Mapa
+      - url: https://globalfishingwatch.org/
+        label: Global Fishing Watch
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/rastreamento-de-navios-ais
+    nome: Rastreamento de Navios (AIS)
+    descricao: Posição e histórico de navios por nome, IMO ou MMSI, com chegadas a portos brasileiros. Alternativas gratuitas que complementam o MarineTraffic.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.vesselfinder.com/
+        label: VesselFinder
+      - url: https://www.myshiptracking.com/
+        label: MyShipTracking
+      - url: https://www.balticshipping.com/vessels
+        label: BalticShipping - Base de navios
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/registro-de-navios-equasis-imo-gisis-itu-mars
+    nome: Registro de Navios (Equasis, IMO GISIS, ITU MARS)
+    descricao: Bases oficiais com proprietário registrado, gestor, bandeira, inspeções e estação de rádio de navios. Revelam empresas por trás de embarcações que operam em portos brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.equasis.org/
+        label: Equasis
+      - url: https://gisis.imo.org/Public/Default.aspx
+        label: IMO GISIS
+      - url: https://www.itu.int/mmsapp/ShipStation/list
+        label: ITU MARS - Estações de navio
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/imf-portwatch
+    nome: IMF PortWatch
+    descricao: Painel do FMI com chamadas de navios e volume de comércio por porto a partir de AIS, incluindo portos brasileiros. Serve para detectar interrupções e anomalias logísticas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://portwatch.imf.org/
+        label: PortWatch
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/importyeti-conhecimentos-de-embarque-dos-eua
+    nome: ImportYeti - Conhecimentos de Embarque dos EUA
+    descricao: Busca gratuita em registros de importação marítima dos EUA por empresa. Mostra fornecedores brasileiros que exportam para os EUA, compradores e volumes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.importyeti.com/
+        label: ImportYeti
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/estatisticas-de-comercio-internacional
+    nome: Estatísticas de Comércio Internacional
+    descricao: Bases de comércio exterior por país, produto (HS) e parceiro. Permitem checar se fluxos declarados por empresas brasileiras batem com as estatísticas espelho dos países de destino.
+    resumo: Links de pesquisa
+    links:
+      - url: https://comtradeplus.un.org/
+        label: UN Comtrade
+      - url: https://wits.worldbank.org/
+        label: WITS (Banco Mundial)
+      - url: https://oec.world/en/profile/country/bra
+        label: OEC - Perfil do Brasil
+      - url: https://www.trademap.org/
+        label: Trade Map (ITC)
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/trase-cadeias-de-commodities
+    nome: Trase - Cadeias de Commodities
+    descricao: Mapeia exportadores, importadores e municípios de origem de soja, carne e outras commodities brasileiras, com risco de desmatamento associado. Útil para investigar tradings e frigoríficos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://trase.earth/
+        label: Trase
+    input: [embarcacao, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/crt-sh-transparencia-de-certificados
+    nome: crt.sh - Transparência de Certificados
+    descricao: Busca em logs de certificados TLS por domínio ou organização. Revela subdomínios e sites ligados a um domínio .br, inclusive ambientes ocultos.
+    subsecao: 🌐 Domínios, IPs e Infraestrutura
+    resumo: Links de pesquisa
+    links:
+      - url: https://crt.sh/
+        label: crt.sh
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/dnsdumpster
+    nome: DNSDumpster
+    descricao: Mapeamento de registros DNS, subdomínios e servidores de um domínio. Útil para entender a infraestrutura de sites brasileiros suspeitos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://dnsdumpster.com/
+        label: DNSDumpster
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/securitytrails
+    nome: SecurityTrails
+    descricao: Histórico de DNS e WHOIS e busca reversa por IP e servidores. Mostra para onde um domínio apontou no passado e outros domínios no mesmo IP.
+    resumo: Links de pesquisa
+    links:
+      - url: https://securitytrails.com/
+        label: SecurityTrails
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/viewdns-info
+    nome: ViewDNS.info
+    descricao: Conjunto de ferramentas de DNS, WHOIS reverso, histórico de IP e domínios no mesmo servidor. Ajuda a ligar sites de golpe hospedados juntos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://viewdns.info/
+        label: ViewDNS
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/hurricane-electric-bgp-toolkit
+    nome: Hurricane Electric BGP Toolkit
+    descricao: Informações de ASNs, prefixos e peering, com lista de todos os sistemas autônomos do Brasil. Identifica o provedor e a rede responsável por um IP.
+    resumo: Links de pesquisa
+    links:
+      - url: https://bgp.he.net/country/BR
+        label: ASNs do Brasil
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/ripestat
+    nome: RIPEstat
+    descricao: Painel de dados de roteamento, geolocalização, histórico de anúncios BGP e WHOIS de qualquer IP ou ASN. Funciona para redes brasileiras alocadas pelo LACNIC e NIC.br.
+    resumo: Links de pesquisa
+    links:
+      - url: https://stat.ripe.net/
+        label: RIPEstat
+      - url: https://www.ripe.net/
+        label: RIPE NCC
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/peeringdb
+    nome: PeeringDB
+    descricao: Base de redes, pontos de troca de tráfego (IX.br) e data centers com contatos técnicos. Ajuda a identificar onde um provedor brasileiro está presente.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.peeringdb.com/
+        label: PeeringDB
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/lacnic-whois-e-rdap
+    nome: LACNIC - WHOIS e RDAP
+    descricao: Registro regional de IPs e ASNs da América Latina, com titular, contatos e blocos atribuídos. Resolve IPs de países vizinhos e encaminha consultas de IPs brasileiros ao Registro.br.
+    resumo: Links de pesquisa
+    links:
+      - url: https://query.milacnic.lacnic.net/
+        label: WHOIS web (MiLACNIC)
+      - url: https://rdap.lacnic.net/rdap/autnum/28000
+        label: RDAP exemplo por ASN
+      - url: https://www.lacnic.net/1040/2/lacnic/lacnics-whois
+        label: Documentação do WHOIS
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/whois-e-rdap-globais-de-dominios
+    nome: WHOIS e RDAP Globais de Domínios
+    descricao: Consulta de titular, registrador e datas de domínios genéricos (.com, .net, .org) usados por brasileiros fora do .br. Útil para golpes que usam domínios estrangeiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://lookup.icann.org/
+        label: ICANN Lookup
+      - url: https://whois.domaintools.com/
+        label: DomainTools WHOIS
+      - url: https://who.is/
+        label: who.is
+      - url: https://www.whois.com/whois/
+        label: Whois.com
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/censys
+    nome: Censys
+    descricao: Motor de busca de hosts, certificados e serviços expostos na internet. Alternativa ao Shodan para mapear servidores em redes brasileiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://platform.censys.io/
+        label: Censys Platform
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/motores-de-busca-de-dispositivos-criminal-ip-zoomeye-fofa
+    nome: Motores de Busca de Dispositivos (Criminal IP, ZoomEye, FOFA)
+    descricao: Alternativas ao Shodan que indexam serviços, banners e certificados expostos. Ampliam a visão de infraestrutura exposta em IPs do Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.criminalip.io/
+        label: Criminal IP
+      - url: https://www.zoomeye.ai/
+        label: ZoomEye
+      - url: https://fofa.info/
+        label: FOFA
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/greynoise
+    nome: GreyNoise
+    descricao: Classifica IPs que fazem varreduras em massa na internet como benignos ou maliciosos. Ajuda a saber se um IP brasileiro em logs é scanner conhecido.
+    resumo: Links de pesquisa
+    links:
+      - url: https://viz.greynoise.io/
+        label: GreyNoise Visualizer
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/abuseipdb
+    nome: AbuseIPDB
+    descricao: Base colaborativa de denúncias de abuso por IP, com histórico e categorias de ataque. Mostra se um IP de provedor brasileiro já foi denunciado.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.abuseipdb.com/
+        label: AbuseIPDB
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/have-i-been-pwned-checagem-de-exposicao
+    nome: Have I Been Pwned - Checagem de Exposição
+    descricao: Informa se um e-mail apareceu em incidentes de vazamento conhecidos, sem exibir os dados vazados. Serve para avaliar a exposição de contas de vítimas ou organizações brasileiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://haveibeenpwned.com/
+        label: Have I Been Pwned
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/inteligencia-de-ameacas-otx-abuse-ch-phishtank
+    nome: Inteligência de Ameaças (OTX, abuse.ch, PhishTank)
+    descricao: Bases abertas de indicadores de comprometimento, URLs de malware e phishing. Permitem checar se um domínio ou IP ligado a golpes no Brasil já foi reportado.
+    resumo: Links de pesquisa
+    links:
+      - url: https://otx.alienvault.com/
+        label: AlienVault OTX
+      - url: https://urlhaus.abuse.ch/
+        label: URLhaus
+      - url: https://threatfox.abuse.ch/
+        label: ThreatFox
+      - url: https://phishtank.org/
+        label: PhishTank
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/hybrid-analysis
+    nome: Hybrid Analysis
+    descricao: Sandbox gratuita de análise de arquivos e URLs com relatórios públicos. Útil para examinar anexos e APKs de golpes que circulam no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.hybrid-analysis.com/
+        label: Hybrid Analysis
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/tecnologias-e-codigo-de-sites-builtwith-wappalyzer-publicwww
+    nome: Tecnologias e Código de Sites (BuiltWith, Wappalyzer, PublicWWW)
+    descricao: Identificam tecnologias, IDs de Google Analytics e AdSense e trechos de código em sites. Permitem ligar vários sites ao mesmo operador pelo mesmo ID de rastreamento.
+    resumo: Links de pesquisa
+    links:
+      - url: https://builtwith.com/
+        label: BuiltWith
+      - url: https://www.wappalyzer.com/
+        label: Wappalyzer
+      - url: https://publicwww.com/
+        label: PublicWWW
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/web-check
+    nome: Web-Check
+    descricao: Relatório único com DNS, SSL, cabeçalhos, tecnologias, portas e histórico de um site. Agiliza a triagem de domínios suspeitos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://web-check.xyz/
+        label: Web-Check
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/ipinfo
+    nome: IPinfo
+    descricao: Geolocalização, ASN, provedor e tipo de conexão de IPs, com ranking de redes do Brasil. Ajuda a distinguir IP residencial, de data center ou de VPN.
+    resumo: Links de pesquisa
+    links:
+      - url: https://ipinfo.io/countries/br
+        label: Redes do Brasil
+      - url: https://ipinfo.io/
+        label: IPinfo
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/utilitarios-de-dns-e-rede
+    nome: Utilitários de DNS e Rede
+    descricao: Ferramentas de consulta DNS, MX, subdomínios, DNS reverso e DNS passivo. Complementam a investigação de domínios e e-mails usados em fraudes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://mxtoolbox.com/
+        label: MXToolbox
+      - url: https://hackertarget.com/ip-tools/
+        label: HackerTarget IP Tools
+      - url: https://www.robtex.com/
+        label: Robtex
+      - url: https://subdomainfinder.c99.nl/
+        label: Subdomain Finder (C99)
+      - url: https://dns.google/
+        label: Google Public DNS
+      - url: https://www.circl.lu/services/passive-dns/
+        label: CIRCL Passive DNS (sob solicitação)
+    input: [dominio, ip]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/internet-archive-wayback-machine
+    nome: Internet Archive - Wayback Machine
+    descricao: Arquivo histórico de páginas web desde 1996, com capturas de sites governamentais e empresariais brasileiros. Recupera conteúdo apagado e permite arquivar páginas como prova.
+    subsecao: 🗄️ Arquivos da Web e Verificação
+    resumo: Links de pesquisa
+    links:
+      - url: https://web.archive.org/
+        label: Wayback Machine
+      - url: https://archive.org/
+        label: Internet Archive
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/outros-arquivos-web-archive-today-ghost-archive-cachedview
+    nome: Outros Arquivos Web (archive.today, Ghost Archive, CachedView)
+    descricao: Serviços alternativos de arquivamento e busca de capturas antigas. Úteis quando a Wayback Machine não capturou ou foi bloqueada, e para preservar posts de redes sociais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://archive.ph/
+        label: archive.today
+      - url: https://ghostarchive.org/
+        label: Ghost Archive
+      - url: https://cachedview.nl/
+        label: CachedView
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/google-fact-check-explorer
+    nome: Google Fact Check Explorer
+    descricao: Busca checagens publicadas por agências do mundo todo via ClaimReview, incluindo as brasileiras, e permite busca por imagem. Mostra se uma alegação já foi verificada.
+    resumo: Links de pesquisa
+    links:
+      - url: https://toolbox.google.com/factcheck/explorer
+        label: Fact Check Explorer
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/invid-weverify-plugin-de-verificacao
+    nome: InVID / WeVerify - Plugin de Verificação
+    descricao: Extensão para navegador com quadros-chave de vídeo, busca reversa, metadados e análise forense. Padrão das redações brasileiras para checar vídeos virais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.invid-project.eu/tools-and-services/invid-verification-plugin/
+        label: InVID
+      - url: https://weverify.eu/verification-plugin/
+        label: WeVerify
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/busca-reversa-de-imagens-tineye-google-yandex-bing
+    nome: Busca Reversa de Imagens (TinEye, Google, Yandex, Bing)
+    descricao: Encontram a origem e outras ocorrências de uma imagem. Essenciais para desmontar fotos fora de contexto e perfis falsos com fotos roubadas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://tineye.com/
+        label: TinEye
+      - url: https://images.google.com/
+        label: Google Imagens
+      - url: https://lens.google.com/
+        label: Google Lens
+      - url: https://yandex.com/images/
+        label: Yandex Imagens
+      - url: https://www.bing.com/images/feed
+        label: Bing Imagens
+      - url: https://imgops.com/
+        label: IMGOps (vários buscadores)
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/analise-forense-de-imagens
+    nome: Análise Forense de Imagens
+    descricao: Ferramentas de ELA, clonagem e ruído para detectar manipulação em fotos. Ajudam a avaliar imagens adulteradas em disputas e desinformação.
+    resumo: Links de pesquisa
+    links:
+      - url: https://fotoforensics.com/
+        label: FotoForensics
+      - url: https://29a.ch/photo-forensics/
+        label: Forensically (29a.ch)
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/metadados-de-arquivos-exif
+    nome: Metadados de Arquivos (EXIF)
+    descricao: Extraem data, câmera, software e coordenadas GPS de fotos, vídeos e documentos. Podem revelar onde e quando um arquivo foi produzido.
+    resumo: Links de pesquisa
+    links:
+      - url: https://exiftool.org/
+        label: ExifTool
+      - url: https://exif.tools/
+        label: exif.tools
+      - url: https://www.metadata2go.com/
+        label: Metadata2Go
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/google-ads-transparency-center
+    nome: Google Ads Transparency Center
+    descricao: Biblioteca de anúncios do Google filtrada para o Brasil, inclusive anúncios políticos. Mostra quem pagou anúncios e quais criativos foram veiculados.
+    resumo: Links de pesquisa
+    links:
+      - url: https://adstransparency.google.com/?region=BR
+        label: Anunciantes no Brasil
+      - url: https://transparencyreport.google.com/political-ads/region/BR
+        label: Anúncios políticos
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/junkipedia
+    nome: Junkipedia
+    descricao: Plataforma de monitoramento de conteúdo em redes sociais abertas, como Telegram e TikTok, usada para pesquisa de desinformação. Útil para acompanhar narrativas que circulam no Brasil.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.junkipedia.org/
+        label: Junkipedia
+    input: [nenhum]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/copernicus-browser-e-sentinel-hub-eo-browser
+    nome: Copernicus Browser e Sentinel Hub EO Browser
+    descricao: Imagens Sentinel-1, Sentinel-2 e Landsat gratuitas, com revisita de poucos dias e índices como NDVI. Permitem ver desmatamento, garimpo, enchentes e obras em qualquer ponto do Brasil.
+    subsecao: 🛰️ Imagens de Satélite e Geolocalização
+    resumo: Links de pesquisa
+    links:
+      - url: https://browser.dataspace.copernicus.eu/
+        label: Copernicus Browser
+      - url: https://apps.sentinel-hub.com/eo-browser/
+        label: EO Browser
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/copernicus-ems-mapeamento-de-emergencias
+    nome: Copernicus EMS - Mapeamento de Emergências
+    descricao: Mapas de danos produzidos por satélite em desastres, como as enchentes do Rio Grande do Sul. Úteis para dimensionar áreas atingidas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://emergency.copernicus.eu/
+        label: Copernicus Emergency Management
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/nasa-firms-focos-de-incendio
+    nome: NASA FIRMS - Focos de Incêndio
+    descricao: Focos de calor MODIS e VIIRS quase em tempo real, com histórico para download. Complementa o INPE na checagem de queimadas no Brasil.
+    links:
+      - url: https://firms.modaps.eosdis.nasa.gov/map/
+        label: Mapa FIRMS
+        em_markdown: true
+      - url: https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@-52.0
+        label: Mapa centrado no Brasil
+        em_markdown: true
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    markdown: |-
+      <details>
+      <summary>Links de pesquisa</summary>
+
+      - Mapa FIRMS - https://firms.modaps.eosdis.nasa.gov/map/
+      - Mapa centrado no Brasil - https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@-52.0,-14.0,4.0z
+
+      </details>
+  - id: fontes-internacionais-com-cobertura-do-brasil/google-earth-earth-engine-e-timelapse
+    nome: Google Earth, Earth Engine e Timelapse
+    descricao: Imagens históricas e animações de 1984 até hoje para ver mudanças no território. Mostram a evolução de fazendas, garimpos, loteamentos e áreas urbanas brasileiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://earthengine.google.com/timelapse/
+        label: Timelapse
+      - url: https://earth.google.com/web/
+        label: Google Earth Web
+      - url: https://earthengine.google.com/
+        label: Earth Engine
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/imagens-historicas-e-diarias-esri-wayback-worldview-earthexplorer-planet
+    nome: Imagens Históricas e Diárias (Esri Wayback, Worldview, EarthExplorer, Planet)
+    descricao: Arquivos de imagens de satélite por data, de mosaicos de alta resolução a imagens diárias. Permitem datar construções e eventos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://livingatlas.arcgis.com/wayback/
+        label: Esri World Imagery Wayback
+      - url: https://worldview.earthdata.nasa.gov/
+        label: NASA Worldview
+      - url: https://earthexplorer.usgs.gov/
+        label: USGS EarthExplorer
+      - url: https://www.planet.com/explorer/
+        label: Planet Explorer
+      - url: https://zoom.earth/
+        label: Zoom Earth
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/global-forest-watch-global-nature-watch
+    nome: Global Forest Watch (Global Nature Watch)
+    descricao: Painéis de perda de cobertura florestal e alertas de desmatamento por país, estado e município. Dados do Brasil úteis para cruzar com propriedades rurais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.globalforestwatch.org/dashboards/country/BRA/
+        label: Painel do Brasil
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/openstreetmap-e-overpass-turbo
+    nome: OpenStreetMap e Overpass Turbo
+    descricao: Mapa colaborativo com consultas avançadas por tipo de objeto, como pistas de pouso, antenas ou postos em uma área. Ajuda a geolocalizar fotos e listar estruturas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://overpass-turbo.eu/
+        label: Overpass Turbo
+      - url: https://www.openstreetmap.org/
+        label: OpenStreetMap
+      - url: https://www.openstreetmap.org/relation/59470
+        label: Fronteira do Brasil no OSM
+      - url: https://www.openhistoricalmap.org/
+        label: OpenHistoricalMap
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/imagens-de-rua-mapillary-kartaview
+    nome: Imagens de Rua (Mapillary, KartaView)
+    descricao: Fotos de nível de rua colaborativas, que cobrem trechos do Brasil sem Street View. Úteis para confirmar locais de fotos e vídeos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.mapillary.com/app/
+        label: Mapillary
+      - url: https://kartaview.org/map/
+        label: KartaView
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/cronolocalizacao-por-sombras-e-relevo-suncalc-shadowfinder-peakvisor
+    nome: Cronolocalização por Sombras e Relevo (SunCalc, ShadowFinder, PeakVisor)
+    descricao: Calculam posição do sol e sombras e identificam montanhas no horizonte. Ajudam a estimar hora e local de imagens.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.suncalc.org/
+        label: SunCalc
+      - url: https://github.com/bellingcat/ShadowFinder
+        label: ShadowFinder (Bellingcat)
+      - url: https://www.peakvisor.com/
+        label: PeakVisor
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/wikimapia-mapchecking-e-geospy
+    nome: Wikimapia, MapChecking e GeoSpy
+    descricao: Mapa colaborativo com descrição de lugares, estimador de público em áreas e geolocalização de fotos assistida por IA. Úteis para checar atos e manifestações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://wikimapia.org/
+        label: Wikimapia
+      - url: https://www.mapchecking.com/
+        label: MapChecking (estimativa de público)
+      - url: https://geospy.ai/
+        label: GeoSpy
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Versão gratuita limitada.
+  - id: fontes-internacionais-com-cobertura-do-brasil/acled-dados-de-conflitos-e-protestos
+    nome: ACLED - Dados de Conflitos e Protestos
+    descricao: Base georreferenciada de eventos de violência política e protestos, com cobertura do Brasil. Útil para análise de violência e mobilizações por município.
+    resumo: Links de pesquisa
+    links:
+      - url: https://acleddata.com/
+        label: ACLED
+    input: [coordenadas]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: internacional
+    classificacao: override
+    observacao: Requer cadastro gratuito.
+  - id: fontes-internacionais-com-cobertura-do-brasil/whatsmyname
+    nome: WhatsMyName
+    descricao: Verifica a existência de um nome de usuário em centenas de sites, inclusive plataformas brasileiras. Projeto aberto com lista mantida pela comunidade.
+    subsecao: 👤 Pessoas, Usernames e E-mails
+    resumo: Links de pesquisa
+    links:
+      - url: https://whatsmyname.app/
+        label: WhatsMyName Web
+      - url: https://github.com/WebBreacher/WhatsMyName
+        label: Repositório
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/sherlock-maigret-blackbird-e-nexfil
+    nome: Sherlock, Maigret, Blackbird e Nexfil
+    descricao: Ferramentas de linha de comando que procuram um username em centenas de sites. O Maigret também extrai dados dos perfis encontrados e gera relatório.
+    resumo: Links de pesquisa
+    links:
+      - url: https://github.com/sherlock-project/sherlock
+        label: Sherlock
+      - url: https://github.com/soxoj/maigret
+        label: Maigret
+      - url: https://github.com/p1ngul1n0/blackbird
+        label: Blackbird
+      - url: https://github.com/thewhiteh4t/nexfil
+        label: Nexfil
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/holehe-e-ghunt
+    nome: Holehe e GHunt
+    descricao: Holehe verifica em quais sites um e-mail tem conta cadastrada, e GHunt extrai informações públicas de contas Google. Ajudam a ligar e-mails a serviços e perfis.
+    resumo: Links de pesquisa
+    links:
+      - url: https://github.com/megadose/holehe
+        label: Holehe
+      - url: https://github.com/mxrch/GHunt
+        label: GHunt
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/buscadores-web-de-username
+    nome: Buscadores Web de Username
+    descricao: Checagem rápida de usernames em redes e serviços sem instalar nada. Útil para triagem inicial de perfis.
+    resumo: Links de pesquisa
+    links:
+      - url: https://namechk.com/
+        label: Namechk
+      - url: https://instantusername.com/
+        label: Instant Username
+      - url: https://usersearch.org/
+        label: UserSearch.org
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/gravatar-keybase-e-about-me
+    nome: Gravatar, Keybase e about.me
+    descricao: Perfis públicos associados a e-mails ou usernames, com fotos, links e chaves. Um Gravatar pode revelar foto e nome ligados a um e-mail.
+    resumo: Links de pesquisa
+    links:
+      - url: https://gravatar.com/
+        label: Gravatar
+      - url: https://keybase.io/
+        label: Keybase
+      - url: https://about.me/
+        label: about.me
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/bluesky-busca
+    nome: Bluesky - Busca
+    descricao: Busca de posts e perfis no Bluesky, rede que recebeu muitos usuários brasileiros. Funciona sem login para conteúdo público.
+    resumo: Links de pesquisa
+    links:
+      - url: https://bsky.app/search
+        label: Busca no Bluesky
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/frameworks-de-automacao-osint-spiderfoot-theharvester-recon-ng
+    nome: Frameworks de Automação OSINT (SpiderFoot, theHarvester, Recon-ng)
+    descricao: Ferramentas abertas que automatizam coleta sobre domínios, e-mails, nomes e IPs a partir de dezenas de fontes. Úteis para mapear rapidamente a exposição de uma organização brasileira.
+    resumo: Links de pesquisa
+    links:
+      - url: https://github.com/smicallef/spiderfoot
+        label: SpiderFoot
+      - url: https://github.com/laramies/theHarvester
+        label: theHarvester
+      - url: https://github.com/lanmaster53/recon-ng
+        label: Recon-ng
+    input: [email, nome]
+    output: [perfil_social]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/argentina-cuit-e-constancia-de-inscricao
+    nome: Argentina - CUIT e Constância de Inscrição
+    descricao: Consulta de CUIT/CUIL por nome e constância de inscrição tributária na AFIP/ARCA. Identifica empresas e pessoas argentinas ligadas a investigados brasileiros.
+    subsecao: 🌎 América Latina e Mercosul
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.cuitonline.com/
+        label: CuitOnline
+      - url: https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do
+        label: Constância de inscrição (AFIP)
+      - url: https://www.afip.gob.ar/
+        label: AFIP/ARCA
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/argentina-boletim-oficial-igj-e-registro-de-sociedades
+    nome: Argentina - Boletim Oficial, IGJ e Registro de Sociedades
+    descricao: Publicações societárias, nomeações e editais no Boletín Oficial, além da Inspeção Geral de Justiça e do Registro Nacional de Sociedades. Mostram constituição e diretores de empresas argentinas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.boletinoficial.gob.ar/
+        label: Boletín Oficial
+      - url: https://www.argentina.gob.ar/justicia/igj
+        label: Inspección General de Justicia
+      - url: https://www.argentina.gob.ar/justicia/registro-nacional-sociedades
+        label: Registro Nacional de Sociedades
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/argentina-justica-e-uif
+    nome: Argentina - Justiça e UIF
+    descricao: Consulta de causas do Poder Judiciário da Nação, jurisprudência da Corte Suprema, Registro Nacional de Reincidência e Unidade de Informação Financeira. Úteis para casos transfronteiriços.
+    resumo: Links de pesquisa
+    links:
+      - url: https://scw.pjn.gov.ar/scw/home.seam
+        label: Consulta de causas (PJN)
+      - url: https://www.pjn.gov.ar/
+        label: Poder Judicial de la Nación
+      - url: https://www.csjn.gov.ar/
+        label: Corte Suprema (CSJN)
+      - url: https://www.argentina.gob.ar/justicia/reincidencia
+        label: Registro Nacional de Reincidencia
+      - url: https://www.argentina.gob.ar/uif
+        label: UIF Argentina
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/paraguai-justica-ministerio-publico-e-dnit
+    nome: Paraguai - Justiça, Ministério Público e DNIT
+    descricao: Consultas do Poder Judiciário, Ministério Público, serviços sem senha da DNIT (antiga SET) para RUC e a SEPRELAD, unidade de inteligência financeira. Essenciais para investigações na fronteira e em empresas paraguaias de brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.pj.gov.py/
+        label: Poder Judicial
+      - url: https://www.ministeriopublico.gov.py/
+        label: Ministerio Público
+      - url: https://www.dnit.gov.py/web/portal-institucional/servicios-online-sin-clave-de-acceso
+        label: DNIT - Serviços sem senha (RUC)
+      - url: https://www.seprelad.gov.py/
+        label: SEPRELAD
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/paraguai-contratacoes-publicas-e-dados-abertos
+    nome: Paraguai - Contratações Públicas e Dados Abertos
+    descricao: Portal de compras públicas com fornecedores e contratos, além do catálogo de dados abertos e do Ministério de Indústria e Comércio. Útil para rastrear empresas brasileiras contratadas no Paraguai.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.contrataciones.gov.py/
+        label: Contrataciones Públicas (DNCP)
+      - url: https://www.datos.gov.py/
+        label: Datos Abiertos
+      - url: https://www.mic.gov.py/
+        label: Ministerio de Industria y Comercio
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/uruguai-impo-justica-dgi-e-dados-abertos
+    nome: Uruguai - IMPO, Justiça, DGI e Dados Abertos
+    descricao: Diário Oficial e bases normativas (IMPO), consulta do Poder Judiciário, Direção Geral Impositiva e catálogo de dados abertos. Ajudam a investigar sociedades uruguaias usadas por brasileiros.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.impo.com.uy/
+        label: IMPO - Diario Oficial
+      - url: https://www.poderjudicial.gub.uy/
+        label: Poder Judicial
+      - url: https://www.gub.uy/direccion-general-impositiva/
+        label: DGI
+      - url: https://catalogodatos.gub.uy/
+        label: Catálogo de Datos Abiertos
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/chile-empresas-sii-e-diario-oficial
+    nome: Chile - Empresas, SII e Diário Oficial
+    descricao: Registro de Empresas e Sociedades, consulta de situação tributária de terceiros no SII e publicações societárias do Diario Oficial. Mostram sócios e situação de empresas chilenas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.registrodeempresasysociedades.cl/
+        label: Registro de Empresas y Sociedades
+      - url: https://www.sii.cl/como_se_hace_para/situacion_trib_terceros.html
+        label: SII - Situação tributária de terceiros
+      - url: https://www.diariooficial.interior.gob.cl/
+        label: Diario Oficial
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/chile-justica-compras-publicas-e-uaf
+    nome: Chile - Justiça, Compras Públicas e UAF
+    descricao: Oficina Judicial Virtual para consulta de causas, Mercado Público e ChileCompra para contratos, e Unidade de Análise Financeira. Complementam due diligence no Chile.
+    resumo: Links de pesquisa
+    links:
+      - url: https://oficinajudicialvirtual.pjud.cl/
+        label: Oficina Judicial Virtual
+      - url: https://www.mercadopublico.cl/
+        label: Mercado Público
+      - url: https://www.chilecompra.cl/
+        label: ChileCompra
+      - url: https://www.uaf.cl/
+        label: UAF
+      - url: https://datos.gob.cl/
+        label: Datos Abiertos
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/peru-sunat-e-dados-abertos
+    nome: Peru - SUNAT e Dados Abertos
+    descricao: Portal tributário peruano, com consulta de RUC, e catálogo de dados abertos do governo. Úteis para empresas na tríplice fronteira amazônica e obras de empreiteiras brasileiras no Peru.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.sunat.gob.pe/
+        label: SUNAT
+      - url: https://www.datosabiertos.gob.pe/
+        label: Datos Abiertos
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/occrp-investigacoes
+    nome: OCCRP - Investigações
+    descricao: Consórcio de jornalismo investigativo sobre crime organizado e corrupção, com reportagens sobre Brasil e América Latina. Fonte de contexto e documentos sobre redes transnacionais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.occrp.org/en
+        label: OCCRP
+      - url: https://www.occrp.org/en/investigations
+        label: Investigações
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/insight-crime
+    nome: InSight Crime
+    descricao: Centro de pesquisa sobre crime organizado nas Américas, com perfis de PCC, Comando Vermelho e rotas na fronteira. Ajuda a contextualizar investigações sobre facções brasileiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://insightcrime.org/
+        label: InSight Crime (inglês)
+      - url: https://insightcrime.org/es/
+        label: InSight Crime (espanhol)
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/jornalismo-investigativo-latino-americano-clip-connectas-ojo-publico
+    nome: Jornalismo Investigativo Latino-americano (CLIP, Connectas, Ojo Público)
+    descricao: Redes e veículos regionais com investigações transfronteiriças sobre corrupção, como Lava Jato e Odebrecht na região. Publicam bases de dados e documentos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.elclip.org/
+        label: CLIP
+      - url: https://www.connectas.org/
+        label: Connectas
+      - url: https://www.ojo-publico.com/
+        label: Ojo Público
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/checagem-na-america-latina-latamchequea-chequeado
+    nome: Checagem na América Latina (LatamChequea, Chequeado)
+    descricao: Rede regional de checadores e agência argentina pioneira, com checagens de boatos que também circulam no Brasil. Útil para desinformação que cruza fronteiras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://latamchequea.com/
+        label: LatamChequea
+      - url: https://chequeado.com/
+        label: Chequeado
+    input: [nome, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/osint-framework
+    nome: OSINT Framework
+    descricao: Árvore interativa de ferramentas OSINT organizadas por tipo de dado. Bom ponto de partida para achar fontes de qualquer país.
+    subsecao: 📚 Referências e Metodologia
+    resumo: Links de pesquisa
+    links:
+      - url: https://osintframework.com/
+        label: OSINT Framework
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/bellingcat-online-investigations-toolkit-e-guias
+    nome: Bellingcat - Online Investigations Toolkit e Guias
+    descricao: Catálogo de ferramentas mantido pela Bellingcat com descrição, custo e exemplos, mais guias práticos de investigação. Referência para verificação e geolocalização.
+    resumo: Links de pesquisa
+    links:
+      - url: https://bellingcat.gitbook.io/toolkit
+        label: Toolkit
+      - url: https://www.bellingcat.com/category/resources/how-tos/
+        label: Guias how-to
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/inteltechniques-ferramentas-de-busca
+    nome: IntelTechniques - Ferramentas de Busca
+    descricao: Coleção de formulários de busca de Michael Bazzell para redes sociais, e-mails, usernames e domínios. Útil para montar consultas rápidas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://inteltechniques.com/tools/
+        label: IntelTechniques Tools
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/awesome-osint-e-colecoes-no-github
+    nome: Awesome OSINT e Coleções no GitHub
+    descricao: Listas curadas e comunitárias de ferramentas OSINT por categoria. Atualizadas com frequência.
+    resumo: Links de pesquisa
+    links:
+      - url: https://github.com/jivoi/awesome-osint
+        label: awesome-osint
+      - url: https://cipher387.github.io/osint_stuff_tool_collection/
+        label: OSINT Stuff Tool Collection (site)
+      - url: https://github.com/cipher387/osint_stuff_tool_collection
+        label: OSINT Stuff Tool Collection (repositório)
+      - url: https://metaosint.github.io/
+        label: MetaOSINT
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/paineis-start-me-e-bookmarks-osint
+    nome: Painéis Start.me e Bookmarks OSINT
+    descricao: Painéis de favoritos mantidos por investigadores, organizados por tema. Facilitam navegar por centenas de fontes.
+    resumo: Links de pesquisa
+    links:
+      - url: https://start.me/p/ZME8nR/osint
+        label: Start.me OSINT
+      - url: https://start.me/p/rx6Qj8/nixintel-s-osint-resource-list
+        label: Nixintel OSINT Resource List
+      - url: https://www.osintcombine.com/osint-bookmarks
+        label: OSINT Combine Bookmarks
+      - url: https://www.osintdojo.com/resources/
+        label: OSINT Dojo Resources
+      - url: https://www.osinttechniques.com/osint-tools.html
+        label: OSINT Techniques Tools
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/gijn-e-datajournalism-com
+    nome: GIJN e DataJournalism.com
+    descricao: Guias e cursos da Rede Global de Jornalismo Investigativo e do European Journalism Centre, com material em português e espanhol. Ensinam a investigar empresas, contratos e pessoas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://gijn.org/resource/online-research-tools/
+        label: GIJN - Ferramentas de pesquisa online
+      - url: https://datajournalism.com/
+        label: DataJournalism.com
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/wikidata-query-service
+    nome: Wikidata Query Service
+    descricao: Consulta SPARQL à base estruturada da Wikipédia, com políticos, empresas, parentescos e cargos. Permite listar, por exemplo, todos os deputados brasileiros com determinado vínculo.
+    resumo: Links de pesquisa
+    links:
+      - url: https://query.wikidata.org/
+        label: Query Service
+      - url: https://www.wikidata.org/
+        label: Wikidata
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override
+  - id: fontes-internacionais-com-cobertura-do-brasil/ifcn-signatarios-do-codigo-de-principios
+    nome: IFCN - Signatários do Código de Princípios
+    descricao: Lista de agências de checagem certificadas pela International Fact-Checking Network, incluindo as brasileiras. Ajuda a avaliar a credibilidade de quem publicou uma checagem.
+    resumo: Links de pesquisa
+    links:
+      - url: https://ifcncodeofprinciples.poynter.org/signatories
+        label: Signatários
+    input: [nenhum]
+    output: [dataset]
+    tipo_fonte: internacional
+    classificacao: override

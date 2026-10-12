@@ -1,0 +1,340 @@
+# Categoria: Telecom
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: telecom/busca-atraves-do-imei-legalidade-do-aparelho
+    nome: Busca Através do IMEI/Legalidade do Aparelho
+    descricao: O serviço prestado por este site informa somente a situação do aparelho celular que foi informado pelo usuário à operadora de telefonia móvel como roubado, furtado, perdido ou extraviado.
+    resumo: Links para pesquisa
+    links:
+      - url: https://www.consultaaparelhoimpedido.com.br/public-web/welcome
+      - url: https://www.consultaserialaparelho.com.br/public-web/homeSiga
+      - url: https://www.imei.info/pt/
+    input: [imei, telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/busca-de-situacao-cadastro-portabilidade-de-numeros-celulares-e-fixos
+    nome: Busca de Situação Cadastro / Portabilidade de Números Celulares e Fixos
+    descricao: ''
+    links:
+      - url: https://consultanumero.abrtelecom.com.br/consultanumero/consulta/consultaSituacaoAtualCtg
+      - url: https://consultanumero.abrtelecom.com.br/consultanumero/consulta/consultaHistoricoRecenteCtg
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/busca-operadora-por-numero-celular
+    nome: Busca Operadora por Número Celular
+    descricao: ''
+    resumo: Links para pesquisa
+    links:
+      - url: https://consultanumero.info/
+      - url: https://www.qualoperadora.net/
+      - url: http://consultaoperadora.com.br/site2015/
+      - url: https://www.qualoperadora.org/
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/busca-operadora-linha-pre-ativa-por-cpf
+    nome: Busca Operadora / Linha Pré ativa por CPF
+    descricao: Consultar se possui linha pré-paga ativa nas Prestadoras participantes (Algar, Claro, Oi, Sercomtel, TIM e Vivo).
+    links:
+      - url: https://cadastropre.com.br/#/consulta
+    input: [cpf, telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/mapas-de-cobertura-das-operadoras
+    nome: Mapas de Cobertura das Operadoras
+    descricao: Consulte a cobertura de rede 2G, 3G, 4G e 5G em qualquer região do Brasil, verificando a disponibilidade e intensidade do sinal das operadoras
+    resumo: Links para pesquisa
+    links:
+      - url: https://conexis.org.br/numeros/mapa-de-antenas-completo/
+        label: (Visão geral)
+      - url: https://mapadecobertura.vivo.com.br/
+      - url: https://www.claro.com.br/mapa-de-cobertura
+      - url: https://www.tim.com.br/para-voce/cobertura-e-roaming/mapa-de-cobertura
+      - url: https://www.oi.com.br/portal-oi-cobertura/
+      - url: https://www2.sercomtel.com.br/mapa-cobertura
+      - url: https://algartelecom.com.br/para-voce/celular/cobertura-celular
+      - url: https://www.brisanet.com.br/mapa-de-area-de-cobertura
+      - url: https://www.gigamaisfibra.com.br/onde-estamos/
+    input: [telefone]
+    output: [mapa, operadora]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: telecom/anatel-consulta-de-outorgas-de-radiodifusao
+    nome: ANATEL - Consulta de Outorgas de Radiodifusão
+    descricao: Consulta de outorgas de serviços de radiodifusão.
+    links:
+      - url: https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp
+    input: [cnpj, telefone]
+    output: [operadora, outorga]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/anatel-radiodifusao
+    nome: ANATEL - Radiodifusão
+    descricao: Informações e regulamentação sobre serviços de radiodifusão no Brasil.
+    links:
+      - url: https://www.gov.br/anatel/pt-br/regulado/radiodifusao
+    input: [cnpj, telefone]
+    output: [operadora, outorga]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/anatel-sistema-de-servicos-de-telecomunicacoes-stel
+    nome: ANATEL - Sistema de Serviços de Telecomunicações (STEL)
+    descricao: Sistema para consulta de frequências, entidades e serviços de telecomunicações autorizados.
+    links:
+      - url: https://sistemas.anatel.gov.br/stel/
+    input: [telefone]
+    output: [operadora, radiofrequencia]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/anatel-infraestrutura-de-telecomunicacoes
+    nome: ANATEL - Infraestrutura de Telecomunicações
+    descricao: Painéis de dados sobre infraestrutura de telecomunicações no Brasil.
+    links:
+      - url: https://www.anatel.gov.br/paineis/infraestrutura
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/anatel-consulta-de-provedores-regionais
+    nome: ANATEL - Consulta de Provedores Regionais
+    descricao: Consulta de prestadoras de serviços de telecomunicações por localidade.
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/infraestrutura/consulta-de-provedores-regionais
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/teleco-inteligencia-em-telecomunicacoes
+    nome: Teleco - Inteligência em Telecomunicações
+    descricao: Portal com informações, estatísticas, análises e consultas sobre o setor de telecomunicações brasileiro.
+    links:
+      - url: https://teleco.com.br
+      - url: https://sistemas.anatel.gov.br/sis/cadastrosimplificado/ConsultaPrestadoraLocalidade/tela.asp
+    input: [telefone]
+    output: [estatistica, operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/anatel-consulta-de-radiofrequencias-por-sistema
+    nome: ANATEL - Consulta de Radiofrequências por Sistema
+    descricao: Consulta de sistemas de radiofrequência autorizados pela ANATEL.
+    links:
+      - url: https://sistemas.anatel.gov.br/srd/TelaListagem.asp?PagSRD=DescSistema&NumServico=231&op=5&SISQSmodulo=9830
+    input: [telefone]
+    output: [operadora, radiofrequencia]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/anatel-sistema-de-radiocomunicacao-digital
+    nome: ANATEL - Sistema de Radiocomunicação Digital
+    descricao: Portal de consulta de serviços de radiocomunicação digital.
+    links:
+      - url: https://sistemas.anatel.gov.br/srd/Default.asp?SISQSmodulo=208&SISQSsistema=16
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/base-de-orelhao-x-mapa
+    nome: Base De Orelhão X Mapa
+    descricao: Por meio da busca é possível encontrar orelhões pelo número, localizar ruas, municípios, estados ou cidades
+    links:
+      - url: http://sistemas.anatel.gov.br/sgmu/fiqueligado/tups.asp
+    input: [municipio, telefone]
+    output: [mapa, operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/painel-geral-indicadores-de-telecomunicacoes
+    nome: Painel Geral - Indicadores de Telecomunicações
+    descricao: Dados gerais de telecomunicações no Brasil, com acesso a todos os painéis setoriais da Anatel, incluindo infraestrutura, acessos, cobertura, espectro, outorgas e conectividade.
+    subsecao: Painéis de Telecomunicações (ANATEL)
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/
+    input: [cnpj, telefone]
+    output: [estatistica, operadora, outorga]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/meu-municipio-panorama-municipal-de-telecom
+    nome: Meu Município - Panorama Municipal de Telecom
+    descricao: Panorama completo das telecomunicações de um município específico, com possibilidade de comparação com outros municípios da mesma UF, da região e com o Brasil.
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/meu-municipio
+    input: [municipio, telefone]
+    output: [estatistica, operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/indice-brasileiro-de-conectividade-ibc
+    nome: Índice Brasileiro de Conectividade (IBC)
+    descricao: Ranking e indicadores de conectividade de municípios e estados, considerando acesso à internet, cobertura móvel, banda larga fixa e outros fatores de conectividade.
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/meu-municipio/indice-brasileiro-de-conectividade
+    input: [municipio, telefone]
+    output: [estatistica, operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/infraestrutura-e-cobertura-de-redes-moveis
+    nome: Infraestrutura e Cobertura de Redes Móveis
+    descricao: 'O que contém: Cobertura de telefonia móvel (3G, 4G e 5G), mapas de infraestrutura, presença de sinal por município, UF e rodovias.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/infraestrutura/panorama
+    input: [municipio, telefone]
+    output: [mapa, operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/cobertura-movel-em-rodovias
+    nome: Cobertura Móvel em Rodovias
+    descricao: 'O que contém: Informações sobre presença de sinal móvel ao longo das rodovias federais e estaduais, integradas ao painel de infraestrutura.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/infraestrutura/panorama
+    input: [telefone]
+    output: [estatistica, operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/acessos-aos-servicos-de-telecomunicacoes
+    nome: Acessos aos Serviços de Telecomunicações
+    descricao: 'O que contém: Dados de acessos à banda larga fixa, telefonia móvel, telefonia fixa e TV por assinatura, com rankings e evolução histórica.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/acessos
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/outorga-e-licenciamento-servico-movel-pessoal-smp
+    nome: Outorga e Licenciamento - Serviço Móvel Pessoal (SMP)
+    descricao: 'O que contém: Autorizações de operadoras, licenciamento de estações rádio base, tecnologias autorizadas e faixas de radiofrequência por município.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/outorga-e-licenciamento/autorizacoes-e-licenciamentos-do-smp
+    input: [cnpj, municipio, telefone]
+    output: [operadora, outorga, radiofrequencia]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/espectro-e-orbita-lei-das-antenas
+    nome: Espectro e Órbita / Lei das Antenas
+    descricao: 'O que contém: Informações sobre uso do espectro de radiofrequência, implantação do 5G e adequação dos municípios à Lei Geral de Antenas.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/espectro-e-orbita/lei-das-antenas
+    input: [municipio, telefone]
+    output: [operadora, radiofrequencia]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/certificacao-de-produtos-celulares-5g
+    nome: Certificação de Produtos - Celulares 5G
+    descricao: 'O que contém: Lista de aparelhos celulares certificados pela Anatel para operação em redes 5G no Brasil.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/certificacao-de-produtos/celulares-em-5g
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/areas-tarifarias-e-numeracao
+    nome: Áreas Tarifárias e Numeração
+    descricao: 'O que contém: Divisão das áreas tarifárias da telefonia fixa, códigos DDD e áreas locais por município e UF.'
+    links:
+      - url: https://informacoes.anatel.gov.br/paineis/areas-tarifarias
+    input: [municipio, telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/consultar-e-identificar-frequencias-de-radios-sistema-de-servicos-de-telecomunicacoes-stel
+    nome: Consultar e identificar Frequências de Rádios / SISTEMA DE SERVIÇOS DE TELECOMUNICAÇÕES (STEL)
+    descricao: 'Abrirá uma página para preenchimento, preencha da seguinte forma: 1.  Em recuperação de dados: marque UF; 2.  Em apresentar dados por: marque a letra J (frequência e entidade) em faixa de frequência: coloque a frequência que deseja scanear, ex.: inicial: 450,000 final: 460,000 (NÃO ESQUEÇA DA VÍRGULA) OBS: não de um espaço de frequencia muito largo,as vezes dá erro na pesquisa; 3.  Em unidade coloque MHZ nos dois; 4.  Em sigla da UF: coloque a sigla do seu estado 5.  m serviço inicial e serviço final nao coloque nada, deixe do jeito que está em grupo de estações: marque todos (consolidado); 6.  Agora clique abaixo em exportar excel e salve o arquivo em seu micro;'
+    links:
+      - url: https://sistemas.anatel.gov.br/stel/Consultas/RecuperacaoFrequencias/tela.asp?SISQSmodulo=9896
+    input: [telefone]
+    output: [operadora, radiofrequencia]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/consultar-responsavel-por-um-indicativo
+    nome: Consultar responsável por um indicativo
+    descricao: Digite o Indicativo da Estação sem pontos e sem traços.
+    links:
+      - url: https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp
+    input: [telefone]
+    output: [operadora, radiofrequencia]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/mais-informacoes-sobre-radio-amador
+    nome: Mais informações sobre Radio amador
+    descricao: Alguns dos sistemas dependem de cadastro de usuário (CPF + Senha). Abaixo dos links da ANATEL, links por tipo de serviços (Radioamador e Rádio do Cidadão)
+    links:
+      - url: https://araf.org.br/anatel-links-rapidos
+    input: [cpf, telefone]
+    output: [operadora, radiofrequencia]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: telecom/lista-de-frequencias-e-repetidoras
+    nome: Lista de frequências e repetidoras
+    descricao: ''
+    resumo: Links para pesquisa
+    links:
+      - url: https://www.radioamador.com/vhf/repetidorasold.htm
+      - url: https://www.radiohaus.com.br/pagina.php?cod=22&nomodal
+      - url: https://pt.wikipedia.org/wiki/Lista_de_faixas_e_subfaixas_do_servi%C3%A7o_radioamador_no_Brasil
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/numeros-discagem-direta-a-distancia-ddd
+    nome: Números Discagem direta a distância ( DDD )
+    descricao: ''
+    links:
+      - url: https://pt.wikipedia.org/wiki/Discagem_direta_a_dist%C3%A2ncia
+      - url: https://www.mbi.com.br/mbi/biblioteca/utilidades/estado-onde-fica-ddd/
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: telecom/anatel-celular-legal
+    nome: Anatel - Celular Legal
+    descricao: Programa da Anatel para verificar se um celular é homologado e para orientar sobre bloqueio de aparelhos irregulares.
+    links:
+      - url: https://www.gov.br/anatel/pt-br/assuntos/celular-legal
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/anatel-dados-abertos-qualidade-e-reclamacoes
+    nome: Anatel - Dados Abertos, Qualidade e Reclamações
+    descricao: Dados abertos da Anatel e painéis de qualidade dos serviços e de reclamações de consumidores por operadora e município.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/anatel/pt-br/dados/dados-abertos
+        label: Dados abertos
+      - url: https://www.gov.br/anatel/pt-br/dados/qualidade
+        label: Qualidade
+      - url: https://informacoes.anatel.gov.br/paineis/consumidor/reclamacoes
+        label: Painel de reclamações
+    input: [cnpj, municipio, telefone]
+    output: [dataset, operadora, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: telecom/nao-me-perturbe
+    nome: Não Me Perturbe
+    descricao: Cadastro nacional para bloquear ligações de telemarketing de operadoras e bancos, mantido pelas prestadoras sob supervisão da Anatel.
+    links:
+      - url: https://www.naomeperturbe.com.br/
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/cetic-br-pesquisas-tic
+    nome: Cetic.br - Pesquisas TIC
+    descricao: Centro do NIC.br com pesquisas sobre uso de internet em domicílios, empresas, escolas, saúde e governo.
+    links:
+      - url: https://www.cetic.br/pt/pesquisas/
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: telecom/ix-br-pontos-de-troca-de-trafego
+    nome: IX.br - Pontos de Troca de Tráfego
+    descricao: Lista das localidades do IX.br com participantes e tráfego dos pontos de troca de tráfego de internet no Brasil.
+    links:
+      - url: https://ix.br/localidades/atuais
+    input: [telefone]
+    output: [operadora]
+    tipo_fonte: privado
+    classificacao: heuristica

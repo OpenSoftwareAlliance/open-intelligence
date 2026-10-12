@@ -1,0 +1,330 @@
+# Categoria: Território, Meio Ambiente & Fiscalização
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: territorio-meio-ambiente-fiscalizacao/unai-terras-indigenas
+    nome: UNAI - Terras Indígenas
+    descricao: Informações oficiais sobre povos indígenas, terras indígenas, demarcação e proteção territorial.
+    links:
+      - url: https://www.gov.br/funai/pt-br
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/funai-mapas-e-dados-geoespaciais
+    nome: FUNAI - Mapas e Dados Geoespaciais
+    descricao: Mapas e bases georreferenciadas de terras indígenas (shapefiles, KML, situação territorial).
+    links:
+      - url: https://www.gov.br/funai/pt-br/atuacao/terras-indigenas/geoprocessamento-e-mapas
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/incra-reforma-agraria-e-conflitos-fundiarios
+    nome: INCRA - Reforma Agrária e Conflitos Fundiários
+    descricao: Dados sobre assentamentos, imóveis rurais, regularização fundiária e disputas por terra.
+    links:
+      - url: https://www.gov.br/incra/pt-br
+    input: [cnpj, endereco, municipio]
+    output: [auto_infracao, imovel, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/incra-dados-abertos-fundiarios
+    nome: INCRA - Dados Abertos Fundiários
+    descricao: Bases estatísticas sobre assentamentos, imóveis rurais e políticas fundiárias.
+    links:
+      - url: https://www.gov.br/incra/pt-br/acesso-a-informacao/dados-abertos
+    input: [cnpj, endereco, municipio]
+    output: [auto_infracao, dataset, estatistica, imovel, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/ibama-fiscalizacao-ambiental
+    nome: IBAMA - Fiscalização Ambiental
+    descricao: Fiscalização ambiental, crimes ambientais, desmatamento, garimpo ilegal e sanções administrativas.
+    links:
+      - url: https://www.ibama.gov.br
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/ibama-autos-de-infracao-e-embargos
+    nome: IBAMA - Autos de Infração e Embargos
+    descricao: Consulta pública de autos de infração ambiental, embargos, apreensões e penalidades.
+    links:
+      - url: https://www.gov.br/ibama/pt-br/servicos/consultas/autuacoes-e-embargos
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/inpe-monitoramento-ambiental
+    nome: INPE - Monitoramento Ambiental
+    descricao: Estatísticas oficiais de desmatamento e degradação ambiental com base em imagens de satélite.
+    links:
+      - url: https://www.gov.br/inpe/pt-br
+    input: [cnpj, municipio]
+    output: [auto_infracao, estatistica, imagem_satelite, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/inpe-programa-queimadas
+    nome: INPE - Programa Queimadas
+    descricao: Dados e estatísticas de focos de incêndio em tempo quase real.
+    links:
+      - url: https://queimadas.dgi.inpe.br/queimadas/portal
+    input: [cnpj, municipio]
+    output: [auto_infracao, estatistica, mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/icmbio-unidades-de-conservacao
+    nome: ICMBio - Unidades de Conservação
+    descricao: Informações sobre parques nacionais, reservas ambientais e áreas protegidas federais.
+    links:
+      - url: https://www.gov.br/icmbio/pt-br
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/icmbio-dados-abertos-ambientais
+    nome: ICMBio - Dados Abertos Ambientais
+    descricao: Estatísticas e bases públicas sobre unidades de conservação federais.
+    links:
+      - url: https://www.gov.br/icmbio/pt-br/acesso-a-informacao/dados-abertos
+    input: [cnpj, municipio]
+    output: [auto_infracao, dataset, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/mma-ministerio-do-meio-ambiente
+    nome: MMA - Ministério do Meio Ambiente
+    descricao: Políticas ambientais, programas nacionais e dados institucionais do setor ambiental.
+    links:
+      - url: https://www.gov.br/mma/pt-br
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/ma-indicadores-ambientais
+    nome: MA - Indicadores Ambientais
+    descricao: Indicadores ambientais oficiais e dados estatísticos nacionais.
+    links:
+      - url: https://www.gov.br/mma/pt-br/assuntos/indicadores
+    input: [cnpj, municipio]
+    output: [auto_infracao, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/ibge-territorio-e-meio-ambiente
+    nome: IBGE - Território e Meio Ambiente
+    descricao: Estatísticas territoriais, ambientais, uso do solo e dados geográficos oficiais.
+    links:
+      - url: https://www.ibge.gov.br
+    input: [cnpj, municipio]
+    output: [auto_infracao, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/ibge-geociencias-e-mapas
+    nome: IBGE - Geociências e Mapas
+    descricao: Mapas oficiais, limites territoriais, biomas e dados geoespaciais.
+    links:
+      - url: https://www.ibge.gov.br/geociencias
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/anm-agencia-nacional-de-mineracao
+    nome: ANM - Agência Nacional de Mineração
+    descricao: Dados sobre mineração, processos minerários, áreas concedidas e fiscalização.
+    links:
+      - url: https://www.gov.br/anm/pt-br
+    input: [cnpj, municipio, numero_processo]
+    output: [auto_infracao, mapa, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: '---'
+  - id: territorio-meio-ambiente-fiscalizacao/anm-dados-abertos-de-mineracao
+    nome: ANM - Dados Abertos de Mineração
+    descricao: Bases estatísticas e dados públicos sobre atividades minerárias no Brasil.
+    links:
+      - url: https://www.gov.br/anm/pt-br/acesso-a-informacao/dados-abertos
+    input: [cnpj, municipio]
+    output: [auto_infracao, dataset, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/anm-cadastro-mineiro-pesquisa-de-processos-minerarios
+    nome: ANM - Cadastro Mineiro (Pesquisa de Processos Minerários)
+    descricao: Pesquisa de processos minerários por nome do titular, CPF/CNPJ do titular, NUP, município, substância, fase do processo, situação e tipo de título, entre outros filtros, com opção de exportação. Retorna processo, tipo de requerimento, fase atual, CPF/CNPJ e nome do titular, municípios, substâncias, tipos de uso e situação. Possui captcha. O serviço de mapas do SIGMINE retorna, para uma coordenada, o processo, a fase, o nome do titular, a substância, o uso e a área.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sistemas.anm.gov.br/SCM/Extra/site/admin/pesquisarProcessos.aspx
+        label: Pesquisar Processos
+      - url: https://geo.anm.gov.br/arcgis/rest/services/SIGMINE/dados_anm/MapServer/0/query?geometry={LONGITUDE}%2C{LATITUDE}&geometryType=esriGeometryPoint&inSR=4674&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=false&f=json
+        label: 'SIGMINE: Consulta por Coordenada'
+    input: [cnpj, coordenadas, cpf, municipio, nome, numero_processo, razao_social]
+    output: [api_json, dados_cadastrais, processo]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: A pesquisa de processos possui captcha; a consulta por coordenada não.
+  - id: territorio-meio-ambiente-fiscalizacao/ana-outorgas-de-uso-de-recursos-hidricos-emitidas
+    nome: ANA - Outorgas de Uso de Recursos Hídricos Emitidas
+    descricao: Relação das outorgas federais de uso da água. A planilha traz número do processo, CPF/CNPJ e nome do requerente, município, UF, corpo hídrico, finalidade, latitude, longitude, resolução, datas de publicação e de vencimento.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/ana/pt-br/assuntos/regulacao-e-fiscalizacao/outorga/outorgas-emitidas
+        label: Outorgas Emitidas
+      - url: https://www.ana.gov.br/exporta-planilha/outorgas_federais/relatorio_outorgas.csv
+        label: Planilha de Outorgas Federais
+    input: [nenhum]
+    output: [dados_cadastrais, dataset, outorga]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: A planilha contém CPF/CNPJ, nome do requerente e coordenadas do ponto outorgado.
+  - id: territorio-meio-ambiente-fiscalizacao/ana-dados-abertos-de-recursos-hidricos-snirh
+    nome: ANA - Dados Abertos de Recursos Hídricos (SNIRH)
+    descricao: Conjuntos de dados sobre hidrologia, qualidade da água, usos e balanço hídrico do país, publicados pela Agência Nacional de Águas e Saneamento Básico.
+    links:
+      - url: https://dadosabertos.ana.gov.br/
+    input: [cnpj, municipio]
+    output: [auto_infracao, dataset, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/isa-terras-indigenas-no-brasil
+    nome: ISA - Terras Indígenas no Brasil
+    descricao: Base do Instituto Socioambiental com situação jurídica, população, mapas e pressões sobre cada terra indígena.
+    links:
+      - url: https://terrasindigenas.org.br/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/isa-unidades-de-conservacao-no-brasil
+    nome: ISA - Unidades de Conservação no Brasil
+    descricao: Fichas das unidades de conservação federais e estaduais com mapa, ato de criação, gestão e ameaças.
+    links:
+      - url: https://uc.socioambiental.org/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/mma-cnuc-cadastro-nacional-de-unidades-de-conservacao
+    nome: MMA - CNUC (Cadastro Nacional de Unidades de Conservação)
+    descricao: Cadastro oficial das unidades de conservação federais, estaduais, municipais e RPPNs, com limites e dados de gestão.
+    resumo: Links de pesquisa
+    links:
+      - url: https://cnuc.mma.gov.br/consulta
+        label: Consulta
+      - url: https://www.gov.br/mma/pt-br/assuntos/biodiversidade-e-biomas/areas-protegidas/plataforma-cnuc-1
+        label: Plataforma CNUC
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/icmbio-unidades-de-conservacao-por-bioma
+    nome: ICMBio - Unidades de Conservação por Bioma
+    descricao: Lista das unidades de conservação federais geridas pelo ICMBio, organizadas por bioma, com acesso às páginas de cada UC.
+    links:
+      - url: https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/unidade-de-conservacao/unidades-de-biomas
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/incra-acervo-fundiario
+    nome: INCRA - Acervo Fundiário
+    descricao: Mapa do acervo fundiário do INCRA com imóveis certificados (SIGEF/SNCI), assentamentos, quilombolas e glebas públicas.
+    links:
+      - url: https://acervofundiario.incra.gov.br/
+    input: [cnpj, endereco, municipio]
+    output: [auto_infracao, imovel, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/incra-painel-dos-assentamentos
+    nome: INCRA - Painel dos Assentamentos
+    descricao: 'Painel com dados de projetos de assentamento da reforma agrária: localização, área, capacidade e famílias assentadas.'
+    links:
+      - url: https://painel.incra.gov.br/sistemas/index.php
+    input: [cnpj, municipio]
+    output: [auto_infracao, estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/anm-arrecadacao-de-cfem
+    nome: ANM - Arrecadação de CFEM
+    descricao: Relatórios públicos da Compensação Financeira pela Exploração Mineral por titular, substância, município e período.
+    links:
+      - url: https://sistemas.anm.gov.br/arrecadacao/extra/relatorios/arrecadacao_cfem.aspx
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/anm-barragens-de-mineracao
+    nome: ANM - Barragens de Mineração
+    descricao: Informações sobre barragens de mineração cadastradas, classificação de risco, dano potencial e situação de emergência.
+    links:
+      - url: https://www.gov.br/anm/pt-br/assuntos/barragens
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/ana-hidroweb
+    nome: ANA - HidroWeb
+    descricao: Banco de dados da rede hidrometeorológica nacional com séries de chuva, nível e vazão das estações.
+    links:
+      - url: https://www.snirh.gov.br/hidroweb/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/ana-snisb-seguranca-de-barragens
+    nome: ANA - SNISB (Segurança de Barragens)
+    descricao: Sistema Nacional de Informações sobre Segurança de Barragens com cadastro, empreendedores e classificação de risco de barragens.
+    links:
+      - url: https://www.snirh.gov.br/portal/snisb
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/ana-sar-acompanhamento-de-reservatorios
+    nome: ANA - SAR (Acompanhamento de Reservatórios)
+    descricao: Volumes, cotas e vazões dos principais reservatórios do país, atualizados diariamente.
+    links:
+      - url: https://www.ana.gov.br/sar/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/monitor-de-secas
+    nome: Monitor de Secas
+    descricao: Mapas mensais da severidade da seca nos estados brasileiros, elaborados pela ANA com instituições estaduais.
+    links:
+      - url: https://monitordesecas.ana.gov.br/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/cpt-conflitos-no-campo
+    nome: CPT - Conflitos no Campo
+    descricao: 'Comissão Pastoral da Terra: registros e cadernos anuais de conflitos agrários, violência no campo e trabalho escravo.'
+    links:
+      - url: https://cptnacional.org.br/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: territorio-meio-ambiente-fiscalizacao/cimi-violencia-contra-povos-indigenas
+    nome: CIMI - Violência contra Povos Indígenas
+    descricao: 'Conselho Indigenista Missionário: relatórios anuais de violência contra povos indígenas e situação das terras.'
+    links:
+      - url: https://cimi.org.br/
+    input: [cnpj, municipio]
+    output: [auto_infracao, mapa]
+    tipo_fonte: ong
+    classificacao: heuristica

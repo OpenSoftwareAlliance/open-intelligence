@@ -1,0 +1,190 @@
+# Categoria: Cultura e Audiovisual
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: cultura-e-audiovisual/ancine-consulta-de-processos-sei
+    nome: ANCINE - Consulta de Processos SEI
+    descricao: Sistema de consulta pública de processos administrativos da ANCINE.
+    links:
+      - url: https://sei.ancine.gov.br/sei/modulos/pesquisa/md_pesq_processo_pesquisar.php?acao_externa=protocolo_pesquisar&acao_origem_externa=protocolo_pesquisar&id_orgao_acesso_externo=0
+    input: [cnpj, numero_processo, razao_social]
+    output: [dados_cadastrais, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-consulta-de-unidades-de-exibicao
+    nome: ANCINE - Consulta de Unidades de Exibição
+    descricao: Consulta pública de salas de cinema e espaços de exibição cadastrados.
+    links:
+      - url: https://sad.ancine.gov.br/consultapublica/telaPrincipalUE.do?method=initListar
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-consulta-de-projetos-audiovisuais
+    nome: ANCINE - Consulta de Projetos Audiovisuais
+    descricao: Consulta de projetos audiovisuais registrados na ANCINE.
+    links:
+      - url: https://sad.ancine.gov.br/projetosaudiovisuais/ConsultaProjetosAudiovisuais.do?method=init
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-consulta-de-empresas-cadastradas
+    nome: ANCINE - Consulta de Empresas Cadastradas
+    descricao: Consulta de agentes econômicos (empresas) do setor audiovisual cadastrados.
+    links:
+      - url: https://sad2.ancine.gov.br/agenteeconomico/consultaViaPortal/consultaExternaEmpresasCadastradas.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-consulta-de-agentes-economicos
+    nome: ANCINE - Consulta de Agentes Econômicos
+    descricao: Consulta detalhada de agentes econômicos do setor audiovisual por tipo.
+    links:
+      - url: https://sad2.ancine.gov.br/agenteeconomico/consultaViaPortal/consultaExternaAE.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-consulta-de-obras-publicitarias
+    nome: ANCINE - Consulta de Obras Publicitárias
+    descricao: Consulta de obras publicitárias registradas na ANCINE.
+    links:
+      - url: https://sad2.ancine.gov.br/obraspublicitarias/consultaGeralViaPortal/consultaGeralViaPortal.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-certificado-de-registro-de-titulo-crt
+    nome: ANCINE - Certificado de Registro de Título (CRT)
+    descricao: Consulta de CRT de obras audiovisuais.
+    links:
+      - url: https://sad2.ancine.gov.br/obrasnaopublicitarias/consultarCrtViaPortal/consultarCrtViaPortal.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-certificado-de-produto-brasileiro-cpb
+    nome: ANCINE - Certificado de Produto Brasileiro (CPB)
+    descricao: Consulta de CPB de obras audiovisuais brasileiras.
+    links:
+      - url: https://sad2.ancine.gov.br/obrasnaopublicitarias/pesquisarCpbViaPortal/pesquisarCpbViaPortal.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-registro-de-obra-estrangeira-roe
+    nome: ANCINE - Registro de Obra Estrangeira (ROE)
+    descricao: Consulta de obras estrangeiras registradas no Brasil.
+    links:
+      - url: https://sad2.ancine.gov.br/obrasnaopublicitarias/consultarRoeViaPortal/consultarRoeViaPortal.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-consulta-de-obras
+    nome: ANCINE - Consulta de Obras
+    descricao: Consulta geral de obras audiovisuais cadastradas.
+    links:
+      - url: https://sad2.ancine.gov.br/obrasnaopublicitarias/consultarObraViaPortal/consultarObraViaPortal.seam
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/versalic-lei-rouanet
+    nome: VerSalic - Lei Rouanet
+    descricao: Painel público do Ministério da Cultura com projetos incentivados, proponentes, incentivadores e valores captados pela Lei Rouanet.
+    resumo: Links de pesquisa
+    links:
+      - url: https://versalic.cultura.gov.br/
+        label: VerSalic
+      - url: https://salic.cultura.gov.br/
+        label: Salic
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ancine-observatorio-do-cinema-e-do-audiovisual-oca
+    nome: ANCINE - Observatório do Cinema e do Audiovisual (OCA)
+    descricao: 'Dados e anuários do mercado audiovisual brasileiro: bilheterias, lançamentos, salas, TV paga e streaming.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/ancine/pt-br/oca
+        label: OCA
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais, video_ao_vivo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/ecad-escritorio-central-de-arrecadacao-e-distribuicao
+    nome: ECAD - Escritório Central de Arrecadação e Distribuição
+    descricao: Órgão de gestão coletiva de direitos de execução pública musical, com informações sobre arrecadação e titulares.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www4.ecad.org.br/
+        label: ECAD
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/cinemateca-brasileira-bases-de-dados
+    nome: Cinemateca Brasileira - Bases de Dados
+    descricao: Bases da filmografia brasileira e do acervo da Cinemateca, com fichas técnicas de filmes e pessoas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://bases.cinemateca.org.br/
+        label: Bases de dados
+      - url: https://cinemateca.org.br/acervo/
+        label: Acervo
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/iphan-e-ibram-patrimonio-e-museus
+    nome: IPHAN e Ibram - Patrimônio e Museus
+    descricao: Portais do Instituto do Patrimônio Histórico e do Instituto Brasileiro de Museus com bens tombados, museus e acervos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/iphan/pt-br
+        label: IPHAN
+      - url: https://www.gov.br/museus/pt-br
+        label: Ibram - Museus
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/mapas-culturais-e-snc
+    nome: Mapas Culturais e SNC
+    descricao: Plataforma colaborativa de agentes, espaços e eventos culturais e Sistema Nacional de Cultura.
+    resumo: Links de pesquisa
+    links:
+      - url: https://mapas.cultura.gov.br/
+        label: Mapas da Cultura
+      - url: https://snc.cultura.gov.br/index.html
+        label: Sistema Nacional de Cultura
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/cbl-pesquisa-de-isbn
+    nome: CBL - Pesquisa de ISBN
+    descricao: Consulta de livros e editoras pelo ISBN na agência brasileira da Câmara Brasileira do Livro.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.cblservicos.org.br/isbn/pesquisa/
+        label: Pesquisa ISBN
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: cultura-e-audiovisual/immub-instituto-memoria-musical-brasileira
+    nome: IMMuB - Instituto Memória Musical Brasileira
+    descricao: Acervo on-line de discos e fonogramas brasileiros com intérpretes, compositores, músicos e gravadoras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://immub.org/
+        label: IMMuB
+    input: [cnpj, razao_social]
+    output: [dados_cadastrais]
+    tipo_fonte: ong
+    classificacao: heuristica

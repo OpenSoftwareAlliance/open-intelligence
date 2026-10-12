@@ -1,0 +1,983 @@
+# Categoria: Transparência Pública e Defesa do Consumidor
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-da-transparencia-governo-federal
+    nome: Portal da Transparência - Governo Federal
+    descricao: Consultas a favorecidos, convênios, servidores, CEIS/CNEP, despesas, viagens oficiais e outros dados financeiros da União.
+    links:
+      - url: https://portaldatransparencia.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-da-transparencia-consulta-de-sancoes
+    nome: Portal da Transparência - Consulta de Sanções
+    descricao: Consulta pública de sanções aplicadas a pessoas físicas e jurídicas.
+    links:
+      - url: https://portaldatransparencia.gov.br/sancoes/consulta?cadastro=1&ordenarPor=nomeSancionado&direcao=asc
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-da-transparencia-api-de-dados
+    nome: Portal da Transparência - API de Dados
+    descricao: Interface REST oficial permitindo consultas automatizadas a despesas, convênios, favorecidos e dados de pessoal.
+    links:
+      - url: https://portaldatransparencia.gov.br/api-de-dados
+        em_markdown: true
+      - url: https://portaldatransparencia.gov.br/api-de-dados
+        label: 1. Acesse
+        em_markdown: true
+    input: [cnpj, nome]
+    output: [api_json, contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+    markdown: |-
+      - https://portaldatransparencia.gov.br/api-de-dados
+
+      **📖 Documentação da API:**
+      <details>
+      <summary>Exemplos de Uso da API</summary>
+
+      **Endpoints Principais:**
+      - `/api-de-dados/despesas/` - Consulta de despesas públicas
+      - `/api-de-dados/servidores/` - Dados de servidores públicos
+      - `/api-de-dados/convenios/` - Convênios federais
+      - `/api-de-dados/favorecidos/` - Pessoas/empresas favorecidas
+
+      **Exemplo de Requisição (Python):**
+      ```python
+      import requests
+
+      url = "https://api.portaldatransparencia.gov.br/api-de-dados/despesas"
+      headers = {"chave-api-dados": "SUA_CHAVE_AQUI"}
+      params = {
+          "mesAno": "01/2024",
+          "orgaoSuperior": "20000"
+      }
+      response = requests.get(url, headers=headers, params=params)
+      print(response.json())
+      ```
+
+      **Como obter chave API:**
+      1. Acesse https://portaldatransparencia.gov.br/api-de-dados
+      2. Clique em "Solicitar Chave"
+      3. Preencha o formulário com seus dados
+      4. Aguarde aprovação por e-mail
+
+      **Limitações:**
+      - Máximo de 60 requisições por minuto
+      - Período máximo de consulta: 12 meses
+      - Formato de resposta: JSON
+
+      </details>
+  - id: transparencia-publica-e-defesa-do-consumidor/dados-gov-br-portal-brasileiro-de-dados-abertos
+    nome: Dados.gov.br - Portal Brasileiro de Dados Abertos
+    descricao: Catálogo central de dados abertos do governo federal com mais de 10 mil conjuntos de dados.
+    links:
+      - url: https://dados.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, dataset, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/painel-de-compras-governamentais
+    nome: Painel de Compras Governamentais
+    descricao: Centralização de informações sobre licitações, contratos e compras do governo federal.
+    links:
+      - url: https://paineldecompras.economia.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, estatistica, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/comprasnet-portal-de-compras-do-governo-federal
+    nome: ComprasNet - Portal de Compras do Governo Federal
+    descricao: Sistema oficial de compras e licitações públicas do governo federal.
+    links:
+      - url: https://www.gov.br/compras/pt-br
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/pncp-portal-nacional-de-contratacoes-publicas
+    nome: PNCP - Portal Nacional de Contratações Públicas
+    descricao: Plataforma unificada de licitações conforme nova Lei de Licitações (Lei 14.133/2021).
+    links:
+      - url: https://www.gov.br/pncp/
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/sicaf-consulta-de-restricao-para-contratar-com-a-administracao-publica
+    nome: SICAF - Consulta de Restrição para Contratar com a Administração Pública
+    descricao: Consulta pública de pessoas físicas, jurídicas e estrangeiros com restrição para contratar com a Administração Pública, por CNPJ, CPF ou razão social.
+    links:
+      - url: https://www3.comprasnet.gov.br/sicaf-web/public/pages/consultas/consultarRestricaoContratarAdministracaoPublica.jsf
+    input: [cnpj, cpf, razao_social]
+    output: [sancao]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Sem cadastro, com hCaptcha.
+  - id: transparencia-publica-e-defesa-do-consumidor/mte-cadastro-de-empregadores-que-submeteram-trabalhadores-a-condicoes-analogas-a-escravidao
+    nome: MTE - Cadastro de Empregadores que Submeteram Trabalhadores a Condições Análogas à Escravidão
+    descricao: Lista pública do Ministério do Trabalho e Emprego com os empregadores flagrados em fiscalização, em formato PDF.
+    links:
+      - url: https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/areas-de-atuacao/cadastro_de_empregadores.pdf
+    input: [nenhum]
+    output: [dataset, sancao]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Lista em PDF, atualizada periodicamente pelo MTE.
+  - id: transparencia-publica-e-defesa-do-consumidor/tcu-tribunal-de-contas-da-uniao
+    nome: TCU - Tribunal de Contas da União
+    descricao: Fiscalização de gastos públicos federais, relatórios de auditoria e decisões.
+    links:
+      - url: https://portal.tcu.gov.br/
+    input: [cnpj, nome, numero_processo]
+    output: [contrato_publico, licitacao, processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tcu-consulta-de-acordaos
+    nome: TCU - Consulta de Acórdãos
+    descricao: Busca de decisões do TCU sobre prestação de contas e irregularidades.
+    links:
+      - url: https://pesquisa.apps.tcu.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tcu-plataforma-de-certidoes
+    nome: TCU - Plataforma de Certidões
+    descricao: Emissão de certidões do Tribunal de Contas da União por CPF ou CNPJ (contas julgadas irregulares, inabilitados, licitantes inidôneos e processos) e listas públicas pesquisáveis por nome, CPF/CNPJ, UF e município, com download em CSV. A lista eleitoral cobre as eleições de 2014 a 2026.
+    resumo: Links de pesquisa
+    links:
+      - url: https://certidoes.apps.tcu.gov.br/emitir-certidao-contas-julgadas-irregulares
+        label: Certidão de contas julgadas irregulares
+      - url: https://certidoes.apps.tcu.gov.br/emitir-certidao-inabilitados
+        label: Certidão de inabilitados para função pública
+        uf: PA
+      - url: https://certidoes.apps.tcu.gov.br/emitir-certidao-inidoneos
+        label: Certidão de licitante inidôneo
+      - url: https://certidoes.apps.tcu.gov.br/emitir-certidao-processos
+        label: Certidão de processos
+      - url: https://certidoes.apps.tcu.gov.br/lista-implicacao-eleitoral
+        label: Lista eleitoral de contas julgadas irregulares
+      - url: https://certidoes.apps.tcu.gov.br/lista-responsaveis
+        label: Lista de contas julgadas irregulares
+      - url: https://certidoes.apps.tcu.gov.br/lista-inabilitados
+        label: Lista de inabilitados
+      - url: https://certidoes.apps.tcu.gov.br/lista-inidoneos
+        label: Lista de licitantes inidôneos
+    input: [cnpj, cpf, municipio, nome, uf]
+    output: [certidao, dados_cadastrais, dataset, processo, sancao]
+    tipo_fonte: federal
+    classificacao: override
+    observacao: Sem cadastro. Certidões referem-se aos últimos 20 anos e não incluem decisões sem trânsito em julgado, anuladas ou suspensas. UF e município das listas vêm do domicílio na Receita Federal.
+  - id: transparencia-publica-e-defesa-do-consumidor/cgu-controladoria-geral-da-uniao
+    nome: CGU - Controladoria-Geral da União
+    descricao: Órgão responsável pela defesa do patrimônio público, combate à corrupção, transparência e controle interno do Governo Federal.
+    links:
+      - url: https://www.gov.br/cgu/pt-br
+      - url: https://eaud.cgu.gov.br/
+        label: e-Aud (sistema de auditoria interna governamental)
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/cgu-noticias-e-informacoes
+    nome: CGU - Notícias e Informações
+    descricao: Portal de notícias da CGU com informações sobre ações de controle, transparência e combate à corrupção.
+    links:
+      - url: https://www.gov.br/cgu/pt-br/assuntos/noticias
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-de-acesso-a-informacao-governo-federal
+    nome: Portal de Acesso à Informação - Governo Federal
+    descricao: Portal oficial para solicitações de acesso à informação baseado na Lei de Acesso à Informação (LAI).
+    links:
+      - url: https://www.gov.br/acessoainformacao/pt-br
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/fala-br-plataforma-integrada-de-ouvidoria-e-acesso-a-informacao
+    nome: Fala.BR - Plataforma Integrada de Ouvidoria e Acesso à Informação
+    descricao: Sistema oficial para LAI (Lei de Acesso à Informação), denúncias, reclamações, sugestões e elogios aos órgãos públicos federais.
+    links:
+      - url: https://falabr.cgu.gov.br/web/home
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/consumidor-gov-br
+    nome: Consumidor.gov.br
+    descricao: Plataforma pública para registro de reclamações contra empresas, acompanhamento de respostas e avaliação do atendimento.
+    links:
+      - url: https://www.consumidor.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/senacon-secretaria-nacional-do-consumidor
+    nome: Senacon - Secretaria Nacional do Consumidor
+    descricao: Portal oficial da Secretaria Nacional do Consumidor com informações sobre direitos do consumidor, recalls e regulamentações.
+    links:
+      - url: https://www.gov.br/mj/pt-br/assuntos/seus-direitos/consumidor
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/inmetro-produtos-certificados
+    nome: INMETRO - Produtos Certificados
+    descricao: Consulta de produtos certificados pelo Instituto Nacional de Metrologia, Qualidade e Tecnologia.
+    links:
+      - url: http://www.inmetro.gov.br/prodcert/produtos/busca.asp
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/dados-abertos-consumidor-gov-br
+    nome: Dados Abertos - Consumidor.gov.br
+    descricao: Dataset oficial com histórico de reclamações registradas no Consumidor.gov.br (Ministério da Justiça).
+    links:
+      - url: https://dados.mj.gov.br/dataset/reclamacoes-do-consumidor-gov-br
+    input: [cnpj, nome]
+    output: [contrato_publico, dataset, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/procon-sp-espaco-do-consumidor
+    nome: PROCON-SP - Espaço do Consumidor
+    descricao: Portal do PROCON-SP com orientações, consultas e canais de reclamação.
+    links:
+      - url: https://www.procon.sp.gov.br/espaco-consumidor/
+        uf: SP
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-da-transparencia-estado-de-sao-paulo
+    nome: Portal da Transparência - Estado de São Paulo
+    descricao: Portal estadual de transparência com dados de remuneração, contratos, convênios e despesas do governo paulista.
+    links:
+      - url: https://www.transparencia.sp.gov.br/
+        uf: SP
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, remuneracao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/e-agendas-cgu
+    nome: E-Agendas CGU
+    descricao: Consulta de agendas públicas de autoridades do Governo Federal.
+    links:
+      - url: https://eagendas.cgu.gov.br/
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tribunais-de-contas-estaduais
+    nome: Tribunais de Contas Estaduais
+    descricao: Portais dos Tribunais de Contas responsáveis pela fiscalização das contas públicas estaduais e municipais.
+    resumo: Portais por Estado
+    links:
+      - grupo: |-
+          **Acre (AC)**
+          - Informações disponíveis em processo de atualização
+          **Amapá (AP)**
+        url: https://www.tce.ap.gov.br/
+        label: Portal
+        uf: AP
+      - grupo: |-
+          **Alagoas (AL)**
+          - Portal em manutenção
+          **Bahia (BA)**
+        url: https://www.tce.ba.gov.br/
+        label: Portal
+        uf: BA
+      - grupo: '**Ceará (CE)**'
+        url: https://www.tce.ce.gov.br/
+        label: Portal
+        uf: CE
+      - grupo: '**Minas Gerais (MG)**'
+        url: https://www.tce.mg.gov.br/
+        label: Portal
+        uf: MG
+      - grupo: '**Mato Grosso do Sul (MS)**'
+        url: https://www.tce.ms.gov.br/
+        label: Portal
+        uf: MS
+      - grupo: '**Mato Grosso (MT)**'
+        url: https://www.tce.mt.gov.br/
+        label: Portal
+        uf: MT
+      - grupo: '**Paraíba (PB)**'
+        url: https://tce.pb.gov.br/
+        label: Portal
+        uf: PB
+      - grupo: '**Paraná (PR)**'
+        url: https://www1.tce.pr.gov.br/
+        label: Portal
+        uf: PR
+      - grupo: '**Rio Grande do Norte (RN)**'
+        url: http://www.tce.rn.gov.br/
+        label: Portal
+        uf: RN
+      - grupo: '**São Paulo (SP)**'
+        url: https://www.tce.sp.gov.br/
+        label: Portal
+        uf: SP
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-da-transparencia-consulta-de-notas-fiscais
+    nome: Portal da Transparência - Consulta de Notas Fiscais
+    descricao: Consulta detalhada de notas fiscais emitidas para órgãos públicos federais, com filtros por UF, fornecedor, período e órgão.
+    links:
+      - url: https://portaldatransparencia.gov.br/notas-fiscais/consulta
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/nota-fiscal-eletronica-e-transparencia-por-estado
+    nome: Nota Fiscal Eletrônica e Transparência por Estado
+    descricao: Consultas de Notas Fiscais Eletrônicas e Portais de Transparência estaduais e municipais.
+    resumo: Consultas por Estado
+    links:
+      - grupo: '**Acre (AC)**'
+        url: http://sefaznet.ac.gov.br/nfe/consulta.xhtml
+        label: Nota Fiscal
+        uf: AC
+      - grupo: '**Alagoas (AL)**'
+        url: https://nfce.sefaz.al.gov.br/consultaNFCe.aspx
+        label: Nota Fiscal Eletrônica
+        uf: AL
+      - url: https://transparencia.al.gov.br/
+        label: Portal da Transparência AL
+        uf: AL
+      - grupo: '**Amazonas (AM)**'
+        url: https://sistemas.sefaz.am.gov.br/nfce/qrcode
+        label: Nota Fiscal Eletrônica
+        uf: AM
+      - url: https://www.transparencia.am.gov.br/
+        label: Portal da Transparência AM
+        uf: AM
+      - grupo: '**Bahia (BA)**'
+        url: http://nfe.sefaz.ba.gov.br/
+        label: Nota Fiscal Eletrônica
+        uf: BA
+      - url: http://www.transparencia.ba.gov.br/
+        label: Portal da Transparência BA
+        uf: BA
+      - grupo: '**Ceará (CE)**'
+        url: https://nfce.sefaz.ce.gov.br/pages/consultarNFCe.jsf
+        label: Nota Fiscal Eletrônica
+        uf: CE
+      - url: https://cearatransparente.ce.gov.br/
+        label: Portal da Transparência CE
+        uf: CE
+      - grupo: '**Distrito Federal (DF)**'
+        url: https://dec.fazenda.df.gov.br/ConsultarNFe.aspx
+        label: Nota Fiscal Eletrônica
+        uf: DF
+      - url: https://www.transparencia.df.gov.br/
+        label: Portal da Transparência DF
+        uf: DF
+      - grupo: '**Goiás (GO)**'
+        url: https://www.goiania.go.gov.br/sing_servicos/nota-fiscal-eletronica/
+        label: Consulta Nota Fiscal
+        uf: GO
+      - url: https://www.goiania.go.gov.br/sing_servicos/emissao-duam-itu-iptu-issqn/
+        label: Consulta DUAM-IPTU-ITU-ISSQN
+        uf: GO
+      - url: https://www.goiania.go.gov.br/sing_servicos/matriculas-web/
+        label: Consulta matrículas
+        uf: GO
+      - url: https://www.goiania.go.gov.br/sing_servicos/consulta-processos/
+        label: Consulta processos
+        uf: GO
+      - grupo: '**Minas Gerais (MG)**'
+        url: http://cndonline.siatu.pbh.gov.br/CNDOnline/?null
+        label: Consulta de Certidão Negativa de Débito | Belo Horizonte
+        uf: MG
+      - grupo: '**Piauí (PI)**'
+        url: https://webas.sefaz.pi.gov.br/
+        label: Sefaz Piauí
+        uf: PI
+      - url: https://webas.sefaz.pi.gov.br/caginweb/
+        label: Inadimplentes
+        uf: PI
+      - url: https://webas.sefaz.pi.gov.br/certidaonft-web/index.xhtml
+        label: Certidões
+        uf: PI
+      - url: https://webas.sefaz.pi.gov.br/MEI-WEB/
+        label: MEI
+        uf: PI
+      - url: https://sistemas.tce.pi.gov.br/ImpedimentoAS/impedimentos/listapessoas.xhtml
+        label: Impedidos de contratar com o poder público
+        uf: PI
+      - grupo: '**Rondônia (RO) - Porto Velho**'
+        url: https://semfazonline.portovelho.ro.gov.br/portal/certidao_negativa.action
+        label: Certidão Negativa de Débitos de Tributos Fiscais
+        uf: RO
+      - url: https://semfazonline.portovelho.ro.gov.br/portal/iptu_consulta_debito_input.action
+        label: Consulta de Débitos Imobiliários - IPTU
+        uf: RO
+      - url: https://semfazonline.portovelho.ro.gov.br/portal/consulta_empresa_input.action
+        label: Consulta Empresas Cadastradas
+        uf: RO
+      - grupo: '**São Paulo (SP)**'
+        url: https://www.transparencia.sp.gov.br/home/servidor
+        label: Consulta de nome e salários de servidores do Estado
+        uf: SP
+      - grupo: '**Maranhão (MA) - São Luís**'
+        url: https://transparencia.saoluis.ma.gov.br/
+        label: Portal da Transparência Prefeitura | São Luís
+        uf: MA
+      - url: https://diariooficial.saoluis.ma.gov.br/
+        label: Diário Eletrônico Prefeitura | São Luís
+        uf: MA
+      - grupo: '**Maranhão (MA) - São José de Ribamar**'
+        url: https://transparencia.saojosederibamar.ma.gov.br/
+        label: Portal da Transparência Prefeitura | São José de Ribamar
+        uf: MA
+      - url: https://www.saojosederibamar.ma.gov.br/detalhe-da-materia/info/diario-eletronico/148327
+        label: Diário Eletrônico Prefeitura | São José de Ribamar
+        uf: MA
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tcu-consulta-consolidada-de-pessoa-juridica
+    nome: TCU - Consulta Consolidada de Pessoa Jurídica
+    descricao: Emite em uma única consulta certidões do CEIS, CNEP, CNJ (improbidade) e TCU (inidôneos) para um CNPJ.
+    links:
+      - url: https://certidoes-apf.apps.tcu.gov.br/
+    input: [cnpj, nome]
+    output: [certidao, contrato_publico, dados_cadastrais, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/banco-central-inabilitados-e-processos-administrativos-sancionadores
+    nome: Banco Central - Inabilitados e processos administrativos sancionadores
+    descricao: Relação de pessoas inabilitadas para cargos em instituições financeiras e consulta das decisões de processos sancionadores do BCB.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/inabilitados
+        label: Inabilitados
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/processoadministrativosancionador
+        label: Processos administrativos sancionadores
+    input: [cnpj, nome, numero_processo]
+    output: [contrato_publico, licitacao, processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/cvm-processos-administrativos-sancionadores
+    nome: CVM - Processos administrativos sancionadores
+    descricao: Consulta de julgamentos, termos de compromisso e decisões sancionadoras da Comissão de Valores Mobiliários.
+    links:
+      - url: https://conteudo.cvm.gov.br/sancionadores/index.html
+    input: [cnpj, nome, numero_processo]
+    output: [contrato_publico, licitacao, processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/crsfn-conselho-de-recursos-do-sistema-financeiro-nacional
+    nome: CRSFN - Conselho de Recursos do Sistema Financeiro Nacional
+    descricao: Órgão que julga recursos contra sanções do BCB, CVM e COAF, com pautas, acórdãos e ementário.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/fazenda/pt-br/composicao/orgaos/orgaos-colegiados/crsfn
+        label: Ministério da Fazenda
+      - url: https://www.bcb.gov.br/estabilidadefinanceira/crsfn
+        label: Página no Banco Central
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/coaf-publicacoes-e-coletanea-casos-casos
+    nome: COAF - Publicações e coletânea Casos & Casos
+    descricao: Publicações do Conselho de Controle de Atividades Financeiras, incluindo relatórios de atividades e as coletâneas de tipologias de lavagem de dinheiro Casos & Casos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/coaf/pt-br/centrais-de-conteudo/publicacoes
+        label: Publicações
+      - url: https://www.gov.br/coaf/pt-br/centrais-de-conteudo/publicacoes/publicacoes-do-coaf-1
+        label: Publicações do COAF
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/mte-radar-sit-e-combate-ao-trabalho-escravo
+    nome: MTE - Radar SIT e combate ao trabalho escravo
+    descricao: Painel de estatísticas da inspeção do trabalho (resgates, autuações, trabalho infantil) e página oficial do MTE sobre combate ao trabalho análogo ao de escravo.
+    resumo: Links de pesquisa
+    links:
+      - url: https://sit.trabalho.gov.br/radar/
+        label: Radar SIT
+      - url: https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/areas-de-atuacao/combate-ao-trabalho-escravo-e-analogo-ao-de-escravo
+        label: Combate ao trabalho escravo - MTE
+    input: [cnpj, nome]
+    output: [auto_infracao, contrato_publico, estatistica, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/smartlab-observatorio-da-erradicacao-do-trabalho-escravo
+    nome: SmartLab - Observatório da Erradicação do Trabalho Escravo
+    descricao: Observatório do MPT e da OIT com dados municipais de resgates, naturalidade e residência de trabalhadores resgatados e setores econômicos envolvidos.
+    links:
+      - url: https://smartlab.mpt.mp.br/trabalhoescravo
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: ministerio_publico
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/divida-ativa-estadual-consultas-e-listas-de-devedores
+    nome: Dívida ativa estadual - Consultas e listas de devedores
+    descricao: Consultas oficiais de débitos inscritos em dívida ativa estadual e listas públicas de devedores das procuradorias e secretarias de fazenda.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.dividaativa.pge.sp.gov.br/sc/pages/consultas/consultarDebito.jsf
+        label: São Paulo - PGE (SP)
+        uf: SP
+      - url: https://atendimento.receita.rs.gov.br/lista-de-debitos-inscritos-em-divida-ativa
+        label: Rio Grande do Sul - lista de devedores (RS)
+        uf: RS
+      - url: https://www.pge.rj.gov.br/divida-ativa
+        label: Rio de Janeiro - PGE (RJ)
+        uf: RJ
+      - url: https://www.fazenda.mg.gov.br/transparencia/Divida-Ativa/
+        label: Minas Gerais - SEF (MG)
+        uf: MG
+    input: [cnpj, nome]
+    output: [contrato_publico, debito, licitacao, mandado_prisao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tribunais-de-contas-dos-estados-e-do-df-faltantes
+    nome: Tribunais de Contas dos Estados e do DF (faltantes)
+    descricao: Portais dos Tribunais de Contas estaduais com consulta de processos, julgamento de contas, responsáveis com contas irregulares e dados de fiscalização de estados e municípios.
+    resumo: Links de pesquisa
+    links:
+      - url: https://tceac.tc.br/site/
+        label: TCE-AC (AC)
+        uf: AC
+      - url: https://www.tceal.tc.br/
+        label: TCE-AL (AL)
+        uf: AL
+      - url: https://www.tceam.tc.br/
+        label: TCE-AM (AM)
+        uf: AM
+      - url: https://www.tcees.tc.br/
+        label: TCE-ES (ES)
+        uf: ES
+      - url: https://portal.tce.go.gov.br/
+        label: TCE-GO (GO)
+        uf: GO
+      - url: https://www.tcema.tc.br/
+        label: TCE-MA (MA)
+        uf: MA
+      - url: https://www.tcepa.tc.br/
+        label: TCE-PA (PA)
+        uf: PA
+      - url: https://www.tcepe.tc.br/internet/
+        label: TCE-PE (PE)
+        uf: PE
+      - url: https://www.tcepi.tc.br/
+        label: TCE-PI (PI)
+        uf: PI
+      - url: https://www.tcerj.tc.br/portalnovo/
+        label: TCE-RJ (RJ)
+        uf: RJ
+      - url: https://www.tcero.tc.br/
+        label: TCE-RO (RO)
+        uf: RO
+      - url: https://www.tcerr.tc.br/
+        label: TCE-RR (RR)
+        uf: RR
+      - url: https://tcers.tc.br/
+        label: TCE-RS (RS)
+        uf: RS
+      - url: https://www.tcesc.tc.br/
+        label: TCE-SC (SC)
+        uf: SC
+      - url: https://www.tce.se.gov.br/SitePages/home.aspx
+        label: TCE-SE (SE)
+        uf: SE
+      - url: https://www.tceto.tc.br/
+        label: TCE-TO (TO)
+        uf: TO
+      - url: https://www2.tc.df.gov.br/
+        label: TCDF (DF)
+        uf: DF
+    input: [cnpj, municipio, nome, numero_processo]
+    output: [contrato_publico, licitacao, processo, sancao]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tribunais-de-contas-dos-municipios
+    nome: Tribunais de Contas dos Municípios
+    descricao: Tribunais de Contas que fiscalizam municípios (BA, GO, PA) e os tribunais municipais de São Paulo e do Rio de Janeiro.
+    resumo: Links de pesquisa
+    links:
+      - url: https://portal.tcm.sp.gov.br/
+        label: TCM-SP (São Paulo)
+        uf: SP
+      - url: https://www.tcmrio.tc.br/
+        label: TCM-RJ (Rio de Janeiro)
+        uf: RJ
+      - url: https://www.tcm.go.gov.br/
+        label: TCM-GO (GO)
+        uf: GO
+      - url: https://www.tcm.ba.gov.br/
+        label: TCM-BA (BA)
+        uf: BA
+      - url: https://www.tcmpa.tc.br/
+        label: TCM-PA (PA)
+        uf: PA
+    input: [cnpj, municipio, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portais-da-transparencia-estaduais-faltantes
+    nome: Portais da Transparência estaduais (faltantes)
+    descricao: Portais oficiais dos governos estaduais com despesas, receitas, servidores e remunerações, contratos, convênios e licitações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://transparencia.ac.gov.br/
+        label: Acre (AC)
+        uf: AC
+      - url: https://www.transparencia.ap.gov.br/
+        label: Amapá (AP)
+        uf: AP
+      - url: https://transparencia.es.gov.br/
+        label: Espírito Santo (ES)
+        uf: ES
+      - url: https://transparencia.go.gov.br/
+        label: Goiás (GO)
+        uf: GO
+      - url: https://www.transparencia.ma.gov.br/
+        label: Maranhão (MA)
+        uf: MA
+      - url: https://www.transparencia.mt.gov.br/
+        label: Mato Grosso (MT)
+        uf: MT
+      - url: https://www.transparencia.ms.gov.br/
+        label: Mato Grosso do Sul (MS)
+        uf: MS
+      - url: https://www.transparencia.mg.gov.br/
+        label: Minas Gerais (MG)
+        uf: MG
+      - url: https://www.sistemas.pa.gov.br/portaltransparencia
+        label: Pará (PA)
+        uf: PA
+      - url: https://transparencia.pb.gov.br/
+        label: Paraíba (PB)
+        uf: PB
+      - url: https://www.transparencia.pr.gov.br/
+        label: Paraná (PR)
+        uf: PR
+      - url: https://transparencia.pe.gov.br/
+        label: Pernambuco (PE)
+        uf: PE
+      - url: https://transparencia.pi.gov.br/
+        label: Piauí (PI)
+        uf: PI
+      - url: https://www.transparencia.rj.gov.br/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www.transparencia.rn.gov.br/
+        label: Rio Grande do Norte (RN)
+        uf: RN
+      - url: https://www.transparencia.rs.gov.br/inicio
+        label: Rio Grande do Sul (RS)
+        uf: RS
+      - url: https://transparencia.ro.gov.br/
+        label: Rondônia (RO)
+        uf: RO
+      - url: https://www.transparencia.rr.gov.br/
+        label: Roraima (RR)
+        uf: RR
+      - url: https://www.transparencia.sc.gov.br/
+        label: Santa Catarina (SC)
+        uf: SC
+      - url: https://transparencia.se.gov.br/
+        label: Sergipe (SE)
+        uf: SE
+      - url: https://transparencia.to.gov.br/PortalTransparencia/
+        label: Tocantins (TO)
+        uf: TO
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, remuneracao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portais-da-transparencia-das-capitais
+    nome: Portais da Transparência das capitais
+    descricao: Portais de transparência das prefeituras das capitais com despesas, folha de pagamento, contratos e licitações municipais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://transparencia.riobranco.ac.gov.br/portal-transparencia/
+        label: Rio Branco (AC)
+        uf: AC
+      - url: https://www.transparencia.maceio.al.gov.br/transparencia/
+        label: Maceió (AL)
+        uf: AL
+      - url: https://macapa.ap.gov.br/portaldatransparencia/
+        label: Macapá (AP)
+        uf: AP
+      - url: https://transparencia.manaus.am.gov.br/transparencia/
+        label: Manaus (AM)
+        uf: AM
+      - url: https://transparencia.salvador.ba.gov.br/
+        label: Salvador (BA)
+        uf: BA
+      - url: https://transparencia.fortaleza.ce.gov.br/
+        label: Fortaleza (CE)
+        uf: CE
+      - url: https://transparencia.vitoria.es.gov.br/
+        label: Vitória (ES)
+        uf: ES
+      - url: https://www.goiania.go.gov.br/transparencia/
+        label: Goiânia (GO)
+        uf: GO
+      - url: https://transparencia.cuiaba.mt.gov.br/portaltransparencia/transparencia/
+        label: Cuiabá (MT)
+        uf: MT
+      - url: https://transparencia.campogrande.ms.gov.br/
+        label: Campo Grande (MS)
+        uf: MS
+      - url: https://prefeitura.pbh.gov.br/transparencia
+        label: Belo Horizonte (MG)
+        uf: MG
+      - url: https://transparencia.belem.pa.gov.br/giig/portais/portaldatransparencia/defaultPortalV3.aspx
+        label: Belém (PA)
+        uf: PA
+      - url: https://transparencia.joaopessoa.pb.gov.br/
+        label: João Pessoa (PB)
+        uf: PB
+      - url: https://www.transparencia.curitiba.pr.gov.br/
+        label: Curitiba (PR)
+        uf: PR
+      - url: https://transparencia.recife.pe.gov.br/codigos/web/geral/home.php
+        label: Recife (PE)
+        uf: PE
+      - url: https://transparencia.teresina.pi.gov.br/
+        label: Teresina (PI)
+        uf: PI
+      - url: https://transparencia.prefeitura.rio/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www2.natal.rn.gov.br/transparencia/
+        label: Natal (RN)
+        uf: RN
+      - url: https://transparencia.portoalegre.rs.gov.br/
+        label: Porto Alegre (RS)
+        uf: RS
+      - url: https://transparencia.portovelho.ro.gov.br/
+        label: Porto Velho (RO)
+        uf: RO
+      - url: https://www.portalcr2.com.br/entidade/boa-vista
+        label: Boa Vista (RR)
+        uf: RR
+      - url: https://www.pmf.sc.gov.br/transparencia/
+        label: Florianópolis (SC)
+        uf: SC
+      - url: https://transparencia.aracaju.se.gov.br/prefeitura/
+        label: Aracaju (SE)
+        uf: SE
+      - url: https://transparencia.prefeitura.sp.gov.br/
+        label: São Paulo (SP)
+        uf: SP
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, remuneracao, sancao]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/portal-da-transparencia-consultas-tematicas-federais
+    nome: Portal da Transparência - Consultas temáticas federais
+    descricao: 'Consultas específicas do Portal da Transparência do Governo Federal: emendas parlamentares, viagens a serviço, cartões de pagamento, licitações, contratos, convênios, servidores, favorecidos e busca por pessoa física ou jurídica.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://portaldatransparencia.gov.br/emendas
+        label: Emendas parlamentares
+      - url: https://portaldatransparencia.gov.br/viagens
+        label: Viagens a serviço
+      - url: https://portaldatransparencia.gov.br/cartoes
+        label: Cartões de pagamento
+      - url: https://portaldatransparencia.gov.br/licitacoes
+        label: Licitações
+      - url: https://portaldatransparencia.gov.br/contratos
+        label: Contratos
+      - url: https://portaldatransparencia.gov.br/convenios
+        label: Convênios e transferências
+      - url: https://portaldatransparencia.gov.br/servidores/consulta
+        label: Servidores
+      - url: https://portaldatransparencia.gov.br/despesas/favorecido
+        label: Favorecidos de despesas
+      - url: https://portaldatransparencia.gov.br/pessoa-fisica/busca/lista
+        label: Busca por pessoa física
+      - url: https://portaldatransparencia.gov.br/pessoa-juridica/busca/lista
+        label: Busca por pessoa jurídica
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/pncp-busca-de-contratacoes-publicas
+    nome: PNCP - Busca de contratações públicas
+    descricao: Busca nacional de editais, avisos, atas e contratos publicados por União, estados e municípios no Portal Nacional de Contratações Públicas.
+    links:
+      - url: https://pncp.gov.br/app/editais
+    input: [cnpj, municipio, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/compras-gov-br-contratos-e-dados-abertos
+    nome: Compras.gov.br - Contratos e dados abertos
+    descricao: Transparência dos contratos federais geridos no Compras.gov.br e API de dados abertos de compras governamentais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://contratos.comprasnet.gov.br/transparencia
+        label: Transparência de contratos
+      - url: https://dadosabertos.compras.gov.br/
+        label: API de dados abertos de compras
+    input: [cnpj, nome]
+    output: [api_json, contrato_publico, dataset, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tesouro-nacional-siconfi-e-tesouro-transparente
+    nome: Tesouro Nacional - Siconfi e Tesouro Transparente
+    descricao: Declarações contábeis e fiscais de estados e municípios (RREO, RGF, DCA) e portal de dados do Tesouro com transferências e finanças subnacionais.
+    resumo: Links de pesquisa
+    links:
+      - url: https://siconfi.tesouro.gov.br/
+        label: Siconfi
+      - url: https://www.tesourotransparente.gov.br/
+        label: Tesouro Transparente
+      - url: https://www.tesourotransparente.gov.br/temas/estados-e-municipios
+        label: Estados e municípios
+    input: [cnpj, municipio, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/cgu-paineis-e-atividade-disciplinar
+    nome: CGU - Painéis e atividade disciplinar
+    descricao: Painéis gerenciais da Controladoria-Geral da União e informações sobre processos disciplinares e correição no Poder Executivo federal.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/cgu/pt-br/centrais-de-conteudo/paineis
+        label: Painéis CGU
+      - url: https://www.gov.br/cgu/pt-br/assuntos/atividade-disciplinar
+        label: Atividade disciplinar
+    input: [cnpj, nome, numero_processo]
+    output: [contrato_publico, licitacao, processo, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/tcu-fiscalizacao-de-obras-fiscobras
+    nome: TCU - Fiscalização de obras (Fiscobras)
+    descricao: Relatórios do TCU sobre fiscalização de obras públicas, com indícios de irregularidades graves e obras paralisadas.
+    links:
+      - url: https://portal.tcu.gov.br/fiscalizacao-de-obras/
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/obrasgov-br-cadastro-de-obras-publicas-federais
+    nome: Obrasgov.br - Cadastro de obras públicas federais
+    descricao: Portal do cadastro integrado de projetos de investimento e obras financiadas com recursos federais.
+    links:
+      - url: https://www.gov.br/obrasgov/pt-br
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/transparencia-brasil
+    nome: Transparência Brasil
+    descricao: Organização que monitora o poder público e mantém projetos como Achados e Pedidos, Excelências e ferramentas de avaliação de transparência.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.transparencia.org.br/
+        label: Site
+      - url: https://www.transparencia.org.br/projetos
+        label: Projetos
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/achados-e-pedidos-pedidos-de-lai
+    nome: Achados e Pedidos - Pedidos de LAI
+    descricao: Repositório público com milhares de pedidos e respostas da Lei de Acesso à Informação feitos a órgãos de todo o país, pesquisável por palavra-chave.
+    resumo: Links de pesquisa
+    links:
+      - url: https://achadosepedidos.org.br/
+        label: Achados e Pedidos
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/cgu-busca-de-pedidos-e-respostas-de-lai
+    nome: CGU - Busca de Pedidos e Respostas de LAI
+    descricao: Ferramentas da CGU para pesquisar pedidos e respostas de LAI já atendidos pelo Governo Federal e precedentes de decisões.
+    resumo: Links de pesquisa
+    links:
+      - url: https://buscalai.cgu.gov.br/
+        label: Busca LAI
+      - url: https://www.gov.br/cgu/pt-br/acesso-a-informacao/dados-abertos
+        label: Dados abertos da CGU
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/fiquem-sabendo
+    nome: Fiquem Sabendo
+    descricao: Agência de dados independente especializada na Lei de Acesso à Informação, que publica bases inéditas obtidas via LAI e a newsletter Don't LAI to Me.
+    resumo: Links de pesquisa
+    links:
+      - url: https://fiquemsabendo.com.br/
+        label: Fiquem Sabendo
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/open-knowledge-brasil-e-operacao-serenata-de-amor
+    nome: Open Knowledge Brasil e Operação Serenata de Amor
+    descricao: Organização de dados abertos responsável pelo Querido Diário e pela Serenata de Amor, robô que analisa gastos da cota parlamentar.
+    resumo: Links de pesquisa
+    links:
+      - url: https://ok.org.br/
+        label: OKBR
+      - url: https://serenata.ai/
+        label: Operação Serenata de Amor
+      - url: https://github.com/okfn-brasil/serenata-de-amor
+        label: Código no GitHub
+    input: [cnpj, nome]
+    output: [contrato_publico, dataset, licitacao, sancao]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/atricon-radar-da-transparencia-publica
+    nome: Atricon - Radar da Transparência Pública
+    descricao: Ferramenta que avalia e ranqueia os portais de transparência de órgãos públicos de todos os poderes e esferas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://radardatransparencia.atricon.org.br/
+        label: Radar da Transparência
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, sancao]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/mpf-portal-da-transparencia
+    nome: MPF - Portal da Transparência
+    descricao: Transparência do Ministério Público Federal com remuneração de membros e servidores, contratos, diárias e passagens.
+    resumo: Links de pesquisa
+    links:
+      - url: https://transparencia.mpf.mp.br/
+        label: Transparência MPF
+    input: [cnpj, nome]
+    output: [contrato_publico, licitacao, remuneracao, sancao]
+    tipo_fonte: ministerio_publico
+    classificacao: heuristica
+  - id: transparencia-publica-e-defesa-do-consumidor/stf-portal-de-transparencia-e-corte-aberta
+    nome: STF - Portal de Transparência e Corte Aberta
+    descricao: Estatísticas processuais e painéis do Supremo Tribunal Federal com decisões, distribuição e acervo por ministro.
+    resumo: Links de pesquisa
+    links:
+      - url: https://transparencia.stf.jus.br/
+        label: Transparência STF
+      - url: https://portal.stf.jus.br/hotsites/corteaberta/
+        label: Corte Aberta
+    input: [cnpj, nome, numero_processo]
+    output: [contrato_publico, estatistica, licitacao, processo, sancao]
+    tipo_fonte: judiciario
+    classificacao: heuristica

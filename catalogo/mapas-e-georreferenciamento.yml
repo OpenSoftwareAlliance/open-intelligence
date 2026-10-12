@@ -1,0 +1,286 @@
+# Categoria: Mapas e Georreferenciamento
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: mapas-e-georreferenciamento/imagens-de-satelite-via-inpe-br
+    nome: Imagens de Satélite via inpe.br
+    descricao: Instituto Nacional de Pesquisas Espaciais é um instituto federal brasileiro dedicado à pesquisa e exploração espacial, criado em 1961.
+    resumo: Mapas Inep
+    links:
+      - url: http://www.dgi.inpe.br/catalogo/
+      - url: http://sigma.cptec.inpe.br/
+      - url: http://sigma2.cptec.inpe.br/
+      - url: http://sigma.cptec.inpe.br/radar/
+      - url: http://sigma.cptec.inpe.br/prec_sat/
+      - url: http://sigma.cptec.inpe.br/fortracc/
+      - url: http://satelite.cptec.inpe.br/vento/
+      - url: http://satelite.cptec.inpe.br/radiacao/
+      - url: http://terrabrasilis.dpi.inpe.br/app/map/alerts?hl=pt-br
+      - url: http://terrabrasilis.dpi.inpe.br/app/map/deforestation?hl=pt-br
+      - url: http://www2.dgi.inpe.br/catalogo/explore
+      - url: http://satelite.cptec.inpe.br/mapsat/
+      - url: http://sigma-soschuva.cptec.inpe.br/
+      - url: https://queimadas.dgi.inpe.br/queimadas/bdqueimadas
+      - url: https://queimadas.dgi.inpe.br/queimadas/portal-static/situacao-atual/
+      - url: https://queimadas.dgi.inpe.br/queimadas/portal/videoaulas
+      - url: https://queimadas.dgi.inpe.br/queimadas/mapas-mensais/
+      - url: http://www.dgi.inpe.br/CDSR/
+      - url: https://www.arcgis.com/home/webmap/viewer.html?url=https%3A%2F%2Farcgis.sema.df.gov.br%2Fserver%2Frest%2Fservices%2FAreas_Queimadas%2FMapServer&source=sd
+      - url: https://arcgis.sema.df.gov.br/server/rest/services/Areas_Queimadas/MapServer
+        uf: DF
+      - url: https://www.cptec.inpe.br/dsat/
+      - url: http://mapas.sosma.org.br/
+      - url: http://www.inpe.br/webelat/homepage/
+      - url: https://sigef.incra.gov.br/
+    input: [coordenadas, municipio]
+    output: [imagem_satelite, mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/sistema-nacional-de-cadastro-ambiental-rural-sicar-car
+    nome: Sistema Nacional de Cadastro Ambiental Rural ( SICAR-CAR )
+    descricao: O SICAR é um sistema público de geoprocessamento que mapeia todas as propriedades rurais registradas com o CAR (Cadastro Ambiental Rural). Sendo o CAR um registro público, nacional e obrigatório à todas as propriedades rurais do Brasil, com a finalidade de formar uma base de dados e integrar informações.
+    links:
+      - url: https://www.car.gov.br/publico/imoveis/index
+      - url: https://www.car.gov.br/#/consultar
+    input: [car, coordenadas, municipio]
+    output: [area_rural, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/instituto-do-patrimonio-historico-e-artistico-nacional-iphan
+    nome: Instituto do Patrimônio Histórico e Artístico Nacional ( IPHAN )
+    descricao: O SICG (Sistema Integrado de Conhecimento e Gestão) é o desenvolvimento de Inventários de Conhecimento, para formar uma base de informações sobre os patrimônio cultural de todo o Brasil.
+    links:
+      - url: https://sicg.iphan.gov.br/sicg/pesquisarBem
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/rede-de-meteorologia-do-comando-da-aeronautica-redemet
+    nome: Rede de Meteorologia do Comando da Aeronáutica ( REDEMET )
+    descricao: A Rede de Meteorologia do Comando da Aeronáutica tem como objetivo integrar os produtos meteorológicos voltados à aviação civil e militar, visando tornar o acesso a estas informações mais rápido, eficiente e seguro.
+    links:
+      - url: https://redemet.decea.gov.br/
+      - url: https://redemet.decea.gov.br/novo/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/banco-de-dados-geograficos-do-exercito-bdgex
+    nome: Banco de Dados Geográficos do Exército ( BDGEx )
+    descricao: ''
+    links:
+      - url: https://bdgex.eb.mil.br/bdgexapp/mobile/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/radar-de-aeronaves
+    nome: Radar de Aeronaves
+    descricao: ''
+    links:
+      - url: https://www.radarbox.com/@-19.21547
+        em_markdown: true
+      - url: https://www.flightradar24.com/-18.82
+        em_markdown: true
+      - url: https://www.edestinos.com.br/radar
+        em_markdown: true
+      - url: https://planefinder.net/airport/BSB
+        em_markdown: true
+    input: [coordenadas, municipio, prefixo_aeronave]
+    output: [dados_cadastrais, mapa]
+    tipo_fonte: internacional
+    classificacao: heuristica
+    markdown: |-
+      <details>
+      <summary>Links de pesquisa</summary>
+
+      - https://www.radarbox.com/@-19.21547,-46.45469,z5
+      - https://www.flightradar24.com/-18.82,-52.19/5
+      - https://www.edestinos.com.br/radar
+      - https://planefinder.net/airport/BSB
+
+      </details>
+  - id: mapas-e-georreferenciamento/consulta-de-licenca-aeronautica-cht
+    nome: Consulta de Licença Aeronáutica ( CHT )
+    descricao: Todos os tripulantes civis brasileiros devem ser registrados na ANAC. Sendo validado o registro pelo seu Código Anac (CANAC).
+    links:
+      - url: https://sistemas.anac.gov.br/consultadelicencas/
+      - url: https://ais.cavok.in/lichab/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/cidades-e-estados-ibge-instituto-brasileiro-de-geografia-e-estatistica
+    nome: Cidades e Estados - IBGE - Instituto Brasileiro de Geografia e Estatística
+    descricao: Consulta de dados por Cidades e Estados
+    links:
+      - url: https://www.ibge.gov.br/cidades-e-estados/
+    input: [coordenadas, municipio]
+    output: [estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/portal-de-mapas-do-ibge
+    nome: Portal de Mapas do IBGE
+    descricao: Portal com mapas interativos e bases cartográficas do IBGE.
+    links:
+      - url: https://portaldemapas.ibge.gov.br/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/ana-agencia-nacional-de-aguas-mapas-interativos
+    nome: ANA - Agência Nacional de Águas - Mapas Interativos
+    descricao: Mapas e visualizações de dados sobre recursos hídricos no Brasil.
+    resumo: Mapas ANA
+    links:
+      - url: https://portal1.snirh.gov.br/ana/apps/webappviewer/index.html?id=ef7d29c2ac754e9890d7cdbb78cbaf2c
+        label: Sistema Nacional de Informações sobre Recursos Hídricos
+      - url: https://portal1.snirh.gov.br/ana/apps/webappviewer/index.html?id=6d866c5d54c64b17bd53af4bdcfb4b91
+        label: Atlas de Abastecimento Urbano
+      - url: https://portal1.snirh.gov.br/ana/apps/webappviewer/index.html?id=76eaa4f324f2404a86784e21d882b6ec
+        label: Conjuntura dos Recursos Hídricos
+      - url: https://portal1.snirh.gov.br/ana/apps/webappviewer/index.html?id=0d9d29ec24cc49df89965f05fc5b96b9
+        label: Sistema de Acompanhamento de Reservatórios
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/sigmine-sistema-de-informacoes-geograficas-da-mineracao
+    nome: SIGMINE - Sistema de Informações Geográficas da Mineração
+    descricao: Sistema com informações georreferenciadas sobre mineração no Brasil.
+    links:
+      - url: https://geo.anm.gov.br/portal/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/inde-infraestrutura-nacional-de-dados-espaciais
+    nome: INDE - Infraestrutura Nacional de Dados Espaciais
+    descricao: Portal da Infraestrutura Nacional de Dados Espaciais.
+    links:
+      - url: https://www.inde.gov.br/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/ibge-ferramentas-geograficas-e-estatisticas
+    nome: IBGE - Ferramentas Geográficas e Estatísticas
+    descricao: 'Ferramentas do IBGE para dados territoriais: SIDRA, BDiA (recursos naturais), mapas interativos, Panorama do Censo 2022 e repositório geoftp.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://sidra.ibge.gov.br/
+        label: SIDRA
+      - url: https://bdiaweb.ibge.gov.br/
+        label: BDiA - Banco de Dados de Informações Ambientais
+      - url: https://mapasinterativos.ibge.gov.br/
+        label: Mapas interativos
+      - url: https://censo2022.ibge.gov.br/panorama/
+        label: Panorama do Censo 2022
+      - url: https://geoftp.ibge.gov.br/
+        label: geoftp (malhas e bases)
+    input: [coordenadas, municipio]
+    output: [estatistica, mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/embrapa-geoinfo
+    nome: Embrapa - GeoInfo
+    descricao: Infraestrutura de dados espaciais da Embrapa com mapas de solos, uso da terra, aptidão agrícola e zoneamentos.
+    links:
+      - url: https://geoinfo.dados.embrapa.br/
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/sgb-geoportais-do-servico-geologico-do-brasil
+    nome: SGB - Geoportais do Serviço Geológico do Brasil
+    descricao: Mapas geológicos, recursos minerais, áreas de risco e repositório institucional do SGB/CPRM.
+    resumo: Links de pesquisa
+    links:
+      - url: https://geosgb.sgb.gov.br/
+        label: GeoSGB
+      - url: https://geoportal.sgb.gov.br/portal/home/
+        label: Geoportal
+      - url: https://rigeo.sgb.gov.br/
+        label: RIGeo - Repositório
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/geoportais-estaduais-ides
+    nome: Geoportais Estaduais (IDEs)
+    descricao: Infraestruturas de dados espaciais dos estados com bases cartográficas, imagens, limites e camadas temáticas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.idesp.sp.gov.br/
+        label: IDE-SP - São Paulo (SP)
+        uf: SP
+      - url: https://datageo.ambiente.sp.gov.br/
+        label: DataGEO - São Paulo (SP)
+        uf: SP
+      - url: https://sigsc.sc.gov.br/
+        label: SIGSC - Santa Catarina (SC)
+        uf: SC
+      - url: https://geopr.iat.pr.gov.br/portal/home/
+        label: GeoPR - IAT - Paraná (PR)
+        uf: PR
+      - url: https://inea.maps.arcgis.com/home/index.html
+        label: INEA - Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://geoportal.sema.mt.gov.br/
+        label: Geoportal SEMA - Mato Grosso (MT)
+        uf: MT
+      - url: https://www.ide.df.gov.br/geoportal/
+        label: IDE-DF Geoportal - Distrito Federal (DF)
+        uf: DF
+      - url: https://mapas.ipece.ce.gov.br/
+        label: IPECE Mapas - Ceará (CE)
+        uf: CE
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: mapas-e-georreferenciamento/geoportais-das-capitais
+    nome: Geoportais das Capitais
+    descricao: Portais geográficos municipais com cadastro territorial, lotes, zoneamento, ortofotos e equipamentos públicos.
+    resumo: Links de pesquisa
+    links:
+      - url: https://geosampa.prefeitura.sp.gov.br/
+        label: GeoSampa - São Paulo (SP)
+        uf: SP
+      - url: https://www.data.rio/
+        label: Data.Rio - Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://bhmap.pbh.gov.br/
+        label: BHMap - Belo Horizonte (MG)
+        uf: MG
+      - url: https://geocuritiba.ippuc.org.br/portal/home/
+        label: GeoCuritiba - Curitiba (PR)
+        uf: PR
+      - url: https://mapeamento.salvador.ba.gov.br/
+        label: Mapeamento Salvador - Salvador (BA)
+        uf: BA
+      - url: https://mapas.fortaleza.ce.gov.br/
+        label: Mapas Fortaleza - Fortaleza (CE)
+        uf: CE
+      - url: https://geoportal.pmf.sc.gov.br/
+        label: Geoportal - Florianópolis (SC)
+        uf: SC
+      - url: https://geoweb.vitoria.es.gov.br/
+        label: GeoWeb - Vitória (ES)
+        uf: ES
+      - url: https://geo.manaus.am.gov.br/
+        label: Geo Manaus - Manaus (AM)
+        uf: AM
+      - url: https://geo.natal.rn.gov.br/portal/home/
+        label: Geo Natal - Natal (RN)
+        uf: RN
+      - url: https://filipeia.joaopessoa.pb.gov.br/
+        label: Filipeia - João Pessoa (PB)
+        uf: PB
+      - url: https://geoportal.teresina.pi.gov.br/
+        label: GeoPortal - Teresina (PI)
+        uf: PI
+    input: [coordenadas, municipio]
+    output: [mapa]
+    tipo_fonte: estadual
+    classificacao: heuristica

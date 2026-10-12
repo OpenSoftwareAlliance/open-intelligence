@@ -1,0 +1,46 @@
+# Categoria: Indexadores de Serviço de Mensagens Instantâneas
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: indexadores-de-servico-de-mensagens-instantaneas/grupos-de-whatsapp
+    nome: Grupos de WhatsApp
+    descricao: WhatsApp é um aplicativo multiplataforma de mensagens instantâneas e chamadas de voz para smartphones.
+    resumo: Indexadores WhatsApp
+    links:
+      - grupo: Lista de recursos para encontrar grupos públicos de WhatsApp.
+        url: https://gruposwhats.app/
+      - url: https://grupos-zap.com/
+      - url: https://whatsapp.statusestories.com/
+      - url: https://grupos-online.com/
+      - url: https://grupowhats.online/
+      - url: https://buscagrupos.com.br/
+      - url: https://www.gruposwats.com/
+      - url: https://gruposputaria.com/
+      - url: https://www.gruposexozap.com.br/
+      - url: https://www.grupopaquera.com.br/
+      - url: https://gruposdezap.com/
+      - url: https://grupodewhatsapp.com/
+      - url: https://gruposdewhatss.com.br/
+    input: [nome]
+    output: [perfil_social]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: indexadores-de-servico-de-mensagens-instantaneas/grupos-de-telegram
+    nome: Grupos de Telegram
+    descricao: O Telegram é um serviço de mensagens instantâneas baseado na nuvem.
+    resumo: Indexadores Telegram
+    links:
+      - grupo: Lista de recursos para encontrar grupos públicos de Telegram.
+        url: https://tgstat.com/search
+      - url: https://cse.google.com/cse?cx=008239573640124656331:o29gdxc2osj
+      - url: https://www.telegram-group.com/en/
+      - url: https://tgstat.com/
+      - url: https://xtea.io/ts_en.html#gsc.tab=0&gsc.q=SEU_ALVO
+      - url: https://telemetr.io/en/channels?language=pt&channel=SEU_ALVO&period=30
+      - url: https://combot.org/telegram/top/groups?lng=pt&page=1&q=SEU_ALVO
+      - url: https://lyzem.com/search?f=all&l=pt&p=1&per-page=100&q=SEU_ALVO
+      - url: https://gruposdetelegram.com.br/
+    input: [nome]
+    output: [perfil_social]
+    tipo_fonte: privado
+    classificacao: heuristica

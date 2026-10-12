@@ -1,0 +1,454 @@
+# Categoria: Registros Eleitorais e Políticos
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: registros-eleitorais-e-politicos/tse-divulgacao-de-candidaturas-e-contas-eleitorais
+    nome: TSE - Divulgação de Candidaturas e Contas Eleitorais
+    descricao: Sistema de divulgação de candidaturas, contas eleitorais e de prestação de contas.
+    links:
+      - url: https://divulgacandcontas.tse.jus.br/divulga/
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/tse-consulta-de-contas-eleitorais
+    nome: TSE - Consulta de Contas Eleitorais
+    descricao: Consulta de prestação de contas de campanhas eleitorais.
+    links:
+      - url: https://www.tse.jus.br/eleicoes/contas-eleitorais
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consulta-de-filiacao-partidaria
+    nome: Consulta de Filiação Partidária
+    descricao: Consulta pública de filiação partidária de eleitores.
+    links:
+      - url: https://filiaweb.tse.jus.br/filiaweb/
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/camara-dos-deputados-votacoes
+    nome: Câmara dos Deputados - Votações
+    descricao: Consulta de votações realizadas na Câmara dos Deputados.
+    links:
+      - url: https://www.camara.leg.br/busca-portal/proposicoes/votacoes
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/senado-federal-votacoes
+    nome: Senado Federal - Votações
+    descricao: Consulta de votações realizadas no Senado Federal.
+    links:
+      - url: https://www25.senado.leg.br/web/atividade/votacoes
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/tse-portal-de-dados-abertos
+    nome: TSE - Portal de Dados Abertos
+    descricao: Dados abertos sobre eleições, votação, eleitorado, partidos, candidatos, prestação de contas, pesquisas eleitorais e urnas eletrônicas.
+    links:
+      - url: https://dadosabertos.tse.jus.br/
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/repositorio-de-dados-eleitorais-tse
+    nome: Repositório de Dados Eleitorais - TSE
+    descricao: Base completa de dados eleitorais desde 1945, incluindo resultados, candidaturas e perfil do eleitorado.
+    links:
+      - url: https://dadosabertos.tse.jus.br/dataset/
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais, dataset]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/divulgacand-api-do-tse
+    nome: DivulgaCand - API do TSE
+    descricao: Acesso programático aos dados de candidaturas e prestação de contas eleitorais.
+    links:
+      - url: https://divulgacandcontas.tse.jus.br/divulga/rest/v1/docs/
+    input: [cpf, nome, titulo_eleitor]
+    output: [api_json, dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/meu-tse
+    nome: Meu TSE
+    descricao: Portal com dados personalizados do eleitor, incluindo local de votação e histórico eleitoral.
+    links:
+      - url: https://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/consulta-por-nome
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/certidao-de-quitacao-eleitoral
+    nome: Certidão de Quitação Eleitoral
+    descricao: Emissão de certidão que comprova a regularidade da situação eleitoral do cidadão.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/certidao-quitacao-eleitoral
+    input: [cpf, nome, titulo_eleitor]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/certidao-de-crimes-eleitorais
+    nome: Certidão de Crimes Eleitorais
+    descricao: Emissão de certidão informando se o eleitor possui condenações por crimes eleitorais registradas na Justiça Eleitoral.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/certidao-crimes-eleitorais
+    input: [cpf, nome, titulo_eleitor]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/certidao-negativa-de-alistamento
+    nome: Certidão Negativa de Alistamento
+    descricao: Emissão de certidão que comprova a inexistência de inscrição eleitoral para o cidadão.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/certidao-negativa-alistamento
+    input: [cpf, nome, titulo_eleitor]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/certidao-simplificada-de-dados-e-biometria
+    nome: Certidão Simplificada de Dados e Biometria
+    descricao: Emissão de certidão com os dados cadastrais do eleitor e a situação da coleta biométrica.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/certidao-simplificada-dados-cadastrais
+    input: [cpf, nome, titulo_eleitor]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/certidao-de-ausencia-de-debito-da-ultima-eleicao
+    nome: Certidão de Ausência de Débito da Última Eleição
+    descricao: Emissão de certidão que comprova a inexistência de débito referente à última eleição.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/certidao-ausencia-debito-ultima-eleicao
+    input: [cpf, nome, titulo_eleitor]
+    output: [certidao, dados_cadastrais, debito]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/validacao-de-documento-da-justica-eleitoral
+    nome: Validação de Documento da Justiça Eleitoral
+    descricao: Verifica a autenticidade de certidões e documentos emitidos pela Justiça Eleitoral a partir do código de validação.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/validacao
+    input: [cpf, nome, titulo_eleitor]
+    output: [certidao, dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consulta-debitos-eleitorais
+    nome: Consulta Débitos Eleitorais
+    descricao: Verifica se o eleitor possui débitos eleitorais pendentes, como multas por ausência nas eleições sem justificativa.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/debitos/listar
+    input: [cpf, nome, placa, titulo_eleitor]
+    output: [dados_cadastrais, debito, multa]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consulta-numero-do-titulo-de-eleitor
+    nome: Consulta Número do Título de eleitor
+    descricao: Localiza o número do título eleitoral a partir dos dados pessoais do eleitor, como nome, data de nascimento e nome da mãe.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/atendimento-eleitor/consultar-numero-titulo-eleitor
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consulta-situacao-titulo-de-eleitor
+    nome: Consulta Situação Título de eleitor
+    descricao: Verifica a situação cadastral do título eleitoral, indicando se está regular, cancelado, suspenso ou com restrições.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/atendimento-eleitor/consultar-situacao-titulo-eleitor
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais, situacao_cadastral]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consulta-onde-e-votacao-do-eleitor
+    nome: Consulta Onde é Votação do Eleitor
+    descricao: Informa o local de votação (seção e zona eleitoral) do eleitor com base no número do título ou CPF.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/atendimento-eleitor/onde-votar
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consulta-justificativas
+    nome: Consulta Justificativas
+    descricao: Acompanha o status de solicitações de justificativa de ausência nas eleições, incluindo aprovação ou pendência.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/atendimento-eleitor/acompanhar-solicitacao
+    input: [cnpj, cpf, nome, titulo_eleitor]
+    output: [contrato_publico, dados_cadastrais, licitacao]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/declaracao-de-trabalhos-eleitorais
+    nome: Declaração de Trabalhos Eleitorais
+    descricao: Emite declaração para eleitores que exerceram função de mesário ou trabalharam nas eleições, comprovando a atividade perante a Justiça Eleitoral.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/certidoes-eleitor/declaracao-trabalho-eleitoral
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/consultar-zonas-eleitorais-por-uf
+    nome: Consultar Zonas Eleitorais por UF
+    descricao: Lista as zonas eleitorais e unidades da Justiça Eleitoral de cada estado.
+    links:
+      - url: https://www.tse.jus.br/servicos-eleitorais/autoatendimento-eleitoral#/unidades-justica-eleitoral/por-uf
+    input: [municipio, uf]
+    output: [dados_cadastrais, endereco]
+    tipo_fonte: judiciario
+    classificacao: override
+  - id: registros-eleitorais-e-politicos/base-dos-dados-eleicoes
+    nome: Base dos Dados - Eleições
+    descricao: Dados eleitorais tratados, padronizados e prontos para análise estatística.
+    links:
+      - url: https://basedosdados.org/dataset/br-tse-eleicoes
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/camara-dos-deputados-deputados-cota-parlamentar-e-transparencia
+    nome: Câmara dos Deputados - Deputados, cota parlamentar e transparência
+    descricao: Perfil dos deputados em exercício, gastos da Cota para o Exercício da Atividade Parlamentar e portal de transparência da Câmara.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.camara.leg.br/deputados/quem-sao
+        label: Deputados
+      - url: https://www.camara.leg.br/cota-parlamentar/
+        label: Cota parlamentar
+      - url: https://www.camara.leg.br/transparencia/
+        label: Transparência
+      - url: https://www.camara.leg.br/busca-portal?tipo=proposicoes
+        label: Busca de proposições
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/senado-federal-senadores-transparencia-e-siga-brasil
+    nome: Senado Federal - Senadores, transparência e SIGA Brasil
+    descricao: Lista de senadores em exercício, portal de transparência com gastos parlamentares e o SIGA Brasil para consulta do orçamento federal e de emendas.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www25.senado.leg.br/web/senadores/em-exercicio
+        label: Senadores em exercício
+      - url: https://www25.senado.leg.br/web/transparencia/sen/
+        label: Transparência dos senadores
+      - url: https://www12.senado.leg.br/transparencia
+        label: Transparência do Senado
+      - url: https://www12.senado.leg.br/orcamento/sigabrasil
+        label: SIGA Brasil
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/congresso-nacional-portal
+    nome: Congresso Nacional - Portal
+    descricao: Portal do Congresso Nacional com sessões conjuntas, vetos, medidas provisórias e matérias orçamentárias.
+    links:
+      - url: https://www.congressonacional.leg.br/
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/lexml-e-normas-leg-br-legislacao-brasileira
+    nome: LexML e Normas.leg.br - Legislação brasileira
+    descricao: Pesquisa unificada de legislação, jurisprudência e proposições (LexML) e base oficial de normas federais do Legislativo.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.lexml.gov.br/
+        label: LexML
+      - url: https://normas.leg.br/
+        label: Normas.leg.br
+    input: [cpf, nome, numero_processo, titulo_eleitor]
+    output: [dados_cadastrais, processo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/assembleias-legislativas-estaduais-e-camara-legislativa-do-df
+    nome: Assembleias Legislativas estaduais e Câmara Legislativa do DF
+    descricao: Portais das assembleias com deputados estaduais, proposições, votações, verbas indenizatórias e legislação estadual.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.al.ac.leg.br/
+        label: ALEAC (AC)
+        uf: AC
+      - url: https://www.al.al.leg.br/
+        label: ALE-AL (AL)
+        uf: AL
+      - url: https://www.aleam.gov.br/
+        label: ALEAM (AM)
+        uf: AM
+      - url: https://www.al.ba.gov.br/
+        label: ALBA (BA)
+        uf: BA
+      - url: https://www.al.ce.gov.br/
+        label: ALECE (CE)
+        uf: CE
+      - url: https://www.cl.df.gov.br/inicio
+        label: CLDF (DF)
+        uf: DF
+      - url: https://www.al.es.gov.br/
+        label: ALES (ES)
+        uf: ES
+      - url: https://portal.al.go.leg.br/
+        label: ALEGO (GO)
+        uf: GO
+      - url: https://www.al.mt.gov.br/
+        label: ALMT (MT)
+        uf: MT
+      - url: https://al.ms.gov.br/
+        label: ALEMS (MS)
+        uf: MS
+      - url: https://www.almg.gov.br/
+        label: ALMG (MG)
+        uf: MG
+      - url: https://www.alepa.pa.gov.br/
+        label: ALEPA (PA)
+        uf: PA
+      - url: https://www.al.pb.leg.br/
+        label: ALPB (PB)
+        uf: PB
+      - url: https://www.assembleia.pr.leg.br/
+        label: ALEP (PR)
+        uf: PR
+      - url: https://www.alepe.pe.gov.br/
+        label: ALEPE (PE)
+        uf: PE
+      - url: https://www.al.pi.leg.br/
+        label: ALEPI (PI)
+        uf: PI
+      - url: https://www.alerj.rj.gov.br/
+        label: ALERJ (RJ)
+        uf: RJ
+      - url: https://www.al.rn.leg.br/
+        label: ALRN (RN)
+        uf: RN
+      - url: https://www.al.rs.gov.br/
+        label: ALRS (RS)
+        uf: RS
+      - url: https://www.al.ro.leg.br/
+        label: ALERO (RO)
+        uf: RO
+      - url: https://www.al.rr.leg.br/
+        label: ALE-RR (RR)
+        uf: RR
+      - url: https://www.alesc.sc.gov.br/
+        label: ALESC (SC)
+        uf: SC
+      - url: https://www.al.sp.gov.br/
+        label: ALESP (SP)
+        uf: SP
+      - url: https://al.se.leg.br/
+        label: ALESE (SE)
+        uf: SE
+      - url: https://www.al.to.leg.br/
+        label: ALETO (TO)
+        uf: TO
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/camaras-municipais-das-capitais
+    nome: Câmaras Municipais das capitais
+    descricao: Portais das câmaras de vereadores das capitais com vereadores, projetos, votações, gastos de gabinete e legislação municipal.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.riobranco.ac.leg.br/
+        label: Rio Branco (AC)
+        uf: AC
+      - url: https://www.maceio.al.leg.br/
+        label: Maceió (AL)
+        uf: AL
+      - url: https://www.macapa.ap.leg.br/
+        label: Macapá (AP)
+        uf: AP
+      - url: https://www.cmm.am.gov.br/
+        label: Manaus (AM)
+        uf: AM
+      - url: https://www.cms.ba.gov.br/
+        label: Salvador (BA)
+        uf: BA
+      - url: https://www.cmfor.ce.gov.br/
+        label: Fortaleza (CE)
+        uf: CE
+      - url: https://www.cmv.es.gov.br/
+        label: Vitória (ES)
+        uf: ES
+      - url: https://www.goiania.go.leg.br/
+        label: Goiânia (GO)
+        uf: GO
+      - url: https://www.camaracuiaba.mt.gov.br/
+        label: Cuiabá (MT)
+        uf: MT
+      - url: https://www.camara.ms.gov.br/
+        label: Campo Grande (MS)
+        uf: MS
+      - url: https://www.cmb.pa.gov.br/
+        label: Belém (PA)
+        uf: PA
+      - url: https://joaopessoa.pb.leg.br/
+        label: João Pessoa (PB)
+        uf: PB
+      - url: https://www.cmc.pr.gov.br/
+        label: Curitiba (PR)
+        uf: PR
+      - url: https://www.recife.pe.leg.br/
+        label: Recife (PE)
+        uf: PE
+      - url: https://www.teresina.pi.leg.br/
+        label: Teresina (PI)
+        uf: PI
+      - url: https://www.camara.rio/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www.cmnat.rn.gov.br/
+        label: Natal (RN)
+        uf: RN
+      - url: https://www.camarapoa.rs.gov.br/
+        label: Porto Alegre (RS)
+        uf: RS
+      - url: https://www.portovelho.ro.leg.br/
+        label: Porto Velho (RO)
+        uf: RO
+      - url: https://www.boavista.rr.leg.br/
+        label: Boa Vista (RR)
+        uf: RR
+      - url: https://www.cmf.sc.gov.br/
+        label: Florianópolis (SC)
+        uf: SC
+      - url: https://www.aracaju.se.leg.br/
+        label: Aracaju (SE)
+        uf: SE
+      - url: https://www.saopaulo.sp.leg.br/
+        label: São Paulo (SP)
+        uf: SP
+      - url: https://palmas.to.leg.br/
+        label: Palmas (TO)
+        uf: TO
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: legislativo
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/tse-pesquisas-eleitorais-registradas-pesqele
+    nome: TSE - Pesquisas Eleitorais Registradas (PesqEle)
+    descricao: Consulta pública das pesquisas eleitorais registradas no TSE, com empresa, contratante, valor e metodologia.
+    resumo: Links de pesquisa
+    links:
+      - url: https://pesqele-divulgacao.tse.jus.br/
+        label: PesqEle
+    input: [cpf, nome, titulo_eleitor]
+    output: [dados_cadastrais]
+    tipo_fonte: judiciario
+    classificacao: heuristica
+  - id: registros-eleitorais-e-politicos/tse-estatisticas-eleitorais
+    nome: TSE - Estatísticas Eleitorais
+    descricao: Painéis do TSE com perfil do eleitorado, candidaturas e resultados por município e zona.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.tse.jus.br/eleicoes/estatisticas/estatisticas-eleitorais
+        label: Estatísticas eleitorais
+    input: [cpf, municipio, nome, titulo_eleitor]
+    output: [dados_cadastrais, estatistica]
+    tipo_fonte: judiciario
+    classificacao: heuristica

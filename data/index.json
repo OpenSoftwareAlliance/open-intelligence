@@ -1,6 +1,6 @@
 {
-  "_sobre": "GERADO por tools/build_dataset.py. Índice achatado de links para busca.",
-  "fonte": "README.md",
+  "_sobre": "GERADO por tools/build_dataset.py a partir de catalogo/. Índice achatado de links para busca.",
+  "fonte": "catalogo/",
   "links": [
     {
       "categoria": "Benefícios sociais (Políticas Públicas)",
@@ -34586,6 +34586,933 @@
       "url": "https://kaponline.com.br/whois/"
     },
     {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Falecidos/Óbitos",
+      "fonte_id": "outras-buscas/busca-de-falecidos-obitos",
+      "input": [
+        "nome"
+      ],
+      "label": "",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "ong",
+      "uf": null,
+      "url": "https://www.falecidosnobrasil.org.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta de Embarcações Navais",
+      "fonte_id": "outras-buscas/consulta-de-embarcacoes-navais",
+      "input": [
+        "embarcacao"
+      ],
+      "label": "",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "federal",
+      "uf": null,
+      "url": "https://www.mercante.transportes.gov.br/g36127/html/Manife/EmbarcConsul.html?noCampo=cdIrin"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Estatísticas de Nascimentos, Óbitos, Registros e Casamentos",
+      "fonte_id": "outras-buscas/estatisticas-de-nascimentos-obitos-registros-e-casamentos",
+      "input": [
+        "nome"
+      ],
+      "label": "",
+      "output": [
+        "dados_cadastrais",
+        "estatistica"
+      ],
+      "tipo_fonte": "ong",
+      "uf": null,
+      "url": "https://transparencia.registrocivil.org.br/registros"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Empresas de Segurança Privada",
+      "fonte_id": "outras-buscas/empresas-de-seguranca-privada",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "federal",
+      "uf": null,
+      "url": "https://www.gov.br/pf/pt-br/assuntos/seguranca-privada"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta de Registro, Licença e Controle de Produtos Quimicos",
+      "fonte_id": "outras-buscas/consulta-de-registro-licenca-e-controle-de-produtos-quimicos",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "licenca_ambiental"
+      ],
+      "tipo_fonte": "federal",
+      "uf": null,
+      "url": "https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.",
+      "fonte": "Informações sobre um endereço de e-mail",
+      "fonte_id": "outras-buscas/informacoes-sobre-um-endereco-de-e-mail",
+      "input": [
+        "email"
+      ],
+      "label": "",
+      "output": [
+        "mapa"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.predictasearch.com"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.",
+      "fonte": "Informações sobre um endereço de e-mail",
+      "fonte_id": "outras-buscas/informacoes-sobre-um-endereco-de-e-mail",
+      "input": [
+        "email"
+      ],
+      "label": "",
+      "output": [
+        "mapa"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://tools.epieos.com/email.php"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.olx.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.estantevirtual.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.enjoei.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.repassa.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.pegueibode.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.ficoupequeno.com/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.facebook.com/marketplace/?locale=pt_BR"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.mercadolivre.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.elo7.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://shopee.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://napista.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://autoline.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.kavak.com/br"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Busca de Bens a venda ou aluguel",
+      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
+      "input": [
+        "endereco"
+      ],
+      "label": "",
+      "output": [
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.webmotors.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Conhecimento de empreendimentos por dentro",
+      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "label": "",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.vrbo.com/pt-br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Conhecimento de empreendimentos por dentro",
+      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "label": "",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.airbnb.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Conhecimento de empreendimentos por dentro",
+      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "label": "",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.quintoandar.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Conhecimento de empreendimentos por dentro",
+      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "label": "",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.trivago.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Conhecimento de empreendimentos por dentro",
+      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "label": "",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.tripadvisor.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Conhecimento de empreendimentos por dentro",
+      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
+      "input": [
+        "endereco",
+        "municipio"
+      ],
+      "label": "",
+      "output": [
+        "endereco",
+        "imovel"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.booking.com/index.pt-br.html"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Lista de sites que devem ser evitados, pois tiveram reclamações de consumidores registrada no Procon-SP, foram notificados, não responderam ou não foram encontrados.",
+      "fonte": "Sites Notificados pelo Procon-SP",
+      "fonte_id": "outras-buscas/sites-notificados-pelo-procon-sp",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "sancao"
+      ],
+      "tipo_fonte": "estadual",
+      "uf": "SP",
+      "url": "https://sistemas.procon.sp.gov.br/evitesite/list/evitesites.php"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta em cartórios",
+      "fonte_id": "outras-buscas/consulta-em-cartorios",
+      "input": [
+        "nome"
+      ],
+      "label": "",
+      "output": [
+        "certidao"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.pesquisaprotesto.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta em cartórios",
+      "fonte_id": "outras-buscas/consulta-em-cartorios",
+      "input": [
+        "nome"
+      ],
+      "label": "",
+      "output": [
+        "certidao"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://protestosp.com.br/consulta-de-protesto?hc=1"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta em cartórios",
+      "fonte_id": "outras-buscas/consulta-em-cartorios",
+      "input": [
+        "nome"
+      ],
+      "label": "",
+      "output": [
+        "certidao"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://e-cartoriodobrasil.com/pedido/imoveis/pesquisa-qualificada-de-bens"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Lista Telefônica",
+      "fonte_id": "outras-buscas/lista-telefonica",
+      "input": [
+        "nome",
+        "telefone"
+      ],
+      "label": "",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.telenumeros.com/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "No link abaixo é possível consultar informações referentes a: Marcas, Patentes, Desenhos Industriais, Patentes Tecnológicas, dentre outras áreas.",
+      "fonte": "Consulta no Instituto Nacional da Propriedade Industrial (INPI)",
+      "fonte_id": "outras-buscas/consulta-no-instituto-nacional-da-propriedade-industrial-inpi",
+      "input": [
+        "razao_social"
+      ],
+      "label": "",
+      "output": [
+        "dados_cadastrais"
+      ],
+      "tipo_fonte": "federal",
+      "uf": null,
+      "url": "https://busca.inpi.gov.br/pePI/servlet/LoginController?action=login"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta de Licitações, Contratos e Compras Públicas",
+      "fonte_id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "contrato_publico",
+        "licitacao"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://alertalicitacao.com.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta de Licitações, Contratos e Compras Públicas",
+      "fonte_id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "contrato_publico",
+        "licitacao"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "https://www.portaldecompraspublicas.com.br/18/Processos/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "",
+      "fonte": "Consulta de Licitações, Contratos e Compras Públicas",
+      "fonte_id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "contrato_publico",
+        "licitacao"
+      ],
+      "tipo_fonte": "privado",
+      "uf": null,
+      "url": "http://www.portaltransparencia.gov.br/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Portal de Licitações SPTrans",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sptrans.com.br/licitacoes/"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Resultados de Licitações por Ano",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2rc_Ano.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Atas de Registro de Preços",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtarp.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Avisos de Prorrogação",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtap.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Contratos Administrativos",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ca.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Convênios e Termos de Cooperação",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp_tc.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Contratos de Parceria",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Contratos Rescindidos",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2cr.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Editais",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrted.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Extrato de Contratos",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ec.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Consulta de Avisos de Prorrogação (Novo)",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2apn.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Editais da Secretaria de Mobilidade",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": "SP",
+      "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/edital/index.php?p=247319"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
+      "fonte": "Consulta os Processos Licitatórios da SPTrans",
+      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
+      "input": [
+        "cnpj",
+        "numero_processo"
+      ],
+      "label": "Demonstrativo de Pagamentos",
+      "output": [
+        "contrato_publico",
+        "licitacao",
+        "processo"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": null,
+      "url": "https://sistemas.sptrans.com.br/DemPag/hdempag.aspx"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Portal de acesso à informação da São Paulo Transporte S/A com dados sobre contratos, despesas, licitações e transparência.",
+      "fonte": "Acesso à Informação - SPTrans",
+      "fonte_id": "outras-buscas/acesso-a-informacao-sptrans",
+      "input": [
+        "cnpj"
+      ],
+      "label": "",
+      "output": [
+        "contrato_publico",
+        "licitacao"
+      ],
+      "tipo_fonte": "municipal",
+      "uf": "SP",
+      "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/institucional/sptrans/acesso_a_informacao/index.php"
+    },
+    {
+      "categoria": "Outras Buscas",
+      "categoria_id": "outras-buscas",
+      "descricao": "Consulta de cartórios por UF, município, CNS e atribuição. Retorna CNS, denominação, tipo de cartório, telefone, site, e-mail, endereço, situação jurídica, nome do responsável com data de ingresso e substitutos.",
+      "fonte": "CNJ - Justiça Aberta (Serventias Extrajudiciais)",
+      "fonte_id": "outras-buscas/cnj-justica-aberta-serventias-extrajudiciais",
+      "input": [
+        "cns",
+        "municipio",
+        "uf"
+      ],
+      "label": "",
+      "output": [
+        "cartorio",
+        "endereco"
+      ],
+      "tipo_fonte": "judiciario",
+      "uf": null,
+      "url": "https://justicaaberta.cnj.jus.br/produtividade-e-localizacao-de-serventias-extrajudiciais"
+    },
+    {
       "categoria": "APIs Públicas Brasileiras",
       "categoria_id": "apis-publicas-brasileiras",
       "descricao": "Conjunto de APIs públicas e gratuitas com informações sobre CEP, CNPJ, bancos, feriados, ISBN, e outros dados brasileiros.",
@@ -37779,933 +38706,6 @@
       "tipo_fonte": "estadual",
       "uf": "PA",
       "url": "https://siga.bombeiros.pa.gov.br/boletins.php"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Falecidos/Óbitos",
-      "fonte_id": "outras-buscas/busca-de-falecidos-obitos",
-      "input": [
-        "nome"
-      ],
-      "label": "",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "ong",
-      "uf": null,
-      "url": "https://www.falecidosnobrasil.org.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta de Embarcações Navais",
-      "fonte_id": "outras-buscas/consulta-de-embarcacoes-navais",
-      "input": [
-        "embarcacao"
-      ],
-      "label": "",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "federal",
-      "uf": null,
-      "url": "https://www.mercante.transportes.gov.br/g36127/html/Manife/EmbarcConsul.html?noCampo=cdIrin"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Estatísticas de Nascimentos, Óbitos, Registros e Casamentos",
-      "fonte_id": "outras-buscas/estatisticas-de-nascimentos-obitos-registros-e-casamentos",
-      "input": [
-        "nome"
-      ],
-      "label": "",
-      "output": [
-        "dados_cadastrais",
-        "estatistica"
-      ],
-      "tipo_fonte": "ong",
-      "uf": null,
-      "url": "https://transparencia.registrocivil.org.br/registros"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Empresas de Segurança Privada",
-      "fonte_id": "outras-buscas/empresas-de-seguranca-privada",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "federal",
-      "uf": null,
-      "url": "https://www.gov.br/pf/pt-br/assuntos/seguranca-privada"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta de Registro, Licença e Controle de Produtos Quimicos",
-      "fonte_id": "outras-buscas/consulta-de-registro-licenca-e-controle-de-produtos-quimicos",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "licenca_ambiental"
-      ],
-      "tipo_fonte": "federal",
-      "uf": null,
-      "url": "https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.",
-      "fonte": "Informações sobre um endereço de e-mail",
-      "fonte_id": "outras-buscas/informacoes-sobre-um-endereco-de-e-mail",
-      "input": [
-        "email"
-      ],
-      "label": "",
-      "output": [
-        "mapa"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.predictasearch.com"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Permite recuperar, sem notificar o usuário, vários elementos relacionados a um endereço de e-mail, Nome, GoogleID, se há Mapas criados ou Agendas Públicas do Google Calendar, Validar se o e-mail está sendo utilizado em contas em outros sites.",
-      "fonte": "Informações sobre um endereço de e-mail",
-      "fonte_id": "outras-buscas/informacoes-sobre-um-endereco-de-e-mail",
-      "input": [
-        "email"
-      ],
-      "label": "",
-      "output": [
-        "mapa"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://tools.epieos.com/email.php"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.olx.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.estantevirtual.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.enjoei.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.repassa.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.pegueibode.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.ficoupequeno.com/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.facebook.com/marketplace/?locale=pt_BR"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.mercadolivre.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.elo7.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://shopee.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://napista.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://autoline.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.kavak.com/br"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Busca de Bens a venda ou aluguel",
-      "fonte_id": "outras-buscas/busca-de-bens-a-venda-ou-aluguel",
-      "input": [
-        "endereco"
-      ],
-      "label": "",
-      "output": [
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.webmotors.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Conhecimento de empreendimentos por dentro",
-      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "label": "",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.vrbo.com/pt-br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Conhecimento de empreendimentos por dentro",
-      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "label": "",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.airbnb.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Conhecimento de empreendimentos por dentro",
-      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "label": "",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.quintoandar.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Conhecimento de empreendimentos por dentro",
-      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "label": "",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.trivago.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Conhecimento de empreendimentos por dentro",
-      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "label": "",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.tripadvisor.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Conhecimento de empreendimentos por dentro",
-      "fonte_id": "outras-buscas/conhecimento-de-empreendimentos-por-dentro",
-      "input": [
-        "endereco",
-        "municipio"
-      ],
-      "label": "",
-      "output": [
-        "endereco",
-        "imovel"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.booking.com/index.pt-br.html"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Lista de sites que devem ser evitados, pois tiveram reclamações de consumidores registrada no Procon-SP, foram notificados, não responderam ou não foram encontrados.",
-      "fonte": "Sites Notificados pelo Procon-SP",
-      "fonte_id": "outras-buscas/sites-notificados-pelo-procon-sp",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "sancao"
-      ],
-      "tipo_fonte": "estadual",
-      "uf": "SP",
-      "url": "https://sistemas.procon.sp.gov.br/evitesite/list/evitesites.php"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta em cartórios",
-      "fonte_id": "outras-buscas/consulta-em-cartorios",
-      "input": [
-        "nome"
-      ],
-      "label": "",
-      "output": [
-        "certidao"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.pesquisaprotesto.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta em cartórios",
-      "fonte_id": "outras-buscas/consulta-em-cartorios",
-      "input": [
-        "nome"
-      ],
-      "label": "",
-      "output": [
-        "certidao"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://protestosp.com.br/consulta-de-protesto?hc=1"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta em cartórios",
-      "fonte_id": "outras-buscas/consulta-em-cartorios",
-      "input": [
-        "nome"
-      ],
-      "label": "",
-      "output": [
-        "certidao"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://e-cartoriodobrasil.com/pedido/imoveis/pesquisa-qualificada-de-bens"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Lista Telefônica",
-      "fonte_id": "outras-buscas/lista-telefonica",
-      "input": [
-        "nome",
-        "telefone"
-      ],
-      "label": "",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.telenumeros.com/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "No link abaixo é possível consultar informações referentes a: Marcas, Patentes, Desenhos Industriais, Patentes Tecnológicas, dentre outras áreas.",
-      "fonte": "Consulta no Instituto Nacional da Propriedade Industrial (INPI)",
-      "fonte_id": "outras-buscas/consulta-no-instituto-nacional-da-propriedade-industrial-inpi",
-      "input": [
-        "razao_social"
-      ],
-      "label": "",
-      "output": [
-        "dados_cadastrais"
-      ],
-      "tipo_fonte": "federal",
-      "uf": null,
-      "url": "https://busca.inpi.gov.br/pePI/servlet/LoginController?action=login"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta de Licitações, Contratos e Compras Públicas",
-      "fonte_id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "contrato_publico",
-        "licitacao"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://alertalicitacao.com.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta de Licitações, Contratos e Compras Públicas",
-      "fonte_id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "contrato_publico",
-        "licitacao"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "https://www.portaldecompraspublicas.com.br/18/Processos/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "",
-      "fonte": "Consulta de Licitações, Contratos e Compras Públicas",
-      "fonte_id": "outras-buscas/consulta-de-licitacoes-contratos-e-compras-publicas",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "contrato_publico",
-        "licitacao"
-      ],
-      "tipo_fonte": "privado",
-      "uf": null,
-      "url": "http://www.portaltransparencia.gov.br/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Portal de Licitações SPTrans",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sptrans.com.br/licitacoes/"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Resultados de Licitações por Ano",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2rc_Ano.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Atas de Registro de Preços",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtarp.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Avisos de Prorrogação",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtap.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Contratos Administrativos",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ca.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Convênios e Termos de Cooperação",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp_tc.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Contratos de Parceria",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrtcp.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Contratos Rescindidos",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2cr.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Editais",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrted.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Extrato de Contratos",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2ec.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Consulta de Avisos de Prorrogação (Novo)",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/licitlovnew/hilicwebfrt2apn.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Editais da Secretaria de Mobilidade",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": "SP",
-      "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/edital/index.php?p=247319"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A Acompanhe os processos licitatórios instaurados pela São Paulo Transporte S/A. Sistema permite consultar editais, resultados, atas e processos administrativos relacionados a licitações e contratos.",
-      "fonte": "Consulta os Processos Licitatórios da SPTrans",
-      "fonte_id": "outras-buscas/consulta-os-processos-licitatorios-da-sptrans",
-      "input": [
-        "cnpj",
-        "numero_processo"
-      ],
-      "label": "Demonstrativo de Pagamentos",
-      "output": [
-        "contrato_publico",
-        "licitacao",
-        "processo"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": null,
-      "url": "https://sistemas.sptrans.com.br/DemPag/hdempag.aspx"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Portal de acesso à informação da São Paulo Transporte S/A com dados sobre contratos, despesas, licitações e transparência.",
-      "fonte": "Acesso à Informação - SPTrans",
-      "fonte_id": "outras-buscas/acesso-a-informacao-sptrans",
-      "input": [
-        "cnpj"
-      ],
-      "label": "",
-      "output": [
-        "contrato_publico",
-        "licitacao"
-      ],
-      "tipo_fonte": "municipal",
-      "uf": "SP",
-      "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/mobilidade/institucional/sptrans/acesso_a_informacao/index.php"
-    },
-    {
-      "categoria": "Outras Buscas",
-      "categoria_id": "outras-buscas",
-      "descricao": "Consulta de cartórios por UF, município, CNS e atribuição. Retorna CNS, denominação, tipo de cartório, telefone, site, e-mail, endereço, situação jurídica, nome do responsável com data de ingresso e substitutos.",
-      "fonte": "CNJ - Justiça Aberta (Serventias Extrajudiciais)",
-      "fonte_id": "outras-buscas/cnj-justica-aberta-serventias-extrajudiciais",
-      "input": [
-        "cns",
-        "municipio",
-        "uf"
-      ],
-      "label": "",
-      "output": [
-        "cartorio",
-        "endereco"
-      ],
-      "tipo_fonte": "judiciario",
-      "uf": null,
-      "url": "https://justicaaberta.cnj.jus.br/produtividade-e-localizacao-de-serventias-extrajudiciais"
     },
     {
       "categoria": "Categorias de Domínios .br",

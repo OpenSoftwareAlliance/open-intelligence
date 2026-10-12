@@ -1,0 +1,523 @@
+# Categoria: Consulta de Transporte Terrestre
+# Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
+# Depois de editar, rode: python3 tools/build_dataset.py
+fontes:
+  - id: consulta-de-transporte-terrestre/consulta-de-licenciamento-veicular
+    nome: Consulta de Licenciamento Veicular
+    descricao: ''
+    links:
+      - url: http://licenciamento.detran.ma.gov.br/Licenciamento/consulta/Home.xhtml
+        uf: MA
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-de-bicicletas-sao-paulo
+    nome: Consulta de Bicicletas / São Paulo
+    descricao: Serviço online que permite a qualquer pessoa verificar se uma bicicleta tem histórico de roubo ou furto. É usado Número ou Serial para consulta.
+    links:
+      - url: https://www.ssp.sp.gov.br/consultabicicleta
+        uf: SP
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-de-dados-via-placa
+    nome: Consulta de Dados via Placa
+    descricao: ''
+    resumo: Links de Consulta
+    links:
+      - url: https://carfacts.com.br/ConsultaGratis
+      - url: https://www.qualveiculo.net/
+      - url: https://www.olhonocarro.com.br/
+      - url: https://www.consultarplaca.com.br/
+      - url: http://infocarrosp.com.br/
+      - url: https://www.iq.com.br/veiculos/consulta-placa/
+      - url: https://www.carcheck.com.br/
+      - url: https://www.consultapelaplaca.com.br/
+      - url: https://site.bibipecas.com.br/home
+      - url: https://www.historicar.com.br/
+      - url: https://www.keplaca.com
+      - url: https://www.fipeplaca.com.br/
+      - url: https://placafipe.com
+      - url: https://placaipva.com.br
+      - url: https://www.tabelafipebrasil.com/placa
+      - url: https://www.ipvabr.com.br/placa
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-de-dados-fipe
+    nome: Consulta de Dados FIPE
+    descricao: ''
+    resumo: Links de Consulta
+    links:
+      - url: https://veiculos.fipe.org.br
+      - url: https://www.tabelafipebrasil.com
+      - url: https://www.tabelafipe.website
+      - url: https://www.tabelafipemotos.com.br
+      - url: https://www.fipeveiculos.com.br
+      - url: https://www.valortabelafipe.com.br
+      - url: https://veiculosfipe.org/
+      - url: https://fipevalor.com.br/
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: ong
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-terminais-onibus-sao-paulo
+    nome: Consulta Terminais Ônibus São Paulo
+    descricao: Secretaria Municipal de Transporte e Mobilidade Urbana ( SPTRANS )
+    links:
+      - url: https://www.sptrans.com.br/terminais
+      - url: https://sistemas.sptrans.com.br/PlanOperWeb/
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-historicos-de-onibus
+    nome: Consulta Históricos de Ônibus
+    descricao: As buscas do Ônibus Brasil são um serviço de utilidade pública que permite rastrear registros históricos de ônibus que circulam ou circularam pelas ruas do Brasil e diversos outros países.
+    links:
+      - url: https://onibusbrasil.com/placas
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-veiculos-habilitados-pela-antt
+    nome: Consulta Veículos Habilitados pela ANTT
+    descricao: Permite visualizar os veículos, nacionais e estrangeiros, habilitados pela ANTT ao transporte rodoviário internacional de cargas.
+    links:
+      - url: https://appweb1.antt.gov.br/scff/conPlaca.asp
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-linhas-de-onibus
+    nome: Consulta Linhas de Ônibus
+    descricao: Consulta Linhas que Fazem Ligação entre Duas Localidades
+    links:
+      - url: https://portal.antt.gov.br/linhas-de-onibus
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-de-linhas-de-onibus-ao-vivo-para-sao-paulo
+    nome: Consulta de Linhas de Ônibus Ao vivo para São Paulo
+    descricao: ''
+    links:
+      - url: https://radar24.net/train-radar/
+    input: [placa, renavam]
+    output: [veiculo, video_ao_vivo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-de-linhas-de-trem
+    nome: Consulta de Linhas de Trem
+    descricao: ''
+    links:
+      - url: https://radar24.net/train-radar/
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: internacional
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/serpro-consulta-de-multas-federais
+    nome: SERPRO - Consulta de Multas Federais
+    descricao: Consulta de multas aplicadas em rodovias federais.
+    links:
+      - url: https://servicos.serpro.gov.br/multas/
+    input: [placa, renavam]
+    output: [multa, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/infraero-informacoes-de-aeroportos
+    nome: INFRAERO - Informações de Aeroportos
+    descricao: Portal de transparência da INFRAERO com informações sobre aeroportos.
+    links:
+      - url: https://transparencia.infraero.gov.br/
+    input: [placa, prefixo_aeronave, renavam]
+    output: [dados_cadastrais, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/dnit-sistema-de-gerenciamento-de-pontes
+    nome: DNIT - Sistema de Gerenciamento de Pontes
+    descricao: Informações sobre pontes e viadutos sob responsabilidade do DNIT.
+    links:
+      - url: https://www.gov.br/dnit/pt-br/assuntos/planejamento-e-pesquisa/sgp
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-horarios-e-passagens-onibus
+    nome: Consulta Horários e Passagens Ônibus
+    descricao: Somos o portal de pesquisa de horários e passagens de ônibus mais completo e mais acessado do Brasil, chegando a 4,1 milhões de visitas mensais.
+    links:
+      - url: https://www.buscaonibus.com.br/
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: privado
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/empresas-habilitadas
+    nome: Empresas Habilitadas
+    descricao: Empresas habilitadas para a prestação do serviço de transporte rodoviário coletivo interestadual e internacional de passageiros, sob regime de autorização e fretamento.
+    links:
+      - url: https://dados.antt.gov.br/dataset/empresas-habilitadas
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-publica-de-transportadores
+    nome: Consulta Pública de Transportadores
+    descricao: RNTRC - Registro Nacional de Transportadores Rodoviários de Cargas
+    links:
+      - url: https://consultapublica.antt.gov.br/Site/ConsultaRNTRC.aspx/consultapublica
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/pesquisar-no-portal-de-dados-abertos-da-antt
+    nome: Pesquisar no Portal de Dados Abertos da ANTT
+    descricao: A Política de Dados Abertos do Poder Executivo Federal, instituída pelo Decreto n° 8.777, de 11 de maio de 2016, tem o objetivo de aprimorar a cultura de transparência pública ao estabelecer regras para publicação, em formato aberto.
+    links:
+      - url: https://dados.antt.gov.br/
+    input: [placa, renavam]
+    output: [dataset, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/urbanizacao-de-curitiba-s-a-urbs-informacoes-dos-taxis-de-curitiba
+    nome: Urbanização de Curitiba S/A (URBS) / Informações dos Táxis de Curitiba
+    descricao: Localização dos Pontos de Táxi em Curitiba
+    links:
+      - url: https://www.urbs.curitiba.pr.gov.br/mobile/taxiLegal
+        uf: PR
+      - url: https://urbs.curitiba.pr.gov.br/transporte/pontos-de-taxi
+        uf: PR
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/urbanizacao-de-curitiba-s-a-urbs-embarques-e-desembarques-da-rodoviaria
+    nome: Urbanização de Curitiba S/A (URBS) / Embarques e Desembarques da Rodoviária
+    descricao: Informações sobre Linhas Rodoviárias em Curitiba
+    links:
+      - url: https://www.urbs.curitiba.pr.gov.br/mobile/monitorRod
+        uf: PR
+      - url: https://urbs.curitiba.pr.gov.br/horario-de-onibus/rodoviaria
+        uf: PR
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consultas-detran-por-estado
+    nome: Consultas DETRAN por Estado
+    descricao: Consultas veiculares, CNH, pontuação e outros serviços dos DETRANs estaduais.
+    resumo: Consultas por Estado
+    links:
+      - grupo: '**Acre (AC)**'
+        url: https://www.detran.ac.gov.br/consultar-autorizacao-de-estampagem/
+        label: Consulta estampagem
+        uf: AC
+      - url: https://www.ac.getran.com.br/site/apps/veiculo/consulta/filtro-chassi-sng.jsp
+        label: Consulta SNG
+        uf: AC
+      - url: https://www.detran.ac.gov.br/portal-de-servicos/consulta-pontuacao-de-cnh/
+        label: Consulta de pontuação CNH
+        uf: AC
+      - grupo: '**Alagoas (AL)**'
+        url: http://www.detran.al.gov.br/consulta-veiculo/
+        label: DETRAN-AL Consulta Veículos
+        uf: AL
+      - grupo: '**Amazonas (AM)**'
+        url: https://www.detran.am.gov.br/servicos/
+        label: DETRAN-AM Consultas
+        uf: AM
+      - grupo: '**Amapá (AP)**'
+        url: https://www.detran.ap.gov.br/
+        label: DETRAN-AP Consultas
+        uf: AP
+      - grupo: '**Bahia (BA)**'
+        url: https://www.detran.ba.gov.br/
+        label: DETRAN-BA Consultas
+        uf: BA
+      - grupo: '**Ceará (CE)**'
+        url: https://www.detran.ce.gov.br/
+        label: DETRAN-CE Consultas
+        uf: CE
+      - grupo: '**Distrito Federal (DF)**'
+        url: https://www.detran.df.gov.br/
+        label: DETRAN-DF Consultas
+        uf: DF
+      - grupo: '**Espírito Santo (ES)**'
+        url: https://detran.es.gov.br/
+        label: DETRAN-ES Consulta de Veículos
+        uf: ES
+      - grupo: '**Goiás (GO)**'
+        url: https://www.detran.go.gov.br/psw/#/pages/conteudo/consulta-multas-renainf
+        label: Consulta veículos/infrações
+        uf: GO
+      - url: https://www.detran.go.gov.br/psw/#/pages/conteudo/consulta-processo/1
+        label: Consulta processos
+        uf: GO
+      - url: https://www.detran.go.gov.br/psw/#/pages/conteudo/acompanhar-cnh-social
+        label: Consulta CNH Social
+        uf: GO
+      - url: https://www.detran.go.gov.br/psw/#/pages/conteudo/prontuario-cnh
+        label: Consulta Prontuário CNH
+        uf: GO
+      - url: https://www.detran.go.gov.br/psw/#/pages/conteudo/primeira-cnh
+        label: Primeira CNH
+        uf: GO
+      - grupo: '**Maranhão (MA)**'
+        url: http://licenciamento.detran.ma.gov.br/Licenciamento/consulta/Home.xhtml
+        label: Consulta de Licenciamento Veicular
+        uf: MA
+      - grupo: '**Minas Gerais (MG)**'
+        url: https://www.detran.mg.gov.br/
+        label: DETRAN-MG Consulta de Situação do Veículo
+        uf: MG
+      - grupo: '**Mato Grosso do Sul (MS)**'
+        url: https://www.detran.ms.gov.br/
+        label: DETRAN-MS Consulta de Veículos
+        uf: MS
+      - grupo: '**Mato Grosso (MT)**'
+        url: https://www.detran.mt.gov.br/
+        label: DETRAN-MT Consulta de Veículos
+        uf: MT
+      - grupo: '**Pará (PA)**'
+        url: https://www.detran.pa.gov.br/sistransito/detran-web/servicos/veiculos/indexRenavam.jsf
+        label: Consulta de Veículo Detalhada
+        uf: PA
+      - url: https://www.detran.pa.gov.br/servicos/pontuacao/index.php
+        label: Consultar Pontuação CNH
+        uf: PA
+      - grupo: '**Paraíba (PB)**'
+        url: https://detran.pb.gov.br/
+        label: DETRAN-PB Consulta de Veículo
+        uf: PB
+      - grupo: '**Piauí (PI)**'
+        url: http://taxas.detran.pi.gov.br/licenciamento/index.jsf
+        label: Licenciamento DETRAN-PI
+        uf: PI
+      - grupo: '**Paraná (PR)**'
+        url: https://www.detran.pr.gov.br/
+        label: DETRAN-PR Consultas
+        uf: PR
+      - grupo: '**Rio de Janeiro (RJ)**'
+        url: http://atestadodic.detran.rj.gov.br/
+        label: Atestado DIC
+        uf: RJ
+      - url: http://certidaoiifppcerj.detran.rj.gov.br/
+        label: Certidão de Inteiro TEOR (CIT)
+        uf: RJ
+      - url: https://www.ib7.bradesco.com.br/ibpfdetranrj/debitoVeiculoRJLoader.do
+        label: CONSULTA DÉBITO DE VEÍCULO - RJ
+        uf: RJ
+      - url: https://www.ib7.bradesco.com.br/ibpfdetranrj/debitoVeiculoRJDudaSelecionarProduto.do?cdProdutoInicial=INI
+        label: Documento Único do DETRAN de Arrecadação - RJ
+        uf: RJ
+      - url: https://www.ib7.bradesco.com.br/ibpfdetranrj/debitoVeiculoRJGrmConsultar.do
+        label: Guia de Recolhimento de Multas - RJ
+        uf: RJ
+      - url: https://www.ib7.bradesco.com.br/ibpfdetranrj/DebitoVeiculoRJGRTLoaderAction.do
+        label: Guia de Regularização de Taxas - RJ
+        uf: RJ
+      - url: https://www.ib7.bradesco.com.br/ibpfdetranrj/debitoVeiculoRJConsultaLoader.do
+        label: Informações de Pagamentos Efetuados - RJ
+        uf: RJ
+      - grupo: '**Rondônia (RO)**'
+        url: https://consulta.detran.ro.gov.br/CentralDeConsultasInternet/Software/ViewConsultaVeiculos.aspx
+        label: Consultar Veículos por placa + renavam e/ou CPF/CNPJ
+        uf: RO
+      - url: https://consulta.detran.ro.gov.br/CentralDeConsultasInternet/Internet/Habilitacao/ConsultaProcesso.asp
+        label: Descobrir Número da CNH com CPF e Data de Nascimento
+        uf: RO
+      - url: https://centralservicos.detran.ro.gov.br/consulta/veiculo
+        label: Consulta Pública do Veículo
+        uf: RO
+      - url: https://consulta.detran.ro.gov.br/ResultadoProva
+        label: Consultar Resultado da Prova do DETRAN
+        uf: RO
+      - grupo: '**Roraima (RR)**'
+        url: https://www.rr.getran.com.br/site/apps/veiculo/filtroplacarenavam-consultaveiculo.jsp
+        label: DETRAN-RR Consulta de Veículos
+        uf: RR
+      - url: https://www.rr.getran.com.br/site/apps/nada-consta/filtroPessoaNadaConsta.jsp
+        label: DETRAN-RR Nada Consta
+        uf: RR
+      - grupo: '**Rio Grande do Sul (RS)**'
+        url: https://www.detran.rs.gov.br/
+        label: DETRAN-RS Consulta de Veículo
+        uf: RS
+      - grupo: '**Santa Catarina (SC)**'
+        url: https://www.detran.sc.gov.br/
+        label: DETRAN-SC Consulta de Veículos
+        uf: SC
+      - grupo: '**São Paulo (SP)**'
+        url: https://www.detran.sp.gov.br/
+        label: DETRAN-SP Consultas
+        uf: SP
+      - grupo: '**Tocantins (TO)**'
+        url: https://www.to.gov.br/detran/
+        label: DETRAN-TO Consulta de Veículos
+        uf: TO
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/detrans-estaduais-portais-que-faltavam
+    nome: DETRANs Estaduais - Portais que faltavam
+    descricao: Portais dos Departamentos Estaduais de Trânsito ainda não catalogados, com consultas de veículos, débitos, CNH e infrações.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.detran.pe.gov.br/
+        label: Pernambuco (PE)
+        uf: PE
+      - url: https://www.detran.rj.gov.br/
+        label: Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://www.detran.rn.gov.br/
+        label: Rio Grande do Norte (RN)
+        uf: RN
+      - url: https://www.detran.se.gov.br/
+        label: Sergipe (SE)
+        uf: SE
+    input: [placa, renavam]
+    output: [debito, veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/senatran-portal-de-servicos
+    nome: SENATRAN - Portal de Serviços
+    descricao: 'Portal federal de serviços de trânsito: consulta de infrações, veículos vinculados ao CPF/CNPJ, CNH e recall, mediante login gov.br.'
+    resumo: Links de pesquisa
+    links:
+      - url: https://portalservicos.senatran.serpro.gov.br/
+        label: Portal de Serviços
+      - url: https://www.gov.br/transportes/pt-br/assuntos/transito/senatran
+        label: Página da SENATRAN
+    input: [cnpj, cpf, placa, renavam]
+    output: [dados_cadastrais, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/senatran-estatisticas-da-frota-de-veiculos
+    nome: SENATRAN - Estatísticas da Frota de Veículos
+    descricao: Séries mensais da frota de veículos registrada no RENAVAM por município, UF, tipo e combustível.
+    links:
+      - url: https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/estatisticas-frota-de-veiculos-senatran
+    input: [municipio, placa, renavam]
+    output: [estatistica, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/senatran-renaest-registro-nacional-de-acidentes-e-estatisticas-de-transito
+    nome: SENATRAN - RENAEST (Registro Nacional de Acidentes e Estatísticas de Trânsito)
+    descricao: Base nacional de sinistros de trânsito com ocorrências, vítimas, perfil e localização, alimentada pelos órgãos estaduais.
+    links:
+      - url: https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/docs/renaest
+    input: [placa, renavam]
+    output: [estatistica, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/consulta-de-recall-de-veiculos
+    nome: Consulta de Recall de Veículos
+    descricao: Verifica se um veículo possui campanha de recall pendente a partir da placa ou do chassi, com base nos dados da SENATRAN.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/pt-br/servicos/realizar-consulta-sobre-recall-de-veiculos
+        label: Serviço federal (gov.br)
+      - url: https://www.mg.gov.br/servico/verificar-situacao-de-recall-do-veiculo
+        label: Minas Gerais (MG)
+        uf: MG
+    input: [chassi, placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/prf-dados-abertos-e-servicos
+    nome: PRF - Dados Abertos e Serviços
+    descricao: Dados abertos da Polícia Rodoviária Federal sobre acidentes, infrações e apreensões em rodovias federais, além da carta de serviços ao cidadão.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf
+        label: Dados abertos
+      - url: https://www.gov.br/prf/pt-br/servicos
+        label: Serviços
+    input: [placa, renavam]
+    output: [dataset, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/infosiga-sp-sinistros-de-transito
+    nome: Infosiga SP - Sinistros de Trânsito
+    descricao: Painel do DETRAN-SP com sinistros e vítimas fatais no trânsito paulista, filtrável por município, via, data e tipo de veículo.
+    links:
+      - url: https://infosiga.detran.sp.gov.br/
+        uf: SP
+    input: [municipio, placa, renavam]
+    output: [estatistica, veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/dnit-vgeo-visualizador-geografico
+    nome: DNIT - VGeo (Visualizador Geográfico)
+    descricao: Mapa do DNIT com o Sistema Nacional de Viação, rodovias federais, obras, pontes, balanças e postos de pesagem.
+    links:
+      - url: https://servicos.dnit.gov.br/vgeo/
+    input: [placa, renavam]
+    output: [mapa, veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/antt-concessoes-rodoviarias-e-ferroviarias
+    nome: ANTT - Concessões Rodoviárias e Ferroviárias
+    descricao: Informações da ANTT sobre concessionárias de rodovias federais, praças de pedágio, malha ferroviária e operadoras.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.gov.br/antt/pt-br/assuntos/rodovias
+        label: Rodovias
+      - url: https://www.gov.br/antt/pt-br/assuntos/ferrovias
+        label: Ferrovias
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: federal
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/ders-estaduais-departamentos-de-estradas-de-rodagem
+    nome: DERs Estaduais - Departamentos de Estradas de Rodagem
+    descricao: Portais dos DERs com condições das rodovias estaduais, obras, interdições e serviços de transporte intermunicipal.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.der.mg.gov.br/
+        label: Minas Gerais (MG)
+        uf: MG
+      - url: https://www.der.pr.gov.br/
+        label: Paraná (PR)
+        uf: PR
+      - url: https://www.der.df.gov.br/
+        label: Distrito Federal (DF)
+        uf: DF
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/artesp-rodovias-concedidas-de-sao-paulo
+    nome: ARTESP - Rodovias Concedidas de São Paulo
+    descricao: Agência reguladora dos transportes de SP, com dados de concessionárias, pedágios, transporte intermunicipal e painéis de transparência.
+    resumo: Links de pesquisa
+    links:
+      - url: https://www.artesp.sp.gov.br/transparencia-e-dados/
+        label: Transparência e dados
+        uf: SP
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: estadual
+    classificacao: heuristica
+  - id: consulta-de-transporte-terrestre/orgaos-municipais-de-transito
+    nome: Órgãos Municipais de Trânsito
+    descricao: Órgãos gestores de trânsito das capitais com ocorrências, interdições, fiscalização e informações de mobilidade.
+    resumo: Links de pesquisa
+    links:
+      - url: https://cetrio.prefeitura.rio/
+        label: CET-Rio - Rio de Janeiro (RJ)
+        uf: RJ
+      - url: https://prefeitura.pbh.gov.br/bhtrans
+        label: BHTrans - Belo Horizonte (MG)
+        uf: MG
+      - url: https://prefeitura.poa.br/eptc
+        label: EPTC - Porto Alegre (RS)
+        uf: RS
+    input: [placa, renavam]
+    output: [veiculo]
+    tipo_fonte: municipal
+    classificacao: heuristica
