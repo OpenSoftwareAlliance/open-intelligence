@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "categorias.schema.json",
+  "title": "Manifesto de categorias do catálogo (catalogo/_categorias.yml)",
+  "description": "Ordem das categorias no README.md e a apresentação de cada uma. Cada id corresponde a um arquivo catalogo/<id>.yml.",
+  "type": "object",
+  "required": ["categorias"],
+  "additionalProperties": false,
+  "properties": {
+    "categorias": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "titulo", "ancora", "sumario"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+          "titulo": {"description": "Título da seção (##) e valor do campo 'categoria' no dataset.", "type": "string", "minLength": 1},
+          "emoji": {"type": "string", "minLength": 1},
+          "ancora": {"description": "Nome da âncora HTML <a name=\"...\"> da seção.", "type": "string", "pattern": "^[^\"\\s]+$"},
+          "sumario": {"description": "Texto do item da categoria no sumário do README.", "type": "string", "minLength": 1},
+          "introducao": {"description": "Markdown exibido entre o título da seção e a primeira fonte.", "type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
