@@ -10,7 +10,7 @@
 </p>
 
 <h1 align="center">
-  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="Open Intelligence"></a>
+  <a href="#"><img src="./assets/open-intelligence-logo.png" width="220px" alt="Open Intelligence"></a>
 </h1>
 
 <p align="center">
