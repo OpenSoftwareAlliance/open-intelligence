@@ -1,6 +1,6 @@
 # Spec 002: fluxo de contribuição
 
-- **Status:** Aprovada com ajustes do dono (2026-10-12)
+- **Status:** Implementada e mesclada (PR #6, 2026-10-12); ajustes do dono incorporados
 - **Roadmap:** [reorganizar o catálogo](../ROADMAP.md), posição 2
 - **Depende de:** [spec 001](../001-fonte-de-verdade-estruturada/spec.md)
 - **Decisão relacionada:** [ADR 0002](../../adr/0002-arquivos-gerados-regenerados-no-main.md)

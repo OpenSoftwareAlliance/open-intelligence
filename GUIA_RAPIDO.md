@@ -35,15 +35,14 @@
 Se você encontrou alguma URL com problemas, ajude a comunidade:
 
 **Reporte através de uma Issue no GitHub:**
-1. Acesse: https://github.com/osintbrazuca/osint-brazuca/issues/new
-2. Informe no título: `[URL] Nome da fonte com problema`
-3. Descreva o problema:
+1. Acesse: https://github.com/webminas/osint-brazuca/issues/new?template=link-quebrado.yml
+2. Descreva o problema:
    - ❌ **Offline**: Site fora do ar ou erro 404
    - 🔒 **Requer Login**: Antes era público, agora pede cadastro
    - ⚠️ **CAPTCHA Excessivo**: Impede uso automatizado
    - 🔄 **URL Mudou**: Site migrou para novo endereço
    - 🐌 **Lentidão**: Demora excessiva para carregar
-4. Se possível, sugira uma alternativa
+3. Se possível, sugira uma alternativa
 
 **Sua contribuição é valiosa!** Ajuda a manter o repositório atualizado e útil para todos.
 
@@ -63,11 +62,10 @@ Se você encontrou alguma URL com problemas, ajude a comunidade:
 - [Exemplos Práticos de Investigação](EXEMPLOS_PRATICOS.md)
 - [Fluxogramas de Investigação](FLUXOGRAMA.md)
 - [Avisos Legais e LGPD](README.md#avisos-legais)
-- [Repositório GitHub](https://github.com/osintbrazuca/osint-brazuca)
+- [Repositório GitHub](https://github.com/webminas/osint-brazuca)
 
 ---
 
 <p align="center">
-  <sub>Última atualização: Dezembro 2025</sub><br>
   <sub>Projeto OSINT Brazuca - Inteligência de Fontes Abertas no Contexto Brasileiro</sub>
 </p>

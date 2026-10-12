@@ -1,12 +1,14 @@
 # Tarefas da spec 001: fonte de verdade estruturada
 
+> Roteiro histórico da implementação (PR #2). O código vigente está em `tools/` e `tests/`; em divergência, vale o código. Pendências novas vão para issues.
+
 Plano: [`plan.md`](plan.md). Spec: [`spec.md`](spec.md). ADR: [`0001`](../../adr/0001-yaml-por-categoria-como-fonte-de-verdade.md).
 
 Todos os comandos rodam na raiz do repositório, com o ambiente virtual da preparação ativo (`. .venv/bin/activate`). Cada tarefa termina com um commit assinado (a assinatura GPG vem do `~/.gitconfig`; nunca usar `--no-gpg-sign`). Os números de `Ran N tests` são cumulativos: a suíte inteira cresce a cada tarefa.
 
 ## Preparação
 
-- [ ] **Passo P1: criar a branch e o ambiente virtual.**
+- [x] **Passo P1: criar a branch e o ambiente virtual.**
 
 ````bash
 git switch -c feat/001-fonte-de-verdade-estruturada
@@ -18,7 +20,7 @@ python3 -c "import yaml; print(yaml.__version__)"
 
 Esperado: `6.0.3`. O `.venv/` já está no `.gitignore`.
 
-- [ ] **Passo P2: conferir o ponto de partida.**
+- [x] **Passo P2: conferir o ponto de partida.**
 
 ````bash
 python3 tools/build_dataset.py --check | tail -1
@@ -39,7 +41,7 @@ Esperado: `OK: arquivos gerados estão atualizados.` e `0` (árvore limpa).
 - Consome: nada.
 - Produz: `valida(valor, esquema, caminho=()) -> list[tuple[tuple, str]]` (pares caminho e mensagem; cobre `type`, `properties`, `required`, `additionalProperties: false`, `items`, `enum`, `pattern`, `minLength`, `minItems`, `uniqueItems`); `formata_caminho(caminho: tuple) -> str` (`("fontes", 3, "url")` vira `fontes[3].url`); `requirements.txt` com `PyYAML==6.0.3`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_esquema.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_esquema.py`:**
 
 ````python
 import sys
@@ -119,7 +121,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_esquema.py
@@ -127,7 +129,7 @@ python3 -m unittest discover -s tests -p test_esquema.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'esquema'` ao importar `test_esquema`.
 
-- [ ] **Passo 3: implementar. Criar `tools/esquema.py`:**
+- [x] **Passo 3: implementar. Criar `tools/esquema.py`:**
 
 ````python
 """Validador mínimo de JSON Schema, só com a biblioteca padrão.
@@ -227,14 +229,14 @@ def formata_caminho(caminho):
     return texto or "(raiz)"
 ````
 
-- [ ] **Passo 4: fixar a dependência. Criar `requirements.txt`:**
+- [x] **Passo 4: fixar a dependência. Criar `requirements.txt`:**
 
 ````text
 # Única dependência fora da biblioteca padrão (ADR 0001). Versão fixada.
 PyYAML==6.0.3
 ````
 
-- [ ] **Passo 5: rodar e ver passar.**
+- [x] **Passo 5: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -242,7 +244,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 9 tests` e `OK`.
 
-- [ ] **Passo 6: commit.**
+- [x] **Passo 6: commit.**
 
 ````bash
 git add requirements.txt tools/esquema.py tests/test_esquema.py
@@ -261,7 +263,7 @@ git commit -m "Adiciona validador mínimo de JSON Schema e fixa o PyYAML" -m "Co
 - Consome: `formata_caminho` (Tarefa 1); PyYAML (`yaml.compose`, `yaml.CSafeLoader` quando existir).
 - Produz: `le_yaml(texto: str, rotulo: str) -> tuple[object | None, dict[tuple, int], list[str]]` (dados, linha de cada caminho, erros `rotulo:linha: ...` de sintaxe, arquivo vazio e chave repetida); `linha_de(linhas: dict, caminho: tuple) -> int` (cai no objeto mais próximo quando o caminho não existe); `erro_em(rotulo, linhas, caminho, mensagem) -> str` (`arquivo:linha: caminho: mensagem`).
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_yaml_linhas.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_yaml_linhas.py`:**
 
 ````python
 import sys
@@ -322,7 +324,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_yaml_linhas.py
@@ -330,7 +332,7 @@ python3 -m unittest discover -s tests -p test_yaml_linhas.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'yaml_linhas'` ao importar `test_yaml_linhas`.
 
-- [ ] **Passo 3: implementar. Criar `tools/yaml_linhas.py`:**
+- [x] **Passo 3: implementar. Criar `tools/yaml_linhas.py`:**
 
 ````python
 """Leitura de YAML com a linha de origem de cada valor.
@@ -398,7 +400,7 @@ def erro_em(rotulo, linhas, caminho, mensagem):
     return f"{rotulo}:{linha_de(linhas, caminho)}: {formata_caminho(caminho)}: {mensagem}"
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -406,7 +408,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 15 tests` e `OK`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/yaml_linhas.py tests/test_yaml_linhas.py
@@ -426,7 +428,7 @@ git commit -m "Adiciona leitura de YAML com linha de origem" -m "Co-Authored-By:
 - Produz: `carrega_catalogo(raiz=RAIZ) -> tuple[dict | None, list[str]]`, com `catalogo = {"categorias": [entrada do manifesto], "fontes": {categoria_id: [fonte]}}`; `urls_do_markdown(texto: str) -> set[str]`; `normaliza_url(url: str) -> str`; `carrega_json(caminho)`; `MANIFESTO = "_categorias.yml"`. Em `tests/apoio.py`: `cria_repo(destino, arquivos=None) -> Path` e os textos `MANIFESTO`, `ALFA`, `BETA`, `CABECALHO`, `RODAPE` usados pelas tarefas 3 a 8.
 - Formato do YAML: fonte com `id`, `nome`, `descricao`, `links` (`url`, opcionais `label`, `uf`, `grupo`, `em_markdown`), `input`, `output`, `tipo_fonte`, `classificacao` e opcionais `subsecao`, `resumo`, `observacao`, `markdown`; manifesto com `id`, `titulo`, `ancora`, `sumario` e opcionais `emoji`, `introducao`.
 
-- [ ] **Passo 1: escrever o apoio dos testes. Criar `tests/apoio.py`:**
+- [x] **Passo 1: escrever o apoio dos testes. Criar `tests/apoio.py`:**
 
 ````python
 """Catálogo mínimo de teste, montado numa pasta temporária.
@@ -536,7 +538,7 @@ def cria_repo(destino, arquivos=None):
     return destino
 ````
 
-- [ ] **Passo 2: escrever o teste que falha. Criar `tests/test_catalogo_io.py`:**
+- [x] **Passo 2: escrever o teste que falha. Criar `tests/test_catalogo_io.py`:**
 
 ````python
 import sys
@@ -627,7 +629,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 3: rodar e ver falhar.**
+- [x] **Passo 3: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_catalogo_io.py
@@ -635,7 +637,7 @@ python3 -m unittest discover -s tests -p test_catalogo_io.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'catalogo_io'` ao importar `test_catalogo_io`.
 
-- [ ] **Passo 4: criar o schema dos arquivos de categoria. Criar `data/schemas/catalogo.schema.json`:**
+- [x] **Passo 4: criar o schema dos arquivos de categoria. Criar `data/schemas/catalogo.schema.json`:**
 
 ````json
 {
@@ -696,7 +698,7 @@ Esperado: falha com `ModuleNotFoundError: No module named 'catalogo_io'` ao impo
 }
 ````
 
-- [ ] **Passo 5: criar o schema do manifesto. Criar `data/schemas/categorias.schema.json`:**
+- [x] **Passo 5: criar o schema do manifesto. Criar `data/schemas/categorias.schema.json`:**
 
 ````json
 {
@@ -729,7 +731,7 @@ Esperado: falha com `ModuleNotFoundError: No module named 'catalogo_io'` ao impo
 }
 ````
 
-- [ ] **Passo 6: implementar. Criar `tools/catalogo_io.py`:**
+- [x] **Passo 6: implementar. Criar `tools/catalogo_io.py`:**
 
 ````python
 """Leitura e validação do catálogo em catalogo/ (fonte de verdade).
@@ -870,7 +872,7 @@ def carrega_catalogo(raiz=RAIZ):
     return {"categorias": categorias, "fontes": fontes}, []
 ````
 
-- [ ] **Passo 7: rodar e ver passar.**
+- [x] **Passo 7: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -878,7 +880,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 29 tests` e `OK`.
 
-- [ ] **Passo 8: commit.**
+- [x] **Passo 8: commit.**
 
 ````bash
 git add data/schemas/catalogo.schema.json data/schemas/categorias.schema.json tools/catalogo_io.py tests/apoio.py tests/test_catalogo_io.py
@@ -897,7 +899,7 @@ git commit -m "Adiciona schemas e validação do catálogo em YAML" -m "Co-Autho
 - Consome: `carrega_catalogo` (Tarefa 3) e `tests/apoio.py`.
 - Produz: `gera_readme(catalogo: dict, cabecalho: str, rodape: str) -> str`; `renderiza_sumario(categorias) -> list[str]`; `renderiza_categoria(categoria, fontes) -> list[str]`; `renderiza_fonte(fonte) -> list[str]`; `renderiza_link(link) -> str`; constantes `AVISO` (comentário HTML da R7), `VOLTAR` (badge de volta ao sumário) e `SUMARIO_FIXO`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_readme_gerado.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_readme_gerado.py`:**
 
 ````python
 import sys
@@ -1010,7 +1012,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_readme_gerado.py
@@ -1018,7 +1020,7 @@ python3 -m unittest discover -s tests -p test_readme_gerado.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'readme_gerado'` ao importar `test_readme_gerado`.
 
-- [ ] **Passo 3: implementar. Criar `tools/readme_gerado.py`:**
+- [x] **Passo 3: implementar. Criar `tools/readme_gerado.py`:**
 
 ````python
 """Gera o README.md a partir do catálogo e dos trechos fixos.
@@ -1115,7 +1117,7 @@ def gera_readme(catalogo, cabecalho, rodape):
     return AVISO + "\n" + cabecalho + "\n".join(linhas) + "\n" + rodape
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -1123,7 +1125,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 33 tests` e `OK`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/readme_gerado.py tests/test_readme_gerado.py
@@ -1142,7 +1144,7 @@ git commit -m "Adiciona renderização do README a partir do catálogo" -m "Co-A
 - Consome: `carrega_catalogo` (Tarefa 3), `gera_readme` (Tarefa 4).
 - Produz: `monta_fontes(catalogo) -> list[dict]` (mesmo esquema de `data/sources.json`, `input` e `output` ordenados, `observacao` só quando existe); `monta_index(fontes) -> list[dict]`; `serializa(obj) -> str` (`json.dumps(..., ensure_ascii=False, indent=2, sort_keys=True)` mais quebra de linha final); `gera_saidas(raiz, catalogo) -> dict[str, str]` com as chaves `README.md`, `data/sources.json`, `data/index.json`; constantes `FONTE = "catalogo/"`, `SOBRE_SOURCES`, `SOBRE_INDEX`, `CABECALHO = "tools/readme/cabecalho.md"`, `RODAPE = "tools/readme/rodape.md"`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_dataset.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_dataset.py`:**
 
 ````python
 import difflib
@@ -1236,7 +1238,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_dataset.py
@@ -1244,7 +1246,7 @@ python3 -m unittest discover -s tests -p test_dataset.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'dataset'` ao importar `test_dataset`.
 
-- [ ] **Passo 3: implementar. Criar `tools/dataset.py`:**
+- [x] **Passo 3: implementar. Criar `tools/dataset.py`:**
 
 ````python
 """Monta os arquivos gerados a partir do catálogo validado.
@@ -1335,7 +1337,7 @@ def gera_saidas(raiz, catalogo):
     }
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -1343,7 +1345,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 38 tests` e `OK`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/dataset.py tests/test_dataset.py
@@ -1362,7 +1364,7 @@ git commit -m "Adiciona geração de sources.json e index.json a partir do catá
 - Consome: de `readme_legado`: `parse_readme`, `atribui_ids`, `classifica`, `valida`, `carrega_json`, `extrai_links`, `urls_da_linha`, `limpa_titulo`, `slug`, `eh_decoracao`, `eh_ignorada` e as expressões `RE_*`; `carrega_catalogo` (Tarefa 3); `VOLTAR`, `renderiza_fonte` (Tarefa 4); `monta_fontes`, `CABECALHO`, `RODAPE` (Tarefa 5).
 - Produz: `main(argv=None, raiz=RAIZ) -> int`; `migra(texto, overrides, taxonomia) -> tuple[list, dict, str, str]` (manifesto, fontes por categoria, cabeçalho, rodapé); `decompoe_fonte(fonte, corpo, n0) -> tuple[list, str | None, str]` (links, resumo, markdown); `confere(raiz, fontes_legado) -> dict`; `ErroMigracao`. Ao rodar, escreve `catalogo/_categorias.yml`, `catalogo/<categoria_id>.yml`, `tools/readme/cabecalho.md` e `tools/readme/rodape.md`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_migrar_readme.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_migrar_readme.py`:**
 
 ````python
 import contextlib
@@ -1582,7 +1584,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_migrar_readme.py
@@ -1590,7 +1592,7 @@ python3 -m unittest discover -s tests -p test_migrar_readme.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'migrar_readme'` ao importar `test_migrar_readme`.
 
-- [ ] **Passo 3: copiar o parser atual sem alteração.**
+- [x] **Passo 3: copiar o parser atual sem alteração.**
 
 ````bash
 mkdir -p tools/migracao
@@ -1600,7 +1602,7 @@ cmp tools/build_dataset.py tools/migracao/readme_legado.py && echo copia-identic
 
 Esperado: `copia-identica`.
 
-- [ ] **Passo 4: implementar. Criar `tools/migracao/migrar_readme.py`:**
+- [x] **Passo 4: implementar. Criar `tools/migracao/migrar_readme.py`:**
 
 ````python
 #!/usr/bin/env python3
@@ -2067,7 +2069,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ````
 
-- [ ] **Passo 5: rodar e ver passar.**
+- [x] **Passo 5: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -2075,7 +2077,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 47 tests` e `OK`.
 
-- [ ] **Passo 6: commit.**
+- [x] **Passo 6: commit.**
 
 ````bash
 git add tools/migracao/readme_legado.py tools/migracao/migrar_readme.py tests/test_migrar_readme.py
@@ -2094,7 +2096,7 @@ git commit -m "Adiciona script de migração do README para catalogo/" -m "Co-Au
 - Consome: `urls_da_linha` de `readme_legado` (Tarefa 6); `git show <ref>:<arquivo>` para o estado anterior.
 - Produz: `main(argv=None, raiz=RAIZ) -> int` com `--ref COMMIT` (padrão: pai do commit que criou `catalogo/_categorias.yml`); `compara(antes: dict[str, str], depois: dict[str, str], categorias_arquivos: list[str]) -> tuple[list[str], list[str]]` (erros, resumo); `ordem_esperada(registros, chave) -> list` (ordem antiga com cada categoria agrupada na primeira seção, R13); `ref_antes(raiz) -> str`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_comparar.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_comparar.py`:**
 
 ````python
 import copy
@@ -2179,7 +2181,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_comparar.py
@@ -2187,7 +2189,7 @@ python3 -m unittest discover -s tests -p test_comparar.py
 
 Esperado: falha com `ModuleNotFoundError: No module named 'comparar'` ao importar `test_comparar`.
 
-- [ ] **Passo 3: implementar. Criar `tools/migracao/comparar.py`:**
+- [x] **Passo 3: implementar. Criar `tools/migracao/comparar.py`:**
 
 ````python
 #!/usr/bin/env python3
@@ -2363,7 +2365,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -2371,7 +2373,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 52 tests` e `OK`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/migracao/comparar.py tests/test_comparar.py
@@ -2391,7 +2393,7 @@ git commit -m "Adiciona script de comparação antes e depois da migração" -m 
 - Consome: `carrega_catalogo` (Tarefa 3), `gera_saidas` (Tarefa 5), `migrar_readme.main` (Tarefa 6), `comparar.main` (Tarefa 7).
 - Produz: `tools/build_dataset.py` com `main(argv=None, raiz=RAIZ) -> int` e as opções `--check` (falha com `arquivo:linha` se o catálogo for inválido ou se `README.md`, `data/sources.json` ou `data/index.json` diferirem do gerado) e `--report` (só estatísticas); `primeira_diferenca(atual, gerado) -> int`; o catálogo migrado em `catalogo/`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_build_dataset.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_build_dataset.py`:**
 
 ````python
 import contextlib
@@ -2501,7 +2503,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_build_dataset.py
@@ -2509,7 +2511,7 @@ python3 -m unittest discover -s tests -p test_build_dataset.py
 
 Esperado: falha com `TypeError: main() got an unexpected keyword argument 'raiz'` (o `main()` antigo não aceita parâmetros) e `FileNotFoundError` em `catalogo`.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/build_dataset.py`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/build_dataset.py`:**
 
 ````python
 #!/usr/bin/env python3
@@ -2615,7 +2617,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ````
 
-- [ ] **Passo 4: migrar o README e os overrides para `catalogo/`.**
+- [x] **Passo 4: migrar o README e os overrides para `catalogo/`.**
 
 ````bash
 python3 tools/migracao/migrar_readme.py
@@ -2623,7 +2625,7 @@ python3 tools/migracao/migrar_readme.py
 
 Esperado: `migrado: 40 categorias, 874 fontes, 2313 links em catalogo/`.
 
-- [ ] **Passo 5: gerar README e dataset a partir de `catalogo/`.**
+- [x] **Passo 5: gerar README e dataset a partir de `catalogo/`.**
 
 ````bash
 python3 tools/build_dataset.py
@@ -2631,7 +2633,7 @@ python3 tools/build_dataset.py
 
 Esperado: `escrito README.md`, `escrito data/sources.json` e `escrito data/index.json`.
 
-- [ ] **Passo 6: comparar com o estado anterior (CA1 a CA5); `HEAD` ainda é o commit anterior à migração.**
+- [x] **Passo 6: comparar com o estado anterior (CA1 a CA5); `HEAD` ainda é o commit anterior à migração.**
 
 ````bash
 python3 tools/migracao/comparar.py --ref HEAD
@@ -2639,7 +2641,7 @@ python3 tools/migracao/comparar.py --ref HEAD
 
 Esperado: `CA1 categorias: 40 arquivos + manifesto`, `CA3 fontes: 874 | links: 2313 | heuristica: 667 | override: 207 | ids iguais: True`, `CA2 sources.json e index.json: iguais exceto _sobre, fonte e a ordem das categorias com duas seções`, `CA4 URLs no README: 2322 antes, 2322 depois`, `CA5 âncoras <a name>: 43 antes, 43 depois | links de outros documentos já quebrados antes: 1` e `OK: migração preserva o catálogo.`
 
-- [ ] **Passo 7: rodar e ver passar.**
+- [x] **Passo 7: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -2648,7 +2650,7 @@ python3 tools/validar_docs.py
 
 Esperado: `Ran 61 tests` e `OK`. e `OK: documentos seguem as regras de formatação.`
 
-- [ ] **Passo 8: commit.**
+- [x] **Passo 8: commit.**
 
 ````bash
 git add tools/build_dataset.py tests/test_build_dataset.py catalogo tools/readme README.md data/sources.json data/index.json
@@ -2667,7 +2669,7 @@ git commit -m "Migra o catálogo para catalogo/ e gera README e dataset a partir
 - Consome: `requirements.txt` (Tarefa 1), `python3 tools/build_dataset.py --check` (Tarefa 8), `python3 tools/validar_docs.py`.
 - Produz: workflow que instala `requirements.txt`, roda os testes, `build_dataset.py --check` e `validar_docs.py` em push para `main` e em PR que toque `catalogo/**`; hook `tools/hooks/pre-commit` (modo `100755`) que roda as mesmas verificações quando `catalogo`, `README.md`, `data`, `tools` ou `requirements.txt` mudam.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_ci.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_ci.py`:**
 
 ````python
 import os
@@ -2712,7 +2714,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_ci.py
@@ -2720,7 +2722,7 @@ python3 -m unittest discover -s tests -p test_ci.py
 
 Esperado: `AssertionError: 'run: python3 -m pip install -r requirements.txt' not found` e `FAILED (failures=2)`.
 
-- [ ] **Passo 3: implementar o workflow. Substituir o conteúdo de `.github/workflows/validar-dataset.yml`:**
+- [x] **Passo 3: implementar o workflow. Substituir o conteúdo de `.github/workflows/validar-dataset.yml`:**
 
 ````yaml
 name: Validar catálogo e dataset
@@ -2755,7 +2757,7 @@ jobs:
         run: python3 tools/validar_docs.py
 ````
 
-- [ ] **Passo 4: implementar o hook. Substituir o conteúdo de `tools/hooks/pre-commit`:**
+- [x] **Passo 4: implementar o hook. Substituir o conteúdo de `tools/hooks/pre-commit`:**
 
 ````sh
 #!/bin/sh
@@ -2776,7 +2778,7 @@ if ! git diff --cached --quiet -- catalogo README.md data tools requirements.txt
 fi
 ````
 
-- [ ] **Passo 5: tornar o hook executável também no índice do git.**
+- [x] **Passo 5: tornar o hook executável também no índice do git.**
 
 ````bash
 chmod +x tools/hooks/pre-commit
@@ -2786,7 +2788,7 @@ git ls-files -s tools/hooks/pre-commit | cut -c1-6
 
 Esperado: `100755`.
 
-- [ ] **Passo 6: rodar e ver passar.**
+- [x] **Passo 6: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -2794,7 +2796,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 64 tests` e `OK`.
 
-- [ ] **Passo 7: commit.**
+- [x] **Passo 7: commit.**
 
 ````bash
 git add .github/workflows/validar-dataset.yml tools/hooks/pre-commit tests/test_ci.py
@@ -2813,7 +2815,7 @@ git commit -m "Atualiza CI e hook de pre-commit para validar catalogo/" -m "Co-A
 - Consome: `DOCS` e as demais funções atuais de `tools/validar_docs.py`.
 - Produz: `checa_travessao(raiz=RAIZ) -> list[str]`, que passa a ler também `catalogo/*.yml` e aponta `arquivo:linha`; `le(nome, raiz=RAIZ) -> str`; constante `TRAVESSAO = "\u2014"`. O comportamento de `checa_menu`, `checa_ancoras` e `--avisos` não muda.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_validar_docs.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_validar_docs.py`:**
 
 ````python
 import sys
@@ -2857,7 +2859,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_validar_docs.py
@@ -2865,7 +2867,7 @@ python3 -m unittest discover -s tests -p test_validar_docs.py
 
 Esperado: `TypeError: checa_travessao() takes 0 positional arguments but 1 was given` e `FAILED (errors=2)`.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/validar_docs.py`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/validar_docs.py`:**
 
 ````python
 #!/usr/bin/env python3
@@ -3000,7 +3002,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -3009,7 +3011,7 @@ python3 tools/validar_docs.py
 
 Esperado: `Ran 67 tests` e `OK`. e `OK: documentos seguem as regras de formatação.`
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/validar_docs.py tests/test_validar_docs.py
@@ -3029,7 +3031,7 @@ git commit -m "Verifica travessão também nos arquivos de catalogo/" -m "Co-Aut
 - Consome: `python3 tools/build_dataset.py` (Tarefa 8).
 - Produz: nota curta no `CONTRIBUICAO.md` (R16); seção "Dataset Estruturado" do README apontando `catalogo/` em vez de `overrides.json`; modelos `sources.schema.json` e `index.schema.json` com `"fonte": "catalogo/"`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_documentacao.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_documentacao.py`:**
 
 ````python
 import json
@@ -3067,7 +3069,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_documentacao.py
@@ -3075,7 +3077,7 @@ python3 -m unittest discover -s tests -p test_documentacao.py
 
 Esperado: `FAILED (failures=3)`.
 
-- [ ] **Passo 3: aplicar as edições (cada trecho antigo precisa aparecer uma única vez; o script para com `AssertionError` se não aparecer).**
+- [x] **Passo 3: aplicar as edições (cada trecho antigo precisa aparecer uma única vez; o script para com `AssertionError` se não aparecer).**
 
 ````bash
 python3 - <<'EOF'
@@ -3130,7 +3132,7 @@ troca("data/schemas/index.schema.json", [
 EOF
 ````
 
-- [ ] **Passo 4: regenerar o README.**
+- [x] **Passo 4: regenerar o README.**
 
 ````bash
 python3 tools/build_dataset.py
@@ -3138,7 +3140,7 @@ python3 tools/build_dataset.py
 
 Esperado: `escrito README.md`.
 
-- [ ] **Passo 5: rodar e ver passar.**
+- [x] **Passo 5: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -3148,7 +3150,7 @@ python3 tools/build_dataset.py --check
 
 Esperado: `Ran 70 tests` e `OK`., `OK: documentos seguem as regras de formatação.` e `OK: catálogo válido e arquivos gerados atualizados.`
 
-- [ ] **Passo 6: commit.**
+- [x] **Passo 6: commit.**
 
 ````bash
 git add CONTRIBUICAO.md tools/readme/cabecalho.md data/schemas/sources.schema.json data/schemas/index.schema.json README.md tests/test_documentacao.py
@@ -3165,7 +3167,7 @@ git commit -m "Documenta catalogo/ como fonte de verdade" -m "Co-Authored-By: Cl
 - Consome: tudo das tarefas 1 a 11.
 - Produz: a evidência dos critérios de aceite para a descrição do PR.
 
-- [ ] **Passo 1: suíte completa, `--check` e documentos (CA6, CA8, CA11, CA12).**
+- [x] **Passo 1: suíte completa, `--check` e documentos (CA6, CA8, CA11, CA12).**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -3175,7 +3177,7 @@ python3 tools/validar_docs.py
 
 Esperado: `Ran 70 tests` e `OK`., `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
 
-- [ ] **Passo 2: totais (CA3).**
+- [x] **Passo 2: totais (CA3).**
 
 ````bash
 python3 tools/build_dataset.py --report
@@ -3183,7 +3185,7 @@ python3 tools/build_dataset.py --report
 
 Esperado: `categorias .......... 40`, `fontes .............. 874`, `links ............... 2313` e `classificação: heurística 667 | override 207`.
 
-- [ ] **Passo 3: equivalência com o estado anterior à migração, sem `--ref` (CA1, CA2, CA4, CA5).**
+- [x] **Passo 3: equivalência com o estado anterior à migração, sem `--ref` (CA1, CA2, CA4, CA5).**
 
 ````bash
 python3 tools/migracao/comparar.py
@@ -3191,7 +3193,7 @@ python3 tools/migracao/comparar.py
 
 Esperado: `CA4 URLs no README: 2322 antes, 2322 depois` e `OK: migração preserva o catálogo.`
 
-- [ ] **Passo 4: gerar duas vezes seguidas não deixa diff (R9, CA7).**
+- [x] **Passo 4: gerar duas vezes seguidas não deixa diff (R9, CA7).**
 
 ````bash
 python3 tools/build_dataset.py >/dev/null
@@ -3201,7 +3203,7 @@ test -z "$(git status --porcelain)" && echo git-status-limpo
 
 Esperado: `git-status-limpo`.
 
-- [ ] **Passo 5: tempo do build completo (CA10).**
+- [x] **Passo 5: tempo do build completo (CA10).**
 
 ````bash
 python3 - <<'EOF'
@@ -3214,7 +3216,7 @@ EOF
 
 Esperado: `build em menos de 10 s: True`.
 
-- [ ] **Passo 6: nenhum código do build lê overrides nem roda a heurística (CA12).**
+- [x] **Passo 6: nenhum código do build lê overrides nem roda a heurística (CA12).**
 
 ````bash
 grep -l -E 'overrides|REGRAS_PALAVRA|parse_readme' tools/build_dataset.py tools/catalogo_io.py tools/dataset.py tools/readme_gerado.py tools/yaml_linhas.py tools/esquema.py || echo build-sem-heuristica

@@ -53,6 +53,7 @@ OSINT (sigla para Open source intelligence ou Inteligência de Fontes Abertas) �
 
 <br>
 
+<a name="avisos-legais"></a>
 ## ⚠️ Avisos Legais e Éticos
 
 > [!IMPORTANT]

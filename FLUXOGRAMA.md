@@ -481,7 +481,6 @@ Para visualizar localmente:
 ---
 
 <p align="center">
-  <sub>Última atualização: Dezembro 2025</sub><br>
   <sub>Projeto OSINT Brazuca - Fluxogramas de Investigação</sub><br>
   <sub>📊 Visualize, Planeje, Execute</sub>
 </p>

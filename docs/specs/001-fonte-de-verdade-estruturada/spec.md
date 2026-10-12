@@ -1,6 +1,6 @@
 # Spec 001: fonte de verdade estruturada
 
-- **Status:** Aprovada (2026-10-12)
+- **Status:** Implementada e mesclada (PR #2, 2026-10-12)
 - **Roadmap:** [reorganizar o catálogo](../ROADMAP.md), posição 1
 - **Decisão relacionada:** [ADR 0001](../../adr/0001-yaml-por-categoria-como-fonte-de-verdade.md)
 
