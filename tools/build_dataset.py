@@ -56,7 +56,10 @@ def primeira_diferenca(atual, gerado):
 
 def le_alterados(origem):
     """Caminhos alterados, um por linha, lidos de um arquivo ou da entrada padrão ('-')."""
-    texto = sys.stdin.read() if origem == "-" else Path(origem).read_text(encoding="utf-8")
+    if origem == "-":
+        texto = sys.stdin.buffer.read().decode("utf-8")
+    else:
+        texto = Path(origem).read_text(encoding="utf-8")
     return {linha.strip() for linha in texto.splitlines() if linha.strip()}
 
 
@@ -109,9 +112,17 @@ def main(argv=None, raiz=RAIZ):
                          "padrão); só os arquivos gerados dessa lista precisam estar em dia")
     ap.add_argument("--report", action="store_true", help="imprime estatísticas do catálogo")
     args = ap.parse_args(argv)
-    if args.alterados and not args.check:
+    if args.alterados is not None and not args.check:
         ap.error("--alterados só vale junto com --check")
     raiz = Path(raiz)
+
+    alterados = None
+    if args.alterados is not None:
+        alterados = le_alterados(args.alterados)
+        if not alterados:
+            print("ERRO: a lista de arquivos alterados está vazia; confira o comando que gera a lista "
+                  "(git diff --name-only ...)", file=sys.stderr)
+            return 1
 
     catalogo, erros = carrega_catalogo(raiz)
     if erros:
@@ -125,7 +136,7 @@ def main(argv=None, raiz=RAIZ):
         relatorio(saidas)
 
     if args.check:
-        return confere(raiz, saidas, le_alterados(args.alterados) if args.alterados else None)
+        return confere(raiz, saidas, alterados)
 
     if not args.report:
         for relativo, conteudo in saidas.items():

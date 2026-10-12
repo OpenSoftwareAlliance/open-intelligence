@@ -16,7 +16,7 @@ from build_dataset import main  # noqa: E402
 def roda(raiz, *args, entrada=""):
     saida, erro = io.StringIO(), io.StringIO()
     with contextlib.redirect_stdout(saida), contextlib.redirect_stderr(erro), \
-            mock.patch("sys.stdin", io.StringIO(entrada)):
+            mock.patch("sys.stdin", io.TextIOWrapper(io.BytesIO(entrada.encode("utf-8")), encoding="utf-8")):
         codigo = main(list(args), raiz=raiz)
     return codigo, saida.getvalue(), erro.getvalue()
 
@@ -86,6 +86,33 @@ class TestAlterados(unittest.TestCase):
         self.assertEqual(codigo, 0)
         self.assertIn("fontes .............. 3", saida)
         self.assertIn("OK: catálogo válido e arquivos gerados atualizados.", saida)
+
+    def test_lista_vazia_na_entrada_e_erro(self):
+        codigo, _, erro = roda(self.raiz, "--check", "--alterados", "-", entrada="\n  \n")
+        self.assertEqual(codigo, 1)
+        self.assertIn("ERRO: a lista de arquivos alterados está vazia", erro)
+
+    def test_lista_vazia_em_arquivo_e_erro(self):
+        lista = Path(self._tmp.name) / "vazia.txt"
+        lista.write_text("", encoding="utf-8")
+        codigo, _, erro = roda(self.raiz, "--check", "--alterados", str(lista))
+        self.assertEqual(codigo, 1)
+        self.assertIn("está vazia", erro)
+
+    def test_alterados_vazio_sem_check_e_erro_de_uso(self):
+        with self.assertRaises(SystemExit) as saida, contextlib.redirect_stderr(io.StringIO()):
+            main(["--alterados", ""], raiz=self.raiz)
+        self.assertEqual(saida.exception.code, 2)
+
+    def test_aviso_cita_so_o_gerado_desatualizado_fora_da_lista(self):
+        self.beta.write_text(BETA.replace("Descrição da terceira.", "Nova descrição."), encoding="utf-8")
+        roda(self.raiz)
+        (self.raiz / "data" / "index.json").write_text("{}\n", encoding="utf-8")
+        lista = "catalogo/beta.yml\nREADME.md\n"
+        codigo, saida, _ = roda(self.raiz, "--check", "--alterados", "-", entrada=lista)
+        self.assertEqual(codigo, 0)
+        self.assertIn("regenerados no main depois do merge: data/index.json\n", saida)
+        self.assertNotIn("README.md,", saida)
 
 
 if __name__ == "__main__":
