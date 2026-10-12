@@ -1,6 +1,6 @@
 {
-  "_sobre": "Modelo vazio de data/sources.json. Mostra a estrutura exata do arquivo gerado: um objeto por fonte dentro de 'sources', com links aninhados. O campo 'observacao' só aparece quando definido em overrides.json.",
-  "fonte": "README.md",
+  "_sobre": "Modelo vazio de data/sources.json. Mostra a estrutura exata do arquivo gerado: um objeto por fonte dentro de 'sources', com links aninhados. O campo 'observacao' só aparece quando definido no arquivo da categoria em catalogo/.",
+  "fonte": "catalogo/",
   "sources": [
     {
       "categoria": "",

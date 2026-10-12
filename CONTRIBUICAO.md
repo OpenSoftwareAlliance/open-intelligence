@@ -190,15 +190,16 @@ Qualquer contexto adicional sobre as mudanças.
 
 ## 🗂️ Dataset JSON <a name="dataset-json"></a>
 
-O README é a fonte de verdade do catálogo. A pasta `data/` contém uma versão estruturada dele, usada para busca por tipo de entrada e de retorno.
+> [!IMPORTANT]
+> As fontes do catálogo ficam em `catalogo/<categoria>.yml`, um arquivo YAML por categoria, com a classificação (`input`, `output`, `tipo_fonte`) declarada em cada fonte. O `README.md`, o `data/sources.json` e o `data/index.json` são gerados a partir desses arquivos: não os edite à mão. O `data/overrides.json` e a classificação automática por palavra-chave não são mais usados pelo build.
 
 ```bash
-python3 tools/build_dataset.py            # regenera o dataset
-python3 tools/build_dataset.py --report   # mostra estatísticas e fontes sem classificação
+python3 tools/build_dataset.py            # valida catalogo/ e regenera README.md e o dataset
+python3 tools/build_dataset.py --report   # mostra estatísticas do catálogo
 python3 tools/build_dataset.py --check    # só verifica se está atualizado
 ```
 
-Requer apenas Python 3, sem dependências.
+Requer Python 3 e PyYAML, com versão fixada em `requirements.txt`: `python3 -m pip install -r requirements.txt`.
 
 | Arquivo | O que é |
 |---|---|

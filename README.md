@@ -136,25 +136,25 @@ OSINT (sigla para Open source intelligence ou Inteligência de Fontes Abertas) �
 
 ## 🗂️ Dataset Estruturado
 
-Além do catálogo em Markdown, este repositório publica uma versão estruturada em JSON na pasta [`data/`](data/), gerada automaticamente a partir deste README. Ela permite localizar fontes por **tipo de entrada**, ou seja, o que você já tem em mãos (CPF, CNPJ, placa, domínio, telefone...), e por **tipo de retorno**, que dado a fonte devolve.
+Além do catálogo em Markdown, este repositório publica uma versão estruturada em JSON na pasta [`data/`](data/), gerada automaticamente a partir de [`catalogo/`](catalogo/), a mesma fonte que gera este README. Ela permite localizar fontes por **tipo de entrada**, ou seja, o que você já tem em mãos (CPF, CNPJ, placa, domínio, telefone...), e por **tipo de retorno**, que dado a fonte devolve.
 
 | Arquivo | Conteúdo |
 |---|---|
 | [`data/sources.json`](data/sources.json) | 874 fontes em 40 categorias, com os links agrupados. Arquivo canônico. |
 | [`data/index.json`](data/index.json) | 2.313 links achatados, um registro por URL. Formato pronto para busca. |
 | [`data/taxonomy.json`](data/taxonomy.json) | Vocabulário controlado: 31 tipos de entrada, 43 de retorno e 14 de fonte. |
-| [`data/overrides.json`](data/overrides.json) | Correções manuais de classificação. |
+| [`catalogo/`](catalogo/) | Fonte de verdade: um arquivo YAML por categoria, com os links e a classificação de cada fonte. |
 
 > [!IMPORTANT]
-> `sources.json` e `index.json` são **gerados**. Não edite à mão: o próximo build sobrescreve. Correções de classificação vão em `overrides.json`. Cada fonte é identificada pelo campo `id` (`categoria/nome`), estável entre builds; o dataset não guarda posição no README.
+> `sources.json` e `index.json` são **gerados**. Não edite à mão: o próximo build sobrescreve. Correções de classificação vão no arquivo da categoria em `catalogo/`. Cada fonte é identificada pelo campo `id` (`categoria/nome`), estável entre builds; o dataset não guarda posição no README.
 
-Para regenerar depois de alterar o README:
+Para regenerar depois de alterar `catalogo/`:
 
 ```bash
 python3 tools/build_dataset.py
 ```
 
-Requer apenas Python 3, sem dependências. Como usar o dataset e como corrigir a classificação de uma fonte: [CONTRIBUICAO.md](CONTRIBUICAO.md#dataset-json).
+Requer Python 3 e PyYAML (`python3 -m pip install -r requirements.txt`). Como usar o dataset e como corrigir a classificação de uma fonte: [CONTRIBUICAO.md](CONTRIBUICAO.md#dataset-json).
 
 ---
 
