@@ -1,0 +1,2 @@
+# Única dependência fora da biblioteca padrão (ADR 0001). Versão fixada.
+PyYAML==6.0.3
