@@ -1,3 +1,5 @@
+import shutil
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -70,3 +72,10 @@ class TestDependencias(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestActionlint(unittest.TestCase):
+    @unittest.skipUnless(shutil.which("actionlint"), "actionlint não instalado")
+    def test_workflow_passa_no_actionlint(self):
+        r = subprocess.run(["actionlint", str(WORKFLOW)], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)

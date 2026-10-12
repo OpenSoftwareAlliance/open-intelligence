@@ -1,6 +1,6 @@
 # Categoria: Consulta de Processos
 # Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
-# Depois de editar, rode: python3 tools/build_dataset.py
+# Depois de editar, abra o pull request: README.md e data/*.json são regenerados no main (veja CONTRIBUICAO.md).
 fontes:
   - id: consulta-de-processos/portal-e-s
     nome: Portal e-S\*\*

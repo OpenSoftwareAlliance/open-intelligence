@@ -1,6 +1,6 @@
 # Categoria: Fontes Internacionais com Cobertura do Brasil
 # Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
-# Depois de editar, rode: python3 tools/build_dataset.py
+# Depois de editar, abra o pull request: README.md e data/*.json são regenerados no main (veja CONTRIBUICAO.md).
 fontes:
   - id: fontes-internacionais-com-cobertura-do-brasil/opencorporates-empresas-do-brasil-e-diretores
     nome: OpenCorporates - Empresas do Brasil e Diretores

@@ -1,6 +1,6 @@
 # Categoria: Busca de Informações via CPF/CNPJ/CRM/CNA
 # Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
-# Depois de editar, rode: python3 tools/build_dataset.py
+# Depois de editar, abra o pull request: README.md e data/*.json são regenerados no main (veja CONTRIBUICAO.md).
 fontes:
   - id: busca-de-informacoes-via-cpf-cnpj-crm-cna/consulta-situacao-cadastral-cpf
     nome: Consulta Situação Cadastral CPF

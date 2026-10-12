@@ -19,6 +19,7 @@ DICAS = (
      f"texto com ': ' precisa ficar entre aspas simples (descricao: 'Consulta: CPF'); se não for isso, {ALINHAMENTO}"),
     ("cannot start any token",
      "texto que começa com crase, @ ou % precisa ficar entre aspas simples; indente só com espaços, nunca com tabulação"),
+    ("tab character", "indente só com espaços, nunca com tabulação (2 espaços por nível)"),
     ("alphabetic or numeric character", "texto que começa com * ou & precisa ficar entre aspas simples"),
     ("undefined alias", "texto que começa com * ou & precisa ficar entre aspas simples"),
     ("constructor for the tag", "texto que começa com ! precisa ficar entre aspas simples"),

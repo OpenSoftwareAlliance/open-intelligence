@@ -105,6 +105,8 @@ descricao: '[Beta] consulta gratuita'
 descricao: 'Arquivo d''Ajuda do portal'
 ```
 
+Sem aspas, um valor que começa com `&` ou `*` é lido como âncora ou alias do YAML e o texto muda sem aviso (ou vira erro).
+
 Um ` #` no meio de um texto sem aspas vira comentário e corta o resto da linha; use aspas nesse caso também.
 
 ### Erros comuns <a name="erros-comuns"></a>
@@ -119,7 +121,8 @@ Cada erro do CI começa com `arquivo:linha:` e, quando se refere a um campo, com
 | `campo obrigatório 'nome' ausente` | Falta o campo na fonte apontada. |
 | `a URL precisa começar com http:// ou https:// e não pode ter espaços` | Corrija a `url` do link. |
 | `o id precisa começar com 'saude/', o nome do arquivo da categoria` | Ajuste o prefixo do `id` ao arquivo em que a fonte está. |
-| `lista vazia em fonte com classificacao override` | Declare ao menos um termo em `input` ou `output`. |
+| `lista vazia em fonte com classificacao override` | Declare ao menos um termo no campo apontado (`input` e `output` são obrigatórios em fonte `override`). |
+| `YAML inválido: found a tab character that violates indentation` | Há uma tabulação na indentação. Indente só com espaços, 2 por nível. |
 | `README.md:120: difere do gerado a partir de catalogo/` | O pull request editou um arquivo gerado. Desfaça essa mudança e edite só `catalogo/`. |
 
 ---
@@ -150,9 +153,10 @@ Cada erro do CI começa com `arquivo:linha:` e, quando se refere a um campo, com
 
 O hook confere o que está no índice do git (o que vai entrar no commit), não a pasta de trabalho. Mensagens de commit no imperativo: "Adiciona fonte X", "Corrige link de Y".
 
-Para mudar ferramentas (`tools/`), rode também os testes:
+Para mudar ferramentas (`tools/`), rode também os testes. Rode o build antes, porque `tests/test_build_dataset.py` executa o `--check` estrito no repositório real:
 
 ```bash
+python3 tools/build_dataset.py
 python3 -m unittest discover -s tests
 python3 tools/validar_docs.py
 ```
@@ -173,7 +177,7 @@ Depois de mesclar um pull request que mude `catalogo/`, `data/taxonomy.json` ou 
 git switch main && git pull
 python3 tools/build_dataset.py
 git add README.md data/sources.json data/index.json
-git commit -m "Regenera README.md e dataset a partir de catalogo/"
+git commit -S -m "Regenera README.md e dataset a partir de catalogo/"
 git push
 ```
 

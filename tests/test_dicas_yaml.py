@@ -50,9 +50,22 @@ class TestDicasYaml(unittest.TestCase):
                 _, _, erros = le_yaml(texto, "catalogo/alfa.yml")
                 self.assertIn("alinhe a linha com os campos vizinhos", erros[0])
 
-    def test_tabulacao_ganha_dica(self):
-        _, _, erros = le_yaml("fontes:\n\t- id: alfa/um\n", "catalogo/alfa.yml")
-        self.assertIn("nunca com tabulação", erros[0])
+    def test_tabulacao_ganha_dica_nos_dois_carregadores(self):
+        textos = ("fontes:\n\t- id: alfa/um\n",
+                  "fontes:\n  - id: alfa/um\n\tnome: x\n",
+                  "fontes:\n  - id: alfa/um\n  \tnome: x\n")
+        carregadores = [("SafeLoader", yaml.SafeLoader)]
+        if hasattr(yaml, "CSafeLoader"):
+            carregadores.append(("CSafeLoader", yaml.CSafeLoader))
+        else:
+            self.skipTest("yaml.CSafeLoader indisponível: só o carregador em Python seria testado")
+        for nome, carregador in carregadores:
+            with mock.patch.object(yaml_linhas, "CARREGADOR", carregador):
+                for texto in textos:
+                    with self.subTest(carregador=nome, texto=texto):
+                        _, _, erros = le_yaml(texto, "catalogo/alfa.yml")
+                        self.assertEqual(len(erros), 1, erros)
+                        self.assertIn("nunca com tabulação", erros[0])
 
     def test_erro_sem_dica_conhecida_fica_como_esta(self):
         self.assertEqual(yaml_linhas.dica("problema que ninguém previu"), "")

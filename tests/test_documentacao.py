@@ -28,7 +28,7 @@ class TestContribuicao(unittest.TestCase):
         self.assertIn("são gerados a partir desses arquivos: não os edite à mão e não os inclua no pull request", self.texto)
         self.assertIn("os arquivos gerados são regenerados no `main` depois do merge", self.texto)
         self.assertIn("Depois do merge, o mantenedor os regenera no `main`.", self.texto)
-        self.assertIn('git commit -m "Regenera README.md e dataset a partir de catalogo/"', self.texto)
+        self.assertIn('git commit -S -m "Regenera README.md e dataset a partir de catalogo/"', self.texto)
         self.assertIn("Arquivos gerados em dia no main", self.texto)
         for antigo in ("Inclua esses arquivos no commit", "incluí os arquivos gerados", "overrides", "assinado pelo GitHub",
                        "Discussion", "git add .", "### Nome da", "<summary>Links de pesquisa</summary>"):

@@ -1,4 +1,4 @@
-<!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/. Não edite à mão: edite catalogo/<categoria>.yml e rode python3 tools/build_dataset.py -->
+<!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/. Não edite à mão: contribuidores editam catalogo/<categoria>.yml; os mantenedores regeneram com python3 tools/build_dataset.py -->
 <h1 align="center">🇧🇷 OSINT BRAZUCA 🇧🇷</h1>
 
 <p align="center">
