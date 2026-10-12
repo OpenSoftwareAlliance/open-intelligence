@@ -1,0 +1,54 @@
+name: Reportar link quebrado
+description: Um link do catálogo não abre, mudou de endereço ou leva a outra página.
+title: "[LINK QUEBRADO] "
+labels: ["link quebrado"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sites `.gov.br` costumam bloquear robôs e verificadores automáticos. Confira o link no navegador antes de reportar.
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte
+      description: Nome da fonte no README ou o id dela (categoria/nome-da-fonte).
+      placeholder: "consulta-de-processos/exemplo-consulta-publica"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL quebrada
+      placeholder: "https://exemplo.gov.br/consulta"
+    validations:
+      required: true
+  - type: dropdown
+    id: erro
+    attributes:
+      label: O que acontece
+      options:
+        - "Página não encontrada (404)"
+        - "Site fora do ar ou sem resposta"
+        - "Redireciona para outra página"
+        - "Certificado inválido"
+        - "Acesso bloqueado (401, 403 ou 429)"
+        - "Outro"
+    validations:
+      required: true
+  - type: input
+    id: data_teste
+    attributes:
+      label: Data do teste
+      placeholder: "12/10/2026"
+  - type: input
+    id: alternativa
+    attributes:
+      label: Endereço novo ou alternativa
+      description: Opcional. Se a fonte mudou de lugar, informe a URL nova.
+  - type: checkboxes
+    id: confirmacoes
+    attributes:
+      label: Confirmações
+      options:
+        - label: Testei no navegador, não só com ferramenta automática.
+          required: true

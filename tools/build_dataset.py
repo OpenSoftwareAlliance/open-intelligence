@@ -15,6 +15,11 @@ Uso:
     python3 tools/build_dataset.py --check    falha se algo estiver inválido ou desatualizado
     python3 tools/build_dataset.py --report   estatísticas do catálogo
 
+    git diff --name-only HEAD^1 HEAD | python3 tools/build_dataset.py --check --alterados -
+        modo de PR: valida o catálogo e falha só se um arquivo gerado da lista
+        foi editado à mão; gerado fora da lista pode estar desatualizado,
+        porque o mantenedor o regenera no main depois do merge (ADR 0002)
+
 Requer PyYAML (pip install -r requirements.txt).
 """
 
@@ -35,6 +40,11 @@ from dataset import gera_saidas
 RAIZ = Path(__file__).resolve().parent.parent
 
 
+def grava(caminho, conteudo):
+    """Grava em UTF-8 com fim de linha LF em qualquer sistema (no Windows o modo texto usaria CRLF)."""
+    Path(caminho).write_bytes(conteudo.encode("utf-8"))
+
+
 def primeira_diferenca(atual, gerado):
     """Número (a partir de 1) da primeira linha em que os textos divergem."""
     a, g = atual.splitlines(), gerado.splitlines()
@@ -42,6 +52,15 @@ def primeira_diferenca(atual, gerado):
         if x != y:
             return n
     return min(len(a), len(g)) + 1
+
+
+def le_alterados(origem):
+    """Caminhos alterados, um por linha, lidos de um arquivo ou da entrada padrão ('-')."""
+    if origem == "-":
+        texto = sys.stdin.buffer.read().decode("utf-8")
+    else:
+        texto = Path(origem).read_text(encoding="utf-8")
+    return {linha.strip() for linha in texto.splitlines() if linha.strip()}
 
 
 def relatorio(saidas):
@@ -54,13 +73,56 @@ def relatorio(saidas):
     print(f"classificação: heurística {classes['heuristica']} | override {classes['override']}")
 
 
+def confere(raiz, saidas, alterados):
+    """--check: 0 se os gerados estão em dia (ou, com alterados, se nenhum foi editado à mão)."""
+    desatualizados, pendentes = [], []
+    for relativo, conteudo in saidas.items():
+        caminho = raiz / relativo
+        atual = caminho.read_text(encoding="utf-8") if caminho.exists() else ""
+        if atual == conteudo:
+            continue
+        if alterados is None or relativo in alterados:
+            desatualizados.append(f"{relativo}:{primeira_diferenca(atual, conteudo)}: difere do gerado a partir de catalogo/")
+        else:
+            pendentes.append(relativo)
+    if desatualizados:
+        print("ERRO: arquivos gerados desatualizados ou editados à mão:", file=sys.stderr)
+        for linha in desatualizados:
+            print(f"  {linha}", file=sys.stderr)
+        print("Edite catalogo/<categoria>.yml (nunca o README.md) e rode: python3 tools/build_dataset.py",
+              file=sys.stderr)
+        if alterados is not None:
+            print("Ou desfaça a mudança nesses arquivos: o PR não precisa incluir README.md nem data/*.json, "
+                  "que são regenerados no main depois do merge.", file=sys.stderr)
+        return 1
+    if pendentes:
+        print(f"AVISO: desatualizados, regenerados no main depois do merge: {', '.join(pendentes)}")
+        print("OK: catálogo válido e nenhum arquivo gerado editado à mão.")
+    else:
+        print("OK: catálogo válido e arquivos gerados atualizados.")
+    return 0
+
+
 def main(argv=None, raiz=RAIZ):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true",
                     help="falha se o catálogo for inválido ou os arquivos gerados estiverem desatualizados")
+    ap.add_argument("--alterados", metavar="LISTA",
+                    help="com --check: arquivo com os caminhos alterados no PR, um por linha ('-' lê da entrada "
+                         "padrão); só os arquivos gerados dessa lista precisam estar em dia")
     ap.add_argument("--report", action="store_true", help="imprime estatísticas do catálogo")
     args = ap.parse_args(argv)
+    if args.alterados is not None and not args.check:
+        ap.error("--alterados só vale junto com --check")
     raiz = Path(raiz)
+
+    alterados = None
+    if args.alterados is not None:
+        alterados = le_alterados(args.alterados)
+        if not alterados:
+            print("ERRO: a lista de arquivos alterados está vazia; confira o comando que gera a lista "
+                  "(git diff --name-only ...)", file=sys.stderr)
+            return 1
 
     catalogo, erros = carrega_catalogo(raiz)
     if erros:
@@ -74,25 +136,11 @@ def main(argv=None, raiz=RAIZ):
         relatorio(saidas)
 
     if args.check:
-        desatualizados = []
-        for relativo, conteudo in saidas.items():
-            caminho = raiz / relativo
-            atual = caminho.read_text(encoding="utf-8") if caminho.exists() else ""
-            if atual != conteudo:
-                desatualizados.append(f"{relativo}:{primeira_diferenca(atual, conteudo)}: difere do gerado a partir de catalogo/")
-        if desatualizados:
-            print("ERRO: arquivos gerados desatualizados ou editados à mão:", file=sys.stderr)
-            for linha in desatualizados:
-                print(f"  {linha}", file=sys.stderr)
-            print("Edite catalogo/<categoria>.yml (nunca o README.md) e rode: python3 tools/build_dataset.py",
-                  file=sys.stderr)
-            return 1
-        print("OK: catálogo válido e arquivos gerados atualizados.")
-        return 0
+        return confere(raiz, saidas, alterados)
 
     if not args.report:
         for relativo, conteudo in saidas.items():
-            (raiz / relativo).write_text(conteudo, encoding="utf-8")
+            grava(raiz / relativo, conteudo)
             print(f"escrito {relativo}")
     return 0
 

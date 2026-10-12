@@ -19,7 +19,8 @@ Layout de cada fonte:
 
 AVISO = (
     "<!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/. "
-    "Não edite à mão: edite catalogo/<categoria>.yml e rode python3 tools/build_dataset.py -->"
+    "Não edite à mão: contribuidores editam catalogo/<categoria>.yml; "
+    "os mantenedores regeneram com python3 tools/build_dataset.py -->"
 )
 
 VOLTAR = (

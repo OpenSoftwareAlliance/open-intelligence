@@ -1,6 +1,6 @@
 # Categoria: Registros de Imóveis e Propriedades
 # Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
-# Depois de editar, rode: python3 tools/build_dataset.py
+# Depois de editar, abra o pull request: README.md e data/*.json são regenerados no main (veja CONTRIBUICAO.md).
 fontes:
   - id: registros-de-imoveis-e-propriedades/srei-sistema-de-registro-eletronico-de-imoveis
     nome: SREI - Sistema de Registro Eletrônico de Imóveis

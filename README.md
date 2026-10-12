@@ -1,4 +1,4 @@
-<!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/. Não edite à mão: edite catalogo/<categoria>.yml e rode python3 tools/build_dataset.py -->
+<!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/. Não edite à mão: contribuidores editam catalogo/<categoria>.yml; os mantenedores regeneram com python3 tools/build_dataset.py -->
 <h1 align="center">🇧🇷 OSINT BRAZUCA 🇧🇷</h1>
 
 <p align="center">
@@ -9616,7 +9616,7 @@ Lista de agências de checagem certificadas pela International Fact-Checking Net
 
 ## Contribuições ✨ <a name="contribuicoes"></a>
 
-Contribuições de qualquer tipo são bem-vindas!
+Contribuições de qualquer tipo são bem-vindas! Para sugerir uma fonte, reportar um link quebrado ou editar o catálogo pelo navegador, veja o [guia de contribuição](CONTRIBUICAO.md).
 
 <a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=osintbrazuca/osint-brazuca&max=500" alt="Lista de contribuidores" width="100%"/>

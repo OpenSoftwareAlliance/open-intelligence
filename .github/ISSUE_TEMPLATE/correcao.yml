@@ -1,0 +1,39 @@
+name: Corrigir uma fonte
+description: Nome, descrição, classificação, categoria ou UF de uma fonte estão errados, ou a fonte está repetida.
+title: "[CORREÇÃO] "
+labels: ["correção"]
+body:
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte
+      description: Nome da fonte no README ou o id dela (categoria/nome-da-fonte).
+    validations:
+      required: true
+  - type: dropdown
+    id: o_que
+    attributes:
+      label: O que está errado
+      multiple: true
+      options:
+        - "Nome"
+        - "Descrição"
+        - "Classificação (input, output ou tipo_fonte)"
+        - "Categoria"
+        - "UF de um link"
+        - "Fonte repetida"
+        - "Outro"
+    validations:
+      required: true
+  - type: textarea
+    id: correcao
+    attributes:
+      label: Correção proposta
+      description: Como deveria ficar. Para classificação, use os termos de data/taxonomy.json.
+    validations:
+      required: true
+  - type: input
+    id: referencia
+    attributes:
+      label: Onde conferir
+      description: Opcional. Página oficial ou documento que comprova a correção.

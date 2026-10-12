@@ -1,16 +1,27 @@
 #!/bin/sh
-# Valida catálogo, arquivos gerados e documentos antes do commit. Ativar com:
+# Valida o que vai entrar no commit (o índice do git, não a árvore de trabalho):
+# formatação dos documentos, catálogo e arquivos gerados. Roda todas as
+# verificações antes de falhar, para mostrar todos os erros de uma vez.
+# Ativar com:
 #   git config core.hooksPath tools/hooks
 # Requer PyYAML: python3 -m pip install -r requirements.txt
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
-# 1. Regras de formatação (travessão, menu, âncoras) e avisos de curadoria
-if ! git diff --cached --quiet -- '*.md' catalogo data tools; then
-  python3 tools/validar_docs.py --avisos
+if git diff --cached --quiet -- '*.md' catalogo data tools requirements.txt; then
+  exit 0
 fi
 
-# 2. Catálogo (schema, taxonomia, ids, links) e README.md/data/*.json gerados em dia
-if ! git diff --cached --quiet -- catalogo README.md data tools requirements.txt; then
-  python3 tools/build_dataset.py --check
-fi
+# Cópia do índice numa pasta temporária, apagada ao sair.
+copia="$(mktemp -d)"
+trap 'rm -rf "$copia"' EXIT
+git checkout-index --all --prefix="$copia/"
+git diff --cached --name-only > "$copia/.alterados"
+
+cd "$copia"
+falhou=0
+# 1. Regras de formatação (travessão, menu, âncoras) e avisos de curadoria
+python3 tools/validar_docs.py --avisos || falhou=1
+# 2. Catálogo (schema, taxonomia, ids, links) e arquivos gerados não editados à mão
+python3 tools/build_dataset.py --check --alterados .alterados || falhou=1
+exit "$falhou"

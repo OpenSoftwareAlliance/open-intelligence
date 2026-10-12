@@ -7,6 +7,7 @@ Toda mensagem de erro começa com "arquivo:linha: ", com a linha do YAML
 onde está o valor com problema (ou o objeto que o contém).
 """
 
+import difflib
 import json
 import re
 from pathlib import Path
@@ -54,6 +55,60 @@ def _urls_soltas(rotulo, linhas, fonte, base, urls_links):
     return erros
 
 
+def fora_da_taxonomia(eixo, termo, aceitos):
+    """Mensagem de termo fora da taxonomia, com sugestão ou com os termos aceitos."""
+    mensagem = f"{eixo} '{termo}' fora da taxonomia (data/taxonomy.json)"
+    parecidos = difflib.get_close_matches(termo, sorted(aceitos), n=3, cutoff=0.6)
+    if parecidos:
+        return mensagem + "; você quis dizer " + " ou ".join(f"'{p}'" for p in parecidos) + "?"
+    if len(aceitos) <= 15:
+        return mensagem + "; termos aceitos: " + ", ".join(sorted(aceitos))
+    return mensagem + f"; veja os termos aceitos na seção {eixo} de data/taxonomy.json"
+
+
+def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos, categoria_id):
+    """Taxonomia, coerência entre links e markdown e id, nos campos sem erro de formato."""
+    def ok(*campos):
+        return not invalidos.intersection(campos)
+
+    erros = []
+    for eixo in ("input", "output"):
+        if ok(eixo):
+            for k, termo in enumerate(fonte[eixo]):
+                if termo not in termos[eixo]:
+                    erros.append(erro_em(rotulo, linhas, base + (eixo, k), fora_da_taxonomia(eixo, termo, termos[eixo])))
+    for eixo in ("tipo_fonte", "classificacao"):
+        if ok(eixo) and fonte[eixo] not in termos[eixo]:
+            erros.append(erro_em(rotulo, linhas, base + (eixo,), fora_da_taxonomia(eixo, fonte[eixo], termos[eixo])))
+    # Fontes heuristica herdadas da migração podem ter lista vazia; fonte nova ou revisada (override), não.
+    for eixo, dica in (("input", " (use [nenhum] quando a fonte não pede identificador)"), ("output", "")):
+        if ok(eixo, "classificacao") and fonte["classificacao"] == "override" and not fonte[eixo]:
+            erros.append(erro_em(rotulo, linhas, base + (eixo,),
+                                 f"lista vazia em fonte com classificacao override; declare ao menos um termo{dica}"))
+    if ok("links", "markdown", "descricao", "resumo", "subsecao", "observacao"):
+        urls_md = urls_do_markdown(fonte.get("markdown", ""))
+        for k, link in enumerate(fonte["links"]):
+            if link.get("em_markdown") and link["url"] not in urls_md:
+                erros.append(erro_em(rotulo, linhas, base + ("links", k, "em_markdown"),
+                                     f"link {link['url']} marcado em_markdown, mas a URL não aparece no campo markdown"))
+        urls_links = {link["url"] for link in fonte["links"]}
+        for url in sorted(urls_md - urls_links):
+            erros.append(erro_em(rotulo, linhas, base + ("markdown",),
+                                 f"URL {url} no campo markdown sem link correspondente em links"))
+        erros.extend(_urls_soltas(rotulo, linhas, fonte, base, urls_links))
+    if ok("id"):
+        if fonte["id"].split("/")[0] != categoria_id:
+            erros.append(erro_em(rotulo, linhas, base + ("id",),
+                                 f"o id precisa começar com '{categoria_id}/', o nome do arquivo da categoria"))
+        local = f"{rotulo}:{linha_de(linhas, base + ('id',))}"
+        if fonte["id"] in ids_vistos:
+            erros.append(erro_em(rotulo, linhas, base + ("id",),
+                                 f"id '{fonte['id']}' repetido; já usado em {ids_vistos[fonte['id']]}"))
+        else:
+            ids_vistos[fonte["id"]] = local
+    return erros
+
+
 def carrega_catalogo(raiz=RAIZ):
     """Lê e valida catalogo/. Retorna (catalogo, erros).
 
@@ -67,6 +122,8 @@ def carrega_catalogo(raiz=RAIZ):
     esquema_categoria = carrega_json(raiz / "data" / "schemas" / "catalogo.schema.json")
     esquema_manifesto = carrega_json(raiz / "data" / "schemas" / "categorias.schema.json")
     termos = {eixo: set(taxonomia[eixo]["termos"]) for eixo in ("input", "output", "tipo_fonte", "classificacao")}
+    esquema_fonte = esquema_categoria["properties"]["fontes"]["items"]
+    esquema_arquivo = dict(esquema_categoria, properties={"fontes": dict(esquema_categoria["properties"]["fontes"], items={})})
 
     rotulo_manifesto = f"catalogo/{MANIFESTO}"
     caminho_manifesto = pasta / MANIFESTO
@@ -117,37 +174,21 @@ def carrega_catalogo(raiz=RAIZ):
         if erros_yaml:
             erros.extend(erros_yaml)
             continue
-        erros_esquema = [erro_em(rotulo, linhas, c, m) for c, m in valida(dados, esquema_categoria)]
-        if erros_esquema:
-            erros.extend(erros_esquema)
+        erros_arquivo = [erro_em(rotulo, linhas, c, m) for c, m in valida(dados, esquema_arquivo)]
+        if erros_arquivo:
+            erros.extend(erros_arquivo)
             continue
         for j, fonte in enumerate(dados["fontes"]):
             base = ("fontes", j)
-            for eixo in ("input", "output"):
-                for k, termo in enumerate(fonte[eixo]):
-                    if termo not in termos[eixo]:
-                        erros.append(erro_em(rotulo, linhas, base + (eixo, k),
-                                             f"{eixo} '{termo}' fora da taxonomia (data/taxonomy.json)"))
-            for eixo in ("tipo_fonte", "classificacao"):
-                if fonte[eixo] not in termos[eixo]:
-                    erros.append(erro_em(rotulo, linhas, base + (eixo,),
-                                         f"{eixo} '{fonte[eixo]}' fora da taxonomia (data/taxonomy.json)"))
-            urls_md = urls_do_markdown(fonte.get("markdown", ""))
-            for k, link in enumerate(fonte["links"]):
-                if link.get("em_markdown") and link["url"] not in urls_md:
-                    erros.append(erro_em(rotulo, linhas, base + ("links", k, "em_markdown"),
-                                         f"link {link['url']} marcado em_markdown, mas a URL não aparece no campo markdown"))
-            urls_links = {link["url"] for link in fonte["links"]}
-            for url in sorted(urls_md - urls_links):
-                erros.append(erro_em(rotulo, linhas, base + ("markdown",),
-                                     f"URL {url} no campo markdown sem link correspondente em links"))
-            erros.extend(_urls_soltas(rotulo, linhas, fonte, base, urls_links))
-            local = f"{rotulo}:{linha_de(linhas, base + ('id',))}"
-            if fonte["id"] in ids_vistos:
-                erros.append(erro_em(rotulo, linhas, base + ("id",),
-                                     f"id '{fonte['id']}' repetido; já usado em {ids_vistos[fonte['id']]}"))
-            else:
-                ids_vistos[fonte["id"]] = local
+            problemas = valida(fonte, esquema_fonte, base)
+            erros.extend(erro_em(rotulo, linhas, c, m) for c, m in problemas)
+            if not isinstance(fonte, dict):
+                continue
+            # Campos com erro de formato ficam fora das verificações seguintes; os demais
+            # são verificados agora, para o contribuidor ver todos os erros de uma vez.
+            invalidos = {c[2] for c, _ in problemas if len(c) > 2}
+            invalidos |= {campo for campo in esquema_fonte["required"] if campo not in fonte}
+            erros.extend(_verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos, categoria["id"]))
         fontes[categoria["id"]] = dados["fontes"]
 
     if erros:

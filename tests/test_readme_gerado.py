@@ -84,7 +84,8 @@ class TestGeraReadme(unittest.TestCase):
 
     def test_readme_comeca_com_aviso_de_arquivo_gerado(self):
         self.assertTrue(AVISO.startswith("<!-- ARQUIVO GERADO por tools/build_dataset.py"))
-        self.assertIn("python3 tools/build_dataset.py -->", AVISO)
+        self.assertIn("contribuidores editam catalogo/<categoria>.yml", AVISO)
+        self.assertIn("mantenedores regeneram com python3 tools/build_dataset.py", AVISO)
 
     def test_links_em_markdown_nao_se_repetem_na_lista(self):
         fonte = {

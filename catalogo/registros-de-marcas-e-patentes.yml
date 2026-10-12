@@ -1,6 +1,6 @@
 # Categoria: Registros de Marcas e Patentes
 # Fontes na ordem de exibição no README.md. Formato: data/schemas/catalogo.schema.json
-# Depois de editar, rode: python3 tools/build_dataset.py
+# Depois de editar, abra o pull request: README.md e data/*.json são regenerados no main (veja CONTRIBUICAO.md).
 fontes:
   - id: registros-de-marcas-e-patentes/inpi-busca-de-marcas
     nome: INPI - Busca de Marcas

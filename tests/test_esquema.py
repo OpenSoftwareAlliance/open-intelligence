@@ -58,7 +58,7 @@ class TestValida(unittest.TestCase):
     def test_enum_e_item_repetido(self):
         erros = valida({"nome": "X", "uf": "XX", "links": [{"url": "https://a/"}], "input": ["cpf", "cpf"]}, ESQUEMA)
         self.assertEqual(erros, [
-            (("uf",), "valor 'XX' fora da lista permitida"),
+            (("uf",), "valor 'XX' fora da lista permitida: SP, RJ, None"),
             (("input", 1), "item repetido 'cpf'"),
         ])
 

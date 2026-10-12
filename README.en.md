@@ -270,7 +270,7 @@ jq -r '.links[] | select(.uf == "BA") | "\(.fonte)\t\(.url)"' data/index.json
 jq -r '.sources[] | select(.tipo_fonte == "internacional") | .nome' data/sources.json
 ```
 
-The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files, never edit them by hand. To regenerate them after editing the catalog (Python 3 and PyYAML, install with `pip install -r requirements.txt`):
+The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files: never edit them by hand. The maintainers regenerate them on `main` after each merge; to preview them locally (Python 3 and PyYAML):
 
 ```bash
 pip install -r requirements.txt
@@ -283,10 +283,10 @@ python3 tools/build_dataset.py
 
 Contributions are welcome, in Portuguese or English. The full guide is in [CONTRIBUICAO.md](CONTRIBUICAO.md); in short:
 
-1. **Report broken links** by opening an issue titled `[LINK QUEBRADO] Source name` with the URL, the date you tested it and the error.
-2. **Add new sources** as an entry in the matching `catalogo/<category>.yml` file (id, name, description, links, input, output, source type and classification; see [CONTRIBUICAO.md](CONTRIBUICAO.md)). Sources must be public, legal and relevant to Brazil.
-3. **Regenerate the generated files** with `python3 tools/build_dataset.py` and commit README.md, `data/sources.json` and `data/index.json` together with your change.
-4. **Run the checks** with `python3 tools/validar_docs.py`, or enable the pre-commit hook once with `git config core.hooksPath tools/hooks`.
+1. **Open an issue** with one of the [issue forms](https://github.com/webminas/osint-brazuca/issues/new/choose): suggest a new source, report a broken link or correct a source. No git needed.
+2. **Edit the catalog in your browser.** Open the matching `catalogo/<category>.yml` file on GitHub, click the pencil icon and add or fix the entry (id, name, description, links, input, output, source type and `classificacao: override`; see [CONTRIBUICAO.md](CONTRIBUICAO.md#formato-fonte)). Then propose the change as a pull request.
+3. **Do not touch the generated files.** Leave README.md, `data/sources.json` and `data/index.json` out of your pull request: the CI checks the catalog and points to the file and line of any error, and the maintainers regenerate those files on `main` after the merge.
+4. **Working locally?** Install the pinned dependency with `pip install -r requirements.txt`, enable the pre-commit hook once with `git config core.hooksPath tools/hooks` and run `python3 tools/build_dataset.py --check`.
 
 > [!CAUTION]
 > Pull requests with affiliate links, spam, fraud forums, exploits, leaked databases, discriminatory content or paid tools without a free tier are rejected.
