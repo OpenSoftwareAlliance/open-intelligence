@@ -23,11 +23,13 @@ class TestCarregaCatalogo(unittest.TestCase):
 
     def test_termo_fora_da_taxonomia(self):
         _, erros = self.carrega({"catalogo/beta.yml": BETA.replace("input: [nenhum]", "input: [nenhum, cpff]")})
-        self.assertEqual(erros, ["catalogo/beta.yml:7: fontes[0].input[1]: input 'cpff' fora da taxonomia (data/taxonomy.json)"])
+        self.assertEqual(erros, ["catalogo/beta.yml:7: fontes[0].input[1]: input 'cpff' fora da taxonomia (data/taxonomy.json); você quis dizer 'cpf'?"])
 
     def test_tipo_fonte_fora_da_taxonomia(self):
         _, erros = self.carrega({"catalogo/beta.yml": BETA.replace("tipo_fonte: ong", "tipo_fonte: igreja")})
-        self.assertEqual(erros, ["catalogo/beta.yml:9: fontes[0].tipo_fonte: tipo_fonte 'igreja' fora da taxonomia (data/taxonomy.json)"])
+        self.assertEqual(erros, ["catalogo/beta.yml:9: fontes[0].tipo_fonte: tipo_fonte 'igreja' fora da taxonomia (data/taxonomy.json); termos aceitos: "
+                                 "academico, api, defensoria, dork, estadual, federal, indefinido, internacional, "
+                                 "judiciario, legislativo, ministerio_publico, municipal, ong, privado"])
 
     def test_id_duplicado_entre_arquivos(self):
         _, erros = self.carrega({"catalogo/beta.yml": BETA.replace("beta/terceira-fonte", "alfa/primeira-fonte")})
@@ -62,7 +64,7 @@ class TestCarregaCatalogo(unittest.TestCase):
         texto = ALFA.replace("https://primeira.gov.br/", "primeira.gov.br").replace("        label: Portal\n", "        rotulo: Portal\n")
         _, erros = self.carrega({"catalogo/alfa.yml": texto})
         self.assertEqual(erros, [
-            "catalogo/alfa.yml:6: fontes[0].links[0].url: valor 'primeira.gov.br' não segue o padrão ^https?://\\S+$",
+            "catalogo/alfa.yml:6: fontes[0].links[0].url: valor 'primeira.gov.br': a URL precisa começar com http:// ou https:// e não pode ter espaços",
             "catalogo/alfa.yml:18: fontes[1].links[0].rotulo: campo 'rotulo' não permitido",
         ])
 

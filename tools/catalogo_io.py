@@ -7,6 +7,7 @@ Toda mensagem de erro começa com "arquivo:linha: ", com a linha do YAML
 onde está o valor com problema (ou o objeto que o contém).
 """
 
+import difflib
 import json
 import re
 from pathlib import Path
@@ -52,6 +53,17 @@ def _urls_soltas(rotulo, linhas, fonte, base, urls_links):
             erros.append(erro_em(rotulo, linhas, caminho,
                                  f"URL {url} no campo {caminho[-1]} sem link correspondente; coloque a URL em links"))
     return erros
+
+
+def fora_da_taxonomia(eixo, termo, aceitos):
+    """Mensagem de termo fora da taxonomia, com sugestão ou com os termos aceitos."""
+    mensagem = f"{eixo} '{termo}' fora da taxonomia (data/taxonomy.json)"
+    parecidos = difflib.get_close_matches(termo, sorted(aceitos), n=3, cutoff=0.6)
+    if parecidos:
+        return mensagem + "; você quis dizer " + " ou ".join(f"'{p}'" for p in parecidos) + "?"
+    if len(aceitos) <= 15:
+        return mensagem + "; termos aceitos: " + ", ".join(sorted(aceitos))
+    return mensagem + f"; veja os termos aceitos na seção {eixo} de data/taxonomy.json"
 
 
 def carrega_catalogo(raiz=RAIZ):
@@ -127,11 +139,11 @@ def carrega_catalogo(raiz=RAIZ):
                 for k, termo in enumerate(fonte[eixo]):
                     if termo not in termos[eixo]:
                         erros.append(erro_em(rotulo, linhas, base + (eixo, k),
-                                             f"{eixo} '{termo}' fora da taxonomia (data/taxonomy.json)"))
+                                             fora_da_taxonomia(eixo, termo, termos[eixo])))
             for eixo in ("tipo_fonte", "classificacao"):
                 if fonte[eixo] not in termos[eixo]:
                     erros.append(erro_em(rotulo, linhas, base + (eixo,),
-                                         f"{eixo} '{fonte[eixo]}' fora da taxonomia (data/taxonomy.json)"))
+                                         fora_da_taxonomia(eixo, fonte[eixo], termos[eixo])))
             urls_md = urls_do_markdown(fonte.get("markdown", ""))
             for k, link in enumerate(fonte["links"]):
                 if link.get("em_markdown") and link["url"] not in urls_md:

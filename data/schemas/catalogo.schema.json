@@ -18,7 +18,8 @@
           "id": {
             "description": "Identificador estável da fonte. Não muda quando o nome muda.",
             "type": "string",
-            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$"
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$",
+            "x-mensagem": "o id tem o formato categoria/nome-da-fonte, só com letras minúsculas sem acento, números e hífens"
           },
           "nome": {"type": "string", "minLength": 1},
           "descricao": {"description": "Texto exibido abaixo do título; pode ser vazio.", "type": "string"},
@@ -32,7 +33,7 @@
               "required": ["url"],
               "additionalProperties": false,
               "properties": {
-                "url": {"type": "string", "pattern": "^https?://\\S+$"},
+                "url": {"type": "string", "pattern": "^https?://\\S+$", "x-mensagem": "a URL precisa começar com http:// ou https:// e não pode ter espaços"},
                 "label": {"type": "string", "minLength": 1},
                 "uf": {
                   "type": "string",

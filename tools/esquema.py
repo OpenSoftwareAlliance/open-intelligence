@@ -3,7 +3,9 @@
 Cobre o subconjunto usado em data/schemas/catalogo.schema.json e
 data/schemas/categorias.schema.json: type, properties, required,
 additionalProperties (booleano), items, enum, pattern, minLength,
-minItems e uniqueItems. Palavras-chave fora dessa lista são ignoradas.
+minItems e uniqueItems. Palavras-chave fora dessa lista são ignoradas, exceto
+"x-mensagem": quando presente ao lado de "pattern", substitui a expressão
+regular na mensagem de erro por um texto para quem edita o catálogo.
 
 Cada erro é um par (caminho, mensagem). O caminho é uma tupla de chaves e
 índices até o valor com problema, por exemplo ("fontes", 3, "links", 0, "url"),
@@ -48,14 +50,18 @@ def valida(valor, esquema, caminho=()):
             return erros
 
     if "enum" in esquema and valor not in esquema["enum"]:
-        erros.append((caminho, f"valor {valor!r} fora da lista permitida"))
+        aceitos = ", ".join(str(v) for v in esquema["enum"])
+        erros.append((caminho, f"valor {valor!r} fora da lista permitida: {aceitos}"))
 
     if isinstance(valor, str):
         if len(valor) < esquema.get("minLength", 0):
             erros.append((caminho, "texto vazio"))
         padrao = esquema.get("pattern")
         if padrao and not re.search(padrao, valor):
-            erros.append((caminho, f"valor {valor!r} não segue o padrão {padrao}"))
+            if "x-mensagem" in esquema:
+                erros.append((caminho, f"valor {valor!r}: {esquema['x-mensagem']}"))
+            else:
+                erros.append((caminho, f"valor {valor!r} não segue o padrão {padrao}"))
 
     if isinstance(valor, dict):
         for campo in esquema.get("required", []):
