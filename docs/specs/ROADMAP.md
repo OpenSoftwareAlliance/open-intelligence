@@ -17,3 +17,4 @@ Iniciativa decomposta em specs filhas. Este arquivo só lista as specs, a ordem 
 
 - [ADR 0001: arquivos YAML por categoria como fonte de verdade do catálogo](../adr/0001-yaml-por-categoria-como-fonte-de-verdade.md) (spec 001)
 - [ADR 0002: arquivos gerados fora dos pull requests, regenerados pelo mantenedor no main](../adr/0002-arquivos-gerados-regenerados-no-main.md) (spec 002)
+- [ADR 0003: novo nome do projeto, Open Intelligence](../adr/0003-nome-open-intelligence.md)

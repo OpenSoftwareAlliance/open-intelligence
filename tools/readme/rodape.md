@@ -2,8 +2,8 @@
 
 Contribuições de qualquer tipo são bem-vindas! Para sugerir uma fonte, reportar um link quebrado ou editar o catálogo pelo navegador, veja o [guia de contribuição](CONTRIBUICAO.md).
 
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=osintbrazuca/osint-brazuca&max=500" alt="Lista de contribuidores" width="100%"/>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=OpenSoftwareAlliance/open-intelligence&max=500" alt="Lista de contribuidores" width="100%"/>
 </a>
     
 ---

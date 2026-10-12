@@ -42,7 +42,7 @@ hook pre-commit: git checkout-index --all --prefix=<tmp>/  +  git diff --cached 
 - Python 3.9+ (testado em 3.9.6), biblioteca padrão mais PyYAML 6.0.3 (`requirements.txt`, sem mudança).
 - Testes com `unittest`: `python3 -m unittest discover -s tests`. Os testes do hook usam `git` num repositório descartável, sem commits.
 - CI: GitHub Actions; `actionlint` para conferir o workflow, se estiver instalado.
-- `gh` autenticado com permissão de administrador em `webminas/osint-brazuca` só para criar os rótulos (Tarefa 12).
+- `gh` autenticado com permissão de administrador em `OpenSoftwareAlliance/open-intelligence` só para criar os rótulos (Tarefa 12).
 
 ## Spec
 
@@ -86,7 +86,7 @@ Valores copiados da spec:
 | `override` exige lista não vazia; `heuristica` não | As 4 fontes herdadas com lista vazia ficam para a spec 004; fonte nova entra sempre como `override`. |
 | Opções dos formulários escritas no YAML e conferidas por teste, sem gerador | Mais simples que um terceiro artefato gerado; o teste diz qual arquivo atualizar. |
 | Categoria no formulário como `Título (id)` e termos como `termo: descrição` | O mantenedor lê o id e o termo direto na issue; o contribuidor lê o texto. |
-| Links absolutos para `webminas/osint-brazuca` nos modelos e no guia | Links relativos no corpo de issue e PR resolvem diferente conforme a página; o GitHub redireciona se o repositório for renomeado. |
+| Links absolutos para `OpenSoftwareAlliance/open-intelligence` nos modelos e no guia | Links relativos no corpo de issue e PR resolvem diferente conforme a página; o GitHub redireciona se o repositório for renomeado. |
 | `data/overrides.json` removido em vez de arquivado | O histórico do git guarda o arquivo; o script de migração diz como reexecutá-lo do commit `a4466fa^`. |
 | `CONTRIBUICAO.md` mantém o menu, a âncora `dataset-json` e o primeiro bloco `yaml` como exemplo de fonte | `validar_docs.py` confere o menu; o cabeçalho do README aponta `CONTRIBUICAO.md#dataset-json`; o teste lê o primeiro bloco `yaml`. |
 

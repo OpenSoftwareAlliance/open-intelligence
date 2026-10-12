@@ -1,19 +1,23 @@
-<h1 align="center">🇧🇷 OSINT BRAZUCA 🇧🇷</h1>
+<h1 align="center">🇧🇷 OPEN INTELLIGENCE 🇧🇷</h1>
 
 <p align="center">
-  A curated catalog of Brazilian open sources: public, legal and ready for investigation.<br>
-  Know in order to protect, investigate in order to defend.
+  An open catalog of OSINT sources focused on Brazil.<br>
+  Public, legal and ready for investigation. Know in order to protect, investigate in order to defend.
+</p>
+
+<p align="center">
+  <sub>Based on OSINT Brazuca (<a href="https://github.com/osintbrazuca/osint-brazuca">osintbrazuca/osint-brazuca</a>) and its contributors.</sub>
 </p>
 
 <h1 align="center">
-  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="OSINT Brazuca"></a>
+  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="Open Intelligence"></a>
 </h1>
 
 <p align="center">
-<a href="https://github.com/osintbrazuca/osint-brazuca/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/osintbrazuca/osint-brazuca?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors-anon/osintbrazuca/osint-brazuca?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/osintbrazuca/osint-brazuca?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/osintbrazuca/osint-brazuca?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors-anon/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
 </p>
 
 ---
@@ -32,9 +36,16 @@
 > [!NOTE]
 > This is the English entry point to the project. The full catalog lives in [README.md](README.md) and is written in Portuguese, because almost every source it lists (court portals, company registries, state agencies) only exists in Portuguese. This page explains how Brazil's public records are organized, what the identifiers mean and where to look, so you can use the catalog without speaking the language.
 
+| I want to... | Go to |
+|---|---|
+| Use the catalog | [Start from what you have](#start-from-what-you-have) and the [catalog map](#catalog-map). The full catalog is in [README.md](README.md). |
+| Download the data | The [structured dataset](#structured-dataset-json): [`data/sources.json`](data/sources.json) (grouped sources) and [`data/index.json`](data/index.json) (one record per link). |
+| Contribute | The [contribution guide](CONTRIBUICAO.md): suggest a source, report a broken link or fix an entry. See [Contributing](#contributing). |
+| Understand the legal limits | The [legal and ethical notice](#legal-and-ethical-notice), with the full text in [README.md](README.md#avisos-legais). |
+
 ## Contents
 
-- [What is OSINT Brazuca](#what-is-osint-brazuca)
+- [What is Open Intelligence](#what-is-open-intelligence)
 - [Legal and ethical notice](#legal-and-ethical-notice)
 - [How Brazilian public records are organized](#how-brazilian-public-records-are-organized)
 - [Brazilian identifiers cheat sheet](#brazilian-identifiers-cheat-sheet)
@@ -49,9 +60,9 @@
 
 ---
 
-## What is OSINT Brazuca
+## What is Open Intelligence
 
-**OSINT Brazuca** gathers sources (websites, portals, APIs, datasets) and search tricks for open source intelligence in the Brazilian context. OSINT is the practice of finding, selecting and collecting information from public sources and analyzing it, together with other sources, to produce knowledge. Open sources are cheap compared with field operations, and Brazil publishes a remarkable amount of data: court cases, company registries, public spending, electoral filings, vehicle and aircraft registries, environmental enforcement, and much more.
+**Open Intelligence** gathers sources (websites, portals, APIs, datasets) and search tricks for open source intelligence in the Brazilian context. OSINT is the practice of finding, selecting and collecting information from public sources and analyzing it, together with other sources, to produce knowledge. Open sources are cheap compared with field operations, and Brazil publishes a remarkable amount of data: court cases, company registries, public spending, electoral filings, vehicle and aircraft registries, environmental enforcement, and much more.
 
 The catalog is useful for:
 
@@ -283,7 +294,7 @@ python3 tools/build_dataset.py
 
 Contributions are welcome, in Portuguese or English. The full guide is in [CONTRIBUICAO.md](CONTRIBUICAO.md); in short:
 
-1. **Open an issue** with one of the [issue forms](https://github.com/webminas/osint-brazuca/issues/new/choose): suggest a new source, report a broken link or correct a source. No git needed.
+1. **Open an issue** with one of the [issue forms](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new/choose): suggest a new source, report a broken link or correct a source. No git needed.
 2. **Edit the catalog in your browser.** Open the matching `catalogo/<category>.yml` file on GitHub, click the pencil icon and add or fix the entry (id, name, description, links, input, output, source type and `classificacao: override`; see [CONTRIBUICAO.md](CONTRIBUICAO.md#formato-fonte)). Then propose the change as a pull request.
 3. **Do not touch the generated files.** Leave README.md, `data/sources.json` and `data/index.json` out of your pull request: the CI checks the catalog and points to the file and line of any error, and the maintainers regenerate those files on `main` after the merge.
 4. **Working locally?** Install the pinned dependency with `pip install -r requirements.txt`, enable the pre-commit hook once with `git config core.hooksPath tools/hooks` and run `python3 tools/build_dataset.py --check`.
@@ -298,10 +309,12 @@ Contributions are welcome, in Portuguese or English. The full guide is in [CONTR
 - **Cleiton P. (a.k.a MrCl0wnLab)** - [Twitter](https://twitter.com/MrCl0wnLab), [GitHub](https://github.com/MrCl0wnLab), [LinkedIn](https://www.linkedin.com/in/cleiton-p-80818b255/)
 - **Diego (a.k.a c4nh0t0)** - [Twitter](https://twitter.com/C4nh0t0GH), [GitHub](https://github.com/c4nh0t0)
 
+Open Intelligence is based on OSINT Brazuca ([osintbrazuca/osint-brazuca](https://github.com/osintbrazuca/osint-brazuca)) and its contributors.
+
 Thanks to every public institution and private initiative that makes these lookups available, and to everyone who has shared links and search tricks with the community.
 
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=osintbrazuca/osint-brazuca&max=500" alt="Contributors" width="100%"/>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=OpenSoftwareAlliance/open-intelligence&max=500" alt="Contributors" width="100%"/>
 </a>
 
 ---

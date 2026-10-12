@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Obrigado pela sugestão! Antes de enviar, procure a URL em `catalogo/` (tecla `t` no GitHub, ou a busca do repositório) para conferir se a fonte já existe.
-        Prefere mandar a fonte pronta num pull request? Veja o [guia de contribuição](https://github.com/webminas/osint-brazuca/blob/main/CONTRIBUICAO.md).
+        Prefere mandar a fonte pronta num pull request? Veja o [guia de contribuição](https://github.com/OpenSoftwareAlliance/open-intelligence/blob/main/CONTRIBUICAO.md).
   - type: input
     id: nome
     attributes:

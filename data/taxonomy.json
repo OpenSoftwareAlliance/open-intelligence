@@ -1,5 +1,5 @@
 {
-  "_sobre": "Vocabulário controlado do catálogo OSINT Brazuca. O build valida cada fonte de catalogo/ contra estas listas e falha se encontrar termo fora delas. Arquivo editado à mão: acrescente o termo aqui antes de usá-lo em catalogo/<categoria>.yml (e nos modelos de issue em .github/ISSUE_TEMPLATE/).",
+  "_sobre": "Vocabulário controlado do catálogo Open Intelligence. O build valida cada fonte de catalogo/ contra estas listas e falha se encontrar termo fora delas. Arquivo editado à mão: acrescente o termo aqui antes de usá-lo em catalogo/<categoria>.yml (e nos modelos de issue em .github/ISSUE_TEMPLATE/).",
   "input": {
     "_sobre": "O que o analista precisa ter em mãos para consultar a fonte. 'nenhum' é o valor correto para fontes que se navega (datasets, mapas, câmeras), não se consulta.",
     "termos": {

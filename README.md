@@ -1,22 +1,26 @@
 <!-- ARQUIVO GERADO por tools/build_dataset.py a partir de catalogo/. Não edite à mão: contribuidores editam catalogo/<categoria>.yml; os mantenedores regeneram com python3 tools/build_dataset.py -->
-<h1 align="center">🇧🇷 OSINT BRAZUCA 🇧🇷</h1>
+<h1 align="center">🇧🇷 OPEN INTELLIGENCE 🇧🇷</h1>
 
 <p align="center">
-  Catálogo de fontes abertas brasileiras (públicas, legais e prontas pra investigação).<br> Conhecer para proteger, investigar para defender.
+  Catálogo aberto de fontes OSINT com foco no Brasil.<br>
+  Públicas, legais e prontas para investigação. Conhecer para proteger, investigar para defender.
+</p>
+
+<p align="center">
+  <sub>Baseado no OSINT Brazuca (<a href="https://github.com/osintbrazuca/osint-brazuca">osintbrazuca/osint-brazuca</a>) e em seus colaboradores.</sub>
 </p>
 
 <h1 align="center">
-  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="OSINT Brazuca"></a>
+  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="Open Intelligence"></a>
 </h1>
 
 
 <p align="center">
-<a href="https://github.com/osintbrazuca/osint-brazuca/blob/main/LICENSE"><img alt="Licença" src="https://img.shields.io/github/license/osintbrazuca/osint-brazuca?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors"><img alt="Contribuidores" src="https://img.shields.io/github/contributors-anon/osintbrazuca/osint-brazuca?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/issues"><img alt="Issues abertas" src="https://img.shields.io/github/issues-raw/osintbrazuca/osint-brazuca?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/discussions"><img alt="Discussões" src="https://img.shields.io/github/discussions/osintbrazuca/osint-brazuca?style=for-the-badge&color=6A1B9A&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/osintbrazuca/osint-brazuca?style=for-the-badge&color=00838F&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/stargazers"><img alt="Estrelas" src="https://img.shields.io/github/stars/osintbrazuca/osint-brazuca?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/blob/main/LICENSE"><img alt="Licença" src="https://img.shields.io/github/license/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors"><img alt="Contribuidores" src="https://img.shields.io/github/contributors-anon/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/issues"><img alt="Issues abertas" src="https://img.shields.io/github/issues-raw/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=00838F&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/stargazers"><img alt="Estrelas" src="https://img.shields.io/github/stars/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
 </p>
 
 ---
@@ -34,9 +38,16 @@
 
 # Introdução
 
-O Projeto **OSINT Brazuca** é um repositório criado com intuito de reunir informações, fontes(websites/portais) e tricks de OSINT dentro do contexto Brasil 🇧🇷.
+O **Open Intelligence** reúne fontes (sites, portais, APIs e bases abertas) e truques de OSINT no contexto do Brasil 🇧🇷. OSINT (Open Source Intelligence, ou Inteligência de Fontes Abertas) é o modelo de inteligência que encontra, seleciona e coleta informações de fontes públicas e as analisa, junto com outras fontes, para produzir conhecimento. Fontes abertas custam pouco se comparadas às onerosas operações de campo.
 
-OSINT (sigla para Open source intelligence ou Inteligência de Fontes Abertas) é um modelo de inteligência que visa encontrar, selecionar e adquirir informações de fontes públicas e analisá-las para que junto com outras fontes possam produzir um conhecimento. As informações coletadas por meio de fontes abertas, possuem baixo custo, se comparado as onerosas operações de campo.
+O projeto é baseado no OSINT Brazuca ([osintbrazuca/osint-brazuca](https://github.com/osintbrazuca/osint-brazuca)) e em seus colaboradores. Veja os [autores](#autores) e os [créditos](#creditos).
+
+| Quero... | Vá para |
+|---|---|
+| Usar o catálogo | O [sumário](#sumário) abaixo lista as categorias. Cada fonte indica o que ela recebe (CPF, CNPJ, placa, domínio...) e o que devolve. Em [Exemplos Práticos](EXEMPLOS_PRATICOS.md) e no [Guia Rápido](GUIA_RAPIDO.md) há casos de uso. |
+| Baixar os dados | O [dataset estruturado](#dataset): [`data/sources.json`](data/sources.json) (fontes agrupadas) e [`data/index.json`](data/index.json) (um registro por link). |
+| Contribuir | O [guia de contribuição](CONTRIBUICAO.md): sugerir fonte, reportar link quebrado ou corrigir um dado. |
+| Entender os limites legais | Os [avisos legais e éticos](#avisos-legais), com LGPD, boas práticas e limitações. |
 
 
 ### Autores 👔 <a name="autores"></a>
@@ -135,7 +146,7 @@ OSINT (sigla para Open source intelligence ou Inteligência de Fontes Abertas) �
 
 ---
 
-## 🗂️ Dataset Estruturado
+## 🗂️ Dataset Estruturado <a name="dataset"></a>
 
 Além do catálogo em Markdown, este repositório publica uma versão estruturada em JSON na pasta [`data/`](data/), gerada automaticamente a partir de [`catalogo/`](catalogo/), a mesma fonte que gera este README. Ela permite localizar fontes por **tipo de entrada**, ou seja, o que você já tem em mãos (CPF, CNPJ, placa, domínio, telefone...), e por **tipo de retorno**, que dado a fonte devolve.
 
@@ -9619,8 +9630,8 @@ Lista de agências de checagem certificadas pela International Fact-Checking Net
 
 Contribuições de qualquer tipo são bem-vindas! Para sugerir uma fonte, reportar um link quebrado ou editar o catálogo pelo navegador, veja o [guia de contribuição](CONTRIBUICAO.md).
 
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=osintbrazuca/osint-brazuca&max=500" alt="Lista de contribuidores" width="100%"/>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=OpenSoftwareAlliance/open-intelligence&max=500" alt="Lista de contribuidores" width="100%"/>
 </a>
     
 ---

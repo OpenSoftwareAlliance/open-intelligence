@@ -20,4 +20,4 @@
 - [ ] Procurei a URL em `catalogo/` e a fonte não está repetida.
 - [ ] Fonte nova ou classificação revisada usa `classificacao: override`.
 - [ ] A fonte é pública, legal, relevante para o Brasil e respeita a LGPD.
-- [ ] Li o [guia de contribuição](https://github.com/webminas/osint-brazuca/blob/main/CONTRIBUICAO.md).
+- [ ] Li o [guia de contribuição](https://github.com/OpenSoftwareAlliance/open-intelligence/blob/main/CONTRIBUICAO.md).

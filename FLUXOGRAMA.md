@@ -481,6 +481,6 @@ Para visualizar localmente:
 ---
 
 <p align="center">
-  <sub>Projeto OSINT Brazuca - Fluxogramas de Investigação</sub><br>
+  <sub>Projeto Open Intelligence - Fluxogramas de Investigação</sub><br>
   <sub>📊 Visualize, Planeje, Execute</sub>
 </p>

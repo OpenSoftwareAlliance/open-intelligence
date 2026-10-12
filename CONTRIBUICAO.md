@@ -1,4 +1,4 @@
-# 🤝 Como Contribuir com o OSINT Brazuca
+# 🤝 Como Contribuir com o Open Intelligence
 
 <p align="center">
   <a href="README.md"><img alt="README Principal" src="https://img.shields.io/badge/%F0%9F%8F%A0%20README%20Principal-1E88E5?style=flat-square"></a>
@@ -11,7 +11,7 @@
   <a href="tools/"><img alt="Ferramentas" src="https://img.shields.io/badge/%F0%9F%9B%A0%EF%B8%8F%20Ferramentas-546E7A?style=flat-square"></a>
 </p>
 
-Obrigado por considerar contribuir com o OSINT Brazuca! Há três jeitos de ajudar, do mais simples ao mais completo:
+Obrigado por considerar contribuir com o Open Intelligence! Há três jeitos de ajudar, do mais simples ao mais completo:
 
 1. **[Abrir uma issue](#abrir-issue)** com um formulário: sem git e sem editar arquivo.
 2. **[Editar o catálogo pelo navegador](#editar-navegador)**: altere um arquivo de `catalogo/` no GitHub e abra um pull request.
@@ -24,13 +24,13 @@ Obrigado por considerar contribuir com o OSINT Brazuca! Há três jeitos de ajud
 
 ## 📝 Abrir uma issue <a name="abrir-issue"></a>
 
-Escolha o formulário em [Issues > New issue](https://github.com/webminas/osint-brazuca/issues/new/choose):
+Escolha o formulário em [Issues > New issue](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new/choose):
 
 | Formulário | Quando usar |
 |---|---|
-| [Sugerir nova fonte](https://github.com/webminas/osint-brazuca/issues/new?template=nova-fonte.yml) | Uma fonte pública brasileira que ainda não está no catálogo. |
-| [Reportar link quebrado](https://github.com/webminas/osint-brazuca/issues/new?template=link-quebrado.yml) | Um link não abre, mudou de endereço ou leva a outra página. |
-| [Corrigir uma fonte](https://github.com/webminas/osint-brazuca/issues/new?template=correcao.yml) | Nome, descrição, classificação, categoria ou UF errados, ou fonte repetida. |
+| [Sugerir nova fonte](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=nova-fonte.yml) | Uma fonte pública brasileira que ainda não está no catálogo. |
+| [Reportar link quebrado](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=link-quebrado.yml) | Um link não abre, mudou de endereço ou leva a outra página. |
+| [Corrigir uma fonte](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=correcao.yml) | Nome, descrição, classificação, categoria ou UF errados, ou fonte repetida. |
 
 > [!TIP]
 > Sites `.gov.br` costumam bloquear robôs. Antes de reportar um link quebrado, confira no navegador.
@@ -323,6 +323,6 @@ Issues marcadas com `good first issue` são boas para começar.
 ---
 
 <p align="center">
-  <strong>Obrigado por contribuir com o OSINT Brazuca! 🇧🇷</strong><br>
+  <strong>Obrigado por contribuir com o Open Intelligence! 🇧🇷</strong><br>
   <sub>Juntos estamos construindo a maior base de conhecimento OSINT do Brasil</sub>
 </p>
