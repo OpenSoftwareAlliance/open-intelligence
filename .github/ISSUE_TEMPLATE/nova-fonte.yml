@@ -1,0 +1,203 @@
+name: Sugerir nova fonte
+description: Indique uma fonte pública brasileira que ainda não está no catálogo.
+title: "[NOVA FONTE] "
+labels: ["nova fonte"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado pela sugestão! Antes de enviar, procure a URL em `catalogo/` (tecla `t` no GitHub, ou a busca do repositório) para conferir se a fonte já existe.
+        Prefere mandar a fonte pronta num pull request? Veja o [guia de contribuição](https://github.com/webminas/osint-brazuca/blob/main/CONTRIBUICAO.md).
+  - type: input
+    id: nome
+    attributes:
+      label: Nome da fonte
+      description: Como a fonte aparece no catálogo. Separe órgão e serviço com hífen simples.
+      placeholder: "IBAMA - Consulta de Autuações Ambientais"
+    validations:
+      required: true
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      description: O que a fonte permite consultar. Diga se é gratuita e se exige cadastro.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: "Uma URL por linha. Se o link for de um estado, acrescente a sigla da UF depois de um espaço."
+      placeholder: |
+        https://servicos.ibama.gov.br/ctf/publico/areasembargadas/
+        https://www.sema.mt.gov.br/consulta MT
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: Categoria
+      description: "Seção do catálogo em que a fonte entra (arquivo catalogo/<id>.yml)."
+      options:
+        - "Benefícios sociais (Políticas Públicas) (beneficios-sociais-politicas-publicas)"
+        - "Pessoas Desaparecidas (pessoas-desaparecidas)"
+        - "Pessoas Procuradas pela Justiça no Brasil (pessoas-procuradas-pela-justica-no-brasil)"
+        - "Consulta de Processos (consulta-de-processos)"
+        - "Busca de Informações via CPF/CNPJ/CRM/CNA (busca-de-informacoes-via-cpf-cnpj-crm-cna)"
+        - "Estatísticas Segurança Pública (estatisticas-seguranca-publica)"
+        - "Registros Eleitorais e Políticos (registros-eleitorais-e-politicos)"
+        - "Registros de Imóveis e Propriedades (registros-de-imoveis-e-propriedades)"
+        - "Registros Ambientais (registros-ambientais)"
+        - "Comércio Exterior (comercio-exterior)"
+        - "Registros de Marcas e Patentes (registros-de-marcas-e-patentes)"
+        - "Transparência Pública e Defesa do Consumidor (transparencia-publica-e-defesa-do-consumidor)"
+        - "Diários Oficiais (diarios-oficiais)"
+        - "Cultura e Audiovisual (cultura-e-audiovisual)"
+        - "Telecom (telecom)"
+        - "Estação Rádio Base / ERBs (estacao-radio-base-erbs)"
+        - "Informações Acadêmicas (informacoes-academicas)"
+        - "Mapas e Georreferenciamento (mapas-e-georreferenciamento)"
+        - "Território, Meio Ambiente & Fiscalização (territorio-meio-ambiente-fiscalizacao)"
+        - "Saúde (saude)"
+        - "Motores de Busca Contexto Brasil (motores-de-busca-contexto-brasil)"
+        - "Rede Social (rede-social)"
+        - "Indexadores de Serviço de Mensagens Instantâneas (indexadores-de-servico-de-mensagens-instantaneas)"
+        - "Datasets / Dados Abertos (datasets-dados-abertos)"
+        - "Dados de remuneração do Judiciário (dados-de-remuneracao-do-judiciario)"
+        - "Consulta de Transporte Terrestre (consulta-de-transporte-terrestre)"
+        - "Tracking de Viagens de Ônibus (tracking-de-viagens-de-onibus)"
+        - "Consulta de Transporte Aquaviário (consulta-de-transporte-aquaviario)"
+        - "Consulta de Transporte Aéreo (consulta-de-transporte-aereo)"
+        - "Câmeras Online (cameras-online)"
+        - "Ministérios Públicos e Defensorias Públicas (ministerios-publicos-e-defensorias-publicas)"
+        - "Segurança Cibernética (seguranca-cibernetica)"
+        - "Outras Buscas (outras-buscas)"
+        - "APIs Públicas Brasileiras (apis-publicas-brasileiras)"
+        - "Blockchain e Criptomoedas (blockchain-e-criptomoedas)"
+        - "Defesa Civil e Emergências (defesa-civil-e-emergencias)"
+        - "Energia e Infraestrutura (energia-e-infraestrutura)"
+        - "Serviços Públicos Estaduais e Conselhos Profissionais (servicos-publicos-estaduais-e-conselhos-profissionais)"
+        - "Categorias de Domínios .br (categorias-de-dominios-br)"
+        - "Fontes Internacionais com Cobertura do Brasil (fontes-internacionais-com-cobertura-do-brasil)"
+    validations:
+      required: true
+  - type: dropdown
+    id: input
+    attributes:
+      label: O que a consulta pede (input)
+      description: Opcional. Escolha "nenhum" quando a fonte é navegada ou baixada por inteiro.
+      multiple: true
+      options:
+        - "nenhum: Não requer identificador; a fonte é navegada ou baixada por inteiro"
+        - "cpf: Cadastro de Pessoa Física"
+        - "cnpj: Cadastro Nacional da Pessoa Jurídica"
+        - "nome: Nome de pessoa física"
+        - "razao_social: Razão social ou nome fantasia de empresa"
+        - "titulo_eleitor: Número do título de eleitor"
+        - "numero_processo: Número de processo judicial ou administrativo"
+        - "oab: Número de inscrição na Ordem dos Advogados do Brasil"
+        - "registro_profissional: Registro em conselho profissional (CRM, CFP, CAU, CFF, CREA...)"
+        - "placa: Placa de veículo"
+        - "chassi: Número de chassi de veículo"
+        - "renavam: Código Renavam de veículo"
+        - "imei: IMEI de aparelho celular"
+        - "telefone: Número de telefone fixo ou celular"
+        - "email: Endereço de e-mail"
+        - "dominio: Nome de domínio"
+        - "ip: Endereço IP"
+        - "asn: Número de sistema autônomo (ASN)"
+        - "cep: Código de Endereçamento Postal"
+        - "endereco: Logradouro ou endereço completo"
+        - "municipio: Nome ou código de município"
+        - "uf: Sigla de unidade federativa"
+        - "coordenadas: Latitude e longitude"
+        - "matricula_imovel: Matrícula de imóvel em cartório de registro"
+        - "car: Cadastro Ambiental Rural"
+        - "inscricao_estadual: Inscrição estadual ou NIRE"
+        - "prefixo_aeronave: Marca de matrícula de aeronave (prefixo)"
+        - "embarcacao: Nome ou registro de embarcação"
+        - "cnes: Cadastro Nacional de Estabelecimentos de Saúde"
+        - "codigo_ibge: Código de município ou região do IBGE"
+        - "cns: Cartão Nacional de Saúde de profissional ou Código Nacional de Serventia de cartório"
+  - type: dropdown
+    id: output
+    attributes:
+      label: O que a fonte devolve (output)
+      description: Opcional.
+      multiple: true
+      options:
+        - "dados_cadastrais: Dados de identificação de pessoa ou empresa"
+        - "situacao_cadastral: Status de regularidade de um cadastro"
+        - "socios: Quadro societário"
+        - "cnae: Classificação de atividade econômica"
+        - "endereco: Endereço ou localização"
+        - "processo: Processo judicial ou administrativo"
+        - "partes: Partes envolvidas em processo"
+        - "movimentacao: Andamento e movimentações processuais"
+        - "certidao: Certidão emitida pela fonte"
+        - "antecedentes: Antecedentes criminais"
+        - "mandado_prisao: Mandado de prisão ou situação de procurado"
+        - "beneficio: Benefício social ou previdenciário"
+        - "remuneracao: Remuneração de agente público"
+        - "contrato_publico: Contrato, convênio ou repasse público"
+        - "licitacao: Processo licitatório ou compra pública"
+        - "sancao: Sanção, impedimento ou inidoneidade"
+        - "veiculo: Dados de veículo"
+        - "multa: Multa ou infração"
+        - "debito: Débito ou pendência financeira"
+        - "imovel: Dados de imóvel urbano ou rural"
+        - "area_rural: Perímetro ou dados de área rural"
+        - "licenca_ambiental: Licença ou autorização ambiental"
+        - "auto_infracao: Auto de infração ou embargo"
+        - "operadora: Operadora e situação de linha telefônica"
+        - "erb: Estação rádio base"
+        - "radiofrequencia: Radiofrequência ou indicativo"
+        - "outorga: Outorga de radiodifusão ou telecomunicações"
+        - "dataset: Conjunto de dados para download em massa"
+        - "diario_oficial: Publicação em diário oficial"
+        - "api_json: Resposta estruturada de API"
+        - "mapa: Mapa ou camada georreferenciada"
+        - "imagem_satelite: Imagem de satélite ou sensoriamento remoto"
+        - "video_ao_vivo: Transmissão de vídeo ao vivo"
+        - "curriculo: Currículo acadêmico ou profissional"
+        - "publicacao_academica: Tese, dissertação ou artigo"
+        - "perfil_social: Perfil ou conteúdo de rede social"
+        - "dork: Consulta pronta para motor de busca"
+        - "estatistica: Estatística, indicador ou painel agregado"
+        - "vinculo_profissional: Vínculo de trabalho, registro ou certificação profissional"
+        - "financiamento: Operação de crédito, incentivo ou patrocínio"
+        - "cartorio: Serventia extrajudicial e seu responsável"
+        - "acervo_historico: Acervo histórico, arquivo de imprensa ou documento digitalizado"
+        - "checagem: Checagem de fatos ou verificação de conteúdo publicado"
+  - type: dropdown
+    id: tipo_fonte
+    attributes:
+      label: Quem mantém a fonte (tipo_fonte)
+      description: Opcional.
+      options:
+        - "federal: Órgão do governo federal"
+        - "estadual: Órgão de governo estadual"
+        - "municipal: Órgão de governo municipal"
+        - "judiciario: Tribunal ou órgão do Poder Judiciário"
+        - "ministerio_publico: Ministério Público"
+        - "legislativo: Câmara, Senado ou assembleia"
+        - "defensoria: Defensoria Pública"
+        - "ong: Organização sem fins lucrativos"
+        - "privado: Empresa ou serviço privado"
+        - "academico: Instituição de ensino ou pesquisa"
+        - "internacional: Fonte fora do Brasil"
+        - "dork: Consulta preparada para motor de busca"
+        - "api: API pública documentada"
+        - "indefinido: Sem URL ou domínio não classificável"
+  - type: checkboxes
+    id: confirmacoes
+    attributes:
+      label: Confirmações
+      options:
+        - label: A fonte é pública, legal e relevante para o contexto brasileiro.
+          required: true
+        - label: Testei os links no navegador e eles funcionam.
+          required: true
+        - label: Procurei a URL em catalogo/ e a fonte ainda não está no catálogo.
+          required: true
