@@ -545,7 +545,6 @@ Investigar domínio suspeito de phishing ou fraude.
 ---
 
 <p align="center">
-  <sub>Última atualização: Dezembro 2025</sub><br>
   <sub>Projeto OSINT Brazuca - Exemplos Práticos de Investigação</sub><br>
   <sub>⚠️ Uso responsável e ético das informações</sub>
 </p>
