@@ -1,14 +1,55 @@
 name: Validar catálogo e dataset
 
+# PR: valida o catálogo e recusa arquivo gerado editado à mão; o PR não precisa
+# trazer README.md nem data/*.json. Push no main: valida de novo e, num job à
+# parte, mostra se os gerados ficaram desatualizados; o mantenedor os regenera
+# num commit dele (ADR 0002). Nenhum job grava no repositório.
 on:
   push:
     branches: [main]
-    paths: ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt", ".github/workflows/validar-dataset.yml"]
+    paths: ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt", ".gitattributes", ".github/**"]
   pull_request:
-    paths: ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt", ".github/workflows/validar-dataset.yml"]
+    paths: ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt", ".gitattributes", ".github/**"]
+
+permissions:
+  contents: read
 
 jobs:
   validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Dependências (versão fixada)
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Catálogo válido e nenhum arquivo gerado editado à mão
+        # pipefail: um git diff que falha não pode virar lista vazia e passar despercebido
+        run: |
+          set -o pipefail
+          git diff --name-only HEAD^1 HEAD | python3 tools/build_dataset.py --check --alterados -
+
+      - name: Regenerar README e dataset nesta execução
+        if: success() || failure()
+        run: python3 tools/build_dataset.py
+
+      - name: Testes das ferramentas
+        if: success() || failure()
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Regras de formatação dos documentos
+        if: success() || failure()
+        run: python3 tools/validar_docs.py
+
+  gerados-em-dia:
+    name: Arquivos gerados em dia no main
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,11 +61,9 @@ jobs:
       - name: Dependências (versão fixada)
         run: python3 -m pip install -r requirements.txt
 
-      - name: Testes das ferramentas
-        run: python3 -m unittest discover -s tests -v
-
-      - name: Catálogo válido e arquivos gerados atualizados
-        run: python3 tools/build_dataset.py --check
-
-      - name: Regras de formatação dos documentos
-        run: python3 tools/validar_docs.py
+      - name: README.md e data/*.json iguais ao gerado a partir de catalogo/
+        run: |
+          if ! python3 tools/build_dataset.py --check; then
+            echo "::error title=Arquivos gerados desatualizados::Mantenedor: rode python3 tools/build_dataset.py e faça um commit assinado com README.md e data/*.json (CONTRIBUICAO.md#mantenedores)."
+            exit 1
+          fi
