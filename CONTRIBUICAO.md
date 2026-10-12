@@ -1,4 +1,4 @@
-# 🤝 Como Contribuir com o OSINT Brazuca
+# 🤝 Como Contribuir com o Open Intelligence
 
 <p align="center">
   <a href="README.md"><img alt="README Principal" src="https://img.shields.io/badge/%F0%9F%8F%A0%20README%20Principal-1E88E5?style=flat-square"></a>
@@ -11,7 +11,7 @@
   <a href="tools/"><img alt="Ferramentas" src="https://img.shields.io/badge/%F0%9F%9B%A0%EF%B8%8F%20Ferramentas-546E7A?style=flat-square"></a>
 </p>
 
-Obrigado por considerar contribuir com o OSINT Brazuca! Há três jeitos de ajudar, do mais simples ao mais completo:
+Obrigado por considerar contribuir com o Open Intelligence! Há três jeitos de ajudar, do mais simples ao mais completo:
 
 1. **[Abrir uma issue](#abrir-issue)** com um formulário: sem git e sem editar arquivo.
 2. **[Editar o catálogo pelo navegador](#editar-navegador)**: altere um arquivo de `catalogo/` no GitHub e abra um pull request.
@@ -323,6 +323,6 @@ Issues marcadas com `good first issue` são boas para começar.
 ---
 
 <p align="center">
-  <strong>Obrigado por contribuir com o OSINT Brazuca! 🇧🇷</strong><br>
+  <strong>Obrigado por contribuir com o Open Intelligence! 🇧🇷</strong><br>
   <sub>Juntos estamos construindo a maior base de conhecimento OSINT do Brasil</sub>
 </p>

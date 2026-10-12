@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Valida as regras de formatação dos documentos do OSINT Brazuca.
+"""Valida as regras de formatação dos documentos do Open Intelligence.
 
 Erros (saída 1), conforme CONTRIBUICAO.md:
     travessão (U+2014) fora de crases em qualquer .md e em catalogo/*.yml

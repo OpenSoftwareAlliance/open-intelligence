@@ -1,11 +1,16 @@
-<h1 align="center">🇧🇷 OSINT BRAZUCA 🇧🇷</h1>
+<h1 align="center">🇧🇷 OPEN INTELLIGENCE 🇧🇷</h1>
 
 <p align="center">
-  Catálogo de fontes abertas brasileiras (públicas, legais e prontas pra investigação).<br> Conhecer para proteger, investigar para defender.
+  Catálogo aberto de fontes OSINT com foco no Brasil.<br>
+  Públicas, legais e prontas para investigação. Conhecer para proteger, investigar para defender.
+</p>
+
+<p align="center">
+  <sub>Baseado no OSINT Brazuca (<a href="https://github.com/osintbrazuca/osint-brazuca">osintbrazuca/osint-brazuca</a>) e em seus colaboradores.</sub>
 </p>
 
 <h1 align="center">
-  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="OSINT Brazuca"></a>
+  <a href="#"><img src="./assets/logo_profile.png" width="600px" alt="Open Intelligence"></a>
 </h1>
 
 
@@ -32,9 +37,16 @@
 
 # Introdução
 
-O Projeto **OSINT Brazuca** é um repositório criado com intuito de reunir informações, fontes(websites/portais) e tricks de OSINT dentro do contexto Brasil 🇧🇷.
+O **Open Intelligence** reúne fontes (sites, portais, APIs e bases abertas) e truques de OSINT no contexto do Brasil 🇧🇷. OSINT (Open Source Intelligence, ou Inteligência de Fontes Abertas) é o modelo de inteligência que encontra, seleciona e coleta informações de fontes públicas e as analisa, junto com outras fontes, para produzir conhecimento. Fontes abertas custam pouco se comparadas às onerosas operações de campo.
 
-OSINT (sigla para Open source intelligence ou Inteligência de Fontes Abertas) é um modelo de inteligência que visa encontrar, selecionar e adquirir informações de fontes públicas e analisá-las para que junto com outras fontes possam produzir um conhecimento. As informações coletadas por meio de fontes abertas, possuem baixo custo, se comparado as onerosas operações de campo.
+O projeto é baseado no OSINT Brazuca ([osintbrazuca/osint-brazuca](https://github.com/osintbrazuca/osint-brazuca)) e em seus colaboradores. Veja os [autores](#autores) e os [créditos](#creditos).
+
+| Quero... | Vá para |
+|---|---|
+| Usar o catálogo | O [sumário](#sumário) abaixo lista as categorias. Cada fonte indica o que ela recebe (CPF, CNPJ, placa, domínio...) e o que devolve. Em [Exemplos Práticos](EXEMPLOS_PRATICOS.md) e no [Guia Rápido](GUIA_RAPIDO.md) há casos de uso. |
+| Baixar os dados | O [dataset estruturado](#dataset): [`data/sources.json`](data/sources.json) (fontes agrupadas) e [`data/index.json`](data/index.json) (um registro por link). |
+| Contribuir | O [guia de contribuição](CONTRIBUICAO.md): sugerir fonte, reportar link quebrado ou corrigir um dado. |
+| Entender os limites legais | Os [avisos legais e éticos](#avisos-legais), com LGPD, boas práticas e limitações. |
 
 
 ### Autores 👔 <a name="autores"></a>
@@ -133,7 +145,7 @@ OSINT (sigla para Open source intelligence ou Inteligência de Fontes Abertas) �
 
 ---
 
-## 🗂️ Dataset Estruturado
+## 🗂️ Dataset Estruturado <a name="dataset"></a>
 
 Além do catálogo em Markdown, este repositório publica uma versão estruturada em JSON na pasta [`data/`](data/), gerada automaticamente a partir de [`catalogo/`](catalogo/), a mesma fonte que gera este README. Ela permite localizar fontes por **tipo de entrada**, ou seja, o que você já tem em mãos (CPF, CNPJ, placa, domínio, telefone...), e por **tipo de retorno**, que dado a fonte devolve.
 

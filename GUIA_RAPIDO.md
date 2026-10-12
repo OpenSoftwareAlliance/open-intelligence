@@ -1,4 +1,4 @@
-# 📊 Guia Rápido de Consultas - OSINT Brazuca
+# 📊 Guia Rápido de Consultas - Open Intelligence
 
 <p align="center">
   <a href="README.md"><img alt="README Principal" src="https://img.shields.io/badge/%F0%9F%8F%A0%20README%20Principal-1E88E5?style=flat-square"></a>
@@ -67,5 +67,5 @@ Se você encontrou alguma URL com problemas, ajude a comunidade:
 ---
 
 <p align="center">
-  <sub>Projeto OSINT Brazuca - Inteligência de Fontes Abertas no Contexto Brasileiro</sub>
+  <sub>Projeto Open Intelligence - Inteligência de Fontes Abertas no Contexto Brasileiro</sub>
 </p>
