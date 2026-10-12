@@ -1,5 +1,5 @@
 {
-  "_sobre": "Vocabulário controlado do dataset OSINT Brazuca. O parser valida sources.json contra estas listas e falha se encontrar valor fora delas. Arquivo MANUAL: editar aqui antes de usar um termo novo em catalogo/<categoria>.yml. A classificação de cada fonte fica congelada no arquivo da categoria.",
+  "_sobre": "Vocabulário controlado do catálogo OSINT Brazuca. O build valida cada fonte de catalogo/ contra estas listas e falha se encontrar termo fora delas. Arquivo editado à mão: acrescente o termo aqui antes de usá-lo em catalogo/<categoria>.yml (e nos modelos de issue em .github/ISSUE_TEMPLATE/).",
   "input": {
     "_sobre": "O que o analista precisa ter em mãos para consultar a fonte. 'nenhum' é o valor correto para fontes que se navega (datasets, mapas, câmeras), não se consulta.",
     "termos": {
@@ -85,11 +85,11 @@
     }
   },
   "tipo_fonte": {
-    "_sobre": "Natureza institucional da fonte. Derivado do domínio da primeira URL. Ver limitação de 'municipal' no CLAUDE.md.",
+    "_sobre": "Natureza institucional de quem mantém a fonte.",
     "termos": {
       "federal": "Órgão do governo federal",
       "estadual": "Órgão de governo estadual",
-      "municipal": "Órgão de governo municipal (não detectável por domínio, requer override)",
+      "municipal": "Órgão de governo municipal",
       "judiciario": "Tribunal ou órgão do Poder Judiciário",
       "ministerio_publico": "Ministério Público",
       "legislativo": "Câmara, Senado ou assembleia",
@@ -104,11 +104,10 @@
     }
   },
   "classificacao": {
-    "_sobre": "Procedência dos campos input/output de cada fonte.",
+    "_sobre": "Procedência da classificação (input, output e tipo_fonte) de cada fonte.",
     "termos": {
-      "heuristica": "Derivado automaticamente por regra de categoria ou palavra-chave",
-      "override": "Definida à mão no arquivo da categoria em catalogo/",
-      "indefinido": "Nenhuma regra casou; precisa de curadoria"
+      "heuristica": "Herdada da regra automática anterior à spec 001 e ainda não revisada por uma pessoa; não use em fonte nova",
+      "override": "Definida ou revisada por uma pessoa; use em toda fonte nova e ao revisar a classificação de uma fonte heuristica"
     }
   }
 }

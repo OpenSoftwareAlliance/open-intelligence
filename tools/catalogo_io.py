@@ -66,8 +66,8 @@ def fora_da_taxonomia(eixo, termo, aceitos):
     return mensagem + f"; veja os termos aceitos na seção {eixo} de data/taxonomy.json"
 
 
-def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos):
-    """Taxonomia, coerência entre links e markdown e id único, nos campos sem erro de formato."""
+def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos, categoria_id):
+    """Taxonomia, coerência entre links e markdown e id, nos campos sem erro de formato."""
     def ok(*campos):
         return not invalidos.intersection(campos)
 
@@ -80,6 +80,11 @@ def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos):
     for eixo in ("tipo_fonte", "classificacao"):
         if ok(eixo) and fonte[eixo] not in termos[eixo]:
             erros.append(erro_em(rotulo, linhas, base + (eixo,), fora_da_taxonomia(eixo, fonte[eixo], termos[eixo])))
+    # Fontes heuristica herdadas da migração podem ter lista vazia; fonte nova ou revisada (override), não.
+    for eixo, dica in (("input", " (use [nenhum] quando a fonte não pede identificador)"), ("output", "")):
+        if ok(eixo, "classificacao") and fonte["classificacao"] == "override" and not fonte[eixo]:
+            erros.append(erro_em(rotulo, linhas, base + (eixo,),
+                                 f"lista vazia em fonte com classificacao override; declare ao menos um termo{dica}"))
     if ok("links", "markdown", "descricao", "resumo", "subsecao", "observacao"):
         urls_md = urls_do_markdown(fonte.get("markdown", ""))
         for k, link in enumerate(fonte["links"]):
@@ -92,6 +97,9 @@ def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos):
                                  f"URL {url} no campo markdown sem link correspondente em links"))
         erros.extend(_urls_soltas(rotulo, linhas, fonte, base, urls_links))
     if ok("id"):
+        if fonte["id"].split("/")[0] != categoria_id:
+            erros.append(erro_em(rotulo, linhas, base + ("id",),
+                                 f"o id precisa começar com '{categoria_id}/', o nome do arquivo da categoria"))
         local = f"{rotulo}:{linha_de(linhas, base + ('id',))}"
         if fonte["id"] in ids_vistos:
             erros.append(erro_em(rotulo, linhas, base + ("id",),
@@ -180,7 +188,7 @@ def carrega_catalogo(raiz=RAIZ):
             # são verificados agora, para o contribuidor ver todos os erros de uma vez.
             invalidos = {c[2] for c, _ in problemas if len(c) > 2}
             invalidos |= {campo for campo in esquema_fonte["required"] if campo not in fonte}
-            erros.extend(_verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos))
+            erros.extend(_verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos, categoria["id"]))
         fontes[categoria["id"]] = dados["fontes"]
 
     if erros:

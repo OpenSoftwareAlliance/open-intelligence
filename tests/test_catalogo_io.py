@@ -33,7 +33,10 @@ class TestCarregaCatalogo(unittest.TestCase):
 
     def test_id_duplicado_entre_arquivos(self):
         _, erros = self.carrega({"catalogo/beta.yml": BETA.replace("beta/terceira-fonte", "alfa/primeira-fonte")})
-        self.assertEqual(erros, ["catalogo/beta.yml:2: fontes[0].id: id 'alfa/primeira-fonte' repetido; já usado em catalogo/alfa.yml:2"])
+        self.assertEqual(erros, [
+            "catalogo/beta.yml:2: fontes[0].id: o id precisa começar com 'beta/', o nome do arquivo da categoria",
+            "catalogo/beta.yml:2: fontes[0].id: id 'alfa/primeira-fonte' repetido; já usado em catalogo/alfa.yml:2",
+        ])
 
     def test_fonte_sem_link(self):
         sem_link = BETA.replace("    links:\n      - url: https://terceira.org.br/\n", "    links: []\n")
