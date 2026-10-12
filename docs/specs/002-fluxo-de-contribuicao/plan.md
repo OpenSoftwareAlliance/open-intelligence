@@ -9,18 +9,22 @@ Fazer o contribuidor editar só `catalogo/`: o PR passa no CI sem os arquivos ge
 ## Arquitetura
 
 ```
-PR (fork, token só leitura)                         push no main / workflow_dispatch
-──────────────────────────                          ─────────────────────────────────
-job validar                                          job validar (igual)
-  git diff --name-only HEAD^1 HEAD                     │
-    └─> build_dataset.py --check --alterados -         └─> job regenerar (contents: write, fila)
-          catalogo_io.carrega_catalogo                       build_dataset.py
-          (schema por fonte, taxonomia com                   git diff --name-only
-           sugestão, prefixo do id, override)                commit_gerados.py ─> gh api graphql
-          gerado na lista e diferente => erro                 createCommitOnBranch (verificado,
-          gerado fora da lista => aviso                       expectedHeadOid = GITHUB_SHA)
-  build_dataset.py (regenera na execução)
+PR (fork) e push no main: permissions contents: read em todo o workflow
+────────────────────────────────────────────────────────────────────────
+job validar (PR e push)
+  git diff --name-only HEAD^1 HEAD
+    └─> build_dataset.py --check --alterados -
+          catalogo_io.carrega_catalogo (schema por fonte, taxonomia com sugestão,
+                                        prefixo do id, override)
+          gerado na lista e diferente => erro;  gerado fora da lista => aviso
+  build_dataset.py (regenera só na execução)
   unittest + validar_docs.py   (if: success() || failure())
+
+job "Arquivos gerados em dia no main" (só push)
+  build_dataset.py --check (estrito) => falha com ::error até o mantenedor regenerar
+
+mantenedor, depois do merge (commit dele, assinado):
+  python3 tools/build_dataset.py && git add README.md data/sources.json data/index.json && git commit
 
 hook pre-commit: git checkout-index --all --prefix=<tmp>/  +  git diff --cached --name-only
                  -> validar_docs.py --avisos  e  build_dataset.py --check --alterados  (falha no fim)
@@ -30,7 +34,6 @@ hook pre-commit: git checkout-index --all --prefix=<tmp>/  +  git diff --cached 
 - `tools/esquema.py`: `enum` lista os valores aceitos; `pattern` usa a palavra-chave `x-mensagem` quando o schema a define.
 - `tools/catalogo_io.py`: valida o arquivo só até a lista `fontes`; depois valida cada fonte e roda `_verifica_fonte` nos campos sem erro de formato (taxonomia com `fora_da_taxonomia`, `override` sem lista vazia, links e `markdown`, prefixo e unicidade do id).
 - `tools/build_dataset.py`: `grava` (bytes UTF-8 com LF), `--alterados LISTA` (arquivo ou `-`) e `confere`, que separa gerado editado à mão (erro) de gerado só desatualizado (aviso).
-- `tools/commit_gerados.py`: monta o corpo de `createCommitOnBranch` com os gerados alterados em base64 e recusa qualquer outro caminho.
 - `tools/hooks/pre-commit`: copia o índice para uma pasta temporária e roda as duas verificações ali.
 - `.github/ISSUE_TEMPLATE/*.yml`, `.github/PULL_REQUEST_TEMPLATE.md`: formulários e modelo; `tests/test_modelos.py` amarra as opções ao manifesto e à taxonomia.
 
@@ -43,14 +46,14 @@ hook pre-commit: git checkout-index --all --prefix=<tmp>/  +  git diff --cached 
 
 ## Spec
 
-[`spec.md`](spec.md) (vinculante) e [ADR 0002](../../adr/0002-arquivos-gerados-regenerados-no-main.md) (Proposto; aprovar antes de implementar a Tarefa 8).
+[`spec.md`](spec.md) (vinculante) e [ADR 0002](../../adr/0002-arquivos-gerados-regenerados-no-main.md) (Aceito).
 
 ## Restrições globais
 
 Valores copiados da spec:
 
 - Arquivos gerados: `README.md`, `data/sources.json`, `data/index.json`. PR que altera só `catalogo/` passa sem eles; gerado alterado no PR precisa ser idêntico ao gerado.
-- Publicação no `main` pela mutação `createCommitOnBranch` com o `GITHUB_TOKEN`, `contents: write` só no job `regenerar`, sem `pull_request_target`, sem token pessoal, com `expectedHeadOid`.
+- Nenhum job grava no repositório: `permissions: contents: read`, sem `pull_request_target`, sem commits do CI. O mantenedor regenera os gerados no `main` num commit dele, assinado; o job "Arquivos gerados em dia no main" roda o `--check` estrito em push e falha enquanto estiverem atrasados.
 - Cada verificação roda mesmo depois de uma falha, no CI e no hook. O hook confere o índice.
 - `.gitattributes`: LF em todo texto; `linguist-generated` nos três gerados.
 - Dicas em português para texto com `: `, texto que começa com `[`, `{`, `*`, `&`, `!`, `@`, `%` ou crase, indentação, tabulação e aspas sem fechar, nos dois carregadores do PyYAML.
@@ -70,9 +73,9 @@ Valores copiados da spec:
 | Regra do PR em `build_dataset.py --check --alterados`, com a lista de arquivos vinda de fora (`git diff` no workflow, `git diff --cached` no hook) | O build continua sem chamar `git`; os testes passam a lista por texto, sem montar repositório. |
 | No PR, `git diff --name-only HEAD^1 HEAD` com `fetch-depth: 2` | O checkout de `pull_request` é o commit de merge, cujo primeiro pai é o `main`; dá exatamente o que o PR muda. Em push, cobre o commit de merge do PR. |
 | Gerado alterado no PR precisa ser idêntico ao gerado, em vez de proibir qualquer alteração | Quem regenera localmente por hábito não é punido; o guia orienta a não incluir. |
-| Job `regenerar` separado do `validar`, com `needs` | Só ele recebe `contents: write`; o `validar` roda o código do PR com leitura. |
-| `createCommitOnBranch` em vez de `git push` | Commit verificado pelo GitHub sem chave no CI (ADR 0002); `expectedHeadOid` impede gravar sobre um `main` que andou. |
-| `workflow_dispatch` no workflow e `regenerar` com `if: github.event_name != 'pull_request'` | Reexecutar o job de um push antigo falha por `expectedHeadOid`; a execução manual regenera o `main` atual. |
+| Regeneração no `main` feita pelo mantenedor, sem commit do CI | Decisão do dono (ADR 0002): todo commit tem autor e committer Matheus Breguêz, assinado; nenhum job precisa de escrita. |
+| Job separado "Arquivos gerados em dia no main", só em push, com `--check` estrito e `::error` | Torna visível o atraso sem misturar com a validação do conteúdo: o `validar` fica verde (o merge estava certo) e só este job fica vermelho até a regeneração. |
+| `validar` também roda em push, com a mesma regra de `--alterados` | Pega edição à mão de gerado feita direto no `main` e mantém os testes e documentos conferidos depois de cada merge. |
 | Hook copia o índice com `git checkout-index --all --prefix=` e roda as ferramentas da cópia | Confere exatamente o que entra no commit, inclusive as ferramentas, sem `git stash` (que mexeria no trabalho do contribuidor). |
 | Testes do hook num repositório sem commits | `git add` basta para preencher o índice; evita commits (e assinatura) em teste. |
 | Validação por fonte com `items: {}` no schema do arquivo e `_verifica_fonte` guiada pelos campos com erro | Mostra todos os erros sem rodar taxonomia sobre valor de tipo errado. |
@@ -90,7 +93,7 @@ Valores copiados da spec:
 ## Foco de revisão
 
 1. **Contribuidor pelo navegador barrado pelo CI.** Se `--alterados` tratar gerado desatualizado como erro, o caminho principal da spec quebra. Teste: `test_pr_so_com_catalogo_passa_e_avisa_que_gerados_serao_regenerados` (Tarefa 6).
-2. **Commit do bot sobrescrevendo um `main` mais novo ou levando arquivo indevido.** Teste: `test_pedido_cria_commit_no_branch_esperado` e `test_recusa_arquivo_que_nao_e_gerado` (Tarefa 8); a verificação manual de CA15 confere o commit real.
+2. **CI ganhando permissão de escrita ou `main` atrasado sem sinal.** Uma mudança futura no workflow poderia voltar a commitar pelo CI, ou o atraso dos gerados passaria despercebido. Testes: `test_nenhum_job_grava_no_repositorio` e `test_gerados_em_dia_so_no_push_com_aviso_ao_mantenedor` (Tarefa 8); a verificação manual de CA15 confere o job vermelho e depois verde.
 3. **Hook aprovando o que não vai no commit.** O contribuidor corrige o arquivo na pasta mas esquece o `git add`. Teste: `test_confere_o_indice_e_nao_a_arvore_de_trabalho` (Tarefa 7).
 4. **Dica errada mandando pôr aspas onde o problema é indentação.** Teste: `test_indentacao_errada_ganha_dica_de_alinhamento` e os sete casos de `test_dicas_com_o_carregador_em_c` (Tarefa 2).
 5. **Formulário oferecendo categoria ou termo que o build recusa.** Teste: `test_categorias_da_nova_fonte_seguem_o_manifesto` e `test_termos_da_nova_fonte_seguem_a_taxonomia` (Tarefa 9).
@@ -107,8 +110,7 @@ Valores copiados da spec:
 | `tools/catalogo_io.py` | Sugestão de termo; validação por fonte; prefixo do id; `override` sem lista vazia | 3, 4, 5 |
 | `data/taxonomy.json` | `classificacao` sem `indefinido`; textos `_sobre` atualizados | 5 |
 | `tools/hooks/pre-commit` | Confere o índice; todas as verificações antes de falhar | 7 |
-| `.github/workflows/validar-dataset.yml` | Jobs `validar` e `regenerar` | 8 |
-| `tools/commit_gerados.py` | Corpo do `createCommitOnBranch` | 8 |
+| `.github/workflows/validar-dataset.yml` | Jobs `validar` e "Arquivos gerados em dia no main", só leitura | 8 |
 | `.github/ISSUE_TEMPLATE/*.yml`, `.github/PULL_REQUEST_TEMPLATE.md` | Formulários e modelo de PR | 9 |
 | `CONTRIBUICAO.md` | Guia reescrito | 10 |
 | `README.en.md`, `tools/readme/rodape.md`, `README.md` (gerado) | Fluxo novo em inglês; rodapé aponta o guia | 10 |
@@ -123,7 +125,7 @@ Valores copiados da spec:
 |---|---|
 | R1 (PR só com catálogo passa) | Tarefa 6 (`test_pr_so_com_catalogo_passa...`), Tarefa 8 (passo do workflow) |
 | R2 (gerado editado à mão no PR falha) | Tarefa 6 (`test_readme_editado_a_mao_no_pr_falha`, `test_gerado_alterado_e_identico_ao_gerado_passa`) |
-| R3 (regeneração no `main`, ADR 0002) | Tarefa 8 (`TestWorkflow`, `TestCommitGerados`) |
+| R3 (CI sem escrita, job de gerados em dia, passo do mantenedor; ADR 0002) | Tarefa 8 (`TestWorkflow`), Tarefa 10 (seção "Para mantenedores") |
 | R4 (regenera antes de testes e documentos) | Tarefa 8 (`test_validar_confere_edicao_a_mao_regenera_e_roda_tudo`) |
 | R5 (todas as verificações numa rodada) | Tarefa 7 (`test_erros_de_documento_e_de_catalogo_aparecem_juntos`), Tarefa 8 (`if: success() \|\| failure()`) |
 | R6 (hook confere o índice) | Tarefa 7 |
@@ -142,7 +144,7 @@ Valores copiados da spec:
 | R19 (`README.en.md` e rodapé) | Tarefa 10 (`TestOutrosDocumentos`) |
 | R20 (rótulos) | Tarefa 12 (passo 1) |
 | CA1, CA2 | Tarefa 6 |
-| CA3, CA4 | Tarefa 8; Tarefa 12 (`actionlint`) |
+| CA3, CA4 | Tarefa 8 (`TestWorkflow`, `actionlint`) |
 | CA5 | Tarefa 7 |
 | CA6 | Tarefa 2 |
 | CA7 | Tarefa 3 |

@@ -1490,7 +1490,7 @@ Uso:
     git diff --name-only HEAD^1 HEAD | python3 tools/build_dataset.py --check --alterados -
         modo de PR: valida o catálogo e falha só se um arquivo gerado da lista
         foi editado à mão; gerado fora da lista pode estar desatualizado,
-        porque o CI o regenera no main depois do merge (ADR 0002)
+        porque o mantenedor o regenera no main depois do merge (ADR 0002)
 
 Requer PyYAML (pip install -r requirements.txt).
 """
@@ -1838,37 +1838,24 @@ git commit -m "Faz o hook de pre-commit conferir o índice e mostrar todos os er
 
 ---
 
-## Tarefa 8: CI de PR sem gerados e regeneração no main
-
-Pré-requisito: ADR 0002 aprovado pelo dono.
+## Tarefa 8: CI de PR sem gerados e aviso de gerados atrasados no main
 
 **Arquivos:**
 - Modificar (substituir por inteiro): `.github/workflows/validar-dataset.yml`, `tests/test_ci.py`
-- Criar: `tools/commit_gerados.py`
 
 **Interfaces:**
-- Consome: `build_dataset.py --check --alterados -` (Tarefa 6).
-- Produz: job `validar` (PR, push, manual; só leitura) e job `regenerar` (fora de PR; `contents: write`; fila `regenerar-main`); `monta_pedido(raiz, alterados, repositorio, branch, head) -> dict` e `main(argv, raiz, entrada, saida) -> int` em `tools/commit_gerados.py`; `GERADOS = ("README.md", "data/sources.json", "data/index.json")`.
+- Consome: `build_dataset.py --check --alterados -` (Tarefa 6) e `build_dataset.py --check` estrito.
+- Produz: job `validar` (PR e push) e job `gerados-em-dia`, de nome "Arquivos gerados em dia no main" (só push), ambos com `contents: read` e sem commit. A seção "Para mantenedores" que a anotação de erro aponta (`CONTRIBUICAO.md#mantenedores`) é escrita na Tarefa 10.
 
 - [ ] **Passo 1: escrever o teste que falha. Substituir o conteúdo de `tests/test_ci.py`:**
 
 ````python
-import base64
-import contextlib
-import io
-import json
-import sys
-import tempfile
 import unittest
 from pathlib import Path
 
 import yaml
 
 RAIZ = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(RAIZ / "tools"))
-
-from commit_gerados import GERADOS, main, monta_pedido  # noqa: E402
-
 WORKFLOW = RAIZ / ".github" / "workflows" / "validar-dataset.yml"
 CAMINHOS = ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt",
             ".gitattributes", ".github/**"]
@@ -1889,15 +1876,18 @@ class TestWorkflow(unittest.TestCase):
         self.wf = carrega_workflow()
 
     def test_dispara_em_pr_e_em_push_no_main_com_os_mesmos_caminhos(self):
+        self.assertEqual(set(self.wf["on"]), {"push", "pull_request"})
         self.assertEqual(self.wf["on"]["push"]["branches"], ["main"])
         self.assertEqual(self.wf["on"]["push"]["paths"], CAMINHOS)
         self.assertEqual(self.wf["on"]["pull_request"]["paths"], CAMINHOS)
-        self.assertIn("workflow_dispatch", self.wf["on"])
-        self.assertNotIn("pull_request_target", self.wf["on"])
 
-    def test_token_so_le_por_padrao(self):
+    def test_nenhum_job_grava_no_repositorio(self):
         self.assertEqual(self.wf["permissions"], {"contents": "read"})
-        self.assertNotIn("permissions", self.wf["jobs"]["validar"])
+        for nome, job in self.wf["jobs"].items():
+            self.assertNotIn("permissions", job, nome)
+        texto = WORKFLOW.read_text(encoding="utf-8")
+        for proibido in ("git push", "git commit", "graphql", "contents: write"):
+            self.assertNotIn(proibido, texto)
 
     def test_validar_confere_edicao_a_mao_regenera_e_roda_tudo(self):
         job = self.wf["jobs"]["validar"]
@@ -1912,59 +1902,15 @@ class TestWorkflow(unittest.TestCase):
         for passo in job["steps"][4:]:
             self.assertEqual(passo.get("if"), "success() || failure()", passo["name"])
 
-    def test_regenerar_fora_de_pr_com_escrita_e_fila(self):
-        job = self.wf["jobs"]["regenerar"]
-        self.assertEqual(job["if"], "github.event_name != 'pull_request'")
-        self.assertEqual(job["needs"], "validar")
-        self.assertEqual(job["permissions"], {"contents": "write"})
-        self.assertEqual(job["concurrency"], {"group": "regenerar-main", "cancel-in-progress": False})
+    def test_gerados_em_dia_so_no_push_com_aviso_ao_mantenedor(self):
+        job = self.wf["jobs"]["gerados-em-dia"]
+        self.assertEqual(job["name"], "Arquivos gerados em dia no main")
+        self.assertEqual(job["if"], "github.event_name == 'push'")
         script = comandos(job)[-1]
-        self.assertIn("python3 tools/commit_gerados.py", script)
-        self.assertIn("gh api graphql --input", script)
-        self.assertNotIn("git push", script)
-
-
-class TestCommitGerados(unittest.TestCase):
-    def setUp(self):
-        self._tmp = tempfile.TemporaryDirectory()
-        self.raiz = Path(self._tmp.name)
-        (self.raiz / "data").mkdir()
-        for nome in GERADOS:
-            (self.raiz / nome).write_text(f"conteúdo de {nome}\n", encoding="utf-8")
-
-    def tearDown(self):
-        self._tmp.cleanup()
-
-    def test_pedido_cria_commit_no_branch_esperado(self):
-        pedido = monta_pedido(self.raiz, ["data/index.json", "README.md"], "webminas/osint-brazuca", "main", "abc123")
-        self.assertIn("createCommitOnBranch", pedido["query"])
-        entrada = pedido["variables"]["entrada"]
-        self.assertEqual(entrada["branch"], {"repositoryNameWithOwner": "webminas/osint-brazuca", "branchName": "main"})
-        self.assertEqual(entrada["expectedHeadOid"], "abc123")
-        self.assertEqual(entrada["message"]["headline"], "Regenera README.md e dataset a partir de catalogo/")
-        adicoes = entrada["fileChanges"]["additions"]
-        self.assertEqual([a["path"] for a in adicoes], ["README.md", "data/index.json"])
-        self.assertEqual(base64.b64decode(adicoes[0]["contents"]).decode("utf-8"), "conteúdo de README.md\n")
-
-    def test_recusa_arquivo_que_nao_e_gerado(self):
-        with self.assertRaises(ValueError) as erro:
-            monta_pedido(self.raiz, ["README.md", "catalogo/saude.yml"], "o/r", "main", "abc")
-        self.assertIn("catalogo/saude.yml", str(erro.exception))
-
-    def test_main_le_a_lista_da_entrada_e_escreve_json(self):
-        saida = io.StringIO()
-        codigo = main(["--repositorio", "o/r", "--branch", "main", "--head", "abc"], raiz=self.raiz,
-                      entrada=io.StringIO("README.md\n\n"), saida=saida)
-        self.assertEqual(codigo, 0)
-        self.assertEqual(len(json.loads(saida.getvalue())["variables"]["entrada"]["fileChanges"]["additions"]), 1)
-
-    def test_main_falha_com_arquivo_estranho(self):
-        erro = io.StringIO()
-        with contextlib.redirect_stderr(erro):
-            codigo = main(["--repositorio", "o/r", "--branch", "main", "--head", "abc"], raiz=self.raiz,
-                          entrada=io.StringIO("tools/x.py\n"), saida=io.StringIO())
-        self.assertEqual(codigo, 1)
-        self.assertIn("tools/x.py", erro.getvalue())
+        self.assertIn("python3 tools/build_dataset.py --check", script)
+        self.assertNotIn("--alterados", script)
+        self.assertIn("::error title=Arquivos gerados desatualizados::", script)
+        self.assertIn("CONTRIBUICAO.md#mantenedores", script)
 
 
 class TestDependencias(unittest.TestCase):
@@ -1984,99 +1930,23 @@ if __name__ == "__main__":
 python3 -m unittest discover -s tests -p test_ci.py
 ````
 
-Esperado: `ModuleNotFoundError: No module named 'commit_gerados'`.
+Esperado: `FAILED (failures=1, errors=3)`: o workflow da spec 001 não tem `permissions`, `fetch-depth` nem o job `gerados-em-dia` (`KeyError`), e os caminhos ainda não incluem `.gitattributes` e `.github/**`.
 
-- [ ] **Passo 3: implementar. Criar `tools/commit_gerados.py`:**
-
-````python
-#!/usr/bin/env python3
-"""Monta o pedido GraphQL que publica os arquivos gerados num commit no main.
-
-Usado pelo job "regenerar" de .github/workflows/validar-dataset.yml (ADR 0002)
-depois de rodar tools/build_dataset.py. Lê da entrada padrão os caminhos
-alterados (um por linha), recusa qualquer um que não seja arquivo gerado e
-escreve na saída padrão o corpo para:
-
-    gh api graphql --input pedido.json
-
-A mutação createCommitOnBranch, chamada com o GITHUB_TOKEN, cria um commit
-assinado pelo GitHub. expectedHeadOid faz o commit falhar se o main andou
-desde o push que disparou o job; o push seguinte regenera de novo.
-"""
-
-import argparse
-import base64
-import json
-import sys
-from pathlib import Path
-
-RAIZ = Path(__file__).resolve().parent.parent
-GERADOS = ("README.md", "data/sources.json", "data/index.json")
-MUTACAO = (
-    "mutation($entrada: CreateCommitOnBranchInput!) {"
-    " createCommitOnBranch(input: $entrada) { commit { oid url } } }"
-)
-TITULO = "Regenera README.md e dataset a partir de catalogo/"
-
-
-def monta_pedido(raiz, alterados, repositorio, branch, head):
-    """Corpo da chamada GraphQL createCommitOnBranch com os arquivos gerados alterados."""
-    estranhos = sorted(set(alterados) - set(GERADOS))
-    if estranhos:
-        raise ValueError(f"só arquivos gerados podem ir no commit automático; recusado: {', '.join(estranhos)}")
-    adicoes = [
-        {"path": nome, "contents": base64.b64encode((Path(raiz) / nome).read_bytes()).decode("ascii")}
-        for nome in GERADOS if nome in alterados
-    ]
-    return {
-        "query": MUTACAO,
-        "variables": {"entrada": {
-            "branch": {"repositoryNameWithOwner": repositorio, "branchName": branch},
-            "message": {"headline": TITULO,
-                        "body": f"Gerado por tools/build_dataset.py no CI a partir do commit {head}."},
-            "expectedHeadOid": head,
-            "fileChanges": {"additions": adicoes},
-        }},
-    }
-
-
-def main(argv=None, raiz=RAIZ, entrada=None, saida=None):
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--repositorio", required=True, help="dono/nome, como em GITHUB_REPOSITORY")
-    ap.add_argument("--branch", required=True, help="branch que recebe o commit")
-    ap.add_argument("--head", required=True, help="commit esperado no topo do branch (GITHUB_SHA)")
-    args = ap.parse_args(argv)
-    entrada = entrada or sys.stdin
-    saida = saida or sys.stdout
-    alterados = [linha.strip() for linha in entrada.read().splitlines() if linha.strip()]
-    try:
-        pedido = monta_pedido(raiz, alterados, args.repositorio, args.branch, args.head)
-    except ValueError as erro:
-        print(f"ERRO: {erro}", file=sys.stderr)
-        return 1
-    json.dump(pedido, saida, ensure_ascii=False)
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
-````
-
-- [ ] **Passo 4: implementar. Substituir o conteúdo de `.github/workflows/validar-dataset.yml`:**
+- [ ] **Passo 3: implementar. Substituir o conteúdo de `.github/workflows/validar-dataset.yml`:**
 
 ````yaml
 name: Validar catálogo e dataset
 
 # PR: valida o catálogo e recusa arquivo gerado editado à mão; o PR não precisa
-# trazer README.md nem data/*.json. Push no main (ou execução manual): valida e,
-# se algo mudou, regenera os arquivos gerados num commit verificado (ADR 0002).
+# trazer README.md nem data/*.json. Push no main: valida de novo e, num job à
+# parte, mostra se os gerados ficaram desatualizados; o mantenedor os regenera
+# num commit dele (ADR 0002). Nenhum job grava no repositório.
 on:
   push:
     branches: [main]
     paths: ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt", ".gitattributes", ".github/**"]
   pull_request:
     paths: ["*.md", "catalogo/**", "data/**", "tools/**", "tests/**", "requirements.txt", ".gitattributes", ".github/**"]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -2111,15 +1981,10 @@ jobs:
         if: success() || failure()
         run: python3 tools/validar_docs.py
 
-  regenerar:
-    if: github.event_name != 'pull_request'
-    needs: validar
+  gerados-em-dia:
+    name: Arquivos gerados em dia no main
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    concurrency:
-      group: regenerar-main
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -2130,51 +1995,28 @@ jobs:
       - name: Dependências (versão fixada)
         run: python3 -m pip install -r requirements.txt
 
-      - name: Regenerar README e dataset
-        run: python3 tools/build_dataset.py
-
-      - name: Publicar os arquivos gerados num commit verificado
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: README.md e data/*.json iguais ao gerado a partir de catalogo/
         run: |
-          git diff --name-only > "$RUNNER_TEMP/gerados.txt"
-          if [ ! -s "$RUNNER_TEMP/gerados.txt" ]; then
-            echo "Arquivos gerados já estão em dia."
-            exit 0
+          if ! python3 tools/build_dataset.py --check; then
+            echo "::error title=Arquivos gerados desatualizados::Mantenedor: rode python3 tools/build_dataset.py e faça um commit assinado com README.md e data/*.json (CONTRIBUICAO.md#mantenedores)."
+            exit 1
           fi
-          python3 tools/commit_gerados.py --repositorio "$GITHUB_REPOSITORY" --branch "$GITHUB_REF_NAME" \
-            --head "$GITHUB_SHA" < "$RUNNER_TEMP/gerados.txt" > "$RUNNER_TEMP/pedido.json"
-          gh api graphql --input "$RUNNER_TEMP/pedido.json"
 ````
 
-- [ ] **Passo 5: rodar e ver passar.**
+- [ ] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
 command -v actionlint >/dev/null && actionlint .github/workflows/validar-dataset.yml && echo actionlint-ok
 ````
 
-Esperado: `Ran 129 tests`, `OK` e, com `actionlint` instalado, `actionlint-ok`.
+Esperado: `Ran 125 tests`, `OK` e, com `actionlint` instalado, `actionlint-ok`.
 
-- [ ] **Passo 6: simular o job `regenerar` sem publicar.**
-
-````bash
-cp catalogo/saude.yml /tmp/saude.yml.orig
-python3 -c "import pathlib; p = pathlib.Path('catalogo/saude.yml'); p.write_text(p.read_text().replace(\"descricao: ''\", 'descricao: Teste de regeneração.', 1))"
-python3 tools/build_dataset.py >/dev/null
-git diff --name-only -- README.md data/sources.json data/index.json | python3 tools/commit_gerados.py --repositorio webminas/osint-brazuca --branch main --head "$(git rev-parse HEAD)" | python3 -c "import json, sys; e = json.load(sys.stdin)['variables']['entrada']; print([a['path'] for a in e['fileChanges']['additions']])"
-cp /tmp/saude.yml.orig catalogo/saude.yml && rm -f /tmp/saude.yml.orig
-python3 tools/build_dataset.py >/dev/null
-git status --porcelain -- catalogo README.md data
-````
-
-Esperado: `['README.md', 'data/sources.json', 'data/index.json']` e nenhuma linha no `git status` final. O único arquivo apagado é a cópia em `/tmp` criada no próprio passo.
-
-- [ ] **Passo 7: commit.**
+- [ ] **Passo 5: commit.**
 
 ````bash
-git add .github/workflows/validar-dataset.yml tools/commit_gerados.py tests/test_ci.py
-git commit -m "Valida PR sem arquivos gerados e regenera os gerados no main" -m "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
+git add .github/workflows/validar-dataset.yml tests/test_ci.py
+git commit -m "Valida PR sem arquivos gerados e mostra no main quando os gerados atrasam" -m "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
 ````
 
 ---
@@ -2652,7 +2494,7 @@ contact_links:
 python3 -m unittest discover -s tests
 ````
 
-Esperado: `Ran 137 tests` e `OK`.
+Esperado: `Ran 133 tests` e `OK`.
 
 - [ ] **Passo 9: commit.**
 
@@ -2672,7 +2514,7 @@ git commit -m "Adiciona formulários de issue e modelo de pull request para o ca
 
 **Interfaces:**
 - Consome: mensagens das Tarefas 2 a 6, formulários da Tarefa 9, `carrega_catalogo`.
-- Produz: guia com âncoras `abrir-issue`, `editar-navegador`, `formato-fonte`, `erros-comuns`, `trabalhar-localmente`, `depois-do-merge` e `dataset-json`.
+- Produz: guia com âncoras `abrir-issue`, `editar-navegador`, `formato-fonte`, `erros-comuns`, `trabalhar-localmente`, `depois-do-merge`, `mantenedores` e `dataset-json`; a seção "Para mantenedores" traz os comandos de regeneração e commit no `main` (ADR 0002).
 
 - [ ] **Passo 1: escrever o teste que falha. Substituir o conteúdo de `tests/test_documentacao.py`:**
 
@@ -2706,13 +2548,16 @@ class TestContribuicao(unittest.TestCase):
         self.assertIn("As fontes do catálogo ficam em `catalogo/<categoria>.yml`", self.texto)
         self.assertIn("são gerados a partir desses arquivos: não os edite à mão e não os inclua no pull request", self.texto)
         self.assertIn("os arquivos gerados são regenerados no `main` depois do merge", self.texto)
-        for antigo in ("Inclua esses arquivos no commit", "incluí os arquivos gerados", "overrides",
+        self.assertIn("Depois do merge, o mantenedor os regenera no `main`.", self.texto)
+        self.assertIn('git commit -m "Regenera README.md e dataset a partir de catalogo/"', self.texto)
+        self.assertIn("Arquivos gerados em dia no main", self.texto)
+        for antigo in ("Inclua esses arquivos no commit", "incluí os arquivos gerados", "overrides", "assinado pelo GitHub",
                        "Discussion", "git add .", "### Nome da", "<summary>Links de pesquisa</summary>"):
             self.assertNotIn(antigo, self.texto)
 
     def test_secoes_com_ancoras_estaveis(self):
         for ancora in ("abrir-issue", "editar-navegador", "formato-fonte", "erros-comuns",
-                       "trabalhar-localmente", "depois-do-merge", "dataset-json"):
+                       "trabalhar-localmente", "depois-do-merge", "mantenedores", "dataset-json"):
             self.assertIn(f'<a name="{ancora}"></a>', self.texto)
 
     def test_aponta_os_tres_formularios(self):
@@ -2763,7 +2608,7 @@ class TestOutrosDocumentos(unittest.TestCase):
 
     def test_readme_en_descreve_o_fluxo_novo(self):
         texto = le("README.en.md")
-        self.assertIn("regenerates those files on `main` after the merge", texto)
+        self.assertIn("the maintainers regenerate those files on `main` after the merge", texto)
         self.assertIn("issues/new/choose", texto)
         self.assertNotIn("commit README.md, `data/sources.json` and `data/index.json` together", texto)
 
@@ -2807,7 +2652,7 @@ Obrigado por considerar contribuir com o OSINT Brazuca! Há três jeitos de ajud
 3. **[Trabalhar localmente](#trabalhar-localmente)**: clone o repositório, rode as verificações e mande o pull request.
 
 > [!IMPORTANT]
-> As fontes do catálogo ficam em `catalogo/<categoria>.yml`. O `README.md`, o `data/sources.json` e o `data/index.json` são gerados a partir desses arquivos: não os edite à mão e não os inclua no pull request. Depois do merge, o CI os regenera no `main`.
+> As fontes do catálogo ficam em `catalogo/<categoria>.yml`. O `README.md`, o `data/sources.json` e o `data/index.json` são gerados a partir desses arquivos: não os edite à mão e não os inclua no pull request. Depois do merge, o mantenedor os regenera no `main`.
 
 ---
 
@@ -2950,10 +2795,23 @@ python3 tools/validar_docs.py
 
 ## 🔁 O que acontece depois do merge <a name="depois-do-merge"></a>
 
-1. O workflow [`.github/workflows/validar-dataset.yml`](.github/workflows/validar-dataset.yml) valida o catálogo no `main`.
-2. Se o catálogo mudou, ele regenera `README.md`, `data/sources.json` e `data/index.json` e publica o commit "Regenera README.md e dataset a partir de catalogo/", assinado pelo GitHub.
-
 No pull request, a verificação "Catálogo válido e nenhum arquivo gerado editado à mão" pode avisar que os gerados estão desatualizados: é esperado e não bloqueia o merge.
+
+Depois do merge, o workflow [`.github/workflows/validar-dataset.yml`](.github/workflows/validar-dataset.yml) valida o catálogo no `main`, e o job "Arquivos gerados em dia no main" fica vermelho enquanto `README.md`, `data/sources.json` e `data/index.json` não forem regenerados. Quem regenera é o mantenedor, como descrito a seguir.
+
+### Para mantenedores <a name="mantenedores"></a>
+
+Depois de mesclar um pull request que mude `catalogo/`, `data/taxonomy.json` ou `tools/readme/`, regenere os arquivos gerados num commit seu, assinado:
+
+```bash
+git switch main && git pull
+python3 tools/build_dataset.py
+git add README.md data/sources.json data/index.json
+git commit -m "Regenera README.md e dataset a partir de catalogo/"
+git push
+```
+
+Vários merges seguidos podem ser regenerados de uma vez. O job "Arquivos gerados em dia no main" volta a ficar verde no push desse commit.
 
 ---
 
@@ -3109,7 +2967,7 @@ The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` ar
 por:
 
 ````markdown
-The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files: never edit them by hand. The CI regenerates them on `main` after each merge; to preview them locally (Python 3 and PyYAML):
+The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files: never edit them by hand. The maintainers regenerate them on `main` after each merge; to preview them locally (Python 3 and PyYAML):
 ````
 
 - [ ] **Passo 5: implementar. Em `README.en.md`, trocar:**
@@ -3126,7 +2984,7 @@ por:
 ````markdown
 1. **Open an issue** with one of the [issue forms](https://github.com/webminas/osint-brazuca/issues/new/choose): suggest a new source, report a broken link or correct a source. No git needed.
 2. **Edit the catalog in your browser.** Open the matching `catalogo/<category>.yml` file on GitHub, click the pencil icon and add or fix the entry (id, name, description, links, input, output, source type and `classificacao: override`; see [CONTRIBUICAO.md](CONTRIBUICAO.md#formato-fonte)). Then propose the change as a pull request.
-3. **Do not touch the generated files.** Leave README.md, `data/sources.json` and `data/index.json` out of your pull request: the CI checks the catalog, points to the file and line of any error, and regenerates those files on `main` after the merge.
+3. **Do not touch the generated files.** Leave README.md, `data/sources.json` and `data/index.json` out of your pull request: the CI checks the catalog and points to the file and line of any error, and the maintainers regenerate those files on `main` after the merge.
 4. **Working locally?** Install the pinned dependency with `pip install -r requirements.txt`, enable the pre-commit hook once with `git config core.hooksPath tools/hooks` and run `python3 tools/build_dataset.py --check`.
 ````
 
@@ -3151,7 +3009,7 @@ python3 tools/build_dataset.py --check
 python3 tools/validar_docs.py
 ````
 
-Esperado: `escrito README.md`, `escrito data/sources.json` e `escrito data/index.json` (no diff, só o rodapé do `README.md` muda), `Ran 140 tests`, `OK`, `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
+Esperado: `escrito README.md`, `escrito data/sources.json` e `escrito data/index.json` (no diff, só o rodapé do `README.md` muda), `Ran 136 tests`, `OK`, `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
 
 - [ ] **Passo 8: commit.**
 
@@ -3240,7 +3098,7 @@ migração, use um checkout do commit anterior a ela:
 python3 -m unittest discover -s tests
 ````
 
-Esperado: `Ran 143 tests` e `OK`.
+Esperado: `Ran 139 tests` e `OK`.
 
 - [ ] **Passo 6: commit.**
 
@@ -3279,7 +3137,7 @@ python3 tools/build_dataset.py --check
 python3 tools/validar_docs.py
 ````
 
-Esperado: `Ran 143 tests`, `OK`, `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
+Esperado: `Ran 139 tests`, `OK`, `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
 
 - [ ] **Passo 3: totais inalterados (CA14).**
 
@@ -3312,11 +3170,15 @@ test -z "$(git status --porcelain)" && echo git-status-limpo
 
 Esperado: o aviso `AVISO: desatualizados, regenerados no main depois do merge: README.md, data/sources.json, data/index.json`, `OK: catálogo válido e nenhum arquivo gerado editado à mão.` e `saída 0`; depois `README.md:<linha>: difere do gerado a partir de catalogo/` e `saída 1`; por fim `git-status-limpo`.
 
-- [ ] **Passo 6: depois do merge do PR desta spec (CA15, manual).** Abra um PR de teste pelo navegador que mude só a descrição de uma fonte em `catalogo/`, confira que o CI do PR passa com o aviso, faça o merge e confira:
+- [ ] **Passo 6: depois do merge do PR desta spec (CA15, manual).** Abra um PR de teste pelo navegador que mude só a descrição de uma fonte em `catalogo/`, confira que o CI do PR passa com o aviso e faça o merge. Confira que o job "Arquivos gerados em dia no main" fica vermelho; então regenere como mantenedor, conforme `CONTRIBUICAO.md#mantenedores`, e confira que ele volta a passar:
 
 ````bash
+git switch main && git pull webminas main
+python3 tools/build_dataset.py
+git add README.md data/sources.json data/index.json
+git commit -m "Regenera README.md e dataset a partir de catalogo/" -m "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
+git push webminas main
 gh run list --repo webminas/osint-brazuca --workflow validar-dataset.yml --limit 2
-gh api repos/webminas/osint-brazuca/commits/main --jq '.commit.author.name, .commit.message, .commit.verification.verified'
 ````
 
-Esperado: as duas execuções com `success`; o último commit do `main` com autor `github-actions[bot]`, a mensagem `Regenera README.md e dataset a partir de catalogo/` e `true` em `verified`. Se o job `regenerar` falhar pelo tamanho do pedido, siga o plano B do ADR 0002 (rodar o build e commitar) e registre o resultado no PR seguinte.
+Esperado: a execução do merge com o job "Arquivos gerados em dia no main" em falha (anotação "Arquivos gerados desatualizados") e a execução do commit de regeneração com `success`. O commit de regeneração tem autor e committer Matheus Breguêz, assinado.

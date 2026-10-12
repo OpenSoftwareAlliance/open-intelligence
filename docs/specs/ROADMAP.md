@@ -26,4 +26,4 @@ A 002 e a 003 podem andar em paralelo depois da 001. A 006 só exige a 001; espe
 ## Decisões registradas
 
 - [ADR 0001: arquivos YAML por categoria como fonte de verdade do catálogo](../adr/0001-yaml-por-categoria-como-fonte-de-verdade.md) (spec 001)
-- [ADR 0002: arquivos gerados regenerados no main pelo CI, fora dos pull requests](../adr/0002-arquivos-gerados-regenerados-no-main.md) (spec 002, proposto)
+- [ADR 0002: arquivos gerados fora dos pull requests, regenerados pelo mantenedor no main](../adr/0002-arquivos-gerados-regenerados-no-main.md) (spec 002)
