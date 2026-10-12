@@ -35,7 +35,7 @@ from urllib.parse import urlsplit
 RAIZ = Path(__file__).resolve().parent.parent
 INDEX = RAIZ / "data" / "index.json"
 
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) OSINT-Brazuca/checar_links (+https://github.com/osintbrazuca/osint-brazuca)"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) OSINT-Brazuca/checar_links (+https://github.com/OpenSoftwareAlliance/open-intelligence)"
 TIMEOUT = 20
 
 # Rótulo por situação, para o resumo final.

@@ -24,13 +24,13 @@ Obrigado por considerar contribuir com o OSINT Brazuca! Há três jeitos de ajud
 
 ## 📝 Abrir uma issue <a name="abrir-issue"></a>
 
-Escolha o formulário em [Issues > New issue](https://github.com/webminas/osint-brazuca/issues/new/choose):
+Escolha o formulário em [Issues > New issue](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new/choose):
 
 | Formulário | Quando usar |
 |---|---|
-| [Sugerir nova fonte](https://github.com/webminas/osint-brazuca/issues/new?template=nova-fonte.yml) | Uma fonte pública brasileira que ainda não está no catálogo. |
-| [Reportar link quebrado](https://github.com/webminas/osint-brazuca/issues/new?template=link-quebrado.yml) | Um link não abre, mudou de endereço ou leva a outra página. |
-| [Corrigir uma fonte](https://github.com/webminas/osint-brazuca/issues/new?template=correcao.yml) | Nome, descrição, classificação, categoria ou UF errados, ou fonte repetida. |
+| [Sugerir nova fonte](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=nova-fonte.yml) | Uma fonte pública brasileira que ainda não está no catálogo. |
+| [Reportar link quebrado](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=link-quebrado.yml) | Um link não abre, mudou de endereço ou leva a outra página. |
+| [Corrigir uma fonte](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=correcao.yml) | Nome, descrição, classificação, categoria ou UF errados, ou fonte repetida. |
 
 > [!TIP]
 > Sites `.gov.br` costumam bloquear robôs. Antes de reportar um link quebrado, confira no navegador.

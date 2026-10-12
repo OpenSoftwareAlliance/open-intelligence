@@ -11,12 +11,11 @@
 
 
 <p align="center">
-<a href="https://github.com/osintbrazuca/osint-brazuca/blob/main/LICENSE"><img alt="Licença" src="https://img.shields.io/github/license/osintbrazuca/osint-brazuca?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors"><img alt="Contribuidores" src="https://img.shields.io/github/contributors-anon/osintbrazuca/osint-brazuca?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/issues"><img alt="Issues abertas" src="https://img.shields.io/github/issues-raw/osintbrazuca/osint-brazuca?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/discussions"><img alt="Discussões" src="https://img.shields.io/github/discussions/osintbrazuca/osint-brazuca?style=for-the-badge&color=6A1B9A&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/osintbrazuca/osint-brazuca?style=for-the-badge&color=00838F&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/stargazers"><img alt="Estrelas" src="https://img.shields.io/github/stars/osintbrazuca/osint-brazuca?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/blob/main/LICENSE"><img alt="Licença" src="https://img.shields.io/github/license/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors"><img alt="Contribuidores" src="https://img.shields.io/github/contributors-anon/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/issues"><img alt="Issues abertas" src="https://img.shields.io/github/issues-raw/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=00838F&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/stargazers"><img alt="Estrelas" src="https://img.shields.io/github/stars/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
 </p>
 
 ---
@@ -9619,8 +9618,8 @@ Lista de agências de checagem certificadas pela International Fact-Checking Net
 
 Contribuições de qualquer tipo são bem-vindas! Para sugerir uma fonte, reportar um link quebrado ou editar o catálogo pelo navegador, veja o [guia de contribuição](CONTRIBUICAO.md).
 
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=osintbrazuca/osint-brazuca&max=500" alt="Lista de contribuidores" width="100%"/>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=OpenSoftwareAlliance/open-intelligence&max=500" alt="Lista de contribuidores" width="100%"/>
 </a>
     
 ---

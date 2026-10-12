@@ -53,7 +53,7 @@ Nenhuma contribuição externa volta a editar o `README.md` gerado. Um contribui
 - **R17.** `.github/PULL_REQUEST_TEMPLATE.md` com tipo de mudança, descrição e checklist: só `catalogo/` editado, gerados não editados à mão, links testados, sem duplicata, `classificacao: override` em fonte nova, fonte pública e legal.
 - **R18.** `CONTRIBUICAO.md` reescrito para o fluxo em YAML: três caminhos (issue, navegador, local), formato de uma fonte com tabela de todos os campos do schema, quando usar aspas, tabela de erros comuns com as mensagens reais, trabalho local com hook, o que acontece depois do merge, uma seção "Para mantenedores" com os comandos de regeneração e commit no `main`, seção do dataset (mantém a âncora `dataset-json`) e padrões de formatação. O exemplo de fonte do guia é validado por teste contra o catálogo real.
 - **R19.** As seções "Contributing" e "Structured dataset" do `README.en.md` descrevem o mesmo fluxo, e o rodapé do `README.md` gerado aponta o guia.
-- **R20.** Os rótulos `nova fonte`, `link quebrado` e `correção` existem no repositório `webminas/osint-brazuca`.
+- **R20.** Os rótulos `nova fonte`, `link quebrado` e `correção` existem no repositório `OpenSoftwareAlliance/open-intelligence`.
 
 ## Critérios de aceite
 

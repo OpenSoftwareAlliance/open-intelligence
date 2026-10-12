@@ -10,10 +10,10 @@
 </h1>
 
 <p align="center">
-<a href="https://github.com/osintbrazuca/osint-brazuca/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/osintbrazuca/osint-brazuca?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors-anon/osintbrazuca/osint-brazuca?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/osintbrazuca/osint-brazuca?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
-<a href="https://github.com/osintbrazuca/osint-brazuca/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/osintbrazuca/osint-brazuca?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=1E88E5&logo=opensourceinitiative&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors-anon/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=2E7D32&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=EF6C00&logo=github&logoColor=white"></a>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/OpenSoftwareAlliance/open-intelligence?style=for-the-badge&color=F9A825&logo=github&logoColor=white"></a>
 </p>
 
 ---
@@ -283,7 +283,7 @@ python3 tools/build_dataset.py
 
 Contributions are welcome, in Portuguese or English. The full guide is in [CONTRIBUICAO.md](CONTRIBUICAO.md); in short:
 
-1. **Open an issue** with one of the [issue forms](https://github.com/webminas/osint-brazuca/issues/new/choose): suggest a new source, report a broken link or correct a source. No git needed.
+1. **Open an issue** with one of the [issue forms](https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new/choose): suggest a new source, report a broken link or correct a source. No git needed.
 2. **Edit the catalog in your browser.** Open the matching `catalogo/<category>.yml` file on GitHub, click the pencil icon and add or fix the entry (id, name, description, links, input, output, source type and `classificacao: override`; see [CONTRIBUICAO.md](CONTRIBUICAO.md#formato-fonte)). Then propose the change as a pull request.
 3. **Do not touch the generated files.** Leave README.md, `data/sources.json` and `data/index.json` out of your pull request: the CI checks the catalog and points to the file and line of any error, and the maintainers regenerate those files on `main` after the merge.
 4. **Working locally?** Install the pinned dependency with `pip install -r requirements.txt`, enable the pre-commit hook once with `git config core.hooksPath tools/hooks` and run `python3 tools/build_dataset.py --check`.
@@ -300,8 +300,8 @@ Contributions are welcome, in Portuguese or English. The full guide is in [CONTR
 
 Thanks to every public institution and private initiative that makes these lookups available, and to everyone who has shared links and search tricks with the community.
 
-<a href="https://github.com/osintbrazuca/osint-brazuca/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=osintbrazuca/osint-brazuca&max=500" alt="Contributors" width="100%"/>
+<a href="https://github.com/OpenSoftwareAlliance/open-intelligence/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=OpenSoftwareAlliance/open-intelligence&max=500" alt="Contributors" width="100%"/>
 </a>
 
 ---

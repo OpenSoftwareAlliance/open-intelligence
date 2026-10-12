@@ -35,7 +35,7 @@
 Se você encontrou alguma URL com problemas, ajude a comunidade:
 
 **Reporte através de uma Issue no GitHub:**
-1. Acesse: https://github.com/webminas/osint-brazuca/issues/new?template=link-quebrado.yml
+1. Acesse: https://github.com/OpenSoftwareAlliance/open-intelligence/issues/new?template=link-quebrado.yml
 2. Descreva o problema:
    - ❌ **Offline**: Site fora do ar ou erro 404
    - 🔒 **Requer Login**: Antes era público, agora pede cadastro
@@ -62,7 +62,7 @@ Se você encontrou alguma URL com problemas, ajude a comunidade:
 - [Exemplos Práticos de Investigação](EXEMPLOS_PRATICOS.md)
 - [Fluxogramas de Investigação](FLUXOGRAMA.md)
 - [Avisos Legais e LGPD](README.md#avisos-legais)
-- [Repositório GitHub](https://github.com/webminas/osint-brazuca)
+- [Repositório GitHub](https://github.com/OpenSoftwareAlliance/open-intelligence)
 
 ---
 
