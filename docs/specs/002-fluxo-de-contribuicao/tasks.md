@@ -8,7 +8,7 @@ Todos os comandos rodam na raiz do repositório, com o ambiente virtual da prepa
 
 ## Preparação
 
-- [ ] **Passo P1: criar a branch e o ambiente virtual.**
+- [x] **Passo P1: criar a branch e o ambiente virtual.**
 
 ````bash
 git switch -c feat/002-fluxo-de-contribuicao webminas/main
@@ -17,7 +17,7 @@ python3 -m venv .venv
 python3 -m pip install --quiet -r requirements.txt
 ````
 
-- [ ] **Passo P2: conferir o ponto de partida.**
+- [x] **Passo P2: conferir o ponto de partida.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -39,7 +39,7 @@ Esperado: `Ran 82 tests`, `OK` e `OK: catálogo válido e arquivos gerados atual
 - Consome: `tools/build_dataset.py` da spec 001.
 - Produz: `grava(caminho, conteudo)` em `build_dataset.py` (bytes UTF-8, LF em qualquer sistema); `.gitattributes` com `* text=auto eol=lf` e `linguist-generated=true` nos três gerados.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_fim_de_linha.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_fim_de_linha.py`:**
 
 ````python
 import subprocess
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_fim_de_linha.py
@@ -93,7 +93,7 @@ python3 -m unittest discover -s tests -p test_fim_de_linha.py
 
 Esperado: `ImportError: cannot import name 'grava' from 'build_dataset'`.
 
-- [ ] **Passo 3: implementar. Criar `.gitattributes`:**
+- [x] **Passo 3: implementar. Criar `.gitattributes`:**
 
 ````text
 # Fim de linha LF em todo arquivo de texto versionado, também no Windows (spec 002).
@@ -106,7 +106,7 @@ data/sources.json linguist-generated=true
 data/index.json linguist-generated=true
 ````
 
-- [ ] **Passo 4: implementar. Em `tools/build_dataset.py`, trocar:**
+- [x] **Passo 4: implementar. Em `tools/build_dataset.py`, trocar:**
 
 ````python
 def primeira_diferenca(atual, gerado):
@@ -123,7 +123,7 @@ def grava(caminho, conteudo):
 def primeira_diferenca(atual, gerado):
 ````
 
-- [ ] **Passo 5: implementar. Em `tools/build_dataset.py`, trocar:**
+- [x] **Passo 5: implementar. Em `tools/build_dataset.py`, trocar:**
 
 ````python
             (raiz / relativo).write_text(conteudo, encoding="utf-8")
@@ -135,7 +135,7 @@ por:
             grava(raiz / relativo, conteudo)
 ````
 
-- [ ] **Passo 6: rodar e ver passar.**
+- [x] **Passo 6: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -144,7 +144,7 @@ git ls-files --eol | awk '{print $1}' | sort -u
 
 Esperado: `Ran 85 tests` e `OK`; só `i/lf` e `i/-text` (nenhum arquivo versionado com CRLF, então o `.gitattributes` não renormaliza nada).
 
-- [ ] **Passo 7: commit.**
+- [x] **Passo 7: commit.**
 
 ````bash
 git add .gitattributes tools/build_dataset.py tests/test_fim_de_linha.py
@@ -163,7 +163,7 @@ git commit -m "Fixa fim de linha LF e marca os arquivos gerados para o GitHub" -
 - Consome: `le_yaml(texto, rotulo)` da spec 001.
 - Produz: `dica(problema: str) -> str`; erros de sintaxe no formato `arquivo:linha: YAML inválido: <mensagem do PyYAML>. Dica: <texto>`; aspas sem fechar apontam a linha de abertura.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_dicas_yaml.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_dicas_yaml.py`:**
 
 ````python
 import sys
@@ -230,7 +230,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_dicas_yaml.py
@@ -238,7 +238,7 @@ python3 -m unittest discover -s tests -p test_dicas_yaml.py
 
 Esperado: `FAILED`, com `AttributeError: module 'yaml_linhas' has no attribute 'dica'` e asserções sem `. Dica: `.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/yaml_linhas.py`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/yaml_linhas.py`:**
 
 ````python
 """Leitura de YAML com a linha de origem de cada valor.
@@ -363,7 +363,7 @@ def erro_em(rotulo, linhas, caminho, mensagem):
     return f"{rotulo}:{linha_de(linhas, caminho)}: {formata_caminho(caminho)}: {mensagem}"
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -371,7 +371,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 90 tests` e `OK`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/yaml_linhas.py tests/test_dicas_yaml.py
@@ -391,7 +391,7 @@ git commit -m "Acrescenta dicas em português aos erros de sintaxe YAML" -m "Co-
 - Consome: `valida` (`esquema.py`), `carrega_catalogo` (`catalogo_io.py`).
 - Produz: `enum` com `valor 'X' fora da lista permitida: A, B`; `pattern` com `x-mensagem` vira `valor 'X': <x-mensagem>`; `fora_da_taxonomia(eixo, termo, aceitos) -> str` em `catalogo_io.py`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_mensagens.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_mensagens.py`:**
 
 ````python
 import sys
@@ -464,7 +464,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_mensagens.py
@@ -472,7 +472,7 @@ python3 -m unittest discover -s tests -p test_mensagens.py
 
 Esperado: `FAILED (failures=7)` (só `test_padrao_sem_mensagem_propria_mostra_a_expressao` já passa).
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/esquema.py`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/esquema.py`:**
 
 ````python
 """Validador mínimo de JSON Schema, só com a biblioteca padrão.
@@ -578,7 +578,7 @@ def formata_caminho(caminho):
     return texto or "(raiz)"
 ````
 
-- [ ] **Passo 4: implementar. Substituir o conteúdo de `data/schemas/catalogo.schema.json`:**
+- [x] **Passo 4: implementar. Substituir o conteúdo de `data/schemas/catalogo.schema.json`:**
 
 ````json
 {
@@ -640,7 +640,7 @@ def formata_caminho(caminho):
 }
 ````
 
-- [ ] **Passo 5: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 5: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
 import json
@@ -655,7 +655,7 @@ import json
 import re
 ````
 
-- [ ] **Passo 6: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 6: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
 def carrega_catalogo(raiz=RAIZ):
@@ -678,7 +678,7 @@ def fora_da_taxonomia(eixo, termo, aceitos):
 def carrega_catalogo(raiz=RAIZ):
 ````
 
-- [ ] **Passo 7: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 7: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
                     if termo not in termos[eixo]:
@@ -702,7 +702,7 @@ por:
                                          fora_da_taxonomia(eixo, fonte[eixo], termos[eixo])))
 ````
 
-- [ ] **Passo 8: ajustar testes antigos às mensagens novas. Em `tests/test_esquema.py`, trocar:**
+- [x] **Passo 8: ajustar testes antigos às mensagens novas. Em `tests/test_esquema.py`, trocar:**
 
 ````python
             (("uf",), "valor 'XX' fora da lista permitida"),
@@ -714,7 +714,7 @@ por:
             (("uf",), "valor 'XX' fora da lista permitida: SP, RJ, None"),
 ````
 
-- [ ] **Passo 9: Em `tests/test_catalogo_io.py`, trocar:**
+- [x] **Passo 9: Em `tests/test_catalogo_io.py`, trocar:**
 
 ````python
         self.assertEqual(erros, ["catalogo/beta.yml:7: fontes[0].input[1]: input 'cpff' fora da taxonomia (data/taxonomy.json)"])
@@ -726,7 +726,7 @@ por:
         self.assertEqual(erros, ["catalogo/beta.yml:7: fontes[0].input[1]: input 'cpff' fora da taxonomia (data/taxonomy.json); você quis dizer 'cpf'?"])
 ````
 
-- [ ] **Passo 10: Em `tests/test_catalogo_io.py`, trocar:**
+- [x] **Passo 10: Em `tests/test_catalogo_io.py`, trocar:**
 
 ````python
         self.assertEqual(erros, ["catalogo/beta.yml:9: fontes[0].tipo_fonte: tipo_fonte 'igreja' fora da taxonomia (data/taxonomy.json)"])
@@ -740,7 +740,7 @@ por:
                                  "judiciario, legislativo, ministerio_publico, municipal, ong, privado"])
 ````
 
-- [ ] **Passo 11: Em `tests/test_catalogo_io.py`, trocar:**
+- [x] **Passo 11: Em `tests/test_catalogo_io.py`, trocar:**
 
 ````python
             "catalogo/alfa.yml:6: fontes[0].links[0].url: valor 'primeira.gov.br' não segue o padrão ^https?://\\S+$",
@@ -752,7 +752,7 @@ por:
             "catalogo/alfa.yml:6: fontes[0].links[0].url: valor 'primeira.gov.br': a URL precisa começar com http:// ou https:// e não pode ter espaços",
 ````
 
-- [ ] **Passo 12: rodar e ver passar.**
+- [x] **Passo 12: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -760,7 +760,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 98 tests` e `OK`.
 
-- [ ] **Passo 13: commit.**
+- [x] **Passo 13: commit.**
 
 ````bash
 git add tools/esquema.py tools/catalogo_io.py data/schemas/catalogo.schema.json tests/test_mensagens.py tests/test_esquema.py tests/test_catalogo_io.py
@@ -779,7 +779,7 @@ git commit -m "Mostra termos aceitos, sugestões e formato legível nos erros do
 - Consome: `valida`, `le_yaml`, `erro_em`, `fora_da_taxonomia` (Tarefa 3).
 - Produz: `carrega_catalogo` que valida o arquivo até a lista `fontes` e depois cada fonte; `_verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos) -> list[str]`, que pula os campos listados em `invalidos`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_uma_rodada.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_uma_rodada.py`:**
 
 ````python
 import sys
@@ -838,7 +838,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_uma_rodada.py
@@ -846,7 +846,7 @@ python3 -m unittest discover -s tests -p test_uma_rodada.py
 
 Esperado: `FAILED (failures=4)`; só `test_arquivo_sem_lista_de_fontes_para_ali` passa.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/catalogo_io.py`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/catalogo_io.py`:**
 
 ````python
 """Leitura e validação do catálogo em catalogo/ (fonte de verdade).
@@ -1039,7 +1039,7 @@ def carrega_catalogo(raiz=RAIZ):
     return {"categorias": categorias, "fontes": fontes}, []
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -1047,7 +1047,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 103 tests` e `OK`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/catalogo_io.py tests/test_uma_rodada.py
@@ -1067,7 +1067,7 @@ git commit -m "Valida cada fonte à parte para mostrar todos os erros de uma vez
 - Consome: `_verifica_fonte` (Tarefa 4).
 - Produz: `_verifica_fonte(..., categoria_id)` com as regras de R12 e R13; `data/taxonomy.json` com `classificacao` = `heuristica`, `override`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_regras_de_conteudo.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_regras_de_conteudo.py`:**
 
 ````python
 import json
@@ -1131,7 +1131,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_regras_de_conteudo.py
@@ -1139,7 +1139,7 @@ python3 -m unittest discover -s tests -p test_regras_de_conteudo.py
 
 Esperado: `FAILED (failures=5)`.
 
-- [ ] **Passo 3: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 3: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
 def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos):
@@ -1153,7 +1153,7 @@ def _verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos, 
     """Taxonomia, coerência entre links e markdown e id, nos campos sem erro de formato."""
 ````
 
-- [ ] **Passo 4: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 4: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
     for eixo in ("tipo_fonte", "classificacao"):
@@ -1174,7 +1174,7 @@ por:
                                  f"lista vazia em fonte com classificacao override; declare ao menos um termo{dica}"))
 ````
 
-- [ ] **Passo 5: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 5: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
     if ok("id"):
@@ -1191,7 +1191,7 @@ por:
         local = f"{rotulo}:{linha_de(linhas, base + ('id',))}"
 ````
 
-- [ ] **Passo 6: implementar. Em `tools/catalogo_io.py`, trocar:**
+- [x] **Passo 6: implementar. Em `tools/catalogo_io.py`, trocar:**
 
 ````python
             erros.extend(_verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos))
@@ -1203,7 +1203,7 @@ por:
             erros.extend(_verifica_fonte(rotulo, linhas, fonte, base, invalidos, termos, ids_vistos, categoria["id"]))
 ````
 
-- [ ] **Passo 7: implementar. Substituir o conteúdo de `data/taxonomy.json`:**
+- [x] **Passo 7: implementar. Substituir o conteúdo de `data/taxonomy.json`:**
 
 ````json
 {
@@ -1321,7 +1321,7 @@ por:
 }
 ````
 
-- [ ] **Passo 8: ajustar o teste de id repetido, que agora também acusa o prefixo. Em `tests/test_catalogo_io.py`, trocar:**
+- [x] **Passo 8: ajustar o teste de id repetido, que agora também acusa o prefixo. Em `tests/test_catalogo_io.py`, trocar:**
 
 ````python
         self.assertEqual(erros, ["catalogo/beta.yml:2: fontes[0].id: id 'alfa/primeira-fonte' repetido; já usado em catalogo/alfa.yml:2"])
@@ -1336,7 +1336,7 @@ por:
         ])
 ````
 
-- [ ] **Passo 9: rodar e ver passar; o catálogo real continua válido.**
+- [x] **Passo 9: rodar e ver passar; o catálogo real continua válido.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -1345,7 +1345,7 @@ python3 tools/build_dataset.py --check
 
 Esperado: `Ran 109 tests`, `OK` e `OK: catálogo válido e arquivos gerados atualizados.`
 
-- [ ] **Passo 10: commit.**
+- [x] **Passo 10: commit.**
 
 ````bash
 git add tools/catalogo_io.py data/taxonomy.json tests/test_regras_de_conteudo.py tests/test_catalogo_io.py
@@ -1364,7 +1364,7 @@ git commit -m "Confere prefixo do id e classificação de fonte nova, e tira ind
 - Consome: `carrega_catalogo`, `gera_saidas`, `grava` (Tarefa 1).
 - Produz: `--check --alterados LISTA` (arquivo ou `-`); `le_alterados(origem) -> set[str]`; `confere(raiz, saidas, alterados) -> int`. Gerado na lista e diferente: erro `arquivo:linha: difere do gerado a partir de catalogo/`. Gerado fora da lista e diferente: `AVISO: desatualizados, regenerados no main depois do merge: ...` e `OK: catálogo válido e nenhum arquivo gerado editado à mão.`
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_alterados.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_alterados.py`:**
 
 ````python
 import contextlib
@@ -1461,7 +1461,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_alterados.py
@@ -1469,7 +1469,7 @@ python3 -m unittest discover -s tests -p test_alterados.py
 
 Esperado: `FAILED (errors=5)`, com `error: unrecognized arguments: --alterados -`.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/build_dataset.py`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/build_dataset.py`:**
 
 ````python
 #!/usr/bin/env python3
@@ -1612,7 +1612,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -1621,7 +1621,7 @@ echo catalogo/saude.yml | python3 tools/build_dataset.py --check --alterados -
 
 Esperado: `Ran 117 tests`, `OK` e `OK: catálogo válido e arquivos gerados atualizados.`
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add tools/build_dataset.py tests/test_alterados.py
@@ -1640,7 +1640,7 @@ git commit -m "Adiciona ao build o modo de PR, que só recusa arquivo gerado edi
 - Consome: `build_dataset.py --check --alterados` (Tarefa 6), `validar_docs.py --avisos`.
 - Produz: hook que copia o índice para uma pasta temporária, roda as duas verificações ali e falha no fim se alguma falhou. O teste do hook sai de `tests/test_ci.py` e vai para `tests/test_hook.py`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_hook.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_hook.py`:**
 
 ````python
 import os
@@ -1750,7 +1750,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_hook.py
@@ -1758,7 +1758,7 @@ python3 -m unittest discover -s tests -p test_hook.py
 
 Esperado: `FAILED (failures=4)`: o hook atual barra o `README.md` editado só na árvore, aprova o índice com erro, para no primeiro erro e não tem `checkout-index`.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `tools/hooks/pre-commit`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `tools/hooks/pre-commit`:**
 
 ````sh
 #!/bin/sh
@@ -1790,7 +1790,7 @@ python3 tools/build_dataset.py --check --alterados .alterados || falhou=1
 exit "$falhou"
 ````
 
-- [ ] **Passo 4: tirar de `tests/test_ci.py` o teste antigo do hook. Substituir o conteúdo de `tests/test_ci.py`:**
+- [x] **Passo 4: tirar de `tests/test_ci.py` o teste antigo do hook. Substituir o conteúdo de `tests/test_ci.py`:**
 
 ````python
 import unittest
@@ -1822,7 +1822,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 5: rodar e ver passar.**
+- [x] **Passo 5: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -1831,7 +1831,7 @@ git ls-files -s tools/hooks/pre-commit | cut -c1-6
 
 Esperado: `Ran 122 tests`, `OK` e `100755`.
 
-- [ ] **Passo 6: commit.**
+- [x] **Passo 6: commit.**
 
 ````bash
 git add tools/hooks/pre-commit tests/test_hook.py tests/test_ci.py
@@ -1849,7 +1849,7 @@ git commit -m "Faz o hook de pre-commit conferir o índice e mostrar todos os er
 - Consome: `build_dataset.py --check --alterados -` (Tarefa 6) e `build_dataset.py --check` estrito.
 - Produz: job `validar` (PR e push) e job `gerados-em-dia`, de nome "Arquivos gerados em dia no main" (só push), ambos com `contents: read` e sem commit. A seção "Para mantenedores" que a anotação de erro aponta (`CONTRIBUICAO.md#mantenedores`) é escrita na Tarefa 10.
 
-- [ ] **Passo 1: escrever o teste que falha. Substituir o conteúdo de `tests/test_ci.py`:**
+- [x] **Passo 1: escrever o teste que falha. Substituir o conteúdo de `tests/test_ci.py`:**
 
 ````python
 import unittest
@@ -1926,7 +1926,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_ci.py
@@ -1934,7 +1934,7 @@ python3 -m unittest discover -s tests -p test_ci.py
 
 Esperado: `FAILED (failures=1, errors=3)`: o workflow da spec 001 não tem `permissions`, `fetch-depth` nem o job `gerados-em-dia` (`KeyError`), e os caminhos ainda não incluem `.gitattributes` e `.github/**`.
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `.github/workflows/validar-dataset.yml`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `.github/workflows/validar-dataset.yml`:**
 
 ````yaml
 name: Validar catálogo e dataset
@@ -2005,7 +2005,7 @@ jobs:
           fi
 ````
 
-- [ ] **Passo 4: rodar e ver passar.**
+- [x] **Passo 4: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -2014,7 +2014,7 @@ command -v actionlint >/dev/null && actionlint .github/workflows/validar-dataset
 
 Esperado: `Ran 125 tests`, `OK` e, com `actionlint` instalado, `actionlint-ok`.
 
-- [ ] **Passo 5: commit.**
+- [x] **Passo 5: commit.**
 
 ````bash
 git add .github/workflows/validar-dataset.yml tests/test_ci.py
@@ -2033,7 +2033,7 @@ git commit -m "Valida PR sem arquivos gerados e mostra no main quando os gerados
 - Consome: `catalogo/_categorias.yml` (títulos e ids, na ordem), `data/taxonomy.json` (termos e descrições, Tarefa 5).
 - Produz: formulários com ids `nome`, `descricao`, `links`, `categoria`, `input`, `output`, `tipo_fonte`, `confirmacoes` (nova fonte), `fonte`, `url`, `erro`, `data_teste`, `alternativa`, `confirmacoes` (link quebrado), `fonte`, `o_que`, `correcao`, `referencia` (correção).
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_modelos.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_modelos.py`:**
 
 ````python
 import json
@@ -2133,7 +2133,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_modelos.py
@@ -2141,7 +2141,7 @@ python3 -m unittest discover -s tests -p test_modelos.py
 
 Esperado: `FAILED (errors=10)`, com `FileNotFoundError` para os arquivos de `.github/`.
 
-- [ ] **Passo 3: implementar. Criar `.github/ISSUE_TEMPLATE/nova-fonte.yml`:**
+- [x] **Passo 3: implementar. Criar `.github/ISSUE_TEMPLATE/nova-fonte.yml`:**
 
 ````yaml
 name: Sugerir nova fonte
@@ -2349,7 +2349,7 @@ body:
           required: true
 ````
 
-- [ ] **Passo 4: implementar. Criar `.github/ISSUE_TEMPLATE/link-quebrado.yml`:**
+- [x] **Passo 4: implementar. Criar `.github/ISSUE_TEMPLATE/link-quebrado.yml`:**
 
 ````yaml
 name: Reportar link quebrado
@@ -2408,7 +2408,7 @@ body:
           required: true
 ````
 
-- [ ] **Passo 5: implementar. Criar `.github/ISSUE_TEMPLATE/correcao.yml`:**
+- [x] **Passo 5: implementar. Criar `.github/ISSUE_TEMPLATE/correcao.yml`:**
 
 ````yaml
 name: Corrigir uma fonte
@@ -2452,7 +2452,7 @@ body:
       description: Opcional. Página oficial ou documento que comprova a correção.
 ````
 
-- [ ] **Passo 6: implementar. Criar `.github/ISSUE_TEMPLATE/config.yml`:**
+- [x] **Passo 6: implementar. Criar `.github/ISSUE_TEMPLATE/config.yml`:**
 
 ````yaml
 blank_issues_enabled: false
@@ -2462,18 +2462,18 @@ contact_links:
     about: Como editar o catálogo em catalogo/ e abrir um pull request, inclusive pelo navegador.
 ````
 
-- [ ] **Passo 7: implementar. Criar `.github/PULL_REQUEST_TEMPLATE.md`:**
+- [x] **Passo 7: implementar. Criar `.github/PULL_REQUEST_TEMPLATE.md`:**
 
 ````markdown
 <!-- Guia completo: CONTRIBUICAO.md. Edite só catalogo/<categoria>.yml: README.md e data/*.json são regenerados no main depois do merge. -->
 
 ## Tipo de mudança
 
-- [ ] Nova fonte
-- [ ] Correção de link
-- [ ] Correção de fonte (nome, descrição, classificação, categoria, UF)
-- [ ] Documentação
-- [ ] Ferramentas (`tools/`, `tests/`, CI)
+- [x] Nova fonte
+- [x] Correção de link
+- [x] Correção de fonte (nome, descrição, classificação, categoria, UF)
+- [x] Documentação
+- [x] Ferramentas (`tools/`, `tests/`, CI)
 
 ## Descrição
 
@@ -2481,16 +2481,16 @@ contact_links:
 
 ## Checklist
 
-- [ ] Editei só arquivos de `catalogo/` (ou documentação e ferramentas, se for o caso).
-- [ ] Não editei `README.md`, `data/sources.json` nem `data/index.json` à mão.
-- [ ] Testei no navegador todos os links novos ou alterados.
-- [ ] Procurei a URL em `catalogo/` e a fonte não está repetida.
-- [ ] Fonte nova ou classificação revisada usa `classificacao: override`.
-- [ ] A fonte é pública, legal, relevante para o Brasil e respeita a LGPD.
-- [ ] Li o [guia de contribuição](https://github.com/webminas/osint-brazuca/blob/main/CONTRIBUICAO.md).
+- [x] Editei só arquivos de `catalogo/` (ou documentação e ferramentas, se for o caso).
+- [x] Não editei `README.md`, `data/sources.json` nem `data/index.json` à mão.
+- [x] Testei no navegador todos os links novos ou alterados.
+- [x] Procurei a URL em `catalogo/` e a fonte não está repetida.
+- [x] Fonte nova ou classificação revisada usa `classificacao: override`.
+- [x] A fonte é pública, legal, relevante para o Brasil e respeita a LGPD.
+- [x] Li o [guia de contribuição](https://github.com/webminas/osint-brazuca/blob/main/CONTRIBUICAO.md).
 ````
 
-- [ ] **Passo 8: rodar e ver passar.**
+- [x] **Passo 8: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -2498,7 +2498,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 133 tests` e `OK`.
 
-- [ ] **Passo 9: commit.**
+- [x] **Passo 9: commit.**
 
 ````bash
 git add .github/ISSUE_TEMPLATE .github/PULL_REQUEST_TEMPLATE.md tests/test_modelos.py
@@ -2518,7 +2518,7 @@ git commit -m "Adiciona formulários de issue e modelo de pull request para o ca
 - Consome: mensagens das Tarefas 2 a 6, formulários da Tarefa 9, `carrega_catalogo`.
 - Produz: guia com âncoras `abrir-issue`, `editar-navegador`, `formato-fonte`, `erros-comuns`, `trabalhar-localmente`, `depois-do-merge`, `mantenedores` e `dataset-json`; a seção "Para mantenedores" traz os comandos de regeneração e commit no `main` (ADR 0002).
 
-- [ ] **Passo 1: escrever o teste que falha. Substituir o conteúdo de `tests/test_documentacao.py`:**
+- [x] **Passo 1: escrever o teste que falha. Substituir o conteúdo de `tests/test_documentacao.py`:**
 
 ````python
 import json
@@ -2623,7 +2623,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_documentacao.py
@@ -2631,7 +2631,7 @@ python3 -m unittest discover -s tests -p test_documentacao.py
 
 Esperado: `FAILED`, com o guia antigo sem as âncoras novas e com "Inclua esses arquivos no commit".
 
-- [ ] **Passo 3: implementar. Substituir o conteúdo de `CONTRIBUICAO.md`:**
+- [x] **Passo 3: implementar. Substituir o conteúdo de `CONTRIBUICAO.md`:**
 
 ````markdown
 # 🤝 Como Contribuir com o OSINT Brazuca
@@ -2890,13 +2890,13 @@ Correções de texto, exemplos práticos e ferramentas (scripts de consulta, val
 
 ## ✅ Checklist Antes de Submeter
 
-- [ ] **Contexto brasileiro:** é relevante para o Brasil?
-- [ ] **Links testados:** todos abrem no navegador?
-- [ ] **Sem duplicata:** procurei a URL em `catalogo/`?
-- [ ] **Categoria certa:** a fonte está no arquivo da seção certa e o `id` começa com o nome desse arquivo?
-- [ ] **Classificação:** fonte nova com `classificacao: override` e termos da taxonomia?
-- [ ] **Só o catálogo:** não editei `README.md` nem `data/*.json`?
-- [ ] **Fonte pública:** é de acesso público e legal?
+- [x] **Contexto brasileiro:** é relevante para o Brasil?
+- [x] **Links testados:** todos abrem no navegador?
+- [x] **Sem duplicata:** procurei a URL em `catalogo/`?
+- [x] **Categoria certa:** a fonte está no arquivo da seção certa e o `id` começa com o nome desse arquivo?
+- [x] **Classificação:** fonte nova com `classificacao: override` e termos da taxonomia?
+- [x] **Só o catálogo:** não editei `README.md` nem `data/*.json`?
+- [x] **Fonte pública:** é de acesso público e legal?
 
 ---
 
@@ -2960,7 +2960,7 @@ Issues marcadas com `good first issue` são boas para começar.
 </p>
 ````
 
-- [ ] **Passo 4: implementar. Em `README.en.md`, trocar:**
+- [x] **Passo 4: implementar. Em `README.en.md`, trocar:**
 
 ````markdown
 The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files, never edit them by hand. To regenerate them after editing the catalog (Python 3 and PyYAML, install with `pip install -r requirements.txt`):
@@ -2972,7 +2972,7 @@ por:
 The source of truth is `catalogo/<category>.yml`. README.md and `data/*.json` are generated files: never edit them by hand. The maintainers regenerate them on `main` after each merge; to preview them locally (Python 3 and PyYAML):
 ````
 
-- [ ] **Passo 5: implementar. Em `README.en.md`, trocar:**
+- [x] **Passo 5: implementar. Em `README.en.md`, trocar:**
 
 ````markdown
 1. **Report broken links** by opening an issue titled `[LINK QUEBRADO] Source name` with the URL, the date you tested it and the error.
@@ -2990,7 +2990,7 @@ por:
 4. **Working locally?** Install the pinned dependency with `pip install -r requirements.txt`, enable the pre-commit hook once with `git config core.hooksPath tools/hooks` and run `python3 tools/build_dataset.py --check`.
 ````
 
-- [ ] **Passo 6: implementar. Em `tools/readme/rodape.md`, trocar:**
+- [x] **Passo 6: implementar. Em `tools/readme/rodape.md`, trocar:**
 
 ````markdown
 Contribuições de qualquer tipo são bem-vindas!
@@ -3002,7 +3002,7 @@ por:
 Contribuições de qualquer tipo são bem-vindas! Para sugerir uma fonte, reportar um link quebrado ou editar o catálogo pelo navegador, veja o [guia de contribuição](CONTRIBUICAO.md).
 ````
 
-- [ ] **Passo 7: regenerar o README e rodar tudo.**
+- [x] **Passo 7: regenerar o README e rodar tudo.**
 
 ````bash
 python3 tools/build_dataset.py
@@ -3013,7 +3013,7 @@ python3 tools/validar_docs.py
 
 Esperado: `escrito README.md`, `escrito data/sources.json` e `escrito data/index.json` (no diff, só o rodapé do `README.md` muda), `Ran 136 tests`, `OK`, `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
 
-- [ ] **Passo 8: commit.**
+- [x] **Passo 8: commit.**
 
 ````bash
 git add CONTRIBUICAO.md README.en.md tools/readme/rodape.md README.md tests/test_documentacao.py
@@ -3033,7 +3033,7 @@ git commit -m "Reescreve o guia de contribuição para o catálogo em YAML" -m "
 - Consome: nada.
 - Produz: repositório sem os dois arquivos; docstring da migração com o comando para reexecutá-la do commit `a4466fa^`.
 
-- [ ] **Passo 1: escrever o teste que falha. Criar `tests/test_overrides_aposentado.py`:**
+- [x] **Passo 1: escrever o teste que falha. Criar `tests/test_overrides_aposentado.py`:**
 
 ````python
 import unittest
@@ -3064,7 +3064,7 @@ if __name__ == "__main__":
     unittest.main()
 ````
 
-- [ ] **Passo 2: rodar e ver falhar.**
+- [x] **Passo 2: rodar e ver falhar.**
 
 ````bash
 python3 -m unittest discover -s tests -p test_overrides_aposentado.py
@@ -3072,13 +3072,13 @@ python3 -m unittest discover -s tests -p test_overrides_aposentado.py
 
 Esperado: `FAILED (failures=3)`.
 
-- [ ] **Passo 3: remover os dois arquivos (só estes, conforme R15).**
+- [x] **Passo 3: remover os dois arquivos (só estes, conforme R15).**
 
 ````bash
 git rm data/overrides.json data/schemas/overrides.schema.json
 ````
 
-- [ ] **Passo 4: implementar. Em `tools/migracao/migrar_readme.py`, trocar:**
+- [x] **Passo 4: implementar. Em `tools/migracao/migrar_readme.py`, trocar:**
 
 ````python
 para auditoria; depois da migração não deve ser rodado de novo.
@@ -3094,7 +3094,7 @@ migração, use um checkout do commit anterior a ela:
     git worktree add ../antes-da-migracao a4466fa^
 ````
 
-- [ ] **Passo 5: rodar e ver passar.**
+- [x] **Passo 5: rodar e ver passar.**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -3102,7 +3102,7 @@ python3 -m unittest discover -s tests
 
 Esperado: `Ran 139 tests` e `OK`.
 
-- [ ] **Passo 6: commit.**
+- [x] **Passo 6: commit.**
 
 ````bash
 git add tools/migracao/migrar_readme.py tests/test_overrides_aposentado.py
@@ -3120,7 +3120,7 @@ git commit -m "Remove data/overrides.json e seu schema, absorvidos pelo catálog
 - Consome: tudo das tarefas 1 a 11.
 - Produz: rótulos no GitHub e a evidência dos critérios de aceite para a descrição do PR.
 
-- [ ] **Passo 1: criar os rótulos usados pelos formulários (R20). Exige `gh` autenticado com permissão de administrador.**
+- [x] **Passo 1: criar os rótulos usados pelos formulários (R20). Exige `gh` autenticado com permissão de administrador.**
 
 ````bash
 gh label create "nova fonte" --repo webminas/osint-brazuca --color 2E7D32 --description "Sugestão de fonte para o catálogo"
@@ -3131,7 +3131,7 @@ gh label list --repo webminas/osint-brazuca | grep -E "^(nova fonte|link quebrad
 
 Esperado: três linhas, uma por rótulo.
 
-- [ ] **Passo 2: suíte completa, `--check` e documentos (CA14).**
+- [x] **Passo 2: suíte completa, `--check` e documentos (CA14).**
 
 ````bash
 python3 -m unittest discover -s tests
@@ -3141,7 +3141,7 @@ python3 tools/validar_docs.py
 
 Esperado: `Ran 139 tests`, `OK`, `OK: catálogo válido e arquivos gerados atualizados.` e `OK: documentos seguem as regras de formatação.`
 
-- [ ] **Passo 3: totais inalterados (CA14).**
+- [x] **Passo 3: totais inalterados (CA14).**
 
 ````bash
 python3 tools/build_dataset.py --report
@@ -3149,7 +3149,7 @@ python3 tools/build_dataset.py --report
 
 Esperado: `categorias .......... 40`, `fontes .............. 874`, `links ............... 2313` e `classificação: heurística 667 | override 207`.
 
-- [ ] **Passo 4: gerar duas vezes seguidas não deixa diff (CA14).**
+- [x] **Passo 4: gerar duas vezes seguidas não deixa diff (CA14).**
 
 ````bash
 python3 tools/build_dataset.py >/dev/null
@@ -3159,7 +3159,7 @@ test -z "$(git status --porcelain)" && echo git-status-limpo
 
 Esperado: `git-status-limpo`.
 
-- [ ] **Passo 5: o modo de PR, de ponta a ponta, sobre o repositório real (CA1, CA2).**
+- [x] **Passo 5: o modo de PR, de ponta a ponta, sobre o repositório real (CA1, CA2).**
 
 ````bash
 cp catalogo/saude.yml /tmp/saude.yml.orig
@@ -3172,7 +3172,7 @@ test -z "$(git status --porcelain)" && echo git-status-limpo
 
 Esperado: o aviso `AVISO: desatualizados, regenerados no main depois do merge: README.md, data/sources.json, data/index.json`, `OK: catálogo válido e nenhum arquivo gerado editado à mão.` e `saída 0`; depois `README.md:<linha>: difere do gerado a partir de catalogo/` e `saída 1`; por fim `git-status-limpo`.
 
-- [ ] **Passo 6: depois do merge do PR desta spec (CA15, manual).** Abra um PR de teste pelo navegador que mude só a descrição de uma fonte em `catalogo/`, confira que o CI do PR passa com o aviso e faça o merge. Confira que o job "Arquivos gerados em dia no main" fica vermelho; então regenere como mantenedor, conforme `CONTRIBUICAO.md#mantenedores`, e confira que ele volta a passar:
+- [x] **Passo 6: depois do merge do PR desta spec (CA15, manual).** Abra um PR de teste pelo navegador que mude só a descrição de uma fonte em `catalogo/`, confira que o CI do PR passa com o aviso e faça o merge. Confira que o job "Arquivos gerados em dia no main" fica vermelho; então regenere como mantenedor, conforme `CONTRIBUICAO.md#mantenedores`, e confira que ele volta a passar:
 
 ````bash
 git switch main && git pull webminas main
