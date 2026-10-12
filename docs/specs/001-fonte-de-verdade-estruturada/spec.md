@@ -1,6 +1,6 @@
 # Spec 001: fonte de verdade estruturada
 
-- **Status:** Rascunho
+- **Status:** Aprovada (2026-10-12)
 - **Roadmap:** [reorganizar o catálogo](../ROADMAP.md), posição 1
 - **Decisão relacionada:** [ADR 0001](../../adr/0001-yaml-por-categoria-como-fonte-de-verdade.md)
 
@@ -43,7 +43,7 @@ Inverter a direção do fluxo: as fontes passam a ser declaradas em arquivos est
 
 - **R11.** Um script de migração de uso único converte o `README.md` atual e o `data/overrides.json` em `catalogo/`, reaproveitando o parser existente. Ele fica versionado para auditoria da migração.
 - **R12.** A classificação é congelada nos arquivos YAML na migração. Depois dela, `data/overrides.json` e a heurística de classificação por palavra-chave saem do build: nenhum dos dois é lido ou executado, e a classificação de cada fonte só muda por edição do arquivo da categoria.
-- **R13.** As duas seções "Outras Buscas", que o parser atual já funde numa única categoria (`outras-buscas`, 54 fontes), viram uma única seção no README gerado. Essa é a única mudança de forma permitida no README; nenhuma fonte ou link é removido ou alterado.
+- **R13.** As duas seções "Outras Buscas", que o parser atual já funde numa única categoria (`outras-buscas`, 54 fontes), viram uma única seção no README gerado. O restante da forma do README segue o layout por fonte decidido em `plan.md` (tabela de decisões), e nenhuma fonte ou link é removido ou alterado.
 
 ### Validação e documentação
 

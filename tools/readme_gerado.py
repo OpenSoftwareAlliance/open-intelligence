@@ -40,6 +40,20 @@ def renderiza_link(link):
     return f"- {label}: {link['url']}" if label else f"- {link['url']}"
 
 
+def separa_linhas_do_grupo(grupo):
+    """Linhas do grupo, com linha em branco entre duas linhas de texto seguidas.
+
+    No GitHub, linhas consecutivas sem linha em branco viram um único parágrafo;
+    itens de lista ("- ") não precisam da separação.
+    """
+    saida = []
+    for linha in grupo.split("\n"):
+        if saida and saida[-1].strip() and linha.strip() and not saida[-1].lstrip().startswith("- ") and not linha.lstrip().startswith("- "):
+            saida.append("")
+        saida.append(linha)
+    return saida
+
+
 def renderiza_fonte(fonte):
     linhas = [f"### {fonte['nome']}", ""]
     if fonte["descricao"]:
@@ -53,7 +67,7 @@ def renderiza_fonte(fonte):
         if grupo:
             if i > 0:
                 linhas.append("")
-            linhas += grupo.split("\n")
+            linhas += separa_linhas_do_grupo(grupo)
         linhas.append(renderiza_link(link))
     if visiveis:
         linhas.append("")

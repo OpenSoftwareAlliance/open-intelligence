@@ -366,11 +366,13 @@ Sistema de consulta processual unificado utilizado por diversos tribunais brasil
 <summary>Links de pesquisa</summary>
 
 **Consultas PJe - Justiça Federal**
+
 **Tribunais Regionais Federais:**
 - TRF1 (1ª Região - DF, GO, TO, MT, BA, PI, MA, PA, AM, AC, RR, RO, AP): https://pje1g.trf1.jus.br/consultapublica/ConsultaPublica/listView.seam
 - TRF5 (5ª Região - CE, RN, PB, PE, AL, SE): https://pje.trf5.jus.br/pje/ConsultaPublica/listView.seam
 
 **Consultas PJe - Justiça do Trabalho**
+
 **Tribunais Regionais do Trabalho (principais):**
 - TST (Tribunal Superior do Trabalho): https://pje.tst.jus.br/consultaprocessual/
 - TRT1 (Rio de Janeiro): https://pje.trt1.jus.br/consultaprocessual/
@@ -380,6 +382,7 @@ Sistema de consulta processual unificado utilizado por diversos tribunais brasil
 - TRT15 (Campinas/SP): https://pje.trt15.jus.br/consultaprocessual/
 
 **Consultas PJe - Justiça Eleitoral**
+
 **Tribunal Superior Eleitoral:**
 - TSE: https://pje.tse.jus.br/pje/ConsultaPublica/listView.seam
 
@@ -416,6 +419,7 @@ O Sistema BNMP – Banco Nacional de Mandados de Prisão tem a finalidade de fac
 - https://www.trf5.jus.br/index.php/portal-dos-servicos-publicos2
 
 **TRF5 - Consultar RPV/Precatório**: O Portal de Precatórios do Tribunal Regional Federal da 5ª Região permite consultar RPVs e precatórios por diferentes critérios, como CPF, número de processo e OAB.
+
 Também oferece acesso a certidões, normas relacionadas, perguntas frequentes e serviços autenticados com certificado digital.
 - https://rpvprecatorio.trf5.jus.br/
 
@@ -3161,7 +3165,14 @@ O que contém: Divisão das áreas tarifárias da telefonia fixa, códigos DDD e
 
 ### Consultar e identificar Frequências de Rádios / SISTEMA DE SERVIÇOS DE TELECOMUNICAÇÕES (STEL)
 
-Abrirá uma página para preenchimento, preencha da seguinte forma: 1.  Em recuperação de dados: marque UF; 2.  Em apresentar dados por: marque a letra J (frequência e entidade) em faixa de frequência: coloque a frequência que deseja scanear, ex.: inicial: 450,000 final: 460,000 (NÃO ESQUEÇA DA VÍRGULA) OBS: não de um espaço de frequencia muito largo,as vezes dá erro na pesquisa; 3.  Em unidade coloque MHZ nos dois; 4.  Em sigla da UF: coloque a sigla do seu estado 5.  m serviço inicial e serviço final nao coloque nada, deixe do jeito que está em grupo de estações: marque todos (consolidado); 6.  Agora clique abaixo em exportar excel e salve o arquivo em seu micro;
+Abrirá uma página para preenchimento, preencha da seguinte forma:
+
+1.  Em recuperação de dados: marque UF;
+2.  Em apresentar dados por: marque a letra J (frequência e entidade) em faixa de frequência: coloque a frequência que deseja scanear, ex.: inicial: 450,000 final: 460,000 (NÃO ESQUEÇA DA VÍRGULA) OBS: não de um espaço de frequencia muito largo,as vezes dá erro na pesquisa;
+3.  Em unidade coloque MHZ nos dois;
+4.  Em sigla da UF: coloque a sigla do seu estado
+5.  m serviço inicial e serviço final nao coloque nada, deixe do jeito que está em grupo de estações: marque todos (consolidado);
+6.  Agora clique abaixo em exportar excel e salve o arquivo em seu micro;
 
 - https://sistemas.anatel.gov.br/stel/Consultas/RecuperacaoFrequencias/tela.asp?SISQSmodulo=9896
 
@@ -4834,16 +4845,18 @@ Mesmas consultas por alvo no DuckDuckGo, com região Brasil. Útil quando o Goog
 
 Verificação de reputação e histórico de domínios brasileiros.
 
-- VirusTotal - Análise de URLs, arquivos e domínios: https://www.virustotal.com/
+- **VirusTotal** - Análise de URLs, arquivos e domínios
+    - https://www.virustotal.com/
+    - Filtro para domínios .br: `entity:domain AND tld:br`
+    - Busca por idioma: `content:"pt-br" OR content:"português"`
 
-- Filtro para domínios .br: `entity:domain AND tld:br`
-- Busca por idioma: `content:"pt-br" OR content:"português"`
-- URLScan.io - Scanner de URLs com análise visual: https://urlscan.io/
+- **URLScan.io** - Scanner de URLs com análise visual
+    - https://urlscan.io/
+    - Busca avançada: `domain:.br AND (lang:pt OR lang:pt-br)`
 
-- Busca avançada: `domain:.br AND (lang:pt OR lang:pt-br)`
-- ScanMalware - Analisa URLs em navegador isolado (sandbox) e indexa os resultados, pesquisáveis por domínio, IP, ASN, JARM e hash do favicon: https://scanmalware.com/
-
-- Busca avançada: `domain:*.br`
+- **ScanMalware** - Analisa URLs em navegador isolado (sandbox) e indexa os resultados, pesquisáveis por domínio, IP, ASN, JARM e hash do favicon
+    - https://scanmalware.com/
+    - Busca avançada: `domain:*.br`
 
 ### Shodan: Busca de Servidores Brasileiro
 
@@ -7931,6 +7944,7 @@ Consultas de registro profissional e certidões em conselhos federais e regionai
 <summary>Links de pesquisa</summary>
 
 **Conselhos de Medicina (CRM)**
+
 **CFM - Conselho Federal de Medicina**
 - Busca por médicos: https://portal.cfm.org.br/busca-medicos/
 
@@ -7944,6 +7958,7 @@ Consultas de registro profissional e certidões em conselhos federais e regionai
 - Portal: https://www.cremeb.org.br/
 
 **Conselhos de Enfermagem (COREN)**
+
 **COFEN - Conselho Federal de Enfermagem**
 - Portal: https://www.cofen.gov.br/
 
@@ -7951,6 +7966,7 @@ Consultas de registro profissional e certidões em conselhos federais e regionai
 - Portal: https://www.coren-rj.org.br/
 
 **Outros Conselhos Profissionais**
+
 **CFP - Conselho Federal de Psicologia**
 - Portal: https://site.cfp.org.br/
 

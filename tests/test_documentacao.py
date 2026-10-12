@@ -1,8 +1,15 @@
 import json
+import re
+import sys
 import unittest
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(RAIZ / "tools"))
+
+from esquema import valida  # noqa: E402
+from yaml_linhas import le_yaml  # noqa: E402
 
 
 def le(relativo):
@@ -40,6 +47,24 @@ class TestDocumentacao(unittest.TestCase):
     def test_modelos_do_dataset_indicam_catalogo(self):
         for nome in ("sources.schema.json", "index.schema.json"):
             self.assertEqual(json.loads(le(f"data/schemas/{nome}"))["fonte"], "catalogo/")
+
+    def test_exemplo_de_fonte_da_contribuicao_e_yaml_valido(self):
+        bloco = re.search(r"```yaml\n(.*?)```", le("CONTRIBUICAO.md"), re.S).group(1)
+        dados, _, erros = le_yaml("fontes:\n" + bloco, "CONTRIBUICAO.md")
+        self.assertEqual(erros, [])
+        esquema = json.loads(le("data/schemas/catalogo.schema.json"))
+        self.assertEqual(valida(dados, esquema), [])
+        taxonomia = json.loads(le("data/taxonomy.json"))
+        fonte = dados["fontes"][0]
+        for eixo in ("input", "output"):
+            for termo in fonte[eixo]:
+                self.assertIn(termo, taxonomia[eixo]["termos"])
+        self.assertIn(fonte["tipo_fonte"], taxonomia["tipo_fonte"]["termos"])
+
+    def test_contribuicao_nao_ensina_mais_fonte_em_markdown(self):
+        texto = le("CONTRIBUICAO.md")
+        self.assertNotIn("<summary>Links de pesquisa</summary>", texto)
+        self.assertNotIn("### Nome da", texto)
 
 
 if __name__ == "__main__":

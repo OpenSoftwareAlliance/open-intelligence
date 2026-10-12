@@ -1,5 +1,5 @@
 {
-  "_sobre": "Vocabulário controlado do dataset OSINT Brazuca. O parser valida sources.json contra estas listas e falha se encontrar valor fora delas. Arquivo MANUAL: editar aqui antes de usar um termo novo em overrides.json.",
+  "_sobre": "Vocabulário controlado do dataset OSINT Brazuca. O parser valida sources.json contra estas listas e falha se encontrar valor fora delas. Arquivo MANUAL: editar aqui antes de usar um termo novo em catalogo/<categoria>.yml. A classificação de cada fonte fica congelada no arquivo da categoria.",
   "input": {
     "_sobre": "O que o analista precisa ter em mãos para consultar a fonte. 'nenhum' é o valor correto para fontes que se navega (datasets, mapas, câmeras), não se consulta.",
     "termos": {
@@ -107,7 +107,7 @@
     "_sobre": "Procedência dos campos input/output de cada fonte.",
     "termos": {
       "heuristica": "Derivado automaticamente por regra de categoria ou palavra-chave",
-      "override": "Definido manualmente em overrides.json",
+      "override": "Definida à mão no arquivo da categoria em catalogo/",
       "indefinido": "Nenhuma regra casou; precisa de curadoria"
     }
   }

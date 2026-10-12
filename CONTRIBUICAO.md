@@ -54,25 +54,30 @@ Quer adicionar uma nova fonte de informação pública?
 
 **Informações a fornecer:**
 - Nome da fonte
-- Descrição clara e objetiva
+- Descrição clara e objetiva (diga aqui se é gratuita ou paga e se exige cadastro)
 - URL (testado e funcionando)
 - Categoria apropriada
-- Indicar se é gratuito ou pago
-- Indicar se requer cadastro
 
-**Exemplo de formatação:**
-```markdown
-### Nome da Nova Fonte
-Descrição clara explicando o que a fonte oferece e qual tipo de informação pode ser consultada.
-
-<details>
-<summary>Links de pesquisa</summary>
-
-- https://exemplo.gov.br/consulta
-- https://exemplo.gov.br/api (se houver)
-
-</details>
+**Exemplo de entrada** em `catalogo/<categoria>.yml` (campos definidos em `data/schemas/catalogo.schema.json`; `input`, `output` e `tipo_fonte` usam os termos de `data/taxonomy.json`):
+```yaml
+  - id: consulta-de-processos/exemplo-consulta-publica
+    nome: Exemplo - Consulta Pública de Processos
+    descricao: Consulta gratuita, sem cadastro, de processos pelo número ou pelo nome da parte.
+    links:
+      - url: https://exemplo.jus.br/consulta
+        label: Portal nacional
+      - url: https://sp.exemplo.jus.br/consulta
+        label: Portal de São Paulo
+        uf: SP
+    input: [numero_processo, nome]
+    output: [processo, partes]
+    tipo_fonte: judiciario
+    classificacao: override
 ```
+Para recolher os links num `<details>`, acrescente `resumo: Links de pesquisa`; para um subtítulo de grupo antes de um link, use `grupo: '**Região Sul:**'`. Ao dar `build_dataset.py`, o README é gerado e a entrada é validada.
+
+> [!NOTE]
+> Coloque o texto entre aspas quando ele contiver `: ` ou começar com `[`, `*`, `@`, `!` ou crase. Sem isso, o YAML é inválido.
 
 ---
 
@@ -274,73 +279,13 @@ Para destaques, use os alertas nativos do GitHub em vez de negrito com emoji. Os
 
 O marcador fica sozinho na primeira linha e todo o conteúdo seguinte é prefixado com `>`. Use com parcimônia: alerta em excesso perde o efeito. O menu de navegação no topo de cada documento é um bloco de badges centralizado (`<p align="center">` com badges do shields.io), idêntico em todos os arquivos: ao alterar um item do menu, replique a mudança em todos os documentos.
 
-### Estrutura de Seções
+### Fontes no Catálogo
 
-```markdown
-### Nome da Fonte
-Descrição objetiva da fonte, explicando que tipo de informação pode ser consultada.
+Cada fonte é uma entrada YAML em `catalogo/<categoria>.yml`, como no exemplo de [Adicionar Novas Fontes](#2--adicionar-novas-fontes). O README é gerado a partir delas. Orientações:
 
-<details>
-<summary>Links de pesquisa</summary>
-
-- https://exemplo1.gov.br/
-- https://exemplo2.gov.br/
-
-</details>
-```
-
-### Para Fontes Únicas (sem details)
-
-```markdown
-### Nome da Fonte
-Descrição da fonte.
-- https://exemplo.gov.br/
-```
-
-### Para APIs
-
-```markdown
-### Nome da API
-Descrição da API e seus recursos.
-
-**Documentação:** https://api.exemplo.gov.br/docs
-
-**Requisitos:**
-- Autenticação: Chave API (solicitar em: link)
-- Rate Limit: X requisições/minuto
-- Formato: JSON
-
-<details>
-<summary>Exemplo de uso</summary>
-
-```python
-import requests
-
-url = "https://api.exemplo.gov.br/v1/consulta"
-headers = {"Authorization": "Bearer SUA_CHAVE"}
-response = requests.get(url, headers=headers)
-print(response.json())
-```
-
-</details>
-```
-
-### Para Listas por Estado
-
-```markdown
-### Consulta por Estado
-
-<details>
-<summary>Links por estado</summary>
-
-**São Paulo:**
-- Portal: https://sp.gov.br/consulta
-
-**Rio de Janeiro:**
-- Portal: https://rj.gov.br/consulta
-
-</details>
-```
+- Texto livre (descrição de API, requisitos, exemplos de código, tabelas) vai no campo `markdown` da fonte. Os links desse texto são marcados com `em_markdown: true` na lista `links`.
+- Fontes estaduais levam `uf` em cada link, e o `resumo` recolhe a lista num `<details>`.
+- Todo link fica em `links`; não escreva URLs soltas fora de `markdown`.
 
 ---
 

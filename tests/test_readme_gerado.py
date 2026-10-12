@@ -103,6 +103,17 @@ class TestGeraReadme(unittest.TestCase):
         self.assertEqual(renderiza_link({"url": "https://a.gov.br/"}), "- https://a.gov.br/")
         self.assertEqual(renderiza_link({"url": "https://a.gov.br/", "label": "Portal"}), "- Portal: https://a.gov.br/")
 
+    def test_linhas_de_texto_do_grupo_ficam_separadas_por_linha_em_branco(self):
+        fonte = {"nome": "N", "descricao": "", "links": [
+            {"url": "https://a.gov.br/", "grupo": "**Conselhos**\n**Federal:**"},
+            {"url": "https://b.gov.br/", "grupo": "**Regional:**"},
+        ]}
+        self.assertEqual(renderiza_fonte(fonte), [
+            "### N", "",
+            "**Conselhos**", "", "**Federal:**", "- https://a.gov.br/", "",
+            "**Regional:**", "- https://b.gov.br/", "",
+        ])
+
 
 if __name__ == "__main__":
     unittest.main()

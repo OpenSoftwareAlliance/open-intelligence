@@ -1305,19 +1305,30 @@ fontes:
     links:
       - url: https://www.virustotal.com/
         label: VirusTotal - Análise de URLs, arquivos e domínios
-      - grupo: |-
-          - Filtro para domínios .br: `entity:domain AND tld:br`
-          - Busca por idioma: `content:"pt-br" OR content:"português"`
-        url: https://urlscan.io/
+        em_markdown: true
+      - url: https://urlscan.io/
         label: URLScan.io - Scanner de URLs com análise visual
-      - grupo: '- Busca avançada: `domain:.br AND (lang:pt OR lang:pt-br)`'
-        url: https://scanmalware.com/
+        em_markdown: true
+      - url: https://scanmalware.com/
         label: ScanMalware - Analisa URLs em navegador isolado (sandbox) e indexa os resultados, pesquisáveis por domínio, IP, ASN, JARM e hash do favicon
+        em_markdown: true
     input: [dominio, nome]
     output: [dork]
     tipo_fonte: internacional
     classificacao: heuristica
-    markdown: '- Busca avançada: `domain:*.br`'
+    markdown: |-
+      - **VirusTotal** - Análise de URLs, arquivos e domínios
+          - https://www.virustotal.com/
+          - Filtro para domínios .br: `entity:domain AND tld:br`
+          - Busca por idioma: `content:"pt-br" OR content:"português"`
+
+      - **URLScan.io** - Scanner de URLs com análise visual
+          - https://urlscan.io/
+          - Busca avançada: `domain:.br AND (lang:pt OR lang:pt-br)`
+
+      - **ScanMalware** - Analisa URLs em navegador isolado (sandbox) e indexa os resultados, pesquisáveis por domínio, IP, ASN, JARM e hash do favicon
+          - https://scanmalware.com/
+          - Busca avançada: `domain:*.br`
   - id: motores-de-busca-contexto-brasil/shodan-busca-de-servidores-brasileiro
     nome: 'Shodan: Busca de Servidores Brasileiro'
     descricao: Shodan é um mecanismo de pesquisa que permite encontrar dispositivos conectados à Internet no Brasil.
